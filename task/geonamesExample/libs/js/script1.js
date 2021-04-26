@@ -3,7 +3,7 @@
     $('button').on("click", function() {
 
         $.ajax({
-            url: "libs/php/getWiki.php",
+            url: "libs/php/getPostalCodeLookUp.php",
             type: 'POST',
             dataType: 'json',
             data: {
@@ -17,11 +17,10 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                    $('#txtcode').html(result['data'][0]['countryCode']);
-                    $('#txtmaxcode').html(result['data'][0]['postalcode']);
-                    $('#txtmincode').html(result['data'][0]['street']);
-                  // $('#txtPopulation').html(result['data'][0]['population']);
-                  // $('#txtArea').html(result['data'][0]['areaInSqKm']);
+                    $('#txtplace').html(result['data'][0]['placeName']);
+                    $('#txtlati').html(result['data'][0]['lat']);
+                    $('#txtlong').html(result['data'][0]['lng']);
+                   $('#txtccode').html(result['data'][0]['countryCode']);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
