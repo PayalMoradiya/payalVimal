@@ -3,11 +3,11 @@
     $('button').on("click", function() {
 
         $.ajax({
-            url: "libs/php/getInfo.php",
+            url: "libs/php/getWiki.php",
             type: 'POST',
             dataType: 'json',
             data: {
-              postalcode: $('#selCountry').val(),
+              q: $('#selCountry').val(),
               //country: $('#selPostalcode').val()
             },
             success: function(result) {
