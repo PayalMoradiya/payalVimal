@@ -34,7 +34,7 @@
                   <td>wikipediaSearch</td>
                   <td>
                     <select id="selCountry">
-                        <option value="scotland">Scotland</option>
+                        <option value="sydney">Sydney</option>
                         <option value="london">London</option>
                         <option value="berlin">Berlin</option>
                         <option value="kashmir">Kashmir</option>
@@ -46,14 +46,14 @@
                   <td>postalCodeLookup</td>
                   <td>
                       PostalCode:
-                    <select id="selCountry">
+                    <select id="selPostcode">
                         <option value=6600>AU-6600</option>
                         <option value=75008>FR-75008</option>
                         <option value=29600>SP-29600</option>
                         <option value=22314>US-22341</option>
                     </select>
                      Country:
-                    <select id="selPostalcode">
+                    <select id="selcountry">
                         <option value="AT">Austria</option>
                         <option value="FR">France</option>
                         <option value="ES">Spain</option>
@@ -66,16 +66,16 @@
                   <td>streetNameLookup</td>
                   <td>
                     Street Query Term:
-                  <select id="selCountry">
-                      <option value=6600>Museum</option>
-                      <option value=75008>Washing</option>
-                      <option value=29600>City</option>
-                      <option value=22314>Park</option>
+                  <select id="selq">
+                      <option value="Museum">Museum</option>
+                      <option value="Washing">Washing</option>
+                      <option value="City">City</option>
+                      <option value="Park">Park</option>
                   </select>
                    Country:
-                  <select id="selPostalcode">
+                  <select id="selcode">
                       <option value="NL">Netherlands</option>
-                      <option value="US">US</option>
+                      <option value="AU">Australia</option>
                       <option value="DK">Denmark</option>
                   </select>
                 </td>
@@ -136,6 +136,30 @@
                 </tbody>
             </table>
             </div>
+
+            <div id="div3">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Street Name:</td>
+                            <td id="txtstreet"> </td>
+                        </tr>
+                        <tr>
+                            <td>PostalCode:</td>
+                            <td id="txtpcode"> </td>
+                        </tr>
+                        <tr>
+                            <td>Locality:</td>
+                            <td id="txtloca"> </td>
+                        </tr>
+                        <tr>
+                            <td>CountryCode:</td>
+                            <td id="txtC"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
     </div>
 
     <div id="preloader">
@@ -145,6 +169,7 @@
 
    <script src="libs/js/script.js" type="text/javascript"></script>
    <script src="libs/js/script1.js" type="text/javascript"></script>
+   <script src="libs/js/script2.js" type="text/javascript"></script>
     <script src="libs/js/jquery.js" type="application/javascript"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script> 
 </body>

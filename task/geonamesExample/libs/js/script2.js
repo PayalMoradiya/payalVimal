@@ -3,12 +3,12 @@
     $('button').on("click", function() {
 
         $.ajax({
-            url: "libs/php/getPostalCodeLookUp.php",
+            url: "libs/php/getStreetnameLookup.php",
             type: 'POST',
             dataType: 'json',
             data: {
-              postalcode: $('#selPostcode').val(),
-              country: $('#selcountry').val()
+              q: $('#selq').val(),
+              country: $('#selcode').val()
             },
             success: function(result) {
 
@@ -17,10 +17,10 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                    $('#txtplace').html(result['data'][0]['placeName']);
-                    $('#txtlati').html(result['data'][0]['lat']);
-                    $('#txtlong').html(result['data'][0]['lng']);
-                   $('#txtccode').html(result['data'][0]['countryCode']);
+                    $('#txtstreet').html(result['data'][0]['street']);
+                    $('#txtpcode').html(result['data'][0]['postalcode']);
+                    $('#txtloca').html(result['data'][0]['locality']);
+                   $('#txtC').html(result['data'][0]['countryCode']);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
