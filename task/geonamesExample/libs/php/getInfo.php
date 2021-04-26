@@ -9,7 +9,7 @@ $executionStartTime = microtime(true);
 //$url='http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat=' . $_REQUEST['lat'] . '&lng='. $_REQUEST['lng'] . '&username=flightltd&style=full';
 //$url='http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat='. $_REQUEST['lat'] . '&lng=' . $_REQUEST['lng'] . '&username=PayalVimal&style=full';
 //$url=' http://api.geonames.org/earthquakesJSON?formatted=true&north=' . $_REQUEST['north'] . '&south=' . $_REQUEST['south'] . '&east=' . $_REQUEST['east'] . '&west=' . $_REQUEST['west'] . '&username=flightltd&style=full';
-$url='http://api.geonames.org/postalCodeLookupJSON?formatted=true&postalcode=' . $_REQUEST['postalcode'] . '&country=AT&username=PayalVimal&style=full';
+$url='http://api.geonames.org/postalCodeLookupJSON?formatted=true&postalcode=' . $_REQUEST['postalcode'] . '&country=' . $_REQUEST['country'] . '&username=PayalVimal&style=full';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
