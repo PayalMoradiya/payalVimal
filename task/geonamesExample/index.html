@@ -17,21 +17,73 @@
     </div>
 
     <div class="main">
-        <select id="selCountry">
-            <option value=6600>6600</option>
-            <option value="FR">london</option>
-            <option value="DE">2921044</option>
-            <option value="US">Muse</option>
-            <option value="DE">it</option>
-        </select>
-        <select id="selPostalcode">
-            <option value="GB1">4.881</option>
-            <option value="FR1">DE</option>
-            <option value="AT">AT</option>
-            <option value="US1"></option>
-            <option value="IN1"></option>
-        </select>
-        <button  type="submit">Run</button>
+
+        <div class="container">
+            <h2>Bordered Table</h2>
+            <p>The .table-bordered class adds borders to a table:</p>            
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>API name</th>
+                  <th>API description</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>wikipediaSearch</td>
+                  <td>
+                    <select id="selCountry">
+                        <option value="scotland">Scotland</option>
+                        <option value="london">London</option>
+                        <option value="berlin">Berlin</option>
+                        <option value="kashmir">Kashmir</option>
+                    </select>
+                  </td>
+                  <td><button type=submit >Search</button></td>
+                </tr>
+                <tr>
+                  <td>postalCodeLookup</td>
+                  <td>
+                      PostalCode:
+                    <select id="selCountry">
+                        <option value=6600>AU-6600</option>
+                        <option value=75008>FR-75008</option>
+                        <option value=29600>SP-29600</option>
+                        <option value=22314>US-22341</option>
+                    </select>
+                     Country:
+                    <select id="selPostalcode">
+                        <option value="AT">Austria</option>
+                        <option value="FR">France</option>
+                        <option value="ES">Spain</option>
+                        <option value="US">United States</option>
+                    </select>
+                  </td>
+                  <td><button type=submit >Search</button></td>
+                </tr>
+                <tr>
+                  <td>streetNameLookup</td>
+                  <td>
+                    Street Query Term:
+                  <select id="selCountry">
+                      <option value=6600>Museum</option>
+                      <option value=75008>Washing</option>
+                      <option value=29600>City</option>
+                      <option value=22314>Park</option>
+                  </select>
+                   Country:
+                  <select id="selPostalcode">
+                      <option value="NL">Netherlands</option>
+                      <option value="US">US</option>
+                      <option value="DK">Denmark</option>
+                  </select>
+                </td>
+                  <td><button type=submit >Search</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
         <br>
         <br>
@@ -39,16 +91,24 @@
         <table>
             <tbody>
                 <tr>
-                    <td>CountryCode:</td>
+                    <td>Summary:</td>
                     <td id="txtcode"> </td>
                 </tr>
                 <tr>
-                    <td>PostalCode:</td>
-                    <td id="txtmaxcode"> </td>
+                    <td>Title:</td>
+                    <td id="txttitle"> </td>
                 </tr>
                 <tr>
-                    <td>Street:</td>
-                    <td id="txtmincode"> </td>
+                    <td>CountryCode:</td>
+                    <td id="txtcountry"> </td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td id="txtlang"> </td>
+                </tr>
+                <tr>
+                    <td>GeonameID:</td>
+                    <td id="txtgeoname"> </td>
                 </tr>
             </tbody>
         </table>
