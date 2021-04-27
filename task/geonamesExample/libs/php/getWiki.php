@@ -6,9 +6,7 @@ error_reporting(E_ALL);
 
 $executionStartTime = microtime(true);
 
-//$url='http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat=' . $_REQUEST['lat'] . '&lng='. $_REQUEST['lng'] . '&username=flightltd&style=full';
-//$url='http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat='. $_REQUEST['lat'] . '&lng=' . $_REQUEST['lng'] . '&username=PayalVimal&style=full';
-//$url=' http://api.geonames.org/earthquakesJSON?formatted=true&north=' . $_REQUEST['north'] . '&south=' . $_REQUEST['south'] . '&east=' . $_REQUEST['east'] . '&west=' . $_REQUEST['west'] . '&username=flightltd&style=full';
+
 $url='http://api.geonames.org/wikipediaSearchJSON?formatted=true&lang=en&q='. $_REQUEST['q'] . '&maxRows=1&username=PayalVimal&style=full';
 
 $ch = curl_init();
