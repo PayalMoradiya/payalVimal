@@ -1,6 +1,6 @@
 
 //$(document).ready(function() {
-    $('btnstreet').on("click", function() {
+    $('#btnstreet').on("click", function() {
 
         $.ajax({
             url: "libs/php/getStreetnameLookup.php",
