@@ -1,6 +1,6 @@
 
 //$(document).ready(function() {
-    $('button').on("click", function() {
+    $('#btnpost').on("click", function() {
 
         $.ajax({
             url: "libs/php/getPostalCodeLookUp.php",

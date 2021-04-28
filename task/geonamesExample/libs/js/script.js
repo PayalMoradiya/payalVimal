@@ -1,6 +1,6 @@
 
 //$(document).ready(function() {
-    $('button').on("click", function() {
+    $('#btnwiki').on("click", function() {
 
         $.ajax({
             url: "libs/php/getWiki.php",
