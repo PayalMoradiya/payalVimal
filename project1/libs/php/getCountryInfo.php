@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 $executionStartTime = microtime(true);
 
 
-$url='http://api.geonames.org/streetNameLookupJSON?formatted=true&q='. $_REQUEST['q'] . '&country=' . $_REQUEST['country'] . '&maxRows=1&username=PayalVimal&style=full';
+$url='http://api.geonames.org/countryInfoJSON?formatted=true&lang=en&country=' . $_REQUEST['country'] . '&username=PayalVimal&style=full';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -24,7 +24,7 @@ $output['status']['code'] = "200";
 $output['status']['name'] = "ok";
 $output['status']['description'] = "success";
 $output['status']['returnedIn'] = intval((microtime(true) - $executionStartTime) * 1000) . "ms";
-$output['data'] = $decode['address'];
+$output['data'] = $decode['geonames'];
 
 header('Content-Type: application/json; charset=UTF-8');
 

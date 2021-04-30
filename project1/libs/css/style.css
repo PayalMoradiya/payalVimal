@@ -1,6 +1,9 @@
 html{
     font-family: 'Andika New Basic', sans-serif;
 }
+#mapid { 
+    height: 180px; 
+}
 
 #preloader {
     position: fixed;
