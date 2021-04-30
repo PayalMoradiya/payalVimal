@@ -7,7 +7,7 @@
             type: 'POST',
             dataType: 'json',
             data: {
-              q: $('#selCountry').val(),
+              q: $('#selq').val(),
              // country: $('#selPostalcode').val()
             },
             success: function(result) {
@@ -17,11 +17,11 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                    $('#txtcode').html(result['data'][0]['summary']);
-                    $('#txttitle').html(result['data'][0]['title']);
-                    $('#txtcountry').html(result['data'][0]['countryCode']);
-                   $('#txtlang').html(result['data'][0]['lang']);
-                   $('#txtgeoname').html(result['data'][0]['geoNameId']);
+                    $('#txtsum').html(result['data'][0]['summary']);
+                    $('#txtwiki').html(result['data'][0]['wikipediaUrl']);
+                 //   $('#txtcountry').html(result['data'][0]['countryCode']);
+                  // $('#txtlang').html(result['data'][0]['lang']);
+                 //  $('#txtgeoname').html(result['data'][0]['geoNameId']);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
