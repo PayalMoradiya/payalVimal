@@ -7,7 +7,8 @@
             type: 'POST',
             dataType: 'json',
             data: {
-              q: $('#selq').val(),
+              lat: $('#selq').val(),
+              lng: $('#selq1').val()
              // country: $('#selPostalcode').val()
             },
             success: function(result) {
