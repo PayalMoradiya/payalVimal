@@ -1,12 +1,15 @@
 html{
     font-family: 'Andika New Basic', sans-serif;
 }
+
 #mapid { 
     height: 560px; 
+    
 }
 .nav-item {
     margin:0 20px;
 }
+
 
 
 #preloader {
