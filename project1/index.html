@@ -158,30 +158,31 @@
     </div>
 <script>   
     
-    var mymap = L.map('mapid').setView([51.890541, -0.0466399], 13);
+         var mymap = L.map('mapid').setView([51.890541, -0.0466399], 5);
     
-    // marker.addTo(map);
+  
         var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
         tiles.addTo(mymap);
+
+
       //  const icon = L.icon({
         //    iconUrl: 'mark.jfif',
           //  iconSize: [80,60]
         //})
-
-        var marker = L.marker([51.50939, -0.11832]).addTo(mymap);
-        marker.bindPopup('<h4>Hello London</h4>');
-       //marker.setLatLng([51.1657, 10.4515]);
-
-      
+        
        
 
-        var marker2 = L.marker([48.1372222, 11.5755555]).addTo(mymap);
+        //Add marker....
+        var marker = L.marker([51.50939, -0.11832]).addTo(mymap);
+        marker.bindPopup('<h4>Hello London!</h4>');
+       //marker.setLatLng([51.1657, 10.4515]);
+
+      var marker2 = L.marker([48.1372222, 11.5755555]).addTo(mymap);
         marker2.bindPopup('<h4>Hello Munich!</h4>');
 
-       // marker2.setLatLng([latitude, longitude]);
        var marker3 = L.marker([23.22, 72.68]).addTo(mymap);
         marker3.bindPopup('<h4>Hello Gujarat!</h4>');
 
@@ -203,16 +204,17 @@
 
 
 
+      //marker fly.....
        search = document.getElementById('btnwiki');
       
-
        search.addEventListener('click', () => {
          flyToplace();
-       })
+       });
 
        function flyToplace() {
          latitude = document.getElementById('txtlat').textContent;
         longitude = document.getElementById('txtlng').textContent;
+       
 
          mymap.flyTo([latitude, longitude], 13, {
            duration: 3
@@ -220,15 +222,16 @@
          };
          flyToplace();
 
-        //for population representations...
-        //const CLayer = L.circle([51.5098, -0.130055], { radius: 20000, color: 'corol'});
-        //CLayer.addTo(mymap);
+
+         // Add circle...for population....
+         const CLayer = L.circle([51.515193,-0.092468 ], { radius: 1000, color: 'coral'});
+         CLayer.addTo(mymap).bindPopup('<h4>London polulation per square kilometre is 5701.</h4>');
+
 
         //polygon for country....
       
         const londonarea = [
-        [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]], // outer ring
-          [[37.29, -108.58],[40.71, -108.58],[40.71, -102.50],[37.29, -102.50]] 
+        [50.81010827006958,24.754742539971378],[50.74391076030369,25.482424221289396],[51.01335167827349,26.00699168548419],[51.28646162293606,26.11458201751587],[51.58907881043726,25.80111277923338],[51.60670047384881,25.21567047779874],[51.38960778179063,24.62738597258806],[51.11241539897702,24.556330878186724],[50.81010827006958,24.754742539971378] 
 
         ];
 
