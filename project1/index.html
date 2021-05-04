@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="favicon.ico.png" rel="icon">
-    <link href="libs/css/style.css" rel="stylesheet" >
+   
     <link href="venders/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/css/style.css" rel="stylesheet" >
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="venders/jquery/jquery-3.6.0.min.js" ></script>
     <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap" rel="stylesheet">
@@ -26,24 +27,17 @@
 
     
 </head>
-<body>
+<body  onload="myFunction()">
     <div class="header">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <!-- Brand -->
-                <a class="navbar-brand" href="#">Logo</a>
+            <nav class="navbar navbar-expand-sm bg-secondary ">
+
+              <!-- logo-->
+               <img src="venders/image/log.png" alt="logo" style="width:40px;">
               
-                <!-- Links -->
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
-                  </li>
-              
+                <!-- Navs -->
+                <ul class="nav justify-content-center">
                   <!-- Dropdown -->
-                  <select class="nav-item" id="selq">
-                   
+                    <select class="nav-item" id="selq">
                        <option value=51.50939>UK-51.50939</option>
                        <option value=48.1372222>DE-48.1372222</option>
                        <option value=23.22>IN-23.22</option>
@@ -52,9 +46,9 @@
                        <option value=-33.8694444>AU-33.8694444</option>
                        <option value=48.856578>PR-48.856578</option>
                        <option value=41.383333>BL-41.383333</option>  
-                  </select>
-                <select class="nav-item" id="selq1">
-                   
+                    </select>
+
+                    <select class="nav-item" id="selq1">
                        <option value=-0.11832>UK-0.11832</option>
                        <option value=11.5755555>DE-11.5755555</option>
                        <option value=72.68>IN-72.68</option>
@@ -63,24 +57,26 @@
                        <option value=151.2083333>AU-151.2083333</option>
                        <option value=2.351828>PR-2.351828</option>
                        <option value=2.166667>BL-2.166667</option>  
-                </select>
+                    </select>
+                    
+                    <select class="nav-item" id="selcountry">
+                       <option value="GB">London</option>
+                       <option value="DE">Munich</option>
+                       <option value="IN">Gujarat</option>
+                       <option value="DE">Berlin</option>
+                       <option value="DE">Frankfurt</option>
+                       <option value="AU">Sydney</option>
+                       <option value="ES">Barcelona</option>
+                       <option value="FR">Paris</option>
+                   </select>
 
-                <select class="nav-item" id="selcountry">
-                    <option value="GB">London</option>
-                    <option value="DE">Munich</option>
-                    <option value="IN">Gujarat</option>
-                    <option value="DE">Berlin</option>
-                    <option value="DE">Frankfurt</option>
-                    <option value="AU">Sydney</option>
-                    <option value="ES">Barcelona</option>
-                    <option value="FR">Paris</option>
-                </select>
-                <button id="btnwiki" >Search</button>
-                <div id="txtlat"> </div>
-                <div id= "txtlng"></div>
-                </ul>
-              </nav>
-              <br>
+                    <button id="btnwiki" >Search</button>
+
+                    <div id="txtlat"> </div>
+                    <div id= "txtlng"></div>
+              </ul>
+          </nav>
+          <br>
              
     </div>
 
@@ -90,11 +86,22 @@
        
         <div id="mapid">
             
-        
+          <div class="container">
+            <a href="#">More Info.</a>
+            <p><strong>Continent Name:</strong></p>
+            <div id="txtcontinentname"></div>
+            <p><strong>Country Name:</strong></p>
+            <div id="txtcontinentname"></div>
+            <p><strong>Language:</strong></p>
+            <div id="txtcontinentname"></div>
+            <p><strong>Weather Condition:</strong></p>
+            <div id="txtcontinentname"></div>
+            </div>
         </div>
         
  
-        <div class="container">
+      
+          <!--
            <table class="table table-borderless">
               <thead>
                 <tr>
@@ -143,7 +150,7 @@
                     <td id="txtwiki"></td>
                   </tr>
               </tbody>
-            </table>
+            </table>  -->
           </div>
            
     </div>  
@@ -157,8 +164,12 @@
 
     </div>
 <script>   
+        function myFunction() {
+           //L.map('mapid').setView([51.50939, -0.11832], 5);
+         };
+         myFunction();
     
-         var mymap = L.map('mapid').setView([51.890541, -0.0466399], 5);
+         var mymap = L.map('mapid').setView([51.50939, -0.11832], 5);
     
   
         var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -178,7 +189,7 @@
         //Add marker....
         var marker = L.marker([51.50939, -0.11832]).addTo(mymap);
         marker.bindPopup('<h4>Hello London!</h4>');
-       //marker.setLatLng([51.1657, 10.4515]);
+      // marker.setLatLng([51.50939, -0.11832]).addTo(mymap);
 
       var marker2 = L.marker([48.1372222, 11.5755555]).addTo(mymap);
         marker2.bindPopup('<h4>Hello Munich!</h4>');
@@ -201,6 +212,28 @@
        var marker8 = L.marker([41.383333, 2.166667]).addTo(mymap);
        marker8.bindPopup('<h4>Hello Barcelona!</h4>');
 
+       //marker for gujarat fort...
+       var guj1 = L.marker([23.2001, 69.2685]).addTo(mymap);
+        guj1.bindPopup('<h4>Roha Fort!</h4>');
+
+      var guj2 = L.marker([23.4849, 70.4642]).addTo(mymap);
+        guj2.bindPopup('<h4>Kanthkot Fort!</h4>');
+
+        var guj3 = L.marker([22.4647, 70.0697]).addTo(mymap);
+        guj3.bindPopup('<h4>Lakhota Fort!</h4>');
+
+      var guj4 = L.marker([24.2291, 69.1897]).addTo(mymap);
+        guj4.bindPopup('<h4>Vighakot Fort!</h4>');
+
+        var guj5 = L.marker([22.1544, 71.3308]).addTo(mymap);
+        guj5.bindPopup('<h4>Hingolgadh Fort!</h4>');
+
+      var guj6 = L.marker([23.8525, 73.0052]).addTo(mymap);
+        guj6.bindPopup('<h4>Idar Fort!</h4>');
+
+
+      
+
 
 
 
@@ -216,7 +249,7 @@
         longitude = document.getElementById('txtlng').textContent;
        
 
-         mymap.flyTo([latitude, longitude], 13, {
+         mymap.flyTo([latitude, longitude], 10, {
            duration: 3
           })
          };
@@ -224,9 +257,11 @@
 
 
          // Add circle...for population....
-         const CLayer = L.circle([51.515193,-0.092468 ], { radius: 1000, color: 'coral'});
+         var CLayer = L.circle([51.515193,-0.092468 ], { radius: 1000, color: 'coral'});
          CLayer.addTo(mymap).bindPopup('<h4>London polulation per square kilometre is 5701.</h4>');
 
+         var CLayer1 = L.circle([22.58358253773391, 73.355712890625], { radius: 1000, color: 'coral'});
+         CLayer1.addTo(mymap).bindPopup('<h4>Gujarat polulation per square kilometre is 310.</h4>');
 
         //polygon for country....
       
@@ -237,14 +272,39 @@
 
         const polygon = L.polygon(londonarea).addTo(mymap);
                 
-            
+          //Add geojson data....
+         var geojson = {"type": "FeatureCollection","features": [{"type": "Feature","properties": {"stroke": "#635f5f","stroke-width": 2,"stroke-opacity": 1,"fill": "#868383","fill-opacity": 0.5},"geometry": {"type": "Polygon","coordinates": [[[-0.50811767578125,51.49506473014368],[-0.52734375,51.40777268236964],[-0.4669189453125,51.31859712057431],[-0.2911376953125,51.28425258391496],[-0.12359619140625,51.263633525637],[0.02471923828125,51.26878915771344],[0.1593017578125,51.342623007528275],[0.2142333984375,51.39577839266317],[0.29937744140625,51.45914115860514],[0.29937744140625,51.55487448974971],[0.2032470703125,51.64870258356996],[0.02471923828125,51.677664778834455],[-0.164794921875,51.68277383281327],[-0.33233642578125,51.66744494147575],[-0.4669189453125,51.62142713341988],[-0.50811767578125,51.49506473014368]]]}},{"type": "Feature","properties": {"marker-color": "#eb0000","marker-size": "medium","marker-symbol": ""},"geometry": {"type": "Point","coordinates": [-0.0940704345703125,51.51066556016948]}},{"type": "Feature","properties": {"stroke": "#f45a34","stroke-width": 2,"stroke-opacity": 1,"fill": "#f6541e","fill-opacity": 0.5,"name": "Barcelona","Known As": "\"Paris of Spain\"","Wiki link": "https://en.wikipedia.org/wiki/Barcelona"},"geometry": {"type": "Polygon","coordinates": [[[1.99951171875,41.29431726315258],[2.21923828125,41.3850519497068],[2.340087890625,41.44272637767212],[2.6477050781249996,41.60722821271717],[2.96630859375,41.77131167976407],[2.8564453125,41.82045509614034],[2.63671875,41.85319643776675],[2.449951171875,41.86956082699455],[2.208251953125,41.934976500546604],[1.900634765625,41.795888098191426],[1.746826171875,41.582579601430346],[1.99951171875,41.29431726315258]]]}},{"type": "Feature","properties": {"stroke": "#555555","stroke-width": 2,"stroke-opacity": 1,"fill": "#555555","fill-opacity": 0.5,"name": "I am Gujarat and famous for traditional cloths, foods and The White Desert","Famous For": "Tranditional cloths, food and White Desert.","Wiki link": "https://en.wikipedia.org/wiki/Gujarat"},"geometry": {"type": "Polygon","coordinates": [[[68.96942138671875,22.233175265402785],[69.8291015625,21.3303150734318],[70.48828125,20.715015145512087],[71.38916015625,20.838277806058933],[72.18017578125,21.555284406923192],[72.39990234375,22.350075806124867],[72.6416015625,22.228090416784486],[72.59765625,21.657428197370653],[72.861328125,20.73556590521864],[72.79541015625,20.179723502765153],[73.19091796875,20.262197124246534],[73.916015625,20.8588117908677],[73.6083984375,21.248422235627014],[73.828125,21.69826549685252],[74.37744140625,22.63429269379353],[73.85009765625,23.38259828417886],[73.27880859375,23.986252599841798],[72.916259765625,24.367113562651262],[72.410888671875,24.487148563173424],[71.9384765625,24.647017162630366],[71.048583984375,24.666986385216273],[71.103515625,24.50714328310284],[70.8013916015625,24.22191919987298],[70.4498291015625,24.36210962726063],[69.6917724609375,24.231937933001397],[69.0380859375,24.231937933001397],[69.18090820312499,24.116674961751293],[69.114990234375,23.996289790628417],[69.0106201171875,23.77026416023979],[68.84033203125,23.820526175082755],[68.6865234375,23.79037129915711],[68.53271484375,23.679743598599696],[68.4942626953125,23.528736617422013],[68.653564453125,23.33216830631147],[68.8128662109375,23.08478515994374],[69.2578125,22.882501434370063],[69.686279296875,22.760986169250472],[70.0982666015625,22.917922936146045],[70.4058837890625,22.92804166565176],[70.55557250976562,23.175713800385203],[70.67642211914062,23.2060096376488],[70.71212768554688,23.163088509987777],[70.66131591796875,23.101207389714883],[70.56930541992188,23.04182522949167],[70.50888061523438,22.971037830568942],[70.53634643554688,22.930571229938142],[70.4608154296875,22.839477183318873],[70.3729248046875,22.691319257039797],[70.31387329101562,22.74452264722212],[70.2301025390625,22.649502094242195],[70.18341064453125,22.53792742994721],[70.0323486328125,22.543000965921863],[69.81536865234375,22.39325340477354],[69.71099853515624,22.451648819126202],[69.598388671875,22.30688482518366],[69.52423095703125,22.365316487720527],[69.356689453125,22.314507734511825],[69.18914794921875,22.268764039073968],[69.1644287109375,22.334833457530486],[69.169921875,22.411028521558706],[69.10675048828125,22.39071391683855],[69.06829833984375,22.388174382531723],[69.0655517578125,22.459263801003207],[68.99139404296875,22.426262526205832],[68.94744873046875,22.3424548401465],[68.96942138671875,22.233175265402785]]]}}]}
+
+         var poly= L.geoJSON(geojson).bindPopup(function (layer) {
+            return layer.feature.properties.name
+          }).addTo(mymap);
+
+          mymap.fitBounds(poly);
+
+
+          //custering...
+          var cluster = L.markerClusterGroup();
+          mymap.addLayer(cluster);
+
+         //using polylines....
+
+        
+
+         var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685] ], {color: 'red'}).bindPopup('<h5>129 miles</h5>').addTo(mymap);
+         var polylines = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642] ], {color: 'red'}).bindPopup('<h5>89 miles</h5>').addTo(mymap);
+         var polylines = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697] ], {color: 'red'}).bindPopup('<h5>115 miles</h5>').addTo(mymap);
+         var polylines = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308] ], {color: 'red'}).bindPopup('<h5>100 miles</h5>').addTo(mymap);
+         var polylines = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052] ], {color: 'red'}).bindPopup('<h5>125 miles</h5>').addTo(mymap);
+
+
  </script>
             
             
-    
+
         <script src="libs/js/script.js" type="text/javascript"></script>
         <script src="libs/js/script1.js" type="text/javascript"></script>
         <script src="libs/js/script2.js" type="text/javascript"></script>
+        <script src="libs/js/script3.js" type="text/javascript"></script>
         <script src="libs/js/jquery.js" type="application/javascript"></script>
         <script src="venders/bootstrap/js/bootstrap.min.js" ></script>
     </body>
