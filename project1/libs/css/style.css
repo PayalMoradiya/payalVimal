@@ -10,13 +10,14 @@ html{
 .nav-item {
     margin:0 5px;
     width: 60px;
+
 }
 
 
 #mapid { 
     height: 580px; 
     margin-top: 0px;
-    position:relative;
+
     
 }
 #btnwiki{
@@ -40,6 +41,7 @@ html{
 .container:hover {
     height: 300px;
   }
+
 
 
 #preloader {
