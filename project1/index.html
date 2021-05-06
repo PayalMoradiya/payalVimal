@@ -27,15 +27,15 @@
 
     
 </head>
-<body  onload="myFunction()">
+<body>
     <div class="header">
-            <nav class="navbar navbar-expand-sm bg-secondary ">
+            <nav class="navbar navbar-expand-sm bg-secondary fixed-top ">
 
               <!-- logo-->
                <img src="venders/image/log.png" alt="logo" style="width:40px;">
               
                 <!-- Navs -->
-                <ul class="nav justify-content-center">
+                <ul class="nav justify-content-center ">
                   <!-- Dropdown -->
                     <select class="nav-item" id="selq">
                        <option value=51.50939>UK-51.50939</option>
@@ -60,21 +60,19 @@
                     </select>
                     
                     <select class="nav-item" id="selcountry">
-                       <option value="GB">London</option>
-                       <option value="DE">Munich</option>
+                       <option value="london">London</option>
+                       <option value="munich">Munich</option>
                        <option value="IN">Gujarat</option>
-                       <option value="DE">Berlin</option>
-                       <option value="DE">Frankfurt</option>
+                       <option value="berlin">Berlin</option>
+                       <option value="frankfurt">Frankfurt</option>
                        <option value="AU">Sydney</option>
                        <option value="ES">Barcelona</option>
                        <option value="FR">Paris</option>
                    </select>
 
-                    <button id="btnwiki" >Search</button>
+                    <button id="btnwiki" class="nav-item" >Search</button>
 
-                    <div id="txtlat"> </div>
-                    <div id= "txtlng"></div>
-                    <div id="txtcountrycode"></div>
+                    
               </ul>
           </nav>
           <br>
@@ -88,18 +86,32 @@
         <div id="mapid">
 
           <img src="venders/image/cursor.svg" alt="recenter">
-          <img src="venders/image/arrow-down-left-square.svg" alt="notations">
             
           <div class="container">
             <a href="#">More Info.</a>
-            <p><strong>Continent Name:</strong></p>
-            <div id="txtcontinentname"></div>
+            <p><strong>Country Code:</strong></p>
+            <div id="txtcountrycode"></div>
+
+            <p><strong>Population:</strong></p>
+            <div id="txtpopulation"></div>
+
             <p><strong>Country Name:</strong></p>
-            <div id="txtcontinentname"></div>
-            <p><strong>Language:</strong></p>
-            <div id="txtcontinentname"></div>
-            <p><strong>Weather Condition:</strong></p>
-            <div id="txtcontinentname"></div>
+            <div id="txtcountryname"></div>
+
+            <p><strong>LAT:</strong></p>
+            <div id="txtlat"></div>
+
+            <p><strong>LNG:</strong></p>
+            <div id="txtlng"></div>
+
+            <p><strong>Temp:</strong></p>
+            <div id="txttemp"></div>
+
+            <p><strong>Wiki link:</strong></p>
+            <div id="txtwiki"></div>
+
+            
+           
             </div>
         </div>
         
@@ -168,11 +180,8 @@
 
     </div>
 <script>   
-        function myFunction() {
-           //L.map('mapid').setView([51.50939, -0.11832], 5);
-         };
-         myFunction();
-    
+  
+       
          var mymap = L.map('mapid').setView([51.50939, -0.11832], 5);
     
   
@@ -377,9 +386,11 @@
             
             
 
-        <script src="libs/js/script.js" type="text/javascript"></script>
-        <script src="libs/js/script1.js" type="text/javascript"></script>
-        <script src="libs/js/script3.js" type="text/javascript"></script>
+        <script src="libs/js/getCountryInfo.js" type="text/javascript"></script>
+        <script src="libs/js/covid.js" type="text/javascript"></script>
+        <script src="libs/js/getWeather.js" type="text/javascript"></script>
+        <script src="libs/js/getWiki.js" type="text/javascript"></script>
+        <script src="libs/js/getSearch.js" type="text/javascript"></script>
         <script src="libs/js/jquery.js" type="application/javascript"></script>
         <script src="venders/bootstrap/js/bootstrap.min.js" ></script>
     </body>

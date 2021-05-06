@@ -9,14 +9,14 @@ html{
 
 .nav-item {
     margin:0 5px;
-    width: 60px;
+    width: 90px;
 
 }
 
 
 #mapid { 
-    height: 580px; 
-    margin-top: 0px;
+    height: 700px; 
+    margin-top: 80px;
 
     
 }
@@ -39,7 +39,7 @@ html{
 
 }
 .container:hover {
-    height: 300px;
+    height: 500px;
   }
 
 
@@ -89,3 +89,35 @@ html{
         transform: rotate(360deg);
     }
 }
+
+
+
+@media only screen and (max-width: 375px) {
+    body {
+    
+    }
+    img {
+        display: none;
+    }
+    .nav-item {
+        margin:0 5px;
+        width: 70px;
+        margin: 15px 10px;
+    }
+    .nav-item option {
+
+    }
+  }
+
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) { 
+
+ }
+
+
+
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) { 
+
+ }
+

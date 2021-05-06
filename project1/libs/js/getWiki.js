@@ -7,9 +7,7 @@
             type: 'POST',
             dataType: 'json',
             data: {
-              lat: $('#selq').val(),
-              lng: $('#selq1').val()
-             // country: $('#selPostalcode').val()
+                q: $('#selcountry').val()
             },
             success: function(result) {
 
@@ -18,14 +16,14 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                    $('#txtsum').html(result['data'][0]['summary']);
+                  //  $('#txtsum').html(result['data'][0]['summary']);
                     $('#txtwiki').html(result['data'][0]['wikipediaUrl']);
-                    $('#txtlat').html(result['data'][0]['lat']);
-                    $('#txtlng').html(result['data'][0]['lng']);
+                 //   $('#txtlat').html(result['data'][0]['lat']);
+                 //   $('#txtlng').html(result['data'][0]['lng']);
                  //   $('#txtcountry').html(result['data'][0]['countryCode']);
                   // $('#txtlang').html(result['data'][0]['lang']);
                  //  $('#txtgeoname').html(result['data'][0]['geoNameId']);
-                }
+                }                                     
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 //error code..

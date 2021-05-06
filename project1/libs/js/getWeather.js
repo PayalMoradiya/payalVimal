@@ -7,14 +7,11 @@
             type: 'POST',
             dataType: 'json',
             data: {
-             // postalcode: $('#selPostcode').val(),
-             lat: $('#selq').val(),
-             lng: $('#selq1').val()
+             lat: $('#txtlat').val(),
+             lng: $('#txtlng').val()
             },
             success: function(result) {
-
-    
-    
+                
                 console.log(result);
     
                 if (result.status.name == "ok") {
@@ -22,7 +19,7 @@
                     $('#txtwind').html(result['data'][0]['windSpeed']);
                     $('#txttemp').html(result['data'][0]['temperature']);
                     $('#txthum').html(result['data'][0]['humidity']);
-                }
+                }                    
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 //error code..
