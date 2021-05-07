@@ -18,7 +18,7 @@
     
                 if (result.status.name == "ok") {
                     $('#txtcontinentname').html(result['data'][0]['continentName']);
-                   // $('#txtcountryname').html(result['data'][0]['countryName']);
+                    $('#txtcountryname').html(result['data'][0]['countryName']);
                     $('#txtlang').html(result['data'][0]['languages']);
                    $('#txtgeonameid').html(result['data'][0]['geonameId']);
                    $('#txtcapital').html(result['data'][0]['capital']);

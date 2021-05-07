@@ -32,48 +32,25 @@
             <nav class="navbar navbar-expand-sm bg-secondary fixed-top ">
 
               <!-- logo-->
-               <img src="venders/image/log.png" alt="logo" style="width:40px;">
+             <img src="venders/image/log.png" alt="logo" style="width:40px;">
               
                 <!-- Navs -->
-                <ul class="nav justify-content-center ">
-                  <!-- Dropdown -->
-                    <select class="nav-item" id="selq">
-                       <option value=51.50939>UK-51.50939</option>
-                       <option value=48.1372222>DE-48.1372222</option>
-                       <option value=23.22>IN-23.22</option>
-                       <option value=52.5002777>BR-52.5002777</option>
-                       <option value=50.14472222222222>FK-50.1447222</option>  
-                       <option value=-33.8694444>AU-33.8694444</option>
-                       <option value=48.856578>PR-48.856578</option>
-                       <option value=41.383333>BL-41.383333</option>  
-                    </select>
-
-                    <select class="nav-item" id="selq1">
-                       <option value=-0.11832>UK-0.11832</option>
-                       <option value=11.5755555>DE-11.5755555</option>
-                       <option value=72.68>IN-72.68</option>
-                       <option value=13.39888>BR-13.39888</option>
-                       <option value=8.726944444444445>FK-8.7269444</option> 
-                       <option value=151.2083333>AU-151.2083333</option>
-                       <option value=2.351828>PR-2.351828</option>
-                       <option value=2.166667>BL-2.166667</option>  
-                    </select>
-                    
-                    <select class="nav-item" id="selcountry">
+              <ul class="nav justify-content-center ">
+                 
+                <!-- Dropdown -->
+                   <select class="nav-item bg-light" id="selcountry">
                        <option value="london">London</option>
                        <option value="munich">Munich</option>
-                       <option value="IN">Gujarat</option>
+                       <option value="gujarat">Gujarat</option>
                        <option value="berlin">Berlin</option>
                        <option value="frankfurt">Frankfurt</option>
-                       <option value="AU">Sydney</option>
-                       <option value="ES">Barcelona</option>
-                       <option value="FR">Paris</option>
+                       <option value="sydney">Sydney</option>
+                       <option value="barcelona">Barcelona</option>
+                       <option value="paris">Paris</option>
                    </select>
 
-                    <button id="btnwiki" class="nav-item" >Search</button>
-
-                    
-              </ul>
+                    <button id="btnwiki" class="nav-item bg-light" >Search</button>
+                </ul>
           </nav>
           <br>
              
@@ -81,17 +58,16 @@
 
     
     
-    <div class="main">
+<div class="main">
        
-        <div id="mapid">
+    <div id="mapid">
 
-          <img src="venders/image/cursor.svg" alt="recenter">
+          <img class="recenter" src="venders/image/cursor.svg" alt="recenter">
             
-          <div class="container">
+        <div class="container">
             <a href="#">More Info.</a>
-            <p><strong>Country Code:</strong></p>
-            <div id="txtcountrycode"></div>
 
+            
             <p><strong>Population:</strong></p>
             <div id="txtpopulation"></div>
 
@@ -104,72 +80,17 @@
             <p><strong>LNG:</strong></p>
             <div id="txtlng"></div>
 
-            <p><strong>Temp:</strong></p>
-            <div id="txttemp"></div>
+            <p><strong>Weather Condition:</strong></p>
+            <div id="txtclouds"></div>
 
             <p><strong>Wiki link:</strong></p>
             <div id="txtwiki"></div>
 
-            
-           
-            </div>
-        </div>
-        
- 
-      
-          <!--
-           <table class="table table-borderless">
-              <thead>
-                <tr>
-                  <th>Country Info:</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Summary:</td>
-                  <td id="txtsum"></td>
-                </tr>
-                <tr>
-                  <td>Continent Name:</td>
-                  <td id="txtcontinentname"></td>
-                </tr>
-                <tr>
-                  <td>Country Name:</td>
-                  <td id="txtcountryname"></td>
-                </tr>
-                <tr>
-                 <td>Capital:</td>
-                    <td id="txtcapital"></td>
-                  </tr>
-                  <tr>
-                    <td>Language:</td>
-                    <td id="txtlang"></td>
-                  </tr>
-                  <tr>
-                    <td>Population:</td>
-                    <td id="txtpopulation"></td>
-                  </tr>
-                  <td>Currency Code:</td>
-                  <td id="txtcountrycode"></td>
-                </tr>
-                <tr>
-                  <td>Area In Sqkm:</td>
-                  <td id="txtareainsq"></td>
-                </tr>
-                <tr>
-                  <td>Geoname Id:</td>
-                  <td id="txtgeonameid"></td>
-                </tr>
-                 <tr>
-                    <td>Wikipedia Url:</td>
-                    <td id="txtwiki"></td>
-                  </tr>
-              </tbody>
-            </table>  -->
+            <p><strong>Covid Case:</strong></p>
+            <div id="txtcovidcase"></div>
           </div>
-           
-    </div>  
+        </div>   
+ </div>  
 
     
     
@@ -190,7 +111,7 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
         tiles.addTo(mymap);
-
+  
 
       //  const icon = L.icon({
         //    iconUrl: 'mark.jfif',
@@ -276,14 +197,7 @@
          var CLayer1 = L.circle([22.58358253773391, 73.355712890625], { radius: 1000, color: 'coral'});
          CLayer1.addTo(mymap).bindPopup('<h4>Gujarat polulation per square kilometre is 310.</h4>');
 
-        //polygon for country....
       
-        const londonarea = [
-        [50.81010827006958,24.754742539971378],[50.74391076030369,25.482424221289396],[51.01335167827349,26.00699168548419],[51.28646162293606,26.11458201751587],[51.58907881043726,25.80111277923338],[51.60670047384881,25.21567047779874],[51.38960778179063,24.62738597258806],[51.11241539897702,24.556330878186724],[50.81010827006958,24.754742539971378] 
-
-        ];
-
-        const polygon = L.polygon(londonarea).addTo(mymap);
            
           //Add geojson data....
          var geojson = {"type": "FeatureCollection","features": [{"type": "Feature","properties": {"stroke": "#635f5f","stroke-width": 2,"stroke-opacity": 1,"fill": "#868383","fill-opacity": 0.5},"geometry": {"type": "Polygon","coordinates": [[[-0.50811767578125,51.49506473014368],[-0.52734375,51.40777268236964],[-0.4669189453125,51.31859712057431],[-0.2911376953125,51.28425258391496],[-0.12359619140625,51.263633525637],[0.02471923828125,51.26878915771344],[0.1593017578125,51.342623007528275],[0.2142333984375,51.39577839266317],[0.29937744140625,51.45914115860514],[0.29937744140625,51.55487448974971],[0.2032470703125,51.64870258356996],[0.02471923828125,51.677664778834455],[-0.164794921875,51.68277383281327],[-0.33233642578125,51.66744494147575],[-0.4669189453125,51.62142713341988],[-0.50811767578125,51.49506473014368]]]}},{"type": "Feature","properties": {"marker-color": "#eb0000","marker-size": "medium","marker-symbol": ""},"geometry": {"type": "Point","coordinates": [-0.0940704345703125,51.51066556016948]}},{"type": "Feature","properties": {"stroke": "#f45a34","stroke-width": 2,"stroke-opacity": 1,"fill": "#f6541e","fill-opacity": 0.5,"name": "Barcelona","Known As": "\"Paris of Spain\"","Wiki link": "https://en.wikipedia.org/wiki/Barcelona"},"geometry": {"type": "Polygon","coordinates": [[[1.99951171875,41.29431726315258],[2.21923828125,41.3850519497068],[2.340087890625,41.44272637767212],[2.6477050781249996,41.60722821271717],[2.96630859375,41.77131167976407],[2.8564453125,41.82045509614034],[2.63671875,41.85319643776675],[2.449951171875,41.86956082699455],[2.208251953125,41.934976500546604],[1.900634765625,41.795888098191426],[1.746826171875,41.582579601430346],[1.99951171875,41.29431726315258]]]}},{"type": "Feature","properties": {"stroke": "#555555","stroke-width": 2,"stroke-opacity": 1,"fill": "#555555","fill-opacity": 0.5,"name": "I am Gujarat and famous for traditional cloths, foods and The White Desert","Famous For": "Tranditional cloths, food and White Desert.","Wiki link": "https://en.wikipedia.org/wiki/Gujarat"},"geometry": {"type": "Polygon","coordinates": [[[68.96942138671875,22.233175265402785],[69.8291015625,21.3303150734318],[70.48828125,20.715015145512087],[71.38916015625,20.838277806058933],[72.18017578125,21.555284406923192],[72.39990234375,22.350075806124867],[72.6416015625,22.228090416784486],[72.59765625,21.657428197370653],[72.861328125,20.73556590521864],[72.79541015625,20.179723502765153],[73.19091796875,20.262197124246534],[73.916015625,20.8588117908677],[73.6083984375,21.248422235627014],[73.828125,21.69826549685252],[74.37744140625,22.63429269379353],[73.85009765625,23.38259828417886],[73.27880859375,23.986252599841798],[72.916259765625,24.367113562651262],[72.410888671875,24.487148563173424],[71.9384765625,24.647017162630366],[71.048583984375,24.666986385216273],[71.103515625,24.50714328310284],[70.8013916015625,24.22191919987298],[70.4498291015625,24.36210962726063],[69.6917724609375,24.231937933001397],[69.0380859375,24.231937933001397],[69.18090820312499,24.116674961751293],[69.114990234375,23.996289790628417],[69.0106201171875,23.77026416023979],[68.84033203125,23.820526175082755],[68.6865234375,23.79037129915711],[68.53271484375,23.679743598599696],[68.4942626953125,23.528736617422013],[68.653564453125,23.33216830631147],[68.8128662109375,23.08478515994374],[69.2578125,22.882501434370063],[69.686279296875,22.760986169250472],[70.0982666015625,22.917922936146045],[70.4058837890625,22.92804166565176],[70.55557250976562,23.175713800385203],[70.67642211914062,23.2060096376488],[70.71212768554688,23.163088509987777],[70.66131591796875,23.101207389714883],[70.56930541992188,23.04182522949167],[70.50888061523438,22.971037830568942],[70.53634643554688,22.930571229938142],[70.4608154296875,22.839477183318873],[70.3729248046875,22.691319257039797],[70.31387329101562,22.74452264722212],[70.2301025390625,22.649502094242195],[70.18341064453125,22.53792742994721],[70.0323486328125,22.543000965921863],[69.81536865234375,22.39325340477354],[69.71099853515624,22.451648819126202],[69.598388671875,22.30688482518366],[69.52423095703125,22.365316487720527],[69.356689453125,22.314507734511825],[69.18914794921875,22.268764039073968],[69.1644287109375,22.334833457530486],[69.169921875,22.411028521558706],[69.10675048828125,22.39071391683855],[69.06829833984375,22.388174382531723],[69.0655517578125,22.459263801003207],[68.99139404296875,22.426262526205832],[68.94744873046875,22.3424548401465],[68.96942138671875,22.233175265402785]]]}}]}
@@ -293,80 +207,8 @@
           }).addTo(mymap);  
 
          // mymap.fitBounds(poly);
-         var germany = {
-            "type": "FeatureCollection",
-            "features": [
-              {
-                "type": "Feature",
-                "properties": {
-                  "stroke": "#555555",
-                  "stroke-width": 2,
-                  "stroke-opacity": 1,
-                  "fill": "#555555",
-                  "fill-opacity": 0.5,
-                  "countryCode": "DE",
-                  "name": "I am Munich and i am famous for education."
-                },
-                "geometry": {
-                  "type": "Polygon",
-                  "coordinates": [
-                    [
-                      [
-                        9.20654296875,
-                        48.777912755501845
-                      ],
-                      [
-                        8.72314453125,
-                        48.06339653776211
-                      ],
-                      [
-                        9.60205078125,
-                        47.07012182383309
-                      ],
-                      [
-                        11.77734375,
-                        46.6795944656402
-                      ],
-                      [
-                        13.7548828125,
-                        46.98025235521883
-                      ],
-                      [
-                        13.95263671875,
-                        48.29781249243716
-                      ],
-                      [
-                        12.678222656249998,
-                        49.396675075193976
-                      ],
-                      [
-                        10.590820312499998,
-                        49.36806633482156
-                      ],
-                      [
-                        9.20654296875,
-                        48.777912755501845
-                      ]
-                    ]
-                  ]
-                }
-              }
-            ]
-          }
-          var json = L.geoJSON(germany, {
-            onEachFeature: function(feature, core) {
-              countcode = document.getElementById('txtcountrycode').textContent;
-              if(feature.properties.countryCode == countcode) {
-                console.log("hello");
-              }
-            }
-          }).addTo(mymap);
-
         
-
-          countcode = document.getElementById('txtcountrycode').textContent;
-          console.log(countcode);
-
+                    
           //custering...
          // var cluster = L.markerClusterGroup();
         //  mymap.addLayer(cluster);
