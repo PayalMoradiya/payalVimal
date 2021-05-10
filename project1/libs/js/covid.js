@@ -31,7 +31,7 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
             last = [city].length - 1;
   
             if (result.status.name == "ok") {
-                $('#txtcovidcase').html(result['city'][last]['confirmed']);
+                $('#txtcovidcase').html(result[city][last]['confirmed']);
               //  $('#txtcountryname').html(result['data'][0]['countryName']);
              //   $('#txtlang').html(result['data'][0]['languages']);
             //   $('#txtgeonameid').html(result['data'][0]['geonameId']);
