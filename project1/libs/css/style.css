@@ -24,6 +24,7 @@ html{
     margin-top: 50px;
     border: 1px solid black;
     position:relative;
+    z-index: 5;
 
     
 }
@@ -35,7 +36,7 @@ html{
     height:30px;
     margin-right: 20px;
     border: 1px solid black;
-    z-index: 2;
+    z-index: 10;
 
 }
 
@@ -52,7 +53,7 @@ html{
     transition: height 2s;
     overflow: hidden;
     border: 1px solid palevioletred;
-    z-index: 2;
+    z-index: 10;
 
 }
 .container:hover {
