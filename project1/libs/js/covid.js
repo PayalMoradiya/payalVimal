@@ -6,15 +6,19 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
     data["United Kingdom"].forEach(({ date, confirmed, recovered, deaths }) =>
       console.log(`${date} active cases: ${confirmed - recovered - deaths}`)
     );
-  });    */
+  }); 
+    let last;
+
+            last = result[getcountry].length - 1;
+            console.log(last);
+   */
   
 
 //$(document).ready(function() {
-  let city;
-  city = document.getElementById('txtcountryname').textContent;
+  
  
-    console.log(city);
-    let last;
+  
+    
      $('#btnwiki').on("click", function() {
 
     $.ajax({
@@ -26,17 +30,23 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
         
         },
         success: function(result) {
+
            console.log(result);
-        
-            last = [city].length - 1;
+
+           let getcountry;
+             getcountry = document.getElementById('txtcountryname').textContent;
+             console.log(getcountry);
+
+          $.each(result, function(key, value) {
+              if(key === getcountry){
+               var last_object = value[value.length -1];
+                $('#txtcovidcase').html(result[getcountry][last_object]['confirmed']);
+                
+              }
+          })
+         
   
-            if (result.status.name == "ok") {
-                $('#txtcovidcase').html(result[last]['confirmed']);
-              //  $('#txtcountryname').html(result['data'][0]['countryName']);
-             //   $('#txtlang').html(result['data'][0]['languages']);
-            //   $('#txtgeonameid').html(result['data'][0]['geonameId']);
-     
-            }                                        
+                                        
         },
         error: function(jqXHR, textStatus, errorThrown) {
             //error code..
