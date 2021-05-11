@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="favicon.ico.png" rel="icon">
-   
-    <link href="venders/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="libs/css/style.css" rel="stylesheet" >
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="venders/jquery/jquery-3.6.0.min.js" ></script>
+    <link href="venders/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/css/style.css" type="text/css" rel="stylesheet" >
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+   
     <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap" rel="stylesheet">
    
     <!--leaflet link for css-->
@@ -39,14 +40,15 @@
                  
                 <!-- Dropdown -->
                    <select class="nav-item bg-light" id="selcountry">
-                       <option value="london">London</option>
-                       <option value="munich">Munich</option>
-                       <option value="gujarat">Gujarat</option>
-                       <option value="berlin">Berlin</option>
-                       <option value="frankfurt">Frankfurt</option>
-                       <option value="sydney">Sydney</option>
-                       <option value="barcelona">Barcelona</option>
-                       <option value="paris">Paris</option>
+                       <option value="United%20Kingdom">United Kingdom</option>
+                       <option value="germany">Germany</option>
+                       <option value="india">India</option>
+                       <option value="spain">Spain</option>
+                       <option value="australia">Australia</option>
+                       <option value="france">France</option>
+                       <option value="italy">Italy</option>
+                       <option value="Canada">Canada</option>
+                       <option value="new%20zealand">New Zealand</option>
                    </select>
 
                     <button id="btnwiki" class="nav-item bg-light" >Search</button>
@@ -60,19 +62,19 @@
     
 <div class="main">
        
-    <div id="mapid">
+    <div id="mapid"></div> 
 
-          <img class="recenter" src="venders/image/cursor.svg" alt="recenter">
+        <img class="recenter" src="venders/image/cursor.svg" alt="recenter">
             
-        <div class="container">
+        <div class="container w-50 ">
             <a href="#">More Info.</a>
 
             
-            <p><strong>Population:</strong></p>
-            <div id="txtpopulation"></div>
+            <p><strong>Population:</strong>
+            <div id="txtpopulation"></div></p>
 
-            <p><strong>Country Name:</strong></p>
-            <div id="txtcountryname"></div>
+            <p><strong>Country Name:</strong>
+            <div id="txtcountryname"></div></p>
 
             <p><strong>LAT:</strong></p>
             <div id="txtlat"></div>
@@ -88,159 +90,29 @@
 
             <p><strong>Covid Case:</strong></p>
             <div id="txtcovidcase"></div>
+
+            <p><strong>Name:</strong></p>
+            <div id="name1"></div>
           </div>
-        </div>   
+          
  </div>  
 
-    
-    
-
-
-    <div id="preloader">
-       
-
-    </div>
-<script>   
-  
-       
-         var mymap = L.map('mapid').setView([51.50939, -0.11832], 5);
-    
-  
-        var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
-        tiles.addTo(mymap);
-  
-
-      //  const icon = L.icon({
-        //    iconUrl: 'mark.jfif',
-          //  iconSize: [80,60]
-        //})
-        
-       
-
-        //Add marker....
-        var marker = L.marker([51.50939, -0.11832]).addTo(mymap);
-        marker.bindPopup('<h4>Hello London!</h4>');
-      // marker.setLatLng([51.50939, -0.11832]).addTo(mymap);
-
-      var marker2 = L.marker([48.1372222, 11.5755555]).addTo(mymap);
-        marker2.bindPopup('<h4>Hello Munich!</h4>');
-
-       var marker3 = L.marker([23.22, 72.68]).addTo(mymap);
-        marker3.bindPopup('<h4>Hello Gujarat!</h4>');
-
-       var marker4 = L.marker([52.5002777, 13.39888]).addTo(mymap);
-       marker4.bindPopup('<h4>Hello Berlin!</h4>');
-
-       var marker5 = L.marker([50.1447222, 8.7269444]).addTo(mymap);
-        marker5.bindPopup('<h4>Hello Frankfurt!</h4>');
-
-       var marker6 = L.marker([-33.869444, 151.2083333]).addTo(mymap);
-       marker6.bindPopup('<h4>Hello Sydney!</h4>');
-
-       var marker7 = L.marker([48.856578, 2.351828]).addTo(mymap);
-        marker7.bindPopup('<h4>Hello Paris!</h4>');
-
-       var marker8 = L.marker([41.383333, 2.166667]).addTo(mymap);
-       marker8.bindPopup('<h4>Hello Barcelona!</h4>');
-
-       //marker for gujarat fort...
-       var guj1 = L.marker([23.2001, 69.2685]).addTo(mymap);
-        guj1.bindPopup('<h4>Roha Fort!</h4>');
-
-      var guj2 = L.marker([23.4849, 70.4642]).addTo(mymap);
-        guj2.bindPopup('<h4>Kanthkot Fort!</h4>');
-
-        var guj3 = L.marker([22.4647, 70.0697]).addTo(mymap);
-        guj3.bindPopup('<h4>Lakhota Fort!</h4>');
-
-      var guj4 = L.marker([24.2291, 69.1897]).addTo(mymap);
-        guj4.bindPopup('<h4>Vighakot Fort!</h4>');
-
-        var guj5 = L.marker([22.1544, 71.3308]).addTo(mymap);
-        guj5.bindPopup('<h4>Hingolgadh Fort!</h4>');
-
-      var guj6 = L.marker([23.8525, 73.0052]).addTo(mymap);
-        guj6.bindPopup('<h4>Idar Fort!</h4>');
-
-
-      
-
-
-
-
-      //marker fly.....
-       search = document.getElementById('btnwiki');
-      
-       search.addEventListener('click', () => {
-         flyToplace();
-       });
-
-       function flyToplace() {
-         latitude = document.getElementById('txtlat').textContent;
-        longitude = document.getElementById('txtlng').textContent;
-       
-
-         mymap.flyTo([latitude, longitude], 10, {
-           duration: 3
-          })
-         };
-         flyToplace();
-
-
-         // Add circle...for population....
-         var CLayer = L.circle([51.515193,-0.092468 ], { radius: 1000, color: 'coral'});
-         CLayer.addTo(mymap).bindPopup('<h4>London polulation per square kilometre is 5701.</h4>');
-
-         var CLayer1 = L.circle([22.58358253773391, 73.355712890625], { radius: 1000, color: 'coral'});
-         CLayer1.addTo(mymap).bindPopup('<h4>Gujarat polulation per square kilometre is 310.</h4>');
-
-      
-           
-          //Add geojson data...
-
-         L.geoJSON(geojson, {
-           style : function(feature) {
-             return {
-               color: '#000',
-               weight: 0.5
-             }
-           },
-           onEachFeature: function(feature, layer) {
-             if(feature.properties.name === "Canada") {
-              return layer.feature.geometry.coordinates;
-             }
-           }
-         }).addTo(mymap);
-
-        
-        
-                    
-          //custering...
-         // var cluster = L.markerClusterGroup();
-        //  mymap.addLayer(cluster);
-
-         //using polylines....
-         var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685] ], {color: 'red'}).bindPopup('<h5>129 miles</h5>').addTo(mymap);
-         var polylines1 = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642] ], {color: 'red'}).bindPopup('<h5>89 miles</h5>').addTo(mymap);
-         var polylines2 = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697] ], {color: 'red'}).bindPopup('<h5>115 miles</h5>').addTo(mymap);
-         var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308] ], {color: 'red'}).bindPopup('<h5>100 miles</h5>').addTo(mymap);
-         var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052] ], {color: 'red'}).bindPopup('<h5>125 miles</h5>').addTo(mymap);
-
-
- </script>
             
             
    
-        <script src="" type="text/javascript"></script>
-        <script src="libs/js/getCountryInfo.js" type="text/javascript"></script>
-        <script src="libs/js/covid.js" type="text/javascript"></script>
-        <script src="libs/js/getWeather.js" type="text/javascript"></script>
-        <script src="libs/js/getWiki.js" type="text/javascript"></script>
-        <script src="libs/js/getSearch.js" type="text/javascript"></script>
-        <script src="libs/js/jquery.js" type="application/javascript"></script>
-        <script src="venders/bootstrap/js/bootstrap.min.js" ></script>
+       
+        <div id="preloader">
+          <script src="libs/js/jquery.js" type="application/javascript"></script>
+          <script src="libs/js/getCountryBorder.js" type="text/javascript"></script>
+          <script src="" type="text/javascript"></script>
+          <script src="libs/js/covid.js" type="text/javascript"></script>
+          <script src="libs/js/getWeather.js" type="text/javascript"></script>
+          <script src="libs/js/getWiki.js" type="text/javascript"></script>
+          <script src="libs/js/getSearch.js" type="text/javascript"></script>
+          <script src="libs/js/map.js" type="text/javascript"></script>
+         
+          <script src="venders/bootstrap/js/bootstrap.min.js" ></script>
+
+        </div>
     </body>
 </html>

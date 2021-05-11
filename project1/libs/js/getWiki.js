@@ -18,8 +18,8 @@
                 if (result.status.name == "ok") {
                   //  $('#txtsum').html(result['data'][0]['summary']);
                     $('#txtwiki').html(result['data'][0]['wikipediaUrl']);
-                    $('#txtlat').html(result['data'][0]['lat']);
-                    $('#txtlng').html(result['data'][0]['lng']);
+                  //  $('#txtlat').html(result['data'][0]['lat']);
+                 //   $('#txtlng').html(result['data'][0]['lng']);
                  //   $('#txtcountry').html(result['data'][0]['countryCode']);
                   // $('#txtlang').html(result['data'][0]['lang']);
                  //  $('#txtgeoname').html(result['data'][0]['geoNameId']);

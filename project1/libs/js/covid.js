@@ -7,10 +7,7 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
       console.log(`${date} active cases: ${confirmed - recovered - deaths}`)
     );
   }); 
-    let last;
-
-            last = result[getcountry].length - 1;
-            console.log(last);
+   
    */
   
 
@@ -37,12 +34,21 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
              getcountry = document.getElementById('txtcountryname').textContent;
              console.log(getcountry);
 
-          $.each(result, function(key, value) {
-              if(key === getcountry){
-               var last_object = value[value.length -1];
-                $('#txtcovidcase').html(result[getcountry][last_object]['confirmed']);
+            let newcountry;
+             
+             $.each(result, function(key, value) {
+              for( key=0; key < result.length; key++){
+                 newcountry = result[key].textContent;
                 
+                var last_object = value[value.length -1];
+                if(newcountry === getcountry){
+                  $('#txtcovidcase').html(result['data'][0]['Canada']['confirmed']);
+                }
+                console.log(newcountry);
               }
+             
+
+        
           })
          
   

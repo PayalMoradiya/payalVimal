@@ -15,13 +15,15 @@
     
     
                 console.log(result);
+
+              
     
                 if (result.status.name == "ok") {
                   //  $('#txtcontinentname').html(result['data'][0]['continentName']);
                     $('#txtcountryname').html(result['data'][0]['countryName']);
                     //$('#txtlang').html(result['data'][0]['languages']);
-                  // $('#txtlat').html(result['data'][0]['lat']);
-                  // $('#txtlng').html(result['data'][0]['lng']);
+                   $('#txtlat').html(result['data'][0]['lat']);
+                   $('#txtlng').html(result['data'][0]['lng']);
                     $('#txtpopulation').html(result['data'][0]['population']);
                     $('#txtcountrycode').html(result['data'][0]['countryCode']);
                   // $('#txtareainsq').html(result['data'][0]['areaInSqKm']);

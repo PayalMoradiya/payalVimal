@@ -16,9 +16,9 @@
     
                 if (result.status.name == "ok") {
                     $('#txtclouds').html(result['data'][0]['description']);
-                    $('#txtwind').html(result['data'][0]['windSpeed']);
-                    $('#txttemp').html(result['data'][0]['temperature']);
-                    $('#txthum').html(result['data'][0]['humidity']);
+                  //  $('#txtwind').html(result['data'][0]['windSpeed']);
+                 //   $('#txttemp').html(result['data'][0]['temperature']);
+                //    $('#txthum').html(result['data'][0]['humidity']);
                 }                   
             },
             error: function(jqXHR, textStatus, errorThrown) {
