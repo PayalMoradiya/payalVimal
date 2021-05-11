@@ -40,9 +40,8 @@
                  
                 <!-- Dropdown -->
                    <select class="nav-item bg-light" id="selcountry">
-                       <option value="United%20Kingdom">United Kingdom</option>
+                       <option value="united%20kingdom">United Kingdom</option>
                        <option value="germany">Germany</option>
-                       <option value="india">India</option>
                        <option value="spain">Spain</option>
                        <option value="australia">Australia</option>
                        <option value="france">France</option>
@@ -62,38 +61,92 @@
     
 <div class="main">
        
-    <div id="mapid"></div> 
+        <div id="mapid"></div> 
 
         <img class="recenter" src="venders/image/cursor.svg" alt="recenter">
-            
+
         <div class="container w-50 ">
-            <a href="#">More Info.</a>
 
-            
-            <p><strong>Population:</strong>
-            <div id="txtpopulation"></div></p>
-
-            <p><strong>Country Name:</strong>
-            <div id="txtcountryname"></div></p>
-
-            <p><strong>LAT:</strong></p>
-            <div id="txtlat"></div>
-
-            <p><strong>LNG:</strong></p>
-            <div id="txtlng"></div>
-
-            <p><strong>Weather Condition:</strong></p>
-            <div id="txtclouds"></div>
-
-            <p><strong>Wiki link:</strong></p>
-            <div id="txtwiki"></div>
-
-            <p><strong>Covid Case:</strong></p>
-            <div id="txtcovidcase"></div>
-
-            <p><strong>Name:</strong></p>
-            <div id="name1"></div>
-          </div>
+          <table >
+            <thead>
+              <tr>
+                <th id="text">More Info.</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Continent Code:</td>
+                <td id="txtcontinentcode"></td>
+              </tr>
+              
+              <tr>
+                <td>Toponym Name:</td>
+                <td id="txttop"></td>
+              </tr>
+              
+              <tr>
+                <td>Country Code:</td>
+                <td id="txtcountrycode"></td>
+              </tr>
+              <tr>
+                <td>Capital:</td>
+                <td id="txtcapital"></td>
+              </tr>
+              <tr>
+                <td>Covid Case:</td>
+                <td id="txtcovidcase"></td>
+              </tr>
+              <tr>
+                <td>Population:</td>
+                <td id="txtpopulation"></td>
+              </tr>
+              <tr>
+                <td>Language:</td>
+                <td id="txtlang"></td>
+              </tr>
+              <tr>
+                <td>Currency:</td>
+                <td id="txtcurrency"></td>
+              </tr>
+              <tr>
+                <td>Currency Symbol:</td>
+                <td id="txtsymbol"></td>
+              </tr>
+              <tr>
+                <tr>
+                  <td>Weather Condition:</td>
+                  <td id="txtclouds"></td>
+                </tr>
+                <tr>
+                  <td>Temperature:</td>
+                  <td id="txttemp"></td>
+                </tr>
+                <tr>
+                  <td>Humidity:</td>
+                  <td id="txthum"></td>
+                </tr>
+              <tr>
+                <td>Geoname ID:</td>
+                <td id="txtgeoname"></td>
+              </tr>
+              <tr>
+                <td>Latitude:</td>
+                <td id="txtlat"></td>
+              </tr><tr>
+                <td>Longitude:</td>
+                <td id="txtlng"></td>
+              </tr>
+              <tr>
+                <td>Wikipedia Url:</td>
+                <td id="txtwiki"></td>
+              </tr>
+              <tr>
+                <td>Coordinates:</td>
+                <td id="name1"></td>
+              </tr>
+              </tbody>
+            </table>
+         </div>
           
  </div>  
 
@@ -104,7 +157,7 @@
         <div id="preloader">
           <script src="libs/js/jquery.js" type="application/javascript"></script>
           <script src="libs/js/getCountryBorder.js" type="text/javascript"></script>
-          <script src="" type="text/javascript"></script>
+          <script src="libs/js/getCountryInfo.js" type="text/javascript"></script>
           <script src="libs/js/covid.js" type="text/javascript"></script>
           <script src="libs/js/getWeather.js" type="text/javascript"></script>
           <script src="libs/js/getWiki.js" type="text/javascript"></script>

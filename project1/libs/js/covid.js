@@ -38,11 +38,11 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
              
              $.each(result, function(key, value) {
               for( key=0; key < result.length; key++){
-                 newcountry = result[key].textContent;
+                 newcountry = result[key];
                 
                 var last_object = value[value.length -1];
                 if(newcountry === getcountry){
-                  $('#txtcovidcase').html(result['data'][0]['Canada']['confirmed']);
+                  $('#txtcovidcase').html(result['data'][getcountry][last_object]['confirmed']);
                 }
                 console.log(newcountry);
               }

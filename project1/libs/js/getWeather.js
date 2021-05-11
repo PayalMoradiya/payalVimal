@@ -15,10 +15,10 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                    $('#txtclouds').html(result['data'][0]['description']);
+                    $('#txtclouds').html(result['data']['weather'][0]['description']);
                   //  $('#txtwind').html(result['data'][0]['windSpeed']);
-                 //   $('#txttemp').html(result['data'][0]['temperature']);
-                //    $('#txthum').html(result['data'][0]['humidity']);
+                    $('#txttemp').html(result['data']['main']['temp']);
+                    $('#txthum').html(result['data']['main']['humidity']);
                 }                   
             },
             error: function(jqXHR, textStatus, errorThrown) {

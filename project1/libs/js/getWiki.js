@@ -16,13 +16,13 @@
                 console.log(result);
     
                 if (result.status.name == "ok") {
-                  //  $('#txtsum').html(result['data'][0]['summary']);
+                    $('#txtlang').html(result['data'][0]['lang']);
                     $('#txtwiki').html(result['data'][0]['wikipediaUrl']);
                   //  $('#txtlat').html(result['data'][0]['lat']);
                  //   $('#txtlng').html(result['data'][0]['lng']);
                  //   $('#txtcountry').html(result['data'][0]['countryCode']);
                   // $('#txtlang').html(result['data'][0]['lang']);
-                 //  $('#txtgeoname').html(result['data'][0]['geoNameId']);
+                   $('#txtgeoname').html(result['data'][0]['geoNameId']);
                 }                                     
             },
             error: function(jqXHR, textStatus, errorThrown) {

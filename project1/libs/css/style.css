@@ -16,7 +16,7 @@
 
 div.main {
     height: 633px;
-    width: 100%;
+    width: 1366px;
     overflow: hidden;
 }  
 
@@ -35,7 +35,7 @@ div.main {
 
 .container {
     position:absolute;
-    right: 300px;
+    right: 340px;
     height:50px;
     background-color: black;
     bottom: 0px;
@@ -49,12 +49,26 @@ div.main {
 
 }
 .container:hover {
-    height: 500px;
+    height: 600px;
 
   }
 
-.container p {
-    display: inline-block;
+div.container.w-50 {
+   
+    line-height: 30px;
+
+}
+table{
+    width: 100%;
+}
+tr, td{
+    width: 600px;
+}
+
+ th#text{
+    text-align: center;
+    text-decoration: underline;
+    
 }
 .recenter{
     position:relative;

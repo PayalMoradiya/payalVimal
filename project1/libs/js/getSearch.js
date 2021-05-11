@@ -19,9 +19,9 @@
               
     
                 if (result.status.name == "ok") {
-                  //  $('#txtcontinentname').html(result['data'][0]['continentName']);
+                    $('#txtcontinentcode').html(result['data'][0]['continentCode']);
                     $('#txtcountryname').html(result['data'][0]['countryName']);
-                    //$('#txtlang').html(result['data'][0]['languages']);
+                    $('#txttop').html(result['data'][0]['toponymName']);
                    $('#txtlat').html(result['data'][0]['lat']);
                    $('#txtlng').html(result['data'][0]['lng']);
                     $('#txtpopulation').html(result['data'][0]['population']);
