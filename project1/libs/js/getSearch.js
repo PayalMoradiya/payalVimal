@@ -20,7 +20,7 @@
     
                 if (result.status.name == "ok") {
                     $('#txtcontinentcode').html(result['data'][0]['continentCode']);
-                    $('#txtcountryname').html(result['data'][0]['countryName']);
+                   // $('#txtcountryname').html(result['data'][0]['countryName']);
                     $('#txttop').html(result['data'][0]['toponymName']);
                    $('#txtlat').html(result['data'][0]['lat']);
                    $('#txtlng').html(result['data'][0]['lng']);

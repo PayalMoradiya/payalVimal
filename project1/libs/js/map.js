@@ -1,24 +1,57 @@
 
-         var mymap = L.map('mapid').setView([54.75844, -2.69531], 5);
+
+
+    var mymap = L.map('mapid').setView([54.75844, -2.69531], 13).fitWorld();
     
   
          var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-         maxZoom: 19,
+         maxZoom: 18,
+         tileSize: 512,
+         zoomOffset: -1,
          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
          });
          tiles.addTo(mymap);
+
+
+         //User Current location....
+
+         mymap.locate({setView: true, maxZoom: 18});
+
+         function onLocationFound(e) {
+          var radius = e.accuracy;
+      
+          L.marker(e.latlng).addTo(mymap)
+              .bindPopup("You are within " + radius + " meters from this point").openPopup();
+      
+          L.circle(e.latlng, radius).addTo(mymap);
+      }
+      
+      mymap.on('locationfound', onLocationFound);
+
    
  
        //  const icon = L.icon({
          //    iconUrl: 'mark.jfif',
            //  iconSize: [80,60]
          //})
+         var myIcon = L.icon({
+          iconUrl: 'venders/image/leaf-green.png',
+          iconSize: [50, 60],
+          iconAnchor: [22, 94],
+          popupAnchor: [-3, -76],
+          //shadowUrl: 'my-icon-shadow.png',
+         // shadowSize: [68, 95],
+         // shadowAnchor: [22, 94]
+      });
          
         //marker for country....
-        mymap.setView([54.75844, -2.69531])
-        L.marker([40, -4]).bindPopup('<h4>Hello Spain!</h4>').addTo(mymap);
-        L.marker([-25, 135]).bindPopup('<h4>Hello Australia!</h4>').addTo(mymap);
-        L.marker([-42, 174]).bindPopup('<h4>Hello New Zealand!</h4>').addTo(mymap);
+          // Handler for .load() called.
+        
+      
+        
+        L.marker([40, -4], {icon: myIcon}).bindPopup('<h4>Hello Spain!</h4>').addTo(mymap);
+        L.marker([-25, 135], {icon: myIcon}).bindPopup('<h4>Hello Australia!</h4>').addTo(mymap);
+        L.marker([-42, 174], {icon: myIcon}).bindPopup('<h4>Hello New Zealand!</h4>').addTo(mymap);
  
         L.marker([54.75844, -2.69531]).bindPopup('<h4>Hello United Kingdom!</h4>').addTo(mymap);
         L.marker([22, 79]).bindPopup('<h4>Hello India!</h4>').addTo(mymap);
@@ -90,6 +123,7 @@
         function flyToplace() {
           latitude = document.getElementById('txtlat').textContent;
          longitude = document.getElementById('txtlng').textContent;
+        // countryname = document.getElementById('txtcountryname').textContent;
         
  
           mymap.flyTo([latitude, longitude], 10, {
@@ -107,14 +141,8 @@
           CLayer1.addTo(mymap).bindPopup('<h4>Gujarat polulation per square kilometre is 310.</h4>');
  
        
-            
-           //Add geojson data...
-           let coordinate;
-          coordinate = document.getElementById('name1').textContent;
-
-          
- 
-          var polygon = L.polygon( coordinate, {color: 'red'}).addTo(mymap);
+    
+         // var polygon = L.polygon( coors, {color: 'red'}).addTo(mymap);
                      
            //custering...
           // var cluster = L.markerClusterGroup();
@@ -127,4 +155,9 @@
           var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308] ], {color: 'red'}).bindPopup('<h5>100 miles</h5>').addTo(mymap);
           var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052] ], {color: 'red'}).bindPopup('<h5>125 miles</h5>').addTo(mymap);
  
+          //add geojson data....
+          
+
+
+
  
