@@ -12,7 +12,7 @@
             },
             success: function(result) {
                 
-                console.log(result);
+            //    console.log(result);
     
                 if (result.status.name == "ok") {
                     $('#txtclouds').html(result['data']['weather'][0]['description']);

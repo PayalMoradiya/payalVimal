@@ -11,7 +11,7 @@
                // q: $('#selcountry').val()
             },
             success: function(result) {
-              console.log(result);
+             // console.log(result);
 
 
                if (result.status.name == "ok") {

@@ -14,7 +14,7 @@
 
     
     
-                console.log(result);
+              //  console.log(result);
     
                 if (result.status.name == "ok") {
                    // $('#txtcontinentname').html(result['data'][0]['continentName']);

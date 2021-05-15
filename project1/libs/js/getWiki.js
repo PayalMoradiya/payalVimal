@@ -13,7 +13,7 @@
 
     
     
-                console.log(result);
+             //   console.log(result);
     
                 if (result.status.name == "ok") {
                     $('#txtlang').html(result['data'][0]['lang']);

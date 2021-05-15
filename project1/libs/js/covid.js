@@ -1,67 +1,46 @@
-/*
+$(document).ready(function () {
+  // $('#btnwiki').on("click", function() {
 
-fetch("https://pomber.github.io/covid19/timeseries.json")
-  .then(response => response.json())
-  .then(data => {
-    data["United Kingdom"].forEach(({ date, confirmed, recovered, deaths }) =>
-      console.log(`${date} active cases: ${confirmed - recovered - deaths}`)
-    );
-  }); 
-   
-   */
-  
+  $.ajax({
+    url: "libs/php/getcovid.php",
+    type: "GET",
+    dataType: "json",
+    data: {
+      // postalcode: $('#selPostcode').val(),
+    },
+    success: function (result) {
+      console.log(result);
+      console.log(result.data);
 
-//$(document).ready(function() {
-  
- 
-  
-    
-     $('#btnwiki').on("click", function() {
+      const log = console.log;
+      const areaSelect = document.querySelector(`[id="selcountry"]`);
+      var dropdownItems ;
+      var select;
+      var Value;
+      areaSelect.addEventListener(`change`, (e) => {
+        // Select country name from dropdown list...
+        select = e.target;
+        Value = e.target.value;
+        dropdownItems = select.options[select.selectedIndex].text;
+      
 
-    $.ajax({
-        url: "libs/php/getcovid.php",
-        type: 'POST',
-        dataType: 'json',
-        data: {
-         // postalcode: $('#selPostcode').val(),
-        
-        },
-        success: function(result) {
+        $.each(result.data, function (keys, value) {
+          if (keys === dropdownItems) {
 
-           console.log(result);
+              var index = value[value.length - 1];
+              var activecase = (index.confirmed) - (index.deaths) - (index.recovered);
+              console.log(activecase);
+              console.log(index.confirmed);
+              console.log(index.deaths);
+              console.log(index.recovered);
 
-           let getcountry;
-             getcountry = document.getElementById('txtcountryname').textContent;
-             console.log(getcountry);
-
-            let newcountry;
-             
-             $.each(result, function(key, value) {
-              for( key=0; key < result.length; key++){
-                 newcountry = result[key];
-                
-                var last_object = value[value.length -1];
-                if(newcountry === getcountry){
-                  $('#txtcovidcase').html(result['data'][getcountry][last_object]['confirmed']);
-                }
-                console.log(newcountry);
-              }
-             
-
-        
-          })
-         
-  
-                                        
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            //error code..
-            alert('error');
-        }
-    });
-});
-
-//});
-
-
-
+              $('#txtcovidcase').html(activecase);
+              $('#txtconcovidcase').html(index.confirmed);
+              $('#txtdeacovidcase').html(index.deaths);
+              $('#txtreccovidcase').html(index.recovered);
+          }
+        });
+      });
+    },
+  });
+});   
