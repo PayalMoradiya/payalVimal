@@ -1,5 +1,5 @@
 
-
+     //map....
 
     var mymap = L.map('mapid').setView([54.75844, -2.69531], 13).fitWorld();
     
@@ -29,13 +29,10 @@
       mymap.on('locationfound', onLocationFound);
 
    
- 
-       //  const icon = L.icon({
-         //    iconUrl: 'mark.jfif',
-           //  iconSize: [80,60]
-         //})
+      //Add Custom Icons....
+       
          var myIcon = L.icon({
-          iconUrl: 'venders/image/leaf-green.png',
+          iconUrl: 'venders/image/leaf-red.png',
           iconSize: [50, 60],
           iconAnchor: [22, 94],
           popupAnchor: [-3, -76],
@@ -43,24 +40,20 @@
          // shadowSize: [68, 95],
          // shadowAnchor: [22, 94]
       });
-         
-        //marker for country....
-          // Handler for .load() called.
-        
-      
-        
-        L.marker([40, -4], {icon: myIcon}).bindPopup('<h4>Hello Spain!</h4>').addTo(mymap);
-        L.marker([-25, 135], {icon: myIcon}).bindPopup('<h4>Hello Australia!</h4>').addTo(mymap);
-        L.marker([-42, 174], {icon: myIcon}).bindPopup('<h4>Hello New Zealand!</h4>').addTo(mymap);
- 
-        L.marker([54.75844, -2.69531]).bindPopup('<h4>Hello United Kingdom!</h4>').addTo(mymap);
-        L.marker([22, 79]).bindPopup('<h4>Hello India!</h4>').addTo(mymap);
-        L.marker([42.83333, 12.83333]).bindPopup('<h4>Hello Italy!</h4>').addTo(mymap);
-        L.marker([51.5, 10.5]).bindPopup('<h4>Hello Germany!</h4>').addTo(mymap);
-        L.marker([46, 2]).bindPopup('<h4>Hello France!</h4>').addTo(mymap);
-  
- 
- 
+          var myCastleIcon = L.icon({
+          iconUrl: 'venders/image/castle.png',
+          iconSize: [40, 40],
+          iconAnchor: [22, 94],
+          popupAnchor: [-3, -76],
+          
+      });
+      var mytouristPlaceIcon = L.icon({
+          iconUrl: 'venders/image/beach.png',
+          iconSize: [40, 40],
+          iconAnchor: [22, 94],
+          popupAnchor: [-3, -76],
+          
+      });
  
          //Add marker....
          var marker = L.marker([51.50939, -0.11832]).addTo(mymap);
@@ -108,30 +101,45 @@
          guj6.bindPopup('<h4>Idar Fort!</h4>');
  
  
-       
+ //Get Lat and Lng from OpenCage and fly to that location....      
  
- 
- 
- 
-       //marker fly.....
-        search = document.getElementById('btnwiki');
-       
-        search.addEventListener('click', () => {
-          flyToplace();
+ $('#btnwiki').on("click", function() {
+
+        $.ajax({
+            url: "libs/php/getLatLng.php",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              q: $('#selcountry').val()
+            },
+            success: function(result) {
+
+                if (result.status.name == "ok") {
+                   var lat = result['data'][0]["geometry"][ "lat"];
+                   console.log(lat);
+                    var lng = result['data'][0]["geometry"][ "lng"];
+                   console.log(lng);
+                    var countryName = result['data'][0]["components"]["country"];
+                   console.log(countryName);
+                
+                   function flyToplace() {
+                       var countryMarker = L.marker([lat, lng], {icon: myIcon}).addTo(mymap);
+                     countryMarker.bindPopup('Hello' + ' ' + countryName + '!');
+
+                        mymap.flyTo([lat, lng], 10, {
+                            duration: 3
+                        });
+                   };
+                   flyToplace();
+                };
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert('error');
+            }
         });
- 
-        function flyToplace() {
-          latitude = document.getElementById('txtlat').textContent;
-         longitude = document.getElementById('txtlng').textContent;
-        // countryname = document.getElementById('txtcountryname').textContent;
-        
- 
-          mymap.flyTo([latitude, longitude], 10, {
-            duration: 3
-           })
-          };
-          flyToplace();
- 
+    });
+
  
           // Add circle...for population....
           var CLayer = L.circle([51.515193,-0.092468 ], { radius: 1000, color: 'coral'});
@@ -139,7 +147,7 @@
  
           var CLayer1 = L.circle([22.58358253773391, 73.355712890625], { radius: 1000, color: 'coral'});
           CLayer1.addTo(mymap).bindPopup('<h4>Gujarat polulation per square kilometre is 310.</h4>');
- 
+
        
     
          // var polygon = L.polygon( coors, {color: 'red'}).addTo(mymap);
@@ -149,15 +157,75 @@
          //  mymap.addLayer(cluster);
  
           //using polylines....
-          var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685] ], {color: 'red'}).bindPopup('<h5>129 miles</h5>').addTo(mymap);
-          var polylines1 = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642] ], {color: 'red'}).bindPopup('<h5>89 miles</h5>').addTo(mymap);
-          var polylines2 = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697] ], {color: 'red'}).bindPopup('<h5>115 miles</h5>').addTo(mymap);
-          var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308] ], {color: 'red'}).bindPopup('<h5>100 miles</h5>').addTo(mymap);
-          var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052] ], {color: 'red'}).bindPopup('<h5>125 miles</h5>').addTo(mymap);
+        //  var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685]], {color: 'red'}).bindPopup('<h5>129 miles</h5>').addTo(mymap);
+          //var polylines1 = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642]], {color: 'red'}).bindPopup('<h5>89 miles</h5>').addTo(mymap);
+      //    var polylines2 = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697]], {color: 'red'}).bindPopup('<h5>115 miles</h5>').addTo(mymap);
+        //  var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308]], {color: 'red'}).bindPopup('<h5>100 miles</h5>').addTo(mymap);
+         // var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052]], {color: 'red'}).bindPopup('<h5>125 miles</h5>').addTo(mymap);
  
-          //add geojson data....
+          //add geojson data for lines and marker...
+        
+     
+    //add fort data using marker....
+
+        //add popups.....
+          function onEachFeature(feature, layer) {
+              // does this feature have a property named popupContent?
+              if (feature.properties && feature.properties.popupContent) {
+                  layer.bindPopup(feature.properties.popupContent, {closeButton: false, offset: L.point(0, -8)});
+              }
+          }
+
+          L.geoJSON(fort,{
+            pointToLayer : function(geoJsonPoint, latlng) {
+                     return L.marker(latlng, {
+                       icon :myCastleIcon
+                     });
+                  },
+            onEachFeature: onEachFeature
+          }).addTo(mymap);
+
+        // add lines.......
+          L.geoJSON(mylines, {
+               style: myStyle,
+              onEachFeature: onEachFeature
+          }).addTo(mymap);
+
+        //add tourist place marker.....
+         L.geoJSON(touristPlace,{
+            pointToLayer : function(geoJsonPoint, latlng) {
+                     return L.marker(latlng, {
+                       icon : mytouristPlaceIcon
+                     });
+                  },
+            onEachFeature: onEachFeature
+          }).addTo(mymap);
+
+
+          //country boundry....
           
+        const log = console.log;
+              const areaSelect = document.querySelector(`[id="selcountry"]`);
+              var desc;
+              var select;
+              var Value;
+        areaSelect.addEventListener(`change`, (e) => {
+                // log(`e.target`, e.target);
+                 select = e.target;
+                 Value = e.target.value;
+                 desc = select.options[select.selectedIndex].text;
+                log( Value);
+
+            L.geoJSON(geoJSON, {
+                     filter: function(feature, layer) {
+
+                          if(feature.properties.name === desc) {
+                            return feature.geometry.coordinates;
+                          }
+                      
+                      }
+               }).addTo(mymap);
+
+          });    
 
 
-
- 

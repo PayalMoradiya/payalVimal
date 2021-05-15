@@ -98,6 +98,22 @@ tr, td{
     z-index: 2;
    
 }
+h6 {
+        font-weight:bold;
+    }
+div.popup {
+        text-align:center;
+        width:145px;
+        height:170px;
+        
+    }
+    img.popup_image {
+        text-align:center;
+        width:143px;
+        height:147px;
+    }
+   
+    
 
 
 #preloader {
@@ -262,6 +278,20 @@ tr, td{
         right: 20px;
         z-index: 2;
        
+    }
+    h6 {
+        font-weight:bold;
+    }
+    div.popup {
+        text-align:center;
+        width:145px;
+        height:170px;
+        
+    }
+    img.popup_image {
+        text-align:center;
+        width:143px;
+        height:147px;
     }
     
     

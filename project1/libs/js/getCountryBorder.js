@@ -12,16 +12,6 @@
             },
             success: function(result) {
               console.log(result);
-              var getcountryname = [];
-              var  getISOcode = [];
-              $.each( result, function() {
-
-                getcountryname.push(result['data']['properties']['name']);
-                getISOcode.push(result['data']['properties']['iso_a3']);
-
-              });
-              console.log(getcountryname);
-              console.log(getISOcode);
 
 
                if (result.status.name == "ok") {
