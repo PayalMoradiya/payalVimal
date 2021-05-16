@@ -380,7 +380,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-1.9904, 50.6304],
-    },
+    }
   },
   {
     type: "Feature",
@@ -394,7 +394,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.2801, 50.6210],
-    },
+    }
   },
   {
     type: "Feature",
@@ -408,7 +408,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-1.9865, 50.6908],
-    },
+    }
   },
   {
     type: "Feature",
@@ -422,7 +422,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.4343, 50.5475],
-    },
+    }
   },
   {
     type: "Feature",
@@ -436,7 +436,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-1.9225, 50.6429],
-    },
+    }
   },
   {
     type: "Feature",
@@ -450,12 +450,12 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-3.0878, 52.9704],
-    },
+    }
   },
   {
     type: "Feature",
-    properties: {Castell Dinas Bran
-      name: "",
+    properties: {
+      name: "Castell Dinas Bran",
       popupContent: `<div class="popup">
                         <h6>Castell Dinas Bran</h6>
                         <img  class="popup_image" src="venders/image/cast.jpg" >
@@ -464,7 +464,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-3.1589, 52.9791],
-    },
+    }
   },
   {
     type: "Feature",
@@ -478,7 +478,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-3.1998, 52.9813],
-    },
+    }
   },
   {
     type: "Feature",
@@ -492,7 +492,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.6986, 51.1444],
-    },
+    }
   },
   {
     type: "Feature",
@@ -506,7 +506,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.3179, 51.1051],
-    },
+    }
   },
   {
     type: "Feature",
@@ -520,7 +520,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.7153, 51.1461],
-    },
+    }
   },
   {
     type: "Feature",
@@ -534,7 +534,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.3470, 52.0491],
-    },
+    }
   },
   {
     type: "Feature",
@@ -548,7 +548,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-2.3369, 52.0612],
-    },
+    }
   },
   {
     type: "Feature",
@@ -562,7 +562,7 @@ var touristPlace = [
     geometry: {
       type: "Point",
       coordinates: [-1.4104, 51.0608],
-    },
+    }
   }
   
 ];

@@ -242,3 +242,71 @@ areaSelect.addEventListener(`change`, (e) => {
     },
   }).addTo(mymap);
 });
+
+
+
+//World population...
+
+$(document).ready(function() {
+ // $('#btnwiki').on("click", function() {
+
+    $.ajax({
+        url: "libs/php/population.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+           // q: $('#selcountry').val()
+        },
+        success: function(result) {
+
+
+
+           console.log(result);
+
+           $.each(result.data, function (i) {
+
+             for(i=0; i<result.data.length; i++) {
+
+              var Lat = result['data'][i]['latlng'][0];
+              var Lng = result['data'][i]['latlng'][1];
+              console.log(Lat);
+              console.log(Lng);
+   
+              var population = result['data'][i]['population'];
+              console.log(population);
+             
+              var name = result['data'][i]['name'];
+              console.log(name);
+
+              if(Lat === undefined && Lng === undefined) {
+                continue;
+              }
+   
+               var CLayer2 = L.circle([Lat, Lng], {
+               radius: 10000,
+               color: "red",
+             });
+             CLayer2.addTo(mymap).bindPopup(
+             name + "<br>" + population
+             );
+   
+             
+
+             };
+
+          
+           });
+
+                                     
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            //error code..
+            alert('error');
+        }
+    });
+});
+
+//});
+  
+
+
