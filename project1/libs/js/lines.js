@@ -19,7 +19,7 @@ var castle = [
         name: "Old Oswestry",
         popupContent: `<div class="popup">
                               <h6>Old Oswestry</h6>
-                              <img  class="popup_image" src="venders/image/maiden.jpg" >
+                              <img  class="popup_image" src="venders/image/oswestry.jpg" >
                           </div> `,
     },
     geometry: {
@@ -33,7 +33,7 @@ var castle = [
         name: "Traprain Law",
         popupContent: `<div class="popup">
                               <h6>Traprain Law</h6>
-                              <img  class="popup_image" src="venders/image/maiden.jpg" >
+                              <img  class="popup_image" src="venders/image/traprain.jpg" >
                           </div> `,
     },
     geometry: {
@@ -47,7 +47,7 @@ var castle = [
       name: "Hambledon Hill",
       popupContent: `<div class="popup">
                             <h6>Hambledon Hill</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/hamb.jpg" >
                         </div> `,
     },
     geometry: {
@@ -61,7 +61,7 @@ var castle = [
       name: "Cadbury Castle",
       popupContent: `<div class="popup">
                             <h6>Cadbury Castle</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/cadb.jpg" >
                         </div> `,
     },
     geometry: {
@@ -75,7 +75,7 @@ var castle = [
       name: "Battlesbury Camp",
       popupContent: `<div class="popup">
                             <h6>Battlesbury Camp</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/batt.jpg" >
                         </div> `,
     },
     geometry: {
@@ -89,7 +89,7 @@ var castle = [
       name: "The British Camp",
       popupContent: `<div class="popup">
                             <h6>The British Camp</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/brit.jpg" >
                         </div> `,
     },
     geometry: {
@@ -103,7 +103,7 @@ var castle = [
       name: "Cissbury Ring",
       popupContent: `<div class="popup">
                             <h6>Cissbury Ring</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/ciss.jpg" >
                         </div> `,
     },
     geometry: {
@@ -117,7 +117,7 @@ var castle = [
       name: "Danebury",
       popupContent: `<div class="popup">
                             <h6>Danebury</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/dane.jpg" >
                         </div> `,
     },
     geometry: {
@@ -131,7 +131,7 @@ var castle = [
       name: "Woden Law",
       popupContent: `<div class="popup">
                             <h6>Woden Law</h6>
-                            <img  class="popup_image" src="venders/image/maiden.jpg" >
+                            <img  class="popup_image" src="venders/image/wode.jpg" >
                         </div> `,
     },
     geometry: {
@@ -168,7 +168,7 @@ var mylines = [
     properties: {
       name: "Maiden Castle",
       popupContent:
-        "Distance between Maiden Castle Castle and Durdle Door is 14 mi. ",
+        "Distance between Maiden Castle and Durdle Door is 14 mi. ",
     },
     geometry: {
       type: "LineString",
@@ -183,7 +183,7 @@ var mylines = [
     properties: {
       name: "Maiden Castle",
       popupContent:
-        "Distance between Maiden Castle Castle and PooleHarbour is 32 mi. ",
+        "Distance between Maiden Castle and PooleHarbour is 32 mi. ",
     },
     geometry: {
       type: "LineString",
@@ -198,7 +198,7 @@ var mylines = [
     properties: {
       name: "Maiden Castle",
       popupContent:
-        "Distance between Maiden Castle Castle and Isle Of Portland is 15 mi. ",
+        "Distance between Maiden Castle and Isle Of Portland is 15 mi. ",
     },
     geometry: {
       type: "LineString",
@@ -213,7 +213,7 @@ var mylines = [
     properties: {
       name: "Maiden Castle",
       popupContent:
-        "Distance between Maiden Castle Castle and Old Harry Rocks is 28 mi. ",
+        "Distance between Maiden Castle and Old Harry Rocks is 28 mi. ",
     },
     geometry: {
       type: "LineString",
@@ -267,6 +267,96 @@ var mylines = [
         [-3.1998, 52.9813],
       ],
     },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Glastonbury Tor is 18 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.6986, 51.1444],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Stourhead is 14 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.3179, 51.1051],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Glastonbury Abbey is 17 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.7153, 51.1461],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "The British Camp",
+      popupContent:
+        "Distance between The British Camp Castle and Swinyard Hill is 6 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-2.3470, 52.0491],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "The British Camp",
+      popupContent:
+        "Distance between The British Camp Castle and Little Malvern Court & Garden is 2 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-2.3369, 52.0612],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Danebury Castle",
+      popupContent:
+        "Distance between Danebury Castle and Farley Mount Court Park is 10 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-1.4104, 51.0608],
+      ],
+    },
   }
 ];
 
@@ -284,7 +374,7 @@ var touristPlace = [
       name: "Nine Barrow Down",
       popupContent: `<div class="popup">
                         <h6>Nine Barrow Down</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/nine.jpg" >
                     </div> `,
     },
     geometry: {
@@ -298,7 +388,7 @@ var touristPlace = [
       name: "Durdle Door",
       popupContent: `<div class="popup">
                         <h6>Durdle Door</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/durd.jpg" >
                     </div> `,
     },
     geometry: {
@@ -312,7 +402,7 @@ var touristPlace = [
       name: "Poole Harbour",
       popupContent: `<div class="popup">
                         <h6>Poole Harbour</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/pool.jpg" >
                     </div> `,
     },
     geometry: {
@@ -326,7 +416,7 @@ var touristPlace = [
       name: "Isle Of Portland",
       popupContent: `<div class="popup">
                         <h6>Isle Of Portland</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/isle.jpg" >
                     </div> `,
     },
     geometry: {
@@ -340,7 +430,7 @@ var touristPlace = [
       name: "Old Harry Rocks",
       popupContent: `<div class="popup">
                         <h6>Old Harry Rocks</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/old.jpg" >
                     </div> `,
     },
     geometry: {
@@ -354,7 +444,7 @@ var touristPlace = [
       name: "Pontcysyllte Aqueduct",
       popupContent: `<div class="popup">
                         <h6>Pontcysyllte Aqueduct</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/pont.jpg" >
                     </div> `,
     },
     geometry: {
@@ -364,11 +454,11 @@ var touristPlace = [
   },
   {
     type: "Feature",
-    properties: {
-      name: "Castell Dinas Bran",
+    properties: {Castell Dinas Bran
+      name: "",
       popupContent: `<div class="popup">
                         <h6>Castell Dinas Bran</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/cast.jpg" >
                     </div> `,
     },
     geometry: {
@@ -382,7 +472,7 @@ var touristPlace = [
       name: "Horseshoe Falls",
       popupContent: `<div class="popup">
                         <h6>Horseshoe Falls</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/hors.jpg" >
                     </div> `,
     },
     geometry: {
@@ -396,7 +486,7 @@ var touristPlace = [
       name: "Glastonbury Tor",
       popupContent: `<div class="popup">
                         <h6>Glastonbury Tor</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/glas.jpg" >
                     </div> `,
     },
     geometry: {
@@ -410,7 +500,7 @@ var touristPlace = [
       name: "Stourhead",
       popupContent: `<div class="popup">
                         <h6>Stourhead</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/stou.jpg" >
                     </div> `,
     },
     geometry: {
@@ -424,7 +514,7 @@ var touristPlace = [
       name: "Glastonbury Abbey",
       popupContent: `<div class="popup">
                         <h6>Glastonbury Abbey</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/abbe.jpg" >
                     </div> `,
     },
     geometry: {
@@ -438,7 +528,7 @@ var touristPlace = [
       name: "Swinyard Hill",
       popupContent: `<div class="popup">
                         <h6>Swinyard Hill</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/swin.jpg" >
                     </div> `,
     },
     geometry: {
@@ -452,7 +542,7 @@ var touristPlace = [
       name: "Malvern Court & Gardens",
       popupContent: `<div class="popup">
                         <h6>Malvern Court & Gardens</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/malv.jpg" >
                     </div> `,
     },
     geometry: {
@@ -466,7 +556,7 @@ var touristPlace = [
       name: "Farley Mount Country Park",
       popupContent: `<div class="popup">
                         <h6>Farley Mount Country Park</h6>
-                        <img  class="popup_image" src="venders/image/maiden.jpg" >
+                        <img  class="popup_image" src="venders/image/farl.jpg" >
                     </div> `,
     },
     geometry: {
