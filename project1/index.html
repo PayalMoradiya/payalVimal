@@ -33,23 +33,33 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
+
+     <!--Clustering...-->
+
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+   
     <!--leaflet link for javascript-->
     <script
       src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""
     ></script>
+
+    <!--Clustering...-->
+    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
   </head>
   <body>
     <div class="header">
       <nav class="navbar navbar-expand-sm bg-secondary fixed-top">
         <!-- logo-->
-        <img class="logo" src="venders/image/map1.png" alt="logo" />
+        <img class="logo" src="venders/image/location-pin2.png" alt="logo" />
 
         <!-- Navs -->
         <ul class="nav justify-content-center">
           <!-- Dropdown -->
-          <select class="nav-item bg-light" id="selcountry">
+          <select  class="nav-item bg-light" id="selcountry" >
+            <option  value="" disabled selected hidden>Select Country</option>
             <option value="united%20kingdom">United Kingdom</option>
             <option value="germany">Germany</option>
             <option value="spain">Spain</option>
