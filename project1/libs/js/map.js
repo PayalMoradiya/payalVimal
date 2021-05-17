@@ -180,22 +180,163 @@ berlin4.bindPopup( `<div class="popup">
                       <img  class="popup_image" src="venders/image/scho.jpg" >
                     </div> `, { closeButton: false,offset: L.point(0, -8)});
 
+                    
+//marker for fort.....
+var fort1 = L.marker([40.95, -4.1325], {icon:myCastleIcon}).addTo(mymap);
+fort1.bindPopup( `<div class="popup">
+                      <h6>Alcázar of Segovia, Spain</h6>
+                      <img  class="popup_image" src="venders/image/alc.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+var fort2 = L.marker([40.73, 13.9650], {icon:myCastleIcon}).addTo(mymap);
+fort2.bindPopup( `<div class="popup">
+                      <h6>Aragonese Castle, Italy</h6>
+                      <img  class="popup_image" src="venders/image/ara.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+
+var fort3 = L.marker([47.6161, 1.5172], {icon:myCastleIcon}).addTo(mymap);
+fort3.bindPopup( `<div class="popup">
+                      <h6>Château de Chambord, France</h6>
+                      <img  class="popup_image" src="venders/image/cha.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+ var fort4 = L.marker([45.4337, 12.4304], {icon:myCastleIcon}).addTo(mymap);
+fort4.bindPopup( `<div class="popup">
+                      <h6>Doge’s Palace, Italy</h6>
+                      <img  class="popup_image" src="venders/image/dog.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+          
+var fort5 = L.marker([53.3429, 6.2674], {icon:myCastleIcon}).addTo(mymap);
+fort5.bindPopup( `<div class="popup">
+                      <h6>Dublin Castle, Ireland</h6>
+                      <img  class="popup_image" src="venders/image/dub.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+                    
+var fort6 = L.marker([59.9404, 30.3138], {icon:myCastleIcon}).addTo(mymap);
+fort6.bindPopup( `<div class="popup">
+                      <h6>Winter Palace, Russia</h6>
+                      <img  class="popup_image" src="venders/image/win.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});                    
+                    
+
+var fort7 = L.marker([38.7507, -9.2591], {icon:myCastleIcon}).addTo(mymap);
+fort7.bindPopup( `<div class="popup">
+                      <h6>Queluz National Palace, Portugal</h6>
+                      <img  class="popup_image" src="venders/image/que.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+var fort8 = L.marker([37.3831, -5.9902], {icon:myCastleIcon}).addTo(mymap);
+fort8.bindPopup( `<div class="popup">
+                      <h6> Real Alcazar of Seville, Spain </h6>
+                      <img  class="popup_image" src="venders/image/rea.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+
+var fort9 = L.marker([47.4962, 19.0396], {icon:myCastleIcon}).addTo(mymap);
+fort9.bindPopup( `<div class="popup">
+                      <h6> Buda Castle, Hungary</h6>
+                      <img  class="popup_image" src="venders/image/bud.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+
+var fort10 = L.marker([59.3217, 17.8863], {icon:myCastleIcon}).addTo(mymap);
+fort10.bindPopup( `<div class="popup">
+                      <h6> Drottningholm Castle, Sweden</h6>
+                      <img  class="popup_image" src="venders/image/dro.jpg" >
+                    </div> `, { closeButton: false,offset: L.point(0, -8)});
+
+
+
+                    
+
+
+
+
+
+
+
+
+
 
 
 // Add circle...for population....
-var CLayer = L.circle([51.515193, -0.092468], { radius: 5000, color: "coral" });
+var CLayer = L.circle([ 51.94087861255871, -0.7525634765625], { radius: 10000, color: "#ff4500" });
 CLayer.addTo(mymap).bindPopup(
-  "<h6>London polulation per square kilometre is 5701.</h6>" , { closeButton: false}
+  "<h6>Density of population in United Kingdom is 275 persons per sq Km.</h6>" , { closeButton: false}
 );
 
-var CLayer1 = L.circle([22.58358253773391, 73.355712890625], {
-  radius: 1000,
-  color: "coral",
+var CLayer1 = L.circle([ 22.755920681486405 ,78.72802734375], {
+  radius: 10000,
+  color: "#ff4500",
 });
 CLayer1.addTo(mymap).bindPopup(
-  "<h6>Gujarat polulation per square kilometre is 310.</h6>", { closeButton: false}
+  "<h6>Density of population in India is 382 persons per sq Km.</h6>", { closeButton: false}
 );
 
+var CLayer2 = L.circle([49.32512199104001, 10.37109375], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer2.addTo(mymap).bindPopup(
+  "<h6>Density of population in Germany is 233 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer3 = L.circle([ 41.60722821271717, -5.888671875], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer3.addTo(mymap).bindPopup(
+  "<h6>Density of population in Spain is 93.67 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer4 = L.circle([ 41.409775832009565, 14.666748046875], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer4.addTo(mymap).bindPopup(
+  "<h6>Density of population in Italy is 205.45 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer5 = L.circle([ 48.472921272487824, 5.537109374999999], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer5.addTo(mymap).bindPopup(
+  "<h6>Density of population in France is 122.34 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer6 = L.circle([56.65622649350222, -108.369140625], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer6.addTo(mymap).bindPopup(
+  "<h6>Density of population in Canada is 4 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer7 = L.circle([ -45.259422036351694, 169.4091796875], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer7.addTo(mymap).bindPopup(
+  "<h6>Density of population in New Zealand is 18 persons per sq Km.</h6>", { closeButton: false}
+);
+
+var CLayer8 = L.circle([ -27.449790329784214,  145.458984375], {
+  radius: 10000,
+  color: "#ff4500",
+});
+CLayer8.addTo(mymap).bindPopup(
+  "<h6>Density of population in Australia is 3.3 persons per sq Km.</h6>", { closeButton: false}
+);
+
+
+
+
+
+
+//Add polygon....
 var coord1 = [[[40.32246702124231, -3.703765869140625],[40.40931350359072,-3.5321044921874996],[40.48664852056083, -3.6309814453125],[40.491870649809165, -3.742218017578125],[40.40722213305287,-3.834228515625],[40.32246702124231, -3.703765869140625]]];
 var polygon1 = L.polygon(coord1).bindPopup("<h6><em>Maiden</em>, The Capital of Spain!</h6>" ,
                                              { closeButton: false}).addTo(mymap);
@@ -208,24 +349,35 @@ var coord3 = [[[-35.3190471425283, 149.09133911132812],[-35.31008240129421, 149.
 var polygon3 = L.polygon(coord3).bindPopup("<h6><em>Canberra</em>, The Capital of Australia!</h6>" ,
                                              { closeButton: false}).addTo(mymap);
 
+var coord4 = [[[-41.31494988250964, 174.649658203125],[-41.45919537950705, 175.10009765625],[-41.36444153054222, 175.3692626953125],[-41.10832999732831, 175.23193359375],[-41.11660732012895, 174.74853515625],[-41.31494988250964, 174.649658203125,-41.31494988250964]]];
+var polygon4 = L.polygon(coord4).bindPopup("<h6><em>Wellington</em>, The Capital of New Zealand!</h6>" ,
+                                             { closeButton: false}).addTo(mymap);
+
+var coord5 = [[[51.51216124955515, -0.63720703125],[51.303145259199056, -0.6042480468749999],[51.23440735163459, 0.0439453125],[51.29971080556154, 0.5438232421874999],[51.635066908847826, 0.4449462890625],[51.76104049272952, -0.296630859375],[51.51216124955515, -0.63720703125]]];
+var polygon5 = L.polygon(coord5).bindPopup("<h6><em>London</em>, The Capital of United Kingdom!</h6>" ,
+                                             { closeButton: false}).addTo(mymap);
+
+var coord6 = [[[48.87555444355432, 2.275543212890625],[48.83579746243093, 2.2659301757812496],[48.817715668996435, 2.3455810546875],[48.838961105496054, 2.415618896484375],[48.89722676235673, 2.3957061767578125],[48.90128927649513, 2.327728271484375],[48.87555444355432, 2.275543212890625]]];
+var polygon6 = L.polygon(coord6).bindPopup("<h6><em>Paris</em>, The Capital of France!</h6>" ,
+                                             { closeButton: false}).addTo(mymap);
+
+var coord7 = [[[41.90023276842022, 12.38433837890625],[41.81021999190292, 12.41180419921875],[41.81636125072054, 12.5848388671875],[41.94314874732696, 12.60406494140625],[41.98603585974727, 12.450256347656248],[41.90023276842022, 12.38433837890625]]];
+var polygon7 = L.polygon(coord7).bindPopup("<h6><em>Rome</em>, The Capital of Italy!</h6>" ,
+                                             { closeButton: false}).addTo(mymap);
+
+var coord8 = [[[45.40230699238177, -75.87432861328125],[45.29034662473613, -75.750732421875],[45.33284041773058, -75.4925537109375],[45.49672163945861, -75.52001953125],[45.51404592560424, -75.79193115234374],[45.40230699238177, -75.87432861328125]]];
+var polygon8 = L.polygon(coord8).bindPopup("<h6><em>Ottawa</em>, The Capital of Canada!</h6>" ,
+                                             { closeButton: false}).addTo(mymap);
 
 
-
-
-
-
-
-
-//custering...
-// var cluster = L.markerClusterGroup();
-//  mymap.addLayer(cluster);
+  
 
 //using polylines....
-  var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685]]).bindPopup('<h6>129 miles</h6>', { closeButton: false}).addTo(mymap);
-var polylines1 = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642]]).bindPopup('<h6>89 miles</h6>', { closeButton: false}).addTo(mymap);
-    var polylines2 = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697]]).bindPopup('<h6>115 miles</h6>', { closeButton: false}).addTo(mymap);
-  var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308]]).bindPopup('<h6>100 miles</h6>', { closeButton: false}).addTo(mymap);
- var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052]]).bindPopup('<h6>125 miles</h6>', { closeButton: false}).addTo(mymap);
+  var polylines = L.polyline([[24.2291, 69.1897], [23.2001, 69.2685]], { color: "#ff4500"}).bindPopup('<h6>129 miles</h6>', { closeButton: false}).addTo(mymap);
+var polylines1 = L.polyline([[23.2001, 69.2685], [23.4849, 70.4642]], { color: "#ff4500"}).bindPopup('<h6>89 miles</h6>', { closeButton: false}).addTo(mymap);
+    var polylines2 = L.polyline([[23.4849, 70.4642], [22.4647, 70.0697]], { color: "#ff4500"}).bindPopup('<h6>115 miles</h6>', { closeButton: false}).addTo(mymap);
+  var polylines3 = L.polyline([[22.4647, 70.0697], [22.1544, 71.3308]], { color: "#ff4500"}).bindPopup('<h6>100 miles</h6>', { closeButton: false}).addTo(mymap);
+ var polylines4 = L.polyline([[22.1544, 71.3308], [23.8525, 73.0052]], { color: "#ff4500"}).bindPopup('<h6>125 miles</h6>', { closeButton: false}).addTo(mymap);
 
 
 
@@ -254,7 +406,7 @@ function oneachFeature(feature, layer) {
   }
 }
 
-L.geoJSON(castle, {
+var mark = L.geoJSON(castle, {
   pointToLayer: function (geoJsonPoint, latlng) {
     return L.marker(latlng, {
       icon: myCastleIcon,
@@ -264,13 +416,13 @@ L.geoJSON(castle, {
 }).addTo(mymap);
 
 // add lines.......
-L.geoJSON(mylines, {
+var line = L.geoJSON(mylines, {
   style: myStyle,
   onEachFeature: oneachFeature,
 }).addTo(mymap);
 
 //add tourist place marker.....
-L.geoJSON(touristPlace, {
+var place = L.geoJSON(touristPlace, {
   pointToLayer: function (geoJsonPoint, latlng) {
     return L.marker(latlng, {
       icon: mytouristPlaceIcon,
@@ -306,6 +458,12 @@ areaSelect.addEventListener(`change`, (e) => {
 //fitbounds....
 var featureGroup = L.featureGroup([ guj1, guj2, guj3, guj4, guj5, guj6]);
 mymap.fitBounds(featureGroup.getBounds());
+
+var featureGroup1 = L.featureGroup([berlin1, berlin2, berlin3, berlin4]);
+mymap.fitBounds(featureGroup1.getBounds());
+
+
+
 
 /*
 //World population...
@@ -387,5 +545,59 @@ var basemaps = {
 
 L.control.layers(basemaps).addTo(mymap);
 
+
+
+
+//custering....
+
+
+var markers = L.markerClusterGroup({ animateAddingMarkers : true });
+		var markersList = [marker, marker4, marker2, marker3, marker5, marker6, marker7, marker8, guj1, guj2, guj3, guj4, guj5, guj6, berlin1, berlin2, berlin3, berlin4, CLayer, CLayer1, CLayer2, CLayer3, CLayer4, CLayer5, CLayer6, CLayer7, CLayer8, polygon1, polygon2, polygon3, polygon4, polygon5, polygon6, polygon7, polygon8, polylines, polylines1, polylines2, polylines3, polylines4, mark, line, place, fort1, fort2, fort3, fort4, fort5, fort6, fort7, fort8, fort9, fort10];
+
+    
+		function populate() {
+			for (var i = 0; i < 100; i++) {
+				var m = L.marker(getRandomLatLng(mymap));
+				markersList.push(m);
+				markers.addLayer(m);
+			}
+			return false;
+		}
+		function getRandomLatLng(map) {
+			var bounds = map.getBounds(),
+				southWest = bounds.getSouthWest(),
+				northEast = bounds.getNorthEast(),
+				lngSpan = northEast.lng - southWest.lng,
+				latSpan = northEast.lat - southWest.lat;
+
+			return L.latLng(
+					southWest.lat + latSpan * Math.random() * 10,
+					southWest.lng + lngSpan * Math.random() * 10
+          );
+		}
+
+		populate();
+		mymap.addLayer(markers);
+
+		for (var i = 0; i < 100; i++) {
+			markers.addLayer(markersList[i]);
+		}
+
+		//Ugly add/remove code
+		L.DomUtil.get('populate').onclick = function () {
+			var bounds = mymap.getBounds(),
+			southWest = bounds.getSouthWest(),
+			northEast = bounds.getNorthEast(),
+			lngSpan = northEast.lng - southWest.lng,
+			latSpan = northEast.lat - southWest.lat;
+			var m = L.marker([
+					southWest.lat + latSpan * 0.5,
+					southWest.lng + lngSpan * 0.5]);
+			markersList.push(m);
+			markers.addLayer(m);
+		};
+		L.DomUtil.get('remove').onclick = function () {
+			markers.removeLayer(markersList.pop());
+		};
 
 

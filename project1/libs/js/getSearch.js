@@ -14,7 +14,7 @@
 
     
     
-              //  console.log(result);
+                console.log(result);
 
               
     
@@ -26,6 +26,7 @@
                    $('#txtlng').html(result['data'][0]['lng']);
                     $('#txtpopulation').html(result['data'][0]['population']);
                     $('#txtcountrycode').html(result['data'][0]['countryCode']);
+                    $('#txtgeoname').html(result['data'][0]['geonameId']);
                   // $('#txtareainsq').html(result['data'][0]['areaInSqKm']);
                 }
             },

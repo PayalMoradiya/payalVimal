@@ -13,7 +13,7 @@
 
     
     
-             //   console.log(result);
+                console.log(result);
     
                 if (result.status.name == "ok") {
                     $('#txtlang').html(result['data'][0]['lang']);
@@ -22,7 +22,7 @@
                  //   $('#txtlng').html(result['data'][0]['lng']);
                  //   $('#txtcountry').html(result['data'][0]['countryCode']);
                   // $('#txtlang').html(result['data'][0]['lang']);
-                   $('#txtgeoname').html(result['data'][0]['geoNameId']);
+                  
                 }                                     
             },
             error: function(jqXHR, textStatus, errorThrown) {
