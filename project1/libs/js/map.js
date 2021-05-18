@@ -701,6 +701,8 @@ var basemaps = {
 
 L.control.layers(basemaps).addTo(mymap);
 
+
+
 //custering....
 
 var markers = L.markerClusterGroup({ animateAddingMarkers: true });
@@ -787,7 +789,7 @@ function getRandomLatLng(map) {
 
 mymap.addLayer(markers);
 
-for (var i = 0; i < markersList.length; i++) {
+for (var i = 0; i < 100; i++) {
   markers.addLayer(markersList[i]);
 }
 
@@ -809,3 +811,7 @@ L.DomUtil.get("populate").onclick = function () {
 L.DomUtil.get("remove").onclick = function () {
   markers.removeLayer(markersList.pop());
 };
+
+
+
+
