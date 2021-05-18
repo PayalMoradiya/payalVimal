@@ -11,41 +11,55 @@ var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 });
 tiles.addTo(mymap);
 
-//User Current location....
+
+//User Current Location....
 
 mymap.locate({ setView: true, maxZoom: 18 });
 
-function onLocationFound(e) {
-  var radius = e.accuracy;
+const successfullLookup = (position) => {
+  const{latitude, longitude} = position.coords;
+  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`).then(response => response.json()).then(function(data) {
+        
+    var lat = data.results[0].geometry.lat;
+      console.log(lat);
+      var lng = data.results[0].geometry.lng;
+      console.log(lng);
+      var address = data.results[0].formatted;
+      console.log(address);
+      var currentLocation = L.marker([lat,lng],{ icon: myIcon }).addTo(mymap);
+      currentLocation.bindPopup("<b>" + address + "</b>", { closeButton: false }).openPopup();
+    });
+};    
 
-  L.marker(e.latlng)
-    .addTo(mymap)
-    .bindPopup("<b>You are within " + radius + " meters from this point</b>", { closeButton: false })
-    .openPopup();
+navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 
-  L.circle(e.latlng, radius).addTo(mymap);
-}
 
-mymap.on("locationfound", onLocationFound);
+//User Current location....
+
+
 
 //onClick function on recenter button....
 
 function myFunction() {
   mymap.locate({ setView: true, maxZoom: 18 });
 
-  function onLocationFound(e) {
-    var radius = e.accuracy;
-
-    L.marker(e.latlng)
-      .addTo(mymap)
-      .bindPopup("<b>You are within " + radius + " meters from this point</b>", { closeButton: false })
-      .openPopup();
-
-    L.circle(e.latlng, radius).addTo(mymap);
-  }
-
-  mymap.on("locationfound", onLocationFound);
-}
+  const successfullLookup = (position) => {
+    const{latitude, longitude} = position.coords;
+    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`).then(response => response.json()).then(function(data) {
+          
+      var lat = data.results[0].geometry.lat;
+        console.log(lat);
+        var lng = data.results[0].geometry.lng;
+        console.log(lng);
+        var address = data.results[0].formatted;
+        console.log(address);
+        var currentLocation = L.marker([lat,lng],{ icon: myIcon }).addTo(mymap);
+        currentLocation.bindPopup("<b>" + address + "</b>", { closeButton: false }).openPopup();
+      });
+  };    
+  
+  navigator.geolocation.getCurrentPosition(successfullLookup, console.log); 
+}  
 
 //Add Custom Icons....
 
@@ -631,19 +645,19 @@ $(document).ready(function () {
       // q: $('#selcountry').val()
     },
     success: function (result) {
-      console.log(result);
+     // console.log(result);
 
       for (let i = 0; i < result.data.length; i++) {
         var Lat = result["data"][i]["latlng"][0];
         var Lng = result["data"][i]["latlng"][1];
-        console.log(Lat);
-        console.log(Lng);
+      //  console.log(Lat);
+      //  console.log(Lng);
 
         var population = result["data"][i]["population"];
-        console.log(population);
+       // console.log(population);
 
         var name = result["data"][i]["name"];
-        console.log(name);
+        //console.log(name);
 
         if (Lat === undefined && Lng === undefined) {
           continue;
