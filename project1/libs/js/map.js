@@ -712,10 +712,7 @@ var markersList = [
   marker2,
   marker3,
   mark,
-  line,
   place,
-  line,
-  mark,
   marker5,
   marker6,
   marker7,
@@ -730,28 +727,6 @@ var markersList = [
   berlin2,
   berlin3,
   berlin4,
-  CLayer,
-  CLayer1,
-  CLayer2,
-  CLayer3,
-  CLayer4,
-  CLayer5,
-  CLayer6,
-  CLayer7,
-  CLayer8,
-  polygon1,
-  polygon2,
-  polygon3,
-  polygon4,
-  polygon5,
-  polygon6,
-  polygon7,
-  polygon8,
-  polylines,
-  polylines1,
-  polylines2,
-  polylines3,
-  polylines4,
   fort1,
   fort2,
   fort3,
@@ -764,28 +739,6 @@ var markersList = [
   fort10,
 ];
 
-function populate() {
-  for (var i = 0; i < 100; i++) {
-    var m = L.marker(getRandomLatLng(mymap));
-    markersList.push(m);
-    markers.addLayer(m);
-  }
-  return false;
-}
-function getRandomLatLng(map) {
-  var bounds = map.getBounds(),
-    southWest = bounds.getSouthWest(),
-    northEast = bounds.getNorthEast(),
-    lngSpan = northEast.lng - southWest.lng,
-    latSpan = northEast.lat - southWest.lat;
-
-  return L.latLng(
-    southWest.lat + latSpan * Math.random(),
-    southWest.lng + lngSpan * Math.random()
-  );
-}
-
-//populate();
 
 mymap.addLayer(markers);
 
