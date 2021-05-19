@@ -11,32 +11,33 @@ var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 });
 tiles.addTo(mymap);
 
-
 //User Current Location....
 
 mymap.locate({ setView: true, maxZoom: 18 });
 
 const successfullLookup = (position) => {
-  const{latitude, longitude} = position.coords;
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`).then(response => response.json()).then(function(data) {
-        
-    var lat = data.results[0].geometry.lat;
+  const { latitude, longitude } = position.coords;
+  fetch(
+    `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      var lat = data.results[0].geometry.lat;
       console.log(lat);
       var lng = data.results[0].geometry.lng;
       console.log(lng);
       var address = data.results[0].formatted;
       console.log(address);
-      var currentLocation = L.marker([lat,lng],{ icon: myIcon }).addTo(mymap);
-      currentLocation.bindPopup("<b>" + address + "</b>", { closeButton: false }).openPopup();
+      var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(mymap);
+      currentLocation
+        .bindPopup("<b>" + address + "</b>", { closeButton: false })
+        .openPopup();
     });
-};    
+};
 
 navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 
-
 //User Current location....
-
-
 
 //onClick function on recenter button....
 
@@ -44,22 +45,29 @@ function myFunction() {
   mymap.locate({ setView: true, maxZoom: 18 });
 
   const successfullLookup = (position) => {
-    const{latitude, longitude} = position.coords;
-    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`).then(response => response.json()).then(function(data) {
-          
-      var lat = data.results[0].geometry.lat;
+    const { latitude, longitude } = position.coords;
+    fetch(
+      `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=eb18f0f3e5134530a8ac32ba074e937a&language=en&pretty=1`
+    )
+      .then((response) => response.json())
+      .then(function (data) {
+        var lat = data.results[0].geometry.lat;
         console.log(lat);
         var lng = data.results[0].geometry.lng;
         console.log(lng);
         var address = data.results[0].formatted;
         console.log(address);
-        var currentLocation = L.marker([lat,lng],{ icon: myIcon }).addTo(mymap);
-        currentLocation.bindPopup("<b>" + address + "</b>", { closeButton: false }).openPopup();
+        var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(
+          mymap
+        );
+        currentLocation
+          .bindPopup("<b>" + address + "</b>", { closeButton: false })
+          .openPopup();
       });
-  };    
-  
-  navigator.geolocation.getCurrentPosition(successfullLookup, console.log); 
-}  
+  };
+
+  navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
+}
 
 //Add Custom Icons....
 
@@ -102,7 +110,9 @@ $("#btnwiki").on("click", function () {
           var countryMarker = L.marker([lat, lng], { icon: myIcon }).addTo(
             mymap
           );
-          countryMarker.bindPopup("<h6>Hello" + " " + countryName + "!</h6>", { closeButton: false });
+          countryMarker.bindPopup("<h6>Hello" + " " + countryName + "!</h6>", {
+            closeButton: false,
+          });
 
           mymap.flyTo([lat, lng], 10, {
             duration: 3,
@@ -198,6 +208,105 @@ berlin4.bindPopup(
   `<div class="popup">
                       <h6>Schoenhausen Palace</h6>
                       <img  class="popup_image" src="venders/image/scho.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa1 = L.marker([-33.9249, 18.4241], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa1.bindPopup(
+  `<div class="popup">
+                      <h6>Cape Town, Western Cape</h6>
+                      <img  class="popup_image" src="venders/image/cap.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa2 = L.marker([-33.9321, 18.8602], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa2.bindPopup(
+  `<div class="popup">
+                      <h6>Stellenbosch, Western Cape</h6>
+                      <img  class="popup_image" src="venders/image/ste.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa3 = L.marker([-29.4667, 29.2667], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa3.bindPopup(
+  `<div class="popup">
+                      <h6> The Drakensberg, KwaZulu-Natal</h6>
+                      <img  class="popup_image" src="venders/image/kwa.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa4 = L.marker([-25.2449, 27.0891], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa4.bindPopup(
+  `<div class="popup">
+                      <h6>Pilanesberg National Park</h6>
+                      <img  class="popup_image" src="venders/image/pil.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa5 = L.marker([29.9792, 31.1342], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa5.bindPopup(
+  `<div class="popup">
+                      <h6>Pyramids of Giza, Egypt</h6>
+                      <img  class="popup_image" src="venders/image/pyr.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa6 = L.marker([36.8065, 10.1815], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa6.bindPopup(
+  `<div class="popup">
+                      <h6>Tunis, Tunisia</h6>
+                      <img  class="popup_image" src="venders/image/tun.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa7 = L.marker([22.346, 31.6156], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa7.bindPopup(
+  `<div class="popup">
+                      <h6>Abu Simbel, Egypt</h6>
+                      <img  class="popup_image" src="venders/image/abu.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa8 = L.marker([35.0391, 0.2909], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa8.bindPopup(
+  `<div class="popup">
+                      <h6>Atlas Mountains, Morocco</h6>
+                      <img  class="popup_image" src="venders/image/atl.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var africa9 = L.marker([33.8869, 9.5375], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
+africa9.bindPopup(
+  `<div class="popup">
+                      <h6>Sahara Desert, Tunisia</h6>
+                      <img  class="popup_image" src="venders/image/des.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
 );
@@ -513,7 +622,8 @@ var polylines = L.polyline(
     [23.2001, 69.2685],
   ],
   { color: "#ff4500" }
-).bindPopup("<h6>129 miles</h6>", { closeButton: false })
+)
+  .bindPopup("<h6>129 miles</h6>", { closeButton: false })
   .addTo(mymap);
 var polylines1 = L.polyline(
   [
@@ -586,17 +696,11 @@ var mark = new L.geoJSON(castle, {
   onEachFeature: onEachFeature,
 }).addTo(mymap);
 
-
-
-
 // add lines.......
 var line = new L.geoJSON(mylines, {
   style: myStyle,
   onEachFeature: oneachFeature,
 }).addTo(mymap);
-
-
-
 
 //add tourist place marker.....
 var place = new L.geoJSON(touristPlace, {
@@ -631,7 +735,6 @@ areaSelect.addEventListener(`change`, (e) => {
   }).addTo(mymap);
 });
 
-
 //World population...
 
 $(document).ready(function () {
@@ -645,16 +748,16 @@ $(document).ready(function () {
       // q: $('#selcountry').val()
     },
     success: function (result) {
-     // console.log(result);
+      // console.log(result);
 
       for (let i = 0; i < result.data.length; i++) {
         var Lat = result["data"][i]["latlng"][0];
         var Lng = result["data"][i]["latlng"][1];
-      //  console.log(Lat);
-      //  console.log(Lng);
+        //  console.log(Lat);
+        //  console.log(Lng);
 
         var population = result["data"][i]["population"];
-       // console.log(population);
+        // console.log(population);
 
         var name = result["data"][i]["name"];
         //console.log(name);
@@ -701,8 +804,6 @@ var basemaps = {
 
 L.control.layers(basemaps).addTo(mymap);
 
-
-
 //custering....
 
 var markers = L.markerClusterGroup({ animateAddingMarkers: true });
@@ -737,8 +838,16 @@ var markersList = [
   fort8,
   fort9,
   fort10,
+  africa1,
+  africa2,
+  africa3,
+  africa4,
+  africa5,
+  africa6,
+  africa7,
+  africa8,
+  africa9
 ];
-
 
 mymap.addLayer(markers);
 
@@ -764,7 +873,3 @@ L.DomUtil.get("populate").onclick = function () {
 L.DomUtil.get("remove").onclick = function () {
   markers.removeLayer(markersList.pop());
 };
-
-
-
-
