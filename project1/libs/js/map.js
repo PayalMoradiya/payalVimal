@@ -11,6 +11,8 @@ var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 });
 tiles.addTo(mymap);
 
+
+
 //User Current Location....
 
 mymap.locate({ setView: true, maxZoom: 18 });
@@ -73,20 +75,21 @@ function myFunction() {
 
 var myIcon = L.icon({
   iconUrl: "venders/image/pin3.png",
-  iconSize: [38, 48],
+  iconSize: [38, 39],
   iconAnchor: [22, 55],
   popupAnchor: [-3, -55],
 });
 
 var myCastleIcon = L.icon({
-  iconUrl: "venders/image/castle.png",
+  iconUrl: "venders/image/travel.png",
   iconSize: [40, 40],
 });
 
 var mytouristPlaceIcon = L.icon({
-  iconUrl: "venders/image/beach.png",
+  iconUrl: "venders/image/travel.png",
   iconSize: [40, 40],
 });
+
 
 //Get Lat and Lng from OpenCage and fly to that location....
 
@@ -144,10 +147,6 @@ marker4.bindPopup("<h6>Hello Berlin!</h6>", { closeButton: false });
 var marker5 = L.marker([50.1447222, 8.7269444], { icon: myIcon }).addTo(mymap);
 marker5.bindPopup("<h6>Hello Frankfurt!</h6>", { closeButton: false });
 
-var marker6 = L.marker([-33.869444, 151.2083333], { icon: myIcon }).addTo(
-  mymap
-);
-marker6.bindPopup("<h6>Hello Sydney!</h6>", { closeButton: false });
 
 var marker7 = L.marker([48.856578, 2.351828], { icon: myIcon }).addTo(mymap);
 marker7.bindPopup("<h6>Hello Paris!</h6>", { closeButton: false });
@@ -310,6 +309,289 @@ africa9.bindPopup(
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
 );
+
+var russia1 = L.marker([53.5587, 108.1650], { icon: mytouristPlaceIcon }).addTo(mymap);
+russia1.bindPopup(
+  `<div class="popup">
+                      <h6> Lake Baikal</h6>
+                      <img  class="popup_image" src="venders/image/bai.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var russia2 = L.marker([59.937500, 30.308611], { icon: mytouristPlaceIcon }).addTo(mymap);
+russia2.bindPopup(
+  `<div class="popup">
+                      <h6>St. Peterburg</h6>
+                      <img  class="popup_image" src="venders/image/pet.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var russia3 = L.marker([43.6028, 39.7342], { icon: mytouristPlaceIcon }).addTo(mymap);
+russia3.bindPopup(
+  `<div class="popup">
+                      <h6>Sochi</h6>
+                      <img  class="popup_image" src="venders/image/soc.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var russia4 = L.marker([59.8863, 29.9086], { icon: mytouristPlaceIcon }).addTo(mymap);
+russia4.bindPopup(
+  `<div class="popup">
+                      <h6>Peterhof</h6>
+                      <img  class="popup_image" src="venders/image/pal.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(mymap);
+china1.bindPopup(
+  `<div class="popup">
+                      <h6>The Great Wall of China</h6>
+                      <img  class="popup_image" src="venders/image/wal.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(mymap);
+china2.bindPopup(
+  `<div class="popup">
+                      <h6>The Terracotta Army, Xi'an</h6>
+                      <img  class="popup_image" src="venders/image/ter.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa1 = L.marker([43.0962, -79.0377], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa1.bindPopup(
+  `<div class="popup">
+                      <h6>Niagara Falls</h6>
+                      <img  class="popup_image" src="venders/image/nia.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa2 = L.marker([40.6892, -74.0445], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa2.bindPopup(
+  `<div class="popup">
+                      <h6>Statue of Liberty</h6>
+                      <img  class="popup_image" src="venders/image/sta.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa3 = L.marker([38.8977, -77.0365], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa3.bindPopup(
+  `<div class="popup">
+                      <h6>White House</h6>
+                      <img  class="popup_image" src="venders/image/whi.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa4.bindPopup(
+  `<div class="popup">
+                      <h6> Las Vegas Strip</h6>
+                      <img  class="popup_image" src="venders/image/las.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa5 = L.marker([37.8199, -122.4783], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa5.bindPopup(
+  `<div class="popup">
+                      <h6> Golden Gate Bridge</h6>
+                      <img  class="popup_image" src="venders/image/glo.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var usa6 = L.marker([40.7580, -73.9855], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa6.bindPopup(
+  `<div class="popup">
+                      <h6>Times Square</h6>
+                      <img  class="popup_image" src="venders/image/tim.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+
+var usa7 = L.marker([44.4280, -110.5885], { icon: mytouristPlaceIcon }).addTo(mymap);
+usa7.bindPopup(
+  `<div class="popup">
+                      <h6>Yellowstone National Park</h6>
+                      <img  class="popup_image" src="venders/image/yel.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var canada1 = L.marker([51.4968, -115.9281], { icon: mytouristPlaceIcon }).addTo(mymap);
+canada1.bindPopup(
+  `<div class="popup">
+                      <h6>Banff National Park</h6>
+                      <img  class="popup_image" src="venders/image/ban.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(mymap);
+canada2.bindPopup(
+  `<div class="popup">
+                      <h6>Toronto's CN Tower</h6>
+                      <img  class="popup_image" src="venders/image/cn.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var canada3 = L.marker([46.8122, -71.2065], { icon: mytouristPlaceIcon }).addTo(mymap);
+canada3.bindPopup(
+  `<div class="popup">
+                      <h6>Old Quebec</h6>
+                      <img  class="popup_image" src="venders/image/bec.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var brazil1 = L.marker([-22.9847, -43.1986], { icon: mytouristPlaceIcon }).addTo(mymap);
+brazil1.bindPopup(
+  `<div class="popup">
+                      <h6> Ipanema</h6>
+                      <img  class="popup_image" src="venders/image/ipa.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var brazil2 = L.marker([-3.4653, -62.2169], { icon: mytouristPlaceIcon }).addTo(mymap);
+brazil2.bindPopup(
+  `<div class="popup">
+                      <h6>Amazon Rain Forests </h6>
+                      <img  class="popup_image" src="venders/image/ama.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var brazil3 = L.marker([-19.9167, -43.9345], { icon: mytouristPlaceIcon }).addTo(mymap);
+brazil3.bindPopup(
+  `<div class="popup">
+                      <h6>Belo Horizonte</h6>
+                      <img  class="popup_image" src="venders/image/bel.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var peru = L.marker([-15.9254, -69.3354], { icon: mytouristPlaceIcon }).addTo(mymap);
+peru.bindPopup(
+  `<div class="popup">
+                      <h6>Lake Titicaca</h6>
+                      <img  class="popup_image" src="venders/image/tit.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var argentina1 = L.marker([-50.4967, -73.1377], { icon: mytouristPlaceIcon }).addTo(mymap);
+argentina1.bindPopup(
+  `<div class="popup">
+                      <h6>Perito Moreno Glacier</h6>
+                      <img  class="popup_image" src="venders/image/gla.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(mymap);
+spain.bindPopup(
+  `<div class="popup">
+                      <h6>Historic Córdoba Cathedral</h6>
+                      <img  class="popup_image" src="venders/image/cor.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place1 = L.marker([ 50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(mymap);
+place1.bindPopup(
+  `<div class="popup">
+  <h6>Maiden Castle</h6>
+  <img  class="popup_image" src="venders/image/maiden.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place2 = L.marker([ 52.8712, -3.0512], { icon: mytouristPlaceIcon }).addTo(mymap);
+place2.bindPopup(
+  `<div class="popup">
+  <h6>Old Oswestry</h6>
+                              <img  class="popup_image" src="venders/image/oswestry.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place3 = L.marker([ 55.96310043, -2.67170523], { icon: mytouristPlaceIcon }).addTo(mymap);
+place3.bindPopup(
+  `<div class="popup">
+  <h6>Traprain Law</h6>
+  <img  class="popup_image" src="venders/image/traprain.jpg" > </div>`,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place4 = L.marker([ 50.91, -2.22], { icon: mytouristPlaceIcon }).addTo(mymap);
+place4.bindPopup(
+  `<div class="popup">
+  <h6>Hambledon Hill</h6>
+  <img  class="popup_image" src="venders/image/hamb.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place5 = L.marker([ 51.024058, -2.53178], { icon: mytouristPlaceIcon }).addTo(mymap);
+place5.bindPopup(
+  `<div class="popup">
+  <h6>Cadbury Castle</h6>
+                            <img  class="popup_image" src="venders/image/cadb.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place6 = L.marker([ 51.209513, -2.147398], { icon: mytouristPlaceIcon }).addTo(mymap);
+place6.bindPopup(
+  `<div class="popup">
+  <h6>Battlesbury Camp</h6>
+                            <img  class="popup_image" src="venders/image/batt.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place7 = L.marker([52.0582, -2.3520], { icon: mytouristPlaceIcon }).addTo(mymap);
+place7.bindPopup(
+  `<div class="popup">
+  <h6>The British Camp</h6>
+                            <img  class="popup_image" src="venders/image/brit.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var place8 = L.marker([ 50.86057, -0.382867], { icon: mytouristPlaceIcon }).addTo(mymap);
+place8.bindPopup(
+  `<div class="popup">
+  <h6>Cissbury Ring</h6>
+  <img  class="popup_image" src="venders/image/ciss.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //marker for fort.....
 var fort1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
@@ -687,14 +969,6 @@ function oneachFeature(feature, layer) {
   }
 }
 
-var mark = new L.geoJSON(castle, {
-  pointToLayer: function (geoJsonPoint, latlng) {
-    return L.marker(latlng, {
-      icon: myCastleIcon,
-    });
-  },
-  onEachFeature: onEachFeature,
-}).addTo(mymap);
 
 // add lines.......
 var line = new L.geoJSON(mylines, {
@@ -812,10 +1086,8 @@ var markersList = [
   marker4,
   marker2,
   marker3,
-  mark,
   place,
   marker5,
-  marker6,
   marker7,
   marker8,
   guj1,
@@ -846,7 +1118,7 @@ var markersList = [
   africa6,
   africa7,
   africa8,
-  africa9
+  africa9, russia1, russia2, russia3, russia4, china1, china2, usa1, usa2, usa3, usa4, usa5, usa6, usa7, canada1, canada2, canada3, brazil1, brazil2, brazil3, peru, argentina1, spain,place1, place2, place3, place4, place5, place6, place7, place8
 ];
 
 mymap.addLayer(markers);
