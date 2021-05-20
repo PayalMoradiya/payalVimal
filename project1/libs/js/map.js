@@ -1460,7 +1460,10 @@ $(document).ready(function () {
           radius: 10000,
           color: "red",
         });
-        CLayer0.addTo(mymap).bindPopup(name + "<br>" + population);
+        CLayer0.addTo(mymap).bindPopup("<h6>" + name + "<br>" + population + "</h6>",{
+          closeButton: false,
+          offset: L.point(0, 0)
+        });
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
