@@ -469,7 +469,7 @@ img.popup_image {
     margin-left: 20px;
   }
   div.header {
-    height:86px;
+    height:81px;
     width: 100%;
   }
 
@@ -484,7 +484,7 @@ img.popup_image {
   
 
   div.main {
-    height: 938px;
+    height: 943px;
     width: 100%;
     overflow: hidden;
   }
@@ -618,7 +618,10 @@ img.popup_image {
     box-sizing: border-box;
     font-family: "Andika New Basic", sans-serif;
     font-size: 18px;
-    max-height: max-device-height;
+  }
+  div.header {
+    height:81px;
+    width: 100%;
   }
   .nav.justify-content-center{
     width: 400px;
@@ -679,7 +682,11 @@ img.popup_image {
     margin: 0;
     box-sizing: border-box;
     font-family: "Andika New Basic", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
+  }
+  div.header {
+    height:81px;
+    width: 100%;
   }
   .nav.justify-content-center{
     width: 380px;
@@ -723,7 +730,8 @@ button#btnwiki.nav-item.bg-light {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .container:hover {
-    height: 550px;
+    height: 532px;
+    overflow:hidden;
   
   }
   img#recenter {
@@ -739,6 +747,10 @@ button#btnwiki.nav-item.bg-light {
 }
 
 @media only screen and (min-width: 1440px){
+  div.header {
+    height:81px;
+    width: 100%;
+  }
   div.main {
     height: 814px;
     width: 100%;
