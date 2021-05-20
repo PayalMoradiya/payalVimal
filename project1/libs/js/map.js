@@ -11,8 +11,6 @@ var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 });
 tiles.addTo(mymap);
 
-
-
 //User Current Location....
 
 mymap.locate({ setView: true, maxZoom: 18 });
@@ -90,7 +88,6 @@ var mytouristPlaceIcon = L.icon({
   iconSize: [40, 40],
 });
 
-
 //Get Lat and Lng from OpenCage and fly to that location....
 
 $("#btnwiki").on("click", function () {
@@ -146,7 +143,6 @@ marker4.bindPopup("<h6>Hello Berlin!</h6>", { closeButton: false });
 
 var marker5 = L.marker([50.1447222, 8.7269444], { icon: myIcon }).addTo(mymap);
 marker5.bindPopup("<h6>Hello Frankfurt!</h6>", { closeButton: false });
-
 
 var marker7 = L.marker([48.856578, 2.351828], { icon: myIcon }).addTo(mymap);
 marker7.bindPopup("<h6>Hello Paris!</h6>", { closeButton: false });
@@ -310,7 +306,9 @@ africa9.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var russia1 = L.marker([53.5587, 108.1650], { icon: mytouristPlaceIcon }).addTo(mymap);
+var russia1 = L.marker([53.5587, 108.165], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 russia1.bindPopup(
   `<div class="popup">
                       <h6> Lake Baikal</h6>
@@ -319,7 +317,9 @@ russia1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var russia2 = L.marker([59.937500, 30.308611], { icon: mytouristPlaceIcon }).addTo(mymap);
+var russia2 = L.marker([59.9375, 30.308611], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 russia2.bindPopup(
   `<div class="popup">
                       <h6>St. Peterburg</h6>
@@ -328,7 +328,9 @@ russia2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var russia3 = L.marker([43.6028, 39.7342], { icon: mytouristPlaceIcon }).addTo(mymap);
+var russia3 = L.marker([43.6028, 39.7342], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 russia3.bindPopup(
   `<div class="popup">
                       <h6>Sochi</h6>
@@ -337,7 +339,9 @@ russia3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var russia4 = L.marker([59.8863, 29.9086], { icon: mytouristPlaceIcon }).addTo(mymap);
+var russia4 = L.marker([59.8863, 29.9086], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 russia4.bindPopup(
   `<div class="popup">
                       <h6>Peterhof</h6>
@@ -346,7 +350,9 @@ russia4.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(mymap);
+var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 china1.bindPopup(
   `<div class="popup">
                       <h6>The Great Wall of China</h6>
@@ -355,7 +361,9 @@ china1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(mymap);
+var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 china2.bindPopup(
   `<div class="popup">
                       <h6>The Terracotta Army, Xi'an</h6>
@@ -364,7 +372,9 @@ china2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa1 = L.marker([43.0962, -79.0377], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa1 = L.marker([43.0962, -79.0377], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa1.bindPopup(
   `<div class="popup">
                       <h6>Niagara Falls</h6>
@@ -373,7 +383,9 @@ usa1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa2 = L.marker([40.6892, -74.0445], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa2 = L.marker([40.6892, -74.0445], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa2.bindPopup(
   `<div class="popup">
                       <h6>Statue of Liberty</h6>
@@ -382,7 +394,9 @@ usa2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa3 = L.marker([38.8977, -77.0365], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa3 = L.marker([38.8977, -77.0365], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa3.bindPopup(
   `<div class="popup">
                       <h6>White House</h6>
@@ -391,7 +405,9 @@ usa3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa4.bindPopup(
   `<div class="popup">
                       <h6> Las Vegas Strip</h6>
@@ -400,7 +416,9 @@ usa4.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa5 = L.marker([37.8199, -122.4783], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa5 = L.marker([37.8199, -122.4783], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa5.bindPopup(
   `<div class="popup">
                       <h6> Golden Gate Bridge</h6>
@@ -409,7 +427,9 @@ usa5.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var usa6 = L.marker([40.7580, -73.9855], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa6 = L.marker([40.758, -73.9855], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa6.bindPopup(
   `<div class="popup">
                       <h6>Times Square</h6>
@@ -418,8 +438,9 @@ usa6.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-
-var usa7 = L.marker([44.4280, -110.5885], { icon: mytouristPlaceIcon }).addTo(mymap);
+var usa7 = L.marker([44.428, -110.5885], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 usa7.bindPopup(
   `<div class="popup">
                       <h6>Yellowstone National Park</h6>
@@ -428,7 +449,9 @@ usa7.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var canada1 = L.marker([51.4968, -115.9281], { icon: mytouristPlaceIcon }).addTo(mymap);
+var canada1 = L.marker([51.4968, -115.9281], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 canada1.bindPopup(
   `<div class="popup">
                       <h6>Banff National Park</h6>
@@ -437,7 +460,9 @@ canada1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(mymap);
+var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 canada2.bindPopup(
   `<div class="popup">
                       <h6>Toronto's CN Tower</h6>
@@ -446,7 +471,9 @@ canada2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var canada3 = L.marker([46.8122, -71.2065], { icon: mytouristPlaceIcon }).addTo(mymap);
+var canada3 = L.marker([46.8122, -71.2065], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 canada3.bindPopup(
   `<div class="popup">
                       <h6>Old Quebec</h6>
@@ -455,7 +482,9 @@ canada3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var brazil1 = L.marker([-22.9847, -43.1986], { icon: mytouristPlaceIcon }).addTo(mymap);
+var brazil1 = L.marker([-22.9847, -43.1986], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 brazil1.bindPopup(
   `<div class="popup">
                       <h6> Ipanema</h6>
@@ -464,7 +493,9 @@ brazil1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var brazil2 = L.marker([-3.4653, -62.2169], { icon: mytouristPlaceIcon }).addTo(mymap);
+var brazil2 = L.marker([-3.4653, -62.2169], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 brazil2.bindPopup(
   `<div class="popup">
                       <h6>Amazon Rain Forests </h6>
@@ -473,7 +504,9 @@ brazil2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var brazil3 = L.marker([-19.9167, -43.9345], { icon: mytouristPlaceIcon }).addTo(mymap);
+var brazil3 = L.marker([-19.9167, -43.9345], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 brazil3.bindPopup(
   `<div class="popup">
                       <h6>Belo Horizonte</h6>
@@ -482,7 +515,9 @@ brazil3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var peru = L.marker([-15.9254, -69.3354], { icon: mytouristPlaceIcon }).addTo(mymap);
+var peru = L.marker([-15.9254, -69.3354], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 peru.bindPopup(
   `<div class="popup">
                       <h6>Lake Titicaca</h6>
@@ -491,7 +526,9 @@ peru.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var argentina1 = L.marker([-50.4967, -73.1377], { icon: mytouristPlaceIcon }).addTo(mymap);
+var argentina1 = L.marker([-50.4967, -73.1377], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 argentina1.bindPopup(
   `<div class="popup">
                       <h6>Perito Moreno Glacier</h6>
@@ -500,7 +537,9 @@ argentina1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(mymap);
+var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 spain.bindPopup(
   `<div class="popup">
                       <h6>Historic Córdoba Cathedral</h6>
@@ -509,7 +548,9 @@ spain.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place1 = L.marker([ 50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place1 = L.marker([50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 place1.bindPopup(
   `<div class="popup">
   <h6>Maiden Castle</h6>
@@ -518,7 +559,9 @@ place1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place2 = L.marker([ 52.8712, -3.0512], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place2 = L.marker([52.8712, -3.0512], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 place2.bindPopup(
   `<div class="popup">
   <h6>Old Oswestry</h6>
@@ -527,7 +570,9 @@ place2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place3 = L.marker([ 55.96310043, -2.67170523], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place3 = L.marker([55.96310043, -2.67170523], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 place3.bindPopup(
   `<div class="popup">
   <h6>Traprain Law</h6>
@@ -535,7 +580,9 @@ place3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place4 = L.marker([ 50.91, -2.22], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place4 = L.marker([50.91, -2.22], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 place4.bindPopup(
   `<div class="popup">
   <h6>Hambledon Hill</h6>
@@ -544,7 +591,9 @@ place4.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place5 = L.marker([ 51.024058, -2.53178], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place5 = L.marker([51.024058, -2.53178], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 place5.bindPopup(
   `<div class="popup">
   <h6>Cadbury Castle</h6>
@@ -553,7 +602,9 @@ place5.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place6 = L.marker([ 51.209513, -2.147398], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place6 = L.marker([51.209513, -2.147398], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 place6.bindPopup(
   `<div class="popup">
   <h6>Battlesbury Camp</h6>
@@ -562,7 +613,9 @@ place6.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place7 = L.marker([52.0582, -2.3520], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place7 = L.marker([52.0582, -2.352], { icon: mytouristPlaceIcon }).addTo(
+  mymap
+);
 place7.bindPopup(
   `<div class="popup">
   <h6>The British Camp</h6>
@@ -571,7 +624,9 @@ place7.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var place8 = L.marker([ 50.86057, -0.382867], { icon: mytouristPlaceIcon }).addTo(mymap);
+var place8 = L.marker([50.86057, -0.382867], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 place8.bindPopup(
   `<div class="popup">
   <h6>Cissbury Ring</h6>
@@ -580,16 +635,9 @@ place8.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-
-
-
-
-
-
-
-
-
-var touristPlace1 = L.marker([ 50.6304, -1.9904], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace1 = L.marker([50.6304, -1.9904], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace1.bindPopup(
   `<div class="popup">
   <h6>Nine Barrow Down</h6>
@@ -598,7 +646,9 @@ touristPlace1.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace2 = L.marker([ 50.6210, -2.2801], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace2 = L.marker([50.621, -2.2801], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace2.bindPopup(
   `<div class="popup">
   <h6>Durdle Door</h6>
@@ -607,7 +657,9 @@ touristPlace2.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace3 = L.marker([ 50.6908, -1.9865], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace3 = L.marker([50.6908, -1.9865], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace3.bindPopup(
   `<div class="popup">
   <h6>Poole Harbour</h6>
@@ -616,7 +668,9 @@ touristPlace3.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace4 = L.marker([ 50.5475, -2.4343], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace4 = L.marker([50.5475, -2.4343], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace4.bindPopup(
   `<div class="popup">
   <h6>Isle Of Portland</h6>
@@ -625,7 +679,9 @@ touristPlace4.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace5 = L.marker([ 50.6429, -1.9225], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace5 = L.marker([50.6429, -1.9225], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace5.bindPopup(
   `<div class="popup">
   <h6>Old Harry Rocks</h6>
@@ -634,7 +690,9 @@ touristPlace5.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace6 = L.marker([ 52.9704, -3.0878], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace6 = L.marker([52.9704, -3.0878], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace6.bindPopup(
   `<div class="popup">
   <h6>Pontcysyllte Aqueduct</h6>
@@ -643,7 +701,9 @@ touristPlace6.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace7 = L.marker([ 52.9791, -3.1589], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace7 = L.marker([52.9791, -3.1589], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace7.bindPopup(
   `<div class="popup">
   <h6>Castell Dinas Bran</h6>
@@ -652,7 +712,9 @@ touristPlace7.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace8 = L.marker([52.9813, -3.1998], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace8 = L.marker([52.9813, -3.1998], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace8.bindPopup(
   `<div class="popup">
   <h6>Horseshoe Falls</h6>
@@ -661,7 +723,9 @@ touristPlace8.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace9 = L.marker([ 51.1444, -2.6986], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace9 = L.marker([51.1444, -2.6986], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace9.bindPopup(
   `<div class="popup">
   <h6>Glastonbury Tor</h6>
@@ -670,7 +734,9 @@ touristPlace9.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace10 = L.marker([ 51.1051, -2.3179], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace10 = L.marker([51.1051, -2.3179], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace10.bindPopup(
   `<div class="popup">
   <h6>Stourhead</h6>
@@ -679,7 +745,9 @@ touristPlace10.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace11 = L.marker([ 51.1461, -2.7153], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace11 = L.marker([51.1461, -2.7153], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace11.bindPopup(
   `<div class="popup">
   <h6>Glastonbury Abbey</h6>
@@ -688,7 +756,9 @@ touristPlace11.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace12 = L.marker([ 52.0491, -2.3470], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace12 = L.marker([52.0491, -2.347], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace12.bindPopup(
   `<div class="popup">
   <h6>Swinyard Hill</h6>
@@ -697,7 +767,9 @@ touristPlace12.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace13 = L.marker([ 52.0612, -2.3369], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace13 = L.marker([52.0612, -2.3369], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace13.bindPopup(
   `<div class="popup">
   <h6>Malvern Court & Gardens</h6>
@@ -706,8 +778,9 @@ touristPlace13.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-
-var touristPlace14 = L.marker([ 51.0608, -1.4104], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace14 = L.marker([51.0608, -1.4104], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace14.bindPopup(
   `<div class="popup">
   <h6>Farley Mount Country Park</h6>
@@ -716,7 +789,9 @@ touristPlace14.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace15 = L.marker([ 53.5587, 108.1650], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace15 = L.marker([53.5587, 108.165], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace15.bindPopup(
   `<div class="popup">
   <h6>Lake Baikal</h6>
@@ -725,7 +800,9 @@ touristPlace15.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
-var touristPlace16 = L.marker([55.7558, 37.6173], { icon: mytouristPlaceIcon }).addTo(mymap);
+var touristPlace16 = L.marker([55.7558, 37.6173], {
+  icon: mytouristPlaceIcon,
+}).addTo(mymap);
 touristPlace16.bindPopup(
   `<div class="popup">
   <h6>Moscow</h6>
@@ -733,12 +810,6 @@ touristPlace16.bindPopup(
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
 );
-
-
-
-
-
-
 
 //marker for fort.....
 var fort1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
@@ -1091,7 +1162,6 @@ var polylines4 = L.polyline(
   .bindPopup("<h6>125 miles</h6>", { closeButton: false })
   .addTo(mymap);
 
-
 //add geojson data for lines and tourist place......
 
 var mylines = [
@@ -1114,14 +1184,13 @@ var mylines = [
     type: "Feature",
     properties: {
       name: "Maiden Castle",
-      popupContent:
-        "Distance between Maiden Castle and Durdle Door is 14 mi. ",
+      popupContent: "Distance between Maiden Castle and Durdle Door is 14 mi. ",
     },
     geometry: {
       type: "LineString",
       coordinates: [
         [-2.4746, 50.6955],
-        [-2.2801, 50.6210],
+        [-2.2801, 50.621],
       ],
     },
   },
@@ -1234,8 +1303,7 @@ var mylines = [
     type: "Feature",
     properties: {
       name: "Cadbury Castle",
-      popupContent:
-        "Distance between Cadbury Castle and Stourhead is 14 mi. ",
+      popupContent: "Distance between Cadbury Castle and Stourhead is 14 mi. ",
     },
     geometry: {
       type: "LineString",
@@ -1270,8 +1338,8 @@ var mylines = [
     geometry: {
       type: "LineString",
       coordinates: [
-        [-2.3520, 52.0582],
-        [-2.3470, 52.0491],
+        [-2.352, 52.0582],
+        [-2.347, 52.0491],
       ],
     },
   },
@@ -1285,7 +1353,7 @@ var mylines = [
     geometry: {
       type: "LineString",
       coordinates: [
-        [-2.3520, 52.0582],
+        [-2.352, 52.0582],
         [-2.3369, 52.0612],
       ],
     },
@@ -1300,25 +1368,20 @@ var mylines = [
     geometry: {
       type: "LineString",
       coordinates: [
-        [-2.3520, 52.0582],
+        [-2.352, 52.0582],
         [-1.4104, 51.0608],
       ],
     },
-  }
+  },
 ];
-
-
-
 
 var myStyle = {
   color: "#ff7800",
   weight: 5,
-  opacity: 0.65
+  opacity: 0.65,
 };
 
-
 //add popups for tourist place.....
-
 
 //add popups for lines....
 function oneachFeature(feature, layer) {
@@ -1470,12 +1533,57 @@ var markersList = [
   africa6,
   africa7,
   africa8,
-  africa9, russia1, russia2, russia3, russia4, china1, china2, usa1, usa2, usa3, usa4, usa5, usa6, usa7, canada1, canada2, canada3, brazil1, brazil2, brazil3, peru, argentina1, spain,place1, place2, place3, place4, place5, place6, place7, place8,  touristPlace1, touristPlace2, touristPlace3, touristPlace4, touristPlace5, touristPlace6, touristPlace7, touristPlace8, touristPlace9, touristPlace10, touristPlace11, touristPlace12, touristPlace13, touristPlace14, touristPlace15, touristPlace16
+  africa9,
+  russia1,
+  russia2,
+  russia3,
+  russia4,
+  china1,
+  china2,
+  usa1,
+  usa2,
+  usa3,
+  usa4,
+  usa5,
+  usa6,
+  usa7,
+  canada1,
+  canada2,
+  canada3,
+  brazil1,
+  brazil2,
+  brazil3,
+  peru,
+  argentina1,
+  spain,
+  place1,
+  place2,
+  place3,
+  place4,
+  place5,
+  place6,
+  place7,
+  place8,
+  touristPlace1,
+  touristPlace2,
+  touristPlace3,
+  touristPlace4,
+  touristPlace5,
+  touristPlace6,
+  touristPlace7,
+  touristPlace8,
+  touristPlace9,
+  touristPlace10,
+  touristPlace11,
+  touristPlace12,
+  touristPlace13,
+  touristPlace14,
+  touristPlace15,
+  touristPlace16
 ];
 
 mymap.addLayer(markers);
 
 for (var i = 0; i < markersList.length; i++) {
   markers.addLayer(markersList[i]);
-}
-
+};
