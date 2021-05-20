@@ -589,6 +589,153 @@ place8.bindPopup(
 
 
 
+var touristPlace1 = L.marker([ 50.6304, -1.9904], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace1.bindPopup(
+  `<div class="popup">
+  <h6>Nine Barrow Down</h6>
+  <img  class="popup_image" src="venders/image/nine.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace2 = L.marker([ 50.6210, -2.2801], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace2.bindPopup(
+  `<div class="popup">
+  <h6>Durdle Door</h6>
+                        <img  class="popup_image" src="venders/image/durd.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace3 = L.marker([ 50.6908, -1.9865], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace3.bindPopup(
+  `<div class="popup">
+  <h6>Poole Harbour</h6>
+  <img  class="popup_image" src="venders/image/pool.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace4 = L.marker([ 50.5475, -2.4343], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace4.bindPopup(
+  `<div class="popup">
+  <h6>Isle Of Portland</h6>
+  <img  class="popup_image" src="venders/image/isle.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace5 = L.marker([ 50.6429, -1.9225], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace5.bindPopup(
+  `<div class="popup">
+  <h6>Old Harry Rocks</h6>
+  <img  class="popup_image" src="venders/image/old.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace6 = L.marker([ 52.9704, -3.0878], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace6.bindPopup(
+  `<div class="popup">
+  <h6>Pontcysyllte Aqueduct</h6>
+                        <img  class="popup_image" src="venders/image/pont.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace7 = L.marker([ 52.9791, -3.1589], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace7.bindPopup(
+  `<div class="popup">
+  <h6>Castell Dinas Bran</h6>
+  <img  class="popup_image" src="venders/image/cast.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace8 = L.marker([52.9813, -3.1998], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace8.bindPopup(
+  `<div class="popup">
+  <h6>Horseshoe Falls</h6>
+                        <img  class="popup_image" src="venders/image/hors.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace9 = L.marker([ 51.1444, -2.6986], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace9.bindPopup(
+  `<div class="popup">
+  <h6>Glastonbury Tor</h6>
+  <img  class="popup_image" src="venders/image/glas.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace10 = L.marker([ 51.1051, -2.3179], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace10.bindPopup(
+  `<div class="popup">
+  <h6>Stourhead</h6>
+  <img  class="popup_image" src="venders/image/stou.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace11 = L.marker([ 51.1461, -2.7153], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace11.bindPopup(
+  `<div class="popup">
+  <h6>Glastonbury Abbey</h6>
+  <img  class="popup_image" src="venders/image/abbe.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace12 = L.marker([ 52.0491, -2.3470], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace12.bindPopup(
+  `<div class="popup">
+  <h6>Swinyard Hill</h6>
+  <img  class="popup_image" src="venders/image/swin.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace13 = L.marker([ 52.0612, -2.3369], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace13.bindPopup(
+  `<div class="popup">
+  <h6>Malvern Court & Gardens</h6>
+  <img  class="popup_image" src="venders/image/malv.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+
+var touristPlace14 = L.marker([ 51.0608, -1.4104], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace14.bindPopup(
+  `<div class="popup">
+  <h6>Farley Mount Country Park</h6>
+  <img  class="popup_image" src="venders/image/farl.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace15 = L.marker([ 53.5587, 108.1650], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace15.bindPopup(
+  `<div class="popup">
+  <h6>Lake Baikal</h6>
+                        <img  class="popup_image" src="venders/image/lak.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+var touristPlace16 = L.marker([55.7558, 37.6173], { icon: mytouristPlaceIcon }).addTo(mymap);
+touristPlace16.bindPopup(
+  `<div class="popup">
+  <h6>Moscow</h6>
+                        <img  class="popup_image" src="venders/image/mas.jpg" >
+                    </div> `,
+  { closeButton: false, offset: L.point(0, -8) }
+);
+
+
+
 
 
 
@@ -944,19 +1091,234 @@ var polylines4 = L.polyline(
   .bindPopup("<h6>125 miles</h6>", { closeButton: false })
   .addTo(mymap);
 
-//add geojson data for lines and marker...
-//add fort data using marker....
 
-//add popups.....
-function onEachFeature(feature, layer) {
-  // does this feature have a property named popupContent?
-  if (feature.properties && feature.properties.popupContent) {
-    layer.bindPopup(feature.properties.popupContent, {
-      closeButton: false,
-      offset: L.point(0, -8),
-    });
+//add geojson data for lines and tourist place......
+
+var mylines = [
+  {
+    type: "Feature",
+    properties: {
+      name: "Hambledon Hill",
+      popupContent:
+        "Distance between Hambledon Hill Castle and Nine Barrow Down is 35.5 KM. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.22, 50.91],
+        [-2.0, 50.63],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Maiden Castle",
+      popupContent:
+        "Distance between Maiden Castle and Durdle Door is 14 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.4746, 50.6955],
+        [-2.2801, 50.6210],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Maiden Castle",
+      popupContent:
+        "Distance between Maiden Castle and PooleHarbour is 32 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.4746, 50.6955],
+        [-1.9865, 50.6908],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Maiden Castle",
+      popupContent:
+        "Distance between Maiden Castle and Isle Of Portland is 15 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.4746, 50.6955],
+        [-2.4343, 50.5475],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Maiden Castle",
+      popupContent:
+        "Distance between Maiden Castle and Old Harry Rocks is 28 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.4746, 50.6955],
+        [-1.9225, 50.6429],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Old Oswestry",
+      popupContent:
+        "Distance between Old Oswestry Castle and Pontcysyllte Aqueduct is 9 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-3.0512, 52.8712],
+        [-3.0878, 52.9704],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Old Oswestry",
+      popupContent:
+        "Distance between Old Oswestry Castle and Castell Dinas Bran is 14 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-3.0512, 52.8712],
+        [-3.1589, 52.9791],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Old Oswestry",
+      popupContent:
+        "Distance between Old Oswestry Castle and Horseshoe Falls is 15 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-3.0512, 52.8712],
+        [-3.1998, 52.9813],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Glastonbury Tor is 18 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.6986, 51.1444],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Stourhead is 14 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.3179, 51.1051],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Cadbury Castle",
+      popupContent:
+        "Distance between Cadbury Castle and Glastonbury Abbey is 17 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.53178, 51.024058],
+        [-2.7153, 51.1461],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "The British Camp",
+      popupContent:
+        "Distance between The British Camp Castle and Swinyard Hill is 6 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-2.3470, 52.0491],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "The British Camp",
+      popupContent:
+        "Distance between The British Camp Castle and Little Malvern Court & Garden is 2 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-2.3369, 52.0612],
+      ],
+    },
+  },
+  {
+    type: "Feature",
+    properties: {
+      name: "Danebury Castle",
+      popupContent:
+        "Distance between Danebury Castle and Farley Mount Court Park is 10 mi. ",
+    },
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [-2.3520, 52.0582],
+        [-1.4104, 51.0608],
+      ],
+    },
   }
-}
+];
+
+
+
+
+var myStyle = {
+  color: "#ff7800",
+  weight: 5,
+  opacity: 0.65
+};
+
+
+//add popups for tourist place.....
+
 
 //add popups for lines....
 function oneachFeature(feature, layer) {
@@ -969,7 +1331,6 @@ function oneachFeature(feature, layer) {
   }
 }
 
-
 // add lines.......
 var line = new L.geoJSON(mylines, {
   style: myStyle,
@@ -977,14 +1338,6 @@ var line = new L.geoJSON(mylines, {
 }).addTo(mymap);
 
 //add tourist place marker.....
-var place = new L.geoJSON(touristPlace, {
-  pointToLayer: function (geoJsonPoint, latlng) {
-    return L.marker(latlng, {
-      icon: mytouristPlaceIcon,
-    });
-  },
-  onEachFeature: onEachFeature,
-}).addTo(mymap);
 
 //country boundry....
 
@@ -1086,7 +1439,6 @@ var markersList = [
   marker4,
   marker2,
   marker3,
-  place,
   marker5,
   marker7,
   marker8,
@@ -1118,30 +1470,12 @@ var markersList = [
   africa6,
   africa7,
   africa8,
-  africa9, russia1, russia2, russia3, russia4, china1, china2, usa1, usa2, usa3, usa4, usa5, usa6, usa7, canada1, canada2, canada3, brazil1, brazil2, brazil3, peru, argentina1, spain,place1, place2, place3, place4, place5, place6, place7, place8
+  africa9, russia1, russia2, russia3, russia4, china1, china2, usa1, usa2, usa3, usa4, usa5, usa6, usa7, canada1, canada2, canada3, brazil1, brazil2, brazil3, peru, argentina1, spain,place1, place2, place3, place4, place5, place6, place7, place8,  touristPlace1, touristPlace2, touristPlace3, touristPlace4, touristPlace5, touristPlace6, touristPlace7, touristPlace8, touristPlace9, touristPlace10, touristPlace11, touristPlace12, touristPlace13, touristPlace14, touristPlace15, touristPlace16
 ];
 
 mymap.addLayer(markers);
 
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < markersList.length; i++) {
   markers.addLayer(markersList[i]);
 }
 
-//Ugly add/remove code
-
-L.DomUtil.get("populate").onclick = function () {
-  var bounds = mymap.getBounds(),
-    southWest = bounds.getSouthWest(),
-    northEast = bounds.getNorthEast(),
-    lngSpan = northEast.lng - southWest.lng,
-    latSpan = northEast.lat - southWest.lat;
-  var m = L.marker([
-    southWest.lat + latSpan * 0.5,
-    southWest.lng + lngSpan * 0.5,
-  ]);
-  markersList.push(m);
-  markers.addLayer(m);
-};
-L.DomUtil.get("remove").onclick = function () {
-  markers.removeLayer(markersList.pop());
-};
