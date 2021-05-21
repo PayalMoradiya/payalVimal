@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Andika New Basic", sans-serif;
 }
+div.header{
+  height:81px;
+}
 
 img.logo {
   width: 40px;
@@ -11,21 +14,43 @@ img.logo {
   margin-left: 5px;
 }
 
-.nav-item.bg-light {
-  width: 140px;
+ nav.navbar.navbar-expand-sm.bg-secondary.fixed-top {
+   height:81px;
+} 
+
+
+select#selcountry{
+  width:150px;
+  margin: 15px 10px 15px 0px;
+  border-radius: 5px;
+  text-align: center;
+
+}
+div.options {
+  position: relative;
+  width:200px;
+  padding:20px;
+  height: 110px;
+  z-index: 2;
+}
+
+button#btnwiki.nav-item.bg-light{
+  width: 150px;
   margin: 15px 10px 15px 10px;
   border-radius: 5px;
   text-align: center;
+  height:35px;
+  margin-top: 34px;
 }
 
 div.main {
-  height: 633px;
+  height: 635px;
   width: 1366px;
   overflow: hidden;
 }
 
 #mapid {
-  height: 583px;
+  height: 585px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -161,20 +186,40 @@ img.popup_image {
   }
 
   div.header {
-    height: 81px;
+    height: 79px;
     margin-bottom: 0px;
   }
   img.logo {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
+    display: none;
+   
   }
   nav.navbar.navbar-expand-sm.bg-secondary.fixed-top {
-    height: 81px;
+    height: 79px;
   }
-  .nav-item {
-    width: 120px;
-    margin: 15px 0px 15px 20px;
+  select#selcountry.bg-light{
+    width:145px;
+    border-radius: 5px;
+    text-align: center;
+   
+  
+  }
+  div.options {
+    position: relative;
+    width:200px;
+    padding:20px;
+    height: 110px;
+    z-index: 2;
+    bottom:17px;
+    left:5px;
+  }
+  
+  button#btnwiki.bg-light{
+    width: 145px;
+    border-radius: 5px;
+    text-align: center;
+    height:32px;
+    margin-top: 15px;
+
   }
 
   div.main {
@@ -325,19 +370,28 @@ img.popup_image {
     box-sizing: border-box;
     font-family: "Andika New Basic", sans-serif;
   }
+  div.header{
+    height:81px;
+  }
   img.logo {
     width: 40px;
     height: 40px;
-    margin-left: 15px;
+    margin-left: 20px;
   }
 
-  .nav-item {
+ select#selcountry.bg-light {
     width: 140px;
-    margin: 15px 0px 15px 20px;
-    height: 35px;
+    margin: 17px 0px 15px 0px;
+    
   }
-  div.header{
-    height:81px;
+  
+  button#btnwiki.bg-light{
+    width: 145px;
+    border-radius: 5px;
+    text-align: center;
+    height:32px;
+    margin-top: 37px;
+
   }
   div.main {
     height: 566px;
@@ -352,7 +406,7 @@ img.popup_image {
   }
   div.container {
     position: fixed;
-    right: 88px;
+    right: 40px;
     height: 30px;
     bottom: 0px;
     padding-left: 15px;
@@ -476,12 +530,21 @@ img.popup_image {
   .nav.justify-content-center{
     width: 400px;
   }
-  select#selcountry.nav-item.bg-light {
+  select#selcountry {
     width: 160px;
-    margin: 16px 0px 15px 20px;
-    height: 40px;
+    margin-top:18px;
+   
+   
   }
-  
+ 
+  button#btnwiki.bg-light{
+    width: 160px;
+    border-radius: 5px;
+    text-align: center;
+    height:35px;
+    margin-top: 37px;
+
+  }
 
   div.main {
     height: 943px;
@@ -700,7 +763,7 @@ button#btnwiki.nav-item.bg-light {
   margin-left: 25px;
 }
   div.main {
-    height: 814px;
+    height: 719px;
     width: 100%;
     overflow: hidden;
   }
@@ -710,6 +773,7 @@ button#btnwiki.nav-item.bg-light {
     overflow: hidden;
   
   }
+  
 
   div.container {
     position: fixed;
@@ -747,11 +811,45 @@ button#btnwiki.nav-item.bg-light {
 }
 
 @media only screen and (min-width: 1440px){
-  div.header {
-    height:81px;
-    width: 100%;
+  img.logo{
+    margin-left: 25px;
   }
-  div.main {
+  nav.navbar.navbar-expand-sm.bg-secondary.fixed-top {
+    height:81px;
+    width:100%;
+ } 
+ ul.nav.justify-content-center{
+   width:40%;
+ }
+ 
+ select#selcountry{
+   width:170px;
+   border-radius: 5px;
+   text-align: center;
+   
+ 
+ }
+ div.options {
+   position: relative;
+   width:200px;
+   padding:20px;
+   height: 110px;
+   z-index: 2;
+   margin-left: -130px;
+  
+ }
+ 
+ button#btnwiki.bg-light{
+   width: 170px;
+   margin: 15px 10px 15px 10px;
+   border-radius: 5px;
+   text-align: center;
+   height:35px;
+   margin-left: 40px;
+   margin-top:37px;
+ }
+
+div.main {
     height: 814px;
     width: 100%;
     overflow: hidden;

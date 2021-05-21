@@ -69,8 +69,9 @@
         <!-- Navs -->
         <ul class="nav justify-content-center">
           <!-- Dropdown -->
-          <select class="nav-item bg-light" id="selcountry">
-            <option value="" disabled selected hidden>Select Country</option>
+          <div class="options">
+          <select id="selcountry" class="bg-light" onfocus='this.size=3;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+            <option  value="" disabled selected hidden>Select Country</option>
             <option value="united%20kingdom">United Kingdom</option>
             <option value="germany">Germany</option>
             <option value="spain">Spain</option>
@@ -80,8 +81,11 @@
             <option value="new%20zealand">New Zealand</option>
             <option value="canada">Canada</option>
           </select>
+          </div>
+        
+          
 
-          <button id="btnwiki" class="nav-item bg-light">Search</button>
+          <button id="btnwiki" class=" bg-light">Search</button>
         </ul>
       </nav>
       <br />
