@@ -63,6 +63,7 @@ $(document).ready(function () {
         $("#txtcapital").html(result["data"][0]["capital"]);
         $("#txtcurrency").html(result["data"][0]["currencies"][0]["name"]);
         $("#txtsymbol").html(result["data"][0]["currencies"][0]["symbol"]);
+        $("#txtcountrycode").html(result["data"][0]["alpha2Code"]);
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -93,7 +94,7 @@ $(document).ready(function () {
         $("#txtlat").html(result["data"][0]["lat"]);
         $("#txtlng").html(result["data"][0]["lng"]);
         $("#txtpopulation").html(result["data"][0]["population"]);
-        $("#txtcountrycode").html(result["data"][0]["countryCode"]);
+       // $("#txtcountrycode").html(result["data"][0]["countryCode"]);
         $("#txtgeoname").html(result["data"][0]["geonameId"]);
       }
     },
@@ -149,6 +150,7 @@ $(document).ready(function () {
       if (result.status.name == "ok") {
         $("#txtlang").html(result["data"]["geonames"][0]["lang"]);
         $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);
+       // $("#txtcountrycode").html(result["data"]["geonames"][0]["countryCode"]);
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
