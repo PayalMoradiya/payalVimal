@@ -33,6 +33,10 @@ const successfullLookup = (position) => {
       console.log(country_name);
       var country_code = data.results[0].components.country_code;
       console.log(country_code);
+      var currency_name = data.results[0].annotations.currency.name;
+      console.log(currency_name);
+      var currency_symbol = data.results[0].annotations.currency.symbol;
+      console.log(currency_symbol);
 
       var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(mymap);
       currentLocation
@@ -63,11 +67,11 @@ $(document).ready(function () {
         console.log(result);
   
         if (result.status.name == "ok") {
-          $("#txtcountryname").html(result["data"][0]["name"]);
-          $("#txtcapital").html(result["data"][0]["capital"]);
-          $("#txtcurrency").html(result["data"][0]["currencies"][0]["name"]);
-          $("#txtsymbol").html(result["data"][0]["currencies"][0]["symbol"]);
-          $("#txtnative").html(result["data"][0]["nativeName"]);
+         
+        
+          $("#txtcurrency").html(currency_name);
+          $("#txtsymbol").html(currency_symbol);
+          //  $("#txtnative").html(result["data"][0]["nativeName"]);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -82,19 +86,20 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $.ajax({
-      url: "libs/php/getWeather.php",
+      url: "libs/php/weather.php",
       type: "POST",
       dataType: "json",
       data: {
-        q: country_name,
+        lat: lat,
+        lng: lng
       },
       success: function (result) {
         console.log(result);
   
         if (result.status.name == "ok") {
-          $("#txtclouds").html(result["data"]["weather"][0]["description"]);
-          $("#txttemp").html(result["data"]["main"]["temp"]);
-          $("#txthum").html(result["data"]["main"]["humidity"]);
+          $("#txtclouds").html(result["data"]["clouds"]);
+          $("#txttemp").html(result["data"]["temperature"]);
+          $("#txthum").html(result["data"]["humidity"]);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -124,6 +129,8 @@ $(document).ready(function () {
           $("#txtpopulation").html(result["data"]["geonames"][0]["population"]);
           $("#txtcountrycode").html(result["data"]["geonames"][0]["countryCode"]);
           $("#txtgeoname").html(result["data"]["geonames"][0]["geonameId"]);
+          $("#txtcapital").html(result["data"]["geonames"][0]["capital"]);
+          $("#txtcountryname").html(result["data"]["geonames"][0]["countryName"]);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
