@@ -22,18 +22,187 @@ const successfullLookup = (position) => {
   )
     .then((response) => response.json())
     .then(function (data) {
+      console.log(data);
       var lat = data.results[0].geometry.lat;
       console.log(lat);
       var lng = data.results[0].geometry.lng;
       console.log(lng);
       var address = data.results[0].formatted;
       console.log(address);
+      var country_name = data.results[0].components.country;
+      console.log(country_name);
+      var country_code = data.results[0].components.country_code;
+      console.log(country_code);
+
       var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(mymap);
       currentLocation
         .bindPopup("<b>" + address + "</b>", { closeButton: false })
         .openPopup();
+
+        //update map with border..
+        L.geoJSON(geoJSON, {
+          filter: function (feature, layer) {
+            if (feature.properties.name === country_name) {
+              return feature.geometry.coordinates;
+            }
+          },
+        }).addTo(mymap);
+
+
+        //getCountryInfo.php file....
+
+$(document).ready(function () {
+    $.ajax({
+      url: "libs/php/getCountryInfo.php",
+      type: "POST",
+      dataType: "json",
+      data: {
+        q: country_name,
+      },
+      success: function (result) {
+        console.log(result);
+  
+        if (result.status.name == "ok") {
+          $("#txtcountryname").html(result["data"][0]["name"]);
+          $("#txtcapital").html(result["data"][0]["capital"]);
+          $("#txtcurrency").html(result["data"][0]["currencies"][0]["name"]);
+          $("#txtsymbol").html(result["data"][0]["currencies"][0]["symbol"]);
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        //error code..
+        alert("error");
+      },
     });
+  });
+
+     
+  //getWeather.php file.....
+
+$(document).ready(function () {
+    $.ajax({
+      url: "libs/php/getWeather.php",
+      type: "POST",
+      dataType: "json",
+      data: {
+        q: country_name,
+      },
+      success: function (result) {
+        console.log(result);
+  
+        if (result.status.name == "ok") {
+          $("#txtclouds").html(result["data"]["weather"][0]["description"]);
+          $("#txttemp").html(result["data"]["main"]["temp"]);
+          $("#txthum").html(result["data"]["main"]["humidity"]);
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        //error code..
+        alert("error");
+      },
+    });
+  });
+  
+  //wiki.php file...
+
+$(document).ready(function () {
+    $.ajax({
+      url: "libs/php/wiki.php",
+      type: "POST",
+      dataType: "json",
+      data: {
+        q: country_code,
+      },
+      success: function (result) {
+        console.log(result);
+  
+        if (result.status.name == "ok") {
+          $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
+          $("#txtcontinentcode").html(result["data"]["geonames"][0]["continent"]);
+          $("#txttop").html(result["data"]["geonames"][0]["toponymName"]);
+          $("#txtpopulation").html(result["data"]["geonames"][0]["population"]);
+          $("#txtcountrycode").html(result["data"]["geonames"][0]["countryCode"]);
+          $("#txtgeoname").html(result["data"]["geonames"][0]["geonameId"]);
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        //error code..
+        alert("error");
+      },
+    });
+  });
+
+  //getWiki.php file...
+
+$(document).ready(function () {
+     $.ajax({
+       url: "libs/php/getUrl.php",
+       type: "POST",
+       dataType: "json",
+       data: {
+         lat: lat,
+         lng: lng
+       },
+       success: function (result) {
+         console.log(result);
+   
+         if (result.status.name == "ok") {
+    
+           $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);
+          
+         }
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+         //error code..
+         alert("error");
+       },
+     });
+   });
+
+//covid data...
+  $(document).ready(function () {
+    $.ajax({
+      url: "libs/php/getcovid.php",
+      type: "GET",
+      dataType: "json",
+      data: {
+        // postalcode: $('#selPostcode').val(),
+      },
+      success: function (result) {
+        console.log(result);
+        console.log(result.data);
+  
+      
+        var country_name = data.results[0].components.country;
+  
+          $.each(result.data, function (keys, value) {
+            if (keys === country_name) {
+              var index = value[value.length - 1];
+              var activecase = index.confirmed - index.deaths - index.recovered;
+             // console.log(activecase);
+           //  console.log(index.confirmed);
+            //  console.log(index.deaths);
+            //  console.log(index.recovered);
+  
+              $("#txtcovidcase").html(activecase);
+              $("#txtconcovidcase").html(index.confirmed);
+              $("#txtdeacovidcase").html(index.deaths);
+              $("#txtreccovidcase").html(index.recovered);
+            } 
+          
+        });
+    }
+    });
+  });
+
+
+
+
+    });
+    
 };
+
+
 
 navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 

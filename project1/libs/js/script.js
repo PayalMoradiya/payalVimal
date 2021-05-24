@@ -147,8 +147,8 @@ $(document).ready(function () {
       console.log(result);
 
       if (result.status.name == "ok") {
-        $("#txtlang").html(result["data"][0]["lang"]);
-        $("#txtwiki").html(result["data"][0]["wikipediaUrl"]);
+        $("#txtlang").html(result["data"]["geonames"][0]["lang"]);
+        $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
