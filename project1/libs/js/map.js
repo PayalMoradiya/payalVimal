@@ -53,36 +53,16 @@ const successfullLookup = (position) => {
         }).addTo(mymap);
 
 
-        //getCountryInfo.php file....
+        //fetch data from opencage api....
 
 $(document).ready(function () {
-    $.ajax({
-      url: "libs/php/getCountryInfo.php",
-      type: "POST",
-      dataType: "json",
-      data: {
-        q: country_name,
-      },
-      success: function (result) {
-        console.log(result);
-  
-        if (result.status.name == "ok") {
-         
-        
-          $("#txtcurrency").html(currency_name);
+   
+         $("#txtcurrency").html(currency_name);
           $("#txtsymbol").html(currency_symbol);
-          //  $("#txtnative").html(result["data"][0]["nativeName"]);
-        }
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        //error code..
-        alert("error");
-      },
     });
-  });
 
      
-  //getWeather.php file.....
+  //weather.php file.....
 
 $(document).ready(function () {
     $.ajax({
@@ -109,11 +89,11 @@ $(document).ready(function () {
     });
   });
   
-  //wiki.php file...
+  //getCountryInfo.php file...
 
 $(document).ready(function () {
     $.ajax({
-      url: "libs/php/wiki.php",
+      url: "libs/php/getCountryInfo.php",
       type: "POST",
       dataType: "json",
       data: {

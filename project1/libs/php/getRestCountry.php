@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 $executionStartTime = microtime(true);
 
 
-$url='http://api.geonames.org/countryInfoJSON?formatted=true&lang=en&country=' . $_REQUEST['q'].'&username=PayalVimal&style=full';
+$url='https://restcountries.eu/rest/v2/name/'. $_REQUEST['q'] .'?';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

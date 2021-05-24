@@ -43,12 +43,12 @@ $(document).ready(function () {
   });
 });
 
-//getCountryInfo.php file....
+//getRestCountry.php file....
 
 //$(document).ready(function () {
   $("#selcountry").change( function () {
   $.ajax({
-    url: "libs/php/getCountryInfo.php",
+    url: "libs/php/getRestCountry.php",
     type: "POST",
     dataType: "json",
     data: {
