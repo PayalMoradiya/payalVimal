@@ -64,6 +64,7 @@ $(document).ready(function () {
         $("#txtcurrency").html(result["data"][0]["currencies"][0]["name"]);
         $("#txtsymbol").html(result["data"][0]["currencies"][0]["symbol"]);
         $("#txtcountrycode").html(result["data"][0]["alpha2Code"]);
+        $("#txtnative").html(result["data"][0]["nativeName"]);
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
