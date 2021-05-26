@@ -27,22 +27,22 @@ const successfullLookup = (position) => {
       q: `${latitude}+${longitude}`,
     },
     success: function (result) {
-      console.log(result);
+     // console.log(result);
 
       var lat = result.data.results[0].geometry.lat;
-      console.log(lat);
+     // console.log(lat);
       var lng = result.data.results[0].geometry.lng;
-      console.log(lng);
+    //  console.log(lng);
       var address = result.data.results[0].formatted;
-      console.log(address);
+    //  console.log(address);
       var country_name = result.data.results[0].components.country;
-      console.log(country_name);
+   //   console.log(country_name);
       var country_code = result.data.results[0].components.country_code;
-      console.log(country_code);
+    //  console.log(country_code);
       var currency_name = result.data.results[0].annotations.currency.name;
-      console.log(currency_name);
+    //  console.log(currency_name);
       var currency_symbol = result.data.results[0].annotations.currency.symbol;
-      console.log(currency_symbol);
+    //  console.log(currency_symbol);
 
       var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(mymap);
       currentLocation
@@ -58,11 +58,11 @@ const successfullLookup = (position) => {
          // q: $("#selcountry").val(),
         },
         success: function (geojson_result) {
-          console.log(geojson_result);
+          //console.log(geojson_result);
   
           var geoJSON = geojson_result.data;
           var Country_Code = country_code.toUpperCase();
-          console.log(Country_Code);
+         // console.log(Country_Code);
 
  var border = L.geoJSON(geoJSON, {
    filter: function (feature, layer) {
@@ -87,6 +87,7 @@ const successfullLookup = (position) => {
       $(document).ready(function () {
         $("#txtcurrency").html(currency_name);
         $("#txtsymbol").html(currency_symbol);
+        $("#txtnative").html(country_name);
       });
 
       //weather.php file.....
@@ -101,7 +102,7 @@ const successfullLookup = (position) => {
             lng: lng,
           },
           success: function (result) {
-            console.log(result);
+          //  console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtclouds").html(result["data"]["clouds"]);
@@ -127,12 +128,12 @@ const successfullLookup = (position) => {
             q: country_code,
           },
           success: function (result) {
-            console.log(result);
+           // console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
               $("#txtcontinentcode").html(
-                result["data"]["geonames"][0]["continent"]
+                result["data"]["geonames"][0]["continentName"]
               );
               $("#txttop").html(result["data"]["geonames"][0]["toponymName"]);
               $("#txtpopulation").html(
@@ -167,7 +168,7 @@ const successfullLookup = (position) => {
             lng: lng,
           },
           success: function (result) {
-            console.log(result);
+          //  console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);
@@ -190,8 +191,8 @@ const successfullLookup = (position) => {
             // postalcode: $('#selPostcode').val(),
           },
           success: function (result1) {
-            console.log(result1);
-            console.log(result1.data);
+           // console.log(result1);
+           // console.log(result1.data);
 
             var country_name = result.data.results[0].components.country;
 
@@ -240,22 +241,22 @@ const successfullLookup = (position) => {
       q: `${latitude}+${longitude}`,
     },
     success: function (result) {
-      console.log(result);
+     // console.log(result);
 
       var lat = result.data.results[0].geometry.lat;
-      console.log(lat);
+      //console.log(lat);
       var lng = result.data.results[0].geometry.lng;
-      console.log(lng);
+     // console.log(lng);
       var address = result.data.results[0].formatted;
-      console.log(address);
+     // console.log(address);
       var country_name = result.data.results[0].components.country;
-      console.log(country_name);
+      //console.log(country_name);
       var country_code = result.data.results[0].components.country_code;
-      console.log(country_code);
+      //console.log(country_code);
       var currency_name = result.data.results[0].annotations.currency.name;
-      console.log(currency_name);
+     // console.log(currency_name);
       var currency_symbol = result.data.results[0].annotations.currency.symbol;
-      console.log(currency_symbol);
+     // console.log(currency_symbol);
 
       var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(mymap);
       currentLocation
@@ -272,7 +273,7 @@ const successfullLookup = (position) => {
               // q: $("#selcountry").val(),
              },
              success: function (geojson_result) {
-               console.log(geojson_result);
+             //  console.log(geojson_result);
        
                var geoJSON = geojson_result.data;
                var Country_Code = country_code.toUpperCase();
@@ -302,6 +303,7 @@ const successfullLookup = (position) => {
       $(document).ready(function () {
         $("#txtcurrency").html(currency_name);
         $("#txtsymbol").html(currency_symbol);
+        $("#txtnative").html(country_name);
       });
 
       //weather.php file.....
@@ -316,7 +318,7 @@ const successfullLookup = (position) => {
             lng: lng,
           },
           success: function (result) {
-            console.log(result);
+          //  console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtclouds").html(result["data"]["clouds"]);
@@ -342,7 +344,7 @@ const successfullLookup = (position) => {
             q: country_code,
           },
           success: function (result) {
-            console.log(result);
+           // console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
@@ -382,7 +384,7 @@ const successfullLookup = (position) => {
             lng: lng,
           },
           success: function (result) {
-            console.log(result);
+           // console.log(result);
 
             if (result.status.name == "ok") {
               $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);
@@ -405,8 +407,8 @@ const successfullLookup = (position) => {
             // postalcode: $('#selPostcode').val(),
           },
           success: function (result1) {
-            console.log(result1);
-            console.log(result1.data);
+          //  console.log(result1);
+          //  console.log(result1.data);
 
             var country_name = result.data.results[0].components.country;
 
@@ -467,14 +469,15 @@ $("#btnwiki").on("click", function () {
       q: $("#selcountry").val(),
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       if (result.status.name == "ok") {
         var lat = result["data"]["latlng"][0];
-        console.log(lat);
+      //  console.log(lat);
         var lng = result["data"]["latlng"][1];
-        console.log(lng);
+      //  console.log(lng);
         var countryName = result["data"]["name"];
-        console.log(countryName);
+      //  console.log(countryName);
+     
 
         function flyToplace() {
           var countryMarker = L.marker([lat, lng], { icon: myIcon }).addTo(
@@ -495,15 +498,6 @@ $("#btnwiki").on("click", function () {
             }, 2000);
           });
 
-          /*
-             const areaSelect1 = document.querySelector(`[id="btnwiki"]`);
-             areaSelect1.addEventListener(`click`, (e) => {
-               setTimeout(function(){ 
-                 mymap.removeLayer(countryMarker);
-     
-                }, 2000);    
-    
-              });    */
         }
         flyToplace();
       }
@@ -599,7 +593,7 @@ var africa1 = L.marker([-33.9249, 18.4241], { icon: mytouristPlaceIcon }).addTo(
 );
 africa1.bindPopup(
   `<div class="popup">
-                      <h6>Cape Town, Western Cape</h6>
+                      <h6>Cape Town</h6>
                       <img  class="popup_image" src="venders/image/cap.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -610,7 +604,7 @@ var africa2 = L.marker([-33.9321, 18.8602], { icon: mytouristPlaceIcon }).addTo(
 );
 africa2.bindPopup(
   `<div class="popup">
-                      <h6>Stellenbosch, Western Cape</h6>
+                      <h6>Stellenbosch</h6>
                       <img  class="popup_image" src="venders/image/ste.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -621,7 +615,7 @@ var africa3 = L.marker([-29.4667, 29.2667], { icon: mytouristPlaceIcon }).addTo(
 );
 africa3.bindPopup(
   `<div class="popup">
-                      <h6> The Drakensberg, KwaZulu-Natal</h6>
+                      <h6> The Drakensberg</h6>
                       <img  class="popup_image" src="venders/image/kwa.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -632,7 +626,7 @@ var africa4 = L.marker([-25.2449, 27.0891], { icon: mytouristPlaceIcon }).addTo(
 );
 africa4.bindPopup(
   `<div class="popup">
-                      <h6>Pilanesberg National Park</h6>
+                      <h6>Pilanesberg Park</h6>
                       <img  class="popup_image" src="venders/image/pil.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -643,7 +637,7 @@ var africa5 = L.marker([29.9792, 31.1342], { icon: mytouristPlaceIcon }).addTo(
 );
 africa5.bindPopup(
   `<div class="popup">
-                      <h6>Pyramids of Giza, Egypt</h6>
+                      <h6>Pyramids of Giza</h6>
                       <img  class="popup_image" src="venders/image/pyr.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -654,7 +648,7 @@ var africa6 = L.marker([36.8065, 10.1815], { icon: mytouristPlaceIcon }).addTo(
 );
 africa6.bindPopup(
   `<div class="popup">
-                      <h6>Tunis, Tunisia</h6>
+                      <h6>Tunis</h6>
                       <img  class="popup_image" src="venders/image/tun.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -665,7 +659,7 @@ var africa7 = L.marker([22.346, 31.6156], { icon: mytouristPlaceIcon }).addTo(
 );
 africa7.bindPopup(
   `<div class="popup">
-                      <h6>Abu Simbel, Egypt</h6>
+                      <h6>Abu Simbel</h6>
                       <img  class="popup_image" src="venders/image/abu.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -676,7 +670,7 @@ var africa8 = L.marker([35.0391, 0.2909], { icon: mytouristPlaceIcon }).addTo(
 );
 africa8.bindPopup(
   `<div class="popup">
-                      <h6>Atlas Mountains, Morocco</h6>
+                      <h6>Atlas Mountains</h6>
                       <img  class="popup_image" src="venders/image/atl.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -687,7 +681,7 @@ var africa9 = L.marker([33.8869, 9.5375], { icon: mytouristPlaceIcon }).addTo(
 );
 africa9.bindPopup(
   `<div class="popup">
-                      <h6>Sahara Desert, Tunisia</h6>
+                      <h6>Sahara Desert</h6>
                       <img  class="popup_image" src="venders/image/des.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -753,7 +747,7 @@ var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(
 );
 china2.bindPopup(
   `<div class="popup">
-                      <h6>The Terracotta Army, Xi'an</h6>
+                      <h6>Terracotta Army</h6>
                       <img  class="popup_image" src="venders/image/ter.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -797,7 +791,7 @@ var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(
 );
 usa4.bindPopup(
   `<div class="popup">
-                      <h6> Las Vegas Strip</h6>
+                      <h6> Las Vegas</h6>
                       <img  class="popup_image" src="venders/image/las.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -830,7 +824,7 @@ var usa7 = L.marker([44.428, -110.5885], { icon: mytouristPlaceIcon }).addTo(
 );
 usa7.bindPopup(
   `<div class="popup">
-                      <h6>Yellowstone National Park</h6>
+                      <h6>Yellowstone Park</h6>
                       <img  class="popup_image" src="venders/image/yel.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -841,7 +835,7 @@ var canada1 = L.marker([51.4968, -115.9281], {
 }).addTo(mymap);
 canada1.bindPopup(
   `<div class="popup">
-                      <h6>Banff National Park</h6>
+                      <h6>Banff Park</h6>
                       <img  class="popup_image" src="venders/image/ban.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -852,7 +846,7 @@ var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(
 );
 canada2.bindPopup(
   `<div class="popup">
-                      <h6>Toronto's CN Tower</h6>
+                      <h6> CN Tower</h6>
                       <img  class="popup_image" src="venders/image/cn.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -918,7 +912,7 @@ var argentina1 = L.marker([-50.4967, -73.1377], {
 }).addTo(mymap);
 argentina1.bindPopup(
   `<div class="popup">
-                      <h6>Perito Moreno Glacier</h6>
+                      <h6>Perito Moreno</h6>
                       <img  class="popup_image" src="venders/image/gla.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -929,7 +923,7 @@ var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(
 );
 spain.bindPopup(
   `<div class="popup">
-                      <h6>Historic Córdoba Cathedral</h6>
+                      <h6>Córdoba Cathedral</h6>
                       <img  class="popup_image" src="venders/image/cor.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1202,7 +1196,7 @@ touristPlace16.bindPopup(
 var fort1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
 fort1.bindPopup(
   `<div class="popup">
-                      <h6>Alcázar of Segovia, Spain</h6>
+                      <h6>Alcázar of Segovia</h6>
                       <img  class="popup_image" src="venders/image/alc.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1211,7 +1205,7 @@ fort1.bindPopup(
 var fort2 = L.marker([40.73, 13.965], { icon: myCastleIcon }).addTo(mymap);
 fort2.bindPopup(
   `<div class="popup">
-                      <h6>Aragonese Castle, Italy</h6>
+                      <h6>Aragonese Castle</h6>
                       <img  class="popup_image" src="venders/image/ara.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1220,7 +1214,7 @@ fort2.bindPopup(
 var fort3 = L.marker([47.6161, 1.5172], { icon: myCastleIcon }).addTo(mymap);
 fort3.bindPopup(
   `<div class="popup">
-                      <h6>Château de Chambord, France</h6>
+                      <h6>Château de Chambord</h6>
                       <img  class="popup_image" src="venders/image/cha.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1229,7 +1223,7 @@ fort3.bindPopup(
 var fort4 = L.marker([45.4337, 12.4304], { icon: myCastleIcon }).addTo(mymap);
 fort4.bindPopup(
   `<div class="popup">
-                      <h6>Doge’s Palace, Italy</h6>
+                      <h6>Doge’s Palace</h6>
                       <img  class="popup_image" src="venders/image/dog.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1238,7 +1232,7 @@ fort4.bindPopup(
 var fort5 = L.marker([53.3429, 6.2674], { icon: myCastleIcon }).addTo(mymap);
 fort5.bindPopup(
   `<div class="popup">
-                      <h6>Dublin Castle, Ireland</h6>
+                      <h6>Dublin Castle</h6>
                       <img  class="popup_image" src="venders/image/dub.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1247,7 +1241,7 @@ fort5.bindPopup(
 var fort6 = L.marker([59.9404, 30.3138], { icon: myCastleIcon }).addTo(mymap);
 fort6.bindPopup(
   `<div class="popup">
-                      <h6>Winter Palace, Russia</h6>
+                      <h6>Winter Palace</h6>
                       <img  class="popup_image" src="venders/image/win.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1256,7 +1250,7 @@ fort6.bindPopup(
 var fort7 = L.marker([38.7507, -9.2591], { icon: myCastleIcon }).addTo(mymap);
 fort7.bindPopup(
   `<div class="popup">
-                      <h6>Queluz National Palace, Portugal</h6>
+                      <h6>Queluz Palace</h6>
                       <img  class="popup_image" src="venders/image/que.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1265,7 +1259,7 @@ fort7.bindPopup(
 var fort8 = L.marker([37.3831, -5.9902], { icon: myCastleIcon }).addTo(mymap);
 fort8.bindPopup(
   `<div class="popup">
-                      <h6> Real Alcazar of Seville, Spain </h6>
+                      <h6> Real Alcazar of Seville</h6>
                       <img  class="popup_image" src="venders/image/rea.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1274,7 +1268,7 @@ fort8.bindPopup(
 var fort9 = L.marker([47.4962, 19.0396], { icon: myCastleIcon }).addTo(mymap);
 fort9.bindPopup(
   `<div class="popup">
-                      <h6> Buda Castle, Hungary</h6>
+                      <h6> Buda Castle</h6>
                       <img  class="popup_image" src="venders/image/bud.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1283,7 +1277,7 @@ fort9.bindPopup(
 var fort10 = L.marker([59.3217, 17.8863], { icon: myCastleIcon }).addTo(mymap);
 fort10.bindPopup(
   `<div class="popup">
-                      <h6> Drottningholm Castle, Sweden</h6>
+                      <h6> Drottningholm Castle</h6>
                       <img  class="popup_image" src="venders/image/dro.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
@@ -1787,34 +1781,6 @@ var line = new L.geoJSON(mylines, {
   onEachFeature: oneachFeature,
 }).addTo(mymap);
 
-/*
-//remove country boundry....
-
-const log = console.log;
-const areaSelect = document.querySelector(`[id="selcountry"]`);
-var dropdownItems;
-var select;
-var Value;
-areaSelect.addEventListener(`change`, (e) => {
-  select = e.target;
-  Value = e.target.value;
-  dropdownItems = select.options[select.selectedIndex].text;
-  console.log(dropdownItems);
-
-  var boundry = L.geoJSON(geoJSON, {
-    filter: function (feature, layer) {
-      if (feature.properties.name === dropdownItems) {
-        return feature.geometry.coordinates;
-      }
-    },
-  }).addTo(mymap);
-
-  areaSelect.addEventListener(`change`, (e) => {
-    setTimeout(function () {
-      mymap.removeLayer(boundry);
-    }, 2000);
-  });
-});    */
   
 //getBorder.php file....
 
@@ -1828,13 +1794,13 @@ $(document).ready(function () {
        // q: $("#selcountry").val(),
       },
       success: function (geojson_result) {
-        console.log(geojson_result);
+        //console.log(geojson_result);
 
         var geoJSON = geojson_result.data;
 
         //add country name into dropdown select option....
         var len = geojson_result.data.features.length;
-        console.log(len);
+        //console.log(len);
 
         for( var i = 0; i<len; i++){
           $("#selcountry").append("<option value= '"+geojson_result.data.features[i].properties.iso_a2+"'>"+geojson_result.data.features[i].properties.name+" </option>");
@@ -1875,11 +1841,11 @@ $(document).ready(function () {
         var Value;
         areaSelect.addEventListener(`change`, (e) => {
           select = e.target;
-          console.log(select);
+         // console.log(select);
           Value = e.target.value;
-          console.log(Value);
+         console.log(Value);
           dropdownItems = select.options[select.selectedIndex].text;
-          console.log(dropdownItems);
+         // console.log(dropdownItems);
 
           var boundry = L.geoJSON(geoJSON, {
             filter: function (feature, layer) {
