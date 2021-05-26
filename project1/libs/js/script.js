@@ -1,3 +1,15 @@
+
+//Drop down select option function....
+function onFocusFunction() {
+  var select_size = document.getElementById("selcountry");
+  select_size.size = 3;
+}
+function onChangeFunction() {
+  var select_size = document.getElementById("selcountry");
+  select_size.size = 1;
+}
+
+
 //getcovid.php file....
 
 $(document).ready(function () {
