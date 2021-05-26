@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 $executionStartTime = microtime(true);
 
 
-$url='http://api.openweathermap.org/data/2.5/weather?q=' . $_REQUEST['q'] . '&appid=5191515bc9cd85248f65740c48ca9655';
+$url='https://samples.openweathermap.org/data/2.5/forecast?q=' . $_REQUEST['q'] . '&appid=5191515bc9cd85248f65740c48ca9655';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
