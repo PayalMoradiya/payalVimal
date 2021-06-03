@@ -4,7 +4,7 @@ var mymap = L.map("mapid").setView([54.75844, -2.69531], 13).fitWorld();
 
 var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
- 
+
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 });
@@ -12,19 +12,26 @@ tiles.addTo(mymap);
 
 //leaflet easy button...
 
-var easybutton = L.easyButton('<img src="venders/image/info.png">', function(e){
-  $('#info').modal('show');
-}).addTo(mymap);
+var easybutton = L.easyButton(
+  '<img src="venders/image/info.png">',
+  function (e) {
+    $("#info").modal("show");
+  }
+).addTo(mymap);
 
-var easybutton1 = L.easyButton('<img src="venders/image/virus.png">', function(e){
-  $('#covid').modal('show');
-}).addTo(mymap);
+var easybutton1 = L.easyButton(
+  '<img src="venders/image/virus.png">',
+  function (e) {
+    $("#covid").modal("show");
+  }
+).addTo(mymap);
 
-var easybutton2 = L.easyButton('<img src="venders/image/cloudy1.png">', function(e){
-  $('#weather').modal('show');
-}).addTo(mymap);
-
-
+var easybutton2 = L.easyButton(
+  '<img src="venders/image/cloudy1.png">',
+  function (e) {
+    $("#weather").modal("show");
+  }
+).addTo(mymap);
 
 //User Current Location....
 
@@ -63,8 +70,7 @@ const successfullLookup = (position) => {
         var currency_symbol =
           result.data.results[0].annotations.currency.symbol;
         //  console.log(currency_symbol);
-       
-      
+
         //update map with border..
         $(document).ready(function () {
           $.ajax({
@@ -86,15 +92,16 @@ const successfullLookup = (position) => {
                   if (feature.properties.iso_a2 === Country_Code) {
                     return feature.geometry.coordinates;
                   }
-                } 
-              }).addTo(mymap);   //,{style: {color: 'red #803af0'}}
+                },
+              }).addTo(mymap); //,{style: {color: 'red #803af0'}}
 
-              border.setStyle({fillColor: '#0f07f5',
-              color: '#803af0',
-              weight: 7,
-              opacity:0.1,
-              fillOpacity: 0.2});
-      
+              border.setStyle({
+                fillColor: "#0f07f5",
+                color: "#803af0",
+                weight: 7,
+                opacity: 0.1,
+                fillOpacity: 0.2,
+              });
 
               const areaSelect = document.querySelector(`[id="selcountry"]`);
               areaSelect.addEventListener(`change`, (e) => {
@@ -154,10 +161,9 @@ const successfullLookup = (position) => {
             success: function (result) {
               // console.log(result);
 
-              var population= result["data"]["geonames"][0]["population"];
+              var population = result["data"]["geonames"][0]["population"];
               var nf = new Intl.NumberFormat();
-  var population_formatted = nf.format(population);
-
+              var population_formatted = nf.format(population);
 
               if (result.status.name == "ok") {
                 $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
@@ -193,9 +199,9 @@ const successfullLookup = (position) => {
             type: "POST",
             dataType: "json",
             data: {
-            //  lat: lat,
-            //  lng: lng,
-             q: encoded_countryName
+              //  lat: lat,
+              //  lng: lng,
+              q: encoded_countryName,
             },
             success: function (result) {
               //  console.log(result);
@@ -231,8 +237,11 @@ const successfullLookup = (position) => {
               $.each(result1.data, function (keys, value) {
                 if (keys === country_name) {
                   var index = value[value.length - 1];
-                  var activecase =
-                    (index.confirmed - index.deaths - index.recovered).toLocaleString();
+                  var activecase = (
+                    index.confirmed -
+                    index.deaths -
+                    index.recovered
+                  ).toLocaleString();
                   // console.log(activecase);
                   //  console.log(index.confirmed);
                   //  console.log(index.deaths);
@@ -254,223 +263,6 @@ const successfullLookup = (position) => {
 
 navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 
-//onClick function on recenter button....
-/*
-function myFunction() {
-  mymap.locate({ setView: true, maxZoom: 5 });
-
-  const successfullLookup = (position) => {
-    const { latitude, longitude } = position.coords;
-
-    //openCagedata.php file.....
-    $.ajax({
-      url: "libs/php/openCagedata.php",
-      type: "POST",
-      dataType: "json",
-      data: {
-        q: `${latitude}+${longitude}`,
-      },
-      success: function (result) {
-        // console.log(result);
-
-        var lat = result.data.results[0].geometry.lat;
-        //console.log(lat);
-        var lng = result.data.results[0].geometry.lng;
-        // console.log(lng);
-        var address = result.data.results[0].formatted;
-        // console.log(address);
-        var country_name = result.data.results[0].components.country;
-        //console.log(country_name);
-        var encoded_countryName = encodeURIComponent(country_name.trim());
-        console.log(encoded_countryName);
-        var country_code = result.data.results[0].components.country_code;
-        //console.log(country_code);
-        var currency_name = result.data.results[0].annotations.currency.name;
-        // console.log(currency_name);
-        var currency_symbol =
-          result.data.results[0].annotations.currency.symbol;
-        // console.log(currency_symbol);
-       
-      
-        //update map with border..
-
-        $.ajax({
-          url: "libs/php/getBorder.php",
-          type: "POST",
-          dataType: "json",
-          data: {
-            // q: $("#selcountry").val(),
-          },
-          success: function (geojson_result) {
-            //  console.log(geojson_result);
-
-            var geoJSON = geojson_result.data;
-            var Country_Code = country_code.toUpperCase();
-
-            var border = new L.geoJSON(geoJSON, {
-              filter: function (feature, layer) {
-                if (feature.properties.iso_a2 === Country_Code) {
-                  return feature.geometry.coordinates;
-                }
-              },
-            }).addTo(mymap);
-
-            const areaSelect = document.querySelector(`[id="selcountry"]`);
-            areaSelect.addEventListener(`change`, (e) => {
-              setTimeout(function () {
-    
-                mymap.removeLayer(border);
-              }, 2000);
-            }); 
-              
-          },
-        });
-        //fetch data from opencage api....
-
-        $(document).ready(function () {
-          $("#txtcurrency").html(currency_name);
-          $("#txtsymbol").html(currency_symbol);
-          $("#txtnative").html(country_name);
-        });
-
-        //weather.php file.....
-
-        $(document).ready(function () {
-          $.ajax({
-            url: "libs/php/weather.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-              lat: lat,
-              lng: lng,
-            },
-            success: function (result) {
-              //  console.log(result);
-
-              if (result.status.name == "ok") {
-                $("#txtclouds").html(result["data"]["clouds"]);
-                $("#txttemp").html(result["data"]["temperature"]);
-                $("#txthum").html(result["data"]["humidity"]);
-                $("#txtspeed").html(result["data"]["windSpeed"]);
-              }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-              //error code..
-              alert("error");
-            },
-          });
-        });
-
-        //getCountryInfo.php file...
-
-        $(document).ready(function () {
-          $.ajax({
-            url: "libs/php/getCountryInfo.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-              q: country_code,
-            },
-            success: function (result) {
-              // console.log(result);
-
-              if (result.status.name == "ok") {
-                $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
-                $("#txtcontinentcode").html(
-                  result["data"]["geonames"][0]["continent"]
-                );
-                $("#txttop").html(result["data"]["geonames"][0]["toponymName"]);
-                $("#txtpopulation").html(
-                  result["data"]["geonames"][0]["population"]
-                );
-                $("#txtcountrycode").html(
-                  result["data"]["geonames"][0]["countryCode"]
-                );
-                $("#txtgeoname").html(
-                  result["data"]["geonames"][0]["geonameId"]
-                );
-                $("#txtcapital").html(result["data"]["geonames"][0]["capital"]);
-                $("#txtcountryname").html(
-                  result["data"]["geonames"][0]["countryName"]
-                );
-              }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-              //error code..
-              alert("error");
-            },
-          });
-        });
-
-        //getWiki.php file...
-
-        $(document).ready(function () {
-          $.ajax({
-            url: "libs/php/getWiki.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-            //  lat: lat,
-            //  lng: lng,
-              q:encoded_countryName
-            },
-            success: function (result) {
-              // console.log(result);
-
-              if (result.status.name == "ok") {
-                $("#txtwiki").html(
-                  result["data"]["geonames"][0]["wikipediaUrl"]
-                );
-              }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-              //error code..
-              alert("error");
-            },
-          });
-        });
-
-        //covid data...
-        $(document).ready(function () {
-          $.ajax({
-            url: "libs/php/getcovid.php",
-            type: "GET",
-            dataType: "json",
-            data: {
-              // postalcode: $('#selPostcode').val(),
-            },
-            success: function (result1) {
-              //  console.log(result1);
-              //  console.log(result1.data);
-
-              var country_name = result.data.results[0].components.country;
-
-              $.each(result1.data, function (keys, value) {
-                if (keys === country_name) {
-                  var index = value[value.length - 1];
-                  var activecase =
-                    index.confirmed - index.deaths - index.recovered;
-                  // console.log(activecase);
-                  //  console.log(index.confirmed);
-                  //  console.log(index.deaths);
-                  //  console.log(index.recovered);
-
-                  $("#txtcovidcase").html(activecase);
-                  $("#txtconcovidcase").html(index.confirmed);
-                  $("#txtdeacovidcase").html(index.deaths);
-                  $("#txtreccovidcase").html(index.recovered);
-                }
-              });
-            },
-          });
-        });
-      },
-    });
-    //});
-  };
-  navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
-}
- */
 //Add Custom Icons....
 
 var myIcon = L.icon({
@@ -538,8 +330,6 @@ $("#selcountry").on("change", function () {
     },
   });
 });
-
-
 
 //marker for gujarat fort...
 var guj1 = L.marker([23.2001, 69.2685], { icon: myCastleIcon }).addTo(mymap);
@@ -1375,9 +1165,6 @@ CLayer8.addTo(mymap).bindPopup(
   { closeButton: false }
 );
 
-
-
-
 //using polylines....
 var polylines = L.polyline(
   [
@@ -1736,11 +1523,13 @@ $(document).ready(function () {
           },
         }).addTo(mymap);
 
-        boundry.setStyle({fillColor: '#0f07f5',
-        color: '#803af0',
-        weight: 7,
-        opacity:0.1,
-        fillOpacity: 0.2});
+        boundry.setStyle({
+          fillColor: "#0f07f5",
+          color: "#803af0",
+          weight: 7,
+          opacity: 0.1,
+          fillOpacity: 0.2,
+        });
 
         areaSelect.addEventListener(`change`, (e) => {
           setTimeout(function () {
@@ -1913,5 +1702,3 @@ mymap.addLayer(markers);
 for (var i = 0; i < markersList.length; i++) {
   markers.addLayer(markersList[i]);
 }
-
-
