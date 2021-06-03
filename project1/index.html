@@ -79,7 +79,6 @@
         
         <select
           id="selcountry"
-          class="bg-light "
           > 
           <option value="" disabled selected hidden>Select Country</option>
         </select>
@@ -89,7 +88,7 @@
       <div id="mapid"></div>
       
       <!-- Modal -->
-<div class="modal fade" id="mymodal">
+<div class="modal fade" id="covid">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -137,30 +136,15 @@
   </div>
 </div>
 
-      
-
-
-      <!-- Logo image -->
-      <img
-        id="recenter"
-        onclick="myFunction()"
-        src="venders/image/cursor3.png"
-        alt="recenter"
-      />
-
-
-     
-
-
-
-
-
-
-
-      <!-- Overlay box -->
-      <div class="container">
-        <h3 class="up"><img src="venders/image/up.png" alt="up" /></h3>
-
+ <!-- Modal -->
+ <div class="modal fade" id="info">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header info">
+        <h5 class="modal-title" id="exampleModalLabel"><div id="txtcountryname"></div></h5>
+        <img id="info_btn_cls" src="venders/image/error1.png">
+      </div>
+      <div class="modal-body">
         <table>
           <tbody>
             <tr>
@@ -193,37 +177,6 @@
             </tr>
             <tr>
               <td class="icon_pic">
-                <img src="venders/image/covid.png" alt="covid" />
-              </td>
-              <td>Confirmed Covid Case:</td>
-              <td id="txtconcovidcase"></td>
-            </tr>
-            <tr></tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/covid.png" alt="covid" />
-              </td>
-              <td>Deaths Covid Case:</td>
-              <td id="txtdeacovidcase"></td>
-            </tr>
-            <tr></tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/covid.png" alt="covid" />
-              </td>
-              <td>Recovered Covid Case:</td>
-              <td id="txtreccovidcase"></td>
-            </tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/covid.png" alt="covid" />
-              </td>
-              <td>Active Covid Case:</td>
-              <td id="txtcovidcase"></td>
-            </tr>
-            <tr></tr>
-            <tr>
-              <td class="icon_pic">
                 <img src="venders/image/cultures.png" alt="population" />
               </td>
               <td>Population:</td>
@@ -250,28 +203,6 @@
               <td>Currency Symbol:</td>
               <td id="txtsymbol"></td>
             </tr>
-            <tr></tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/sun.png" alt="weather condition" />
-              </td>
-              <td>Weather Condition:</td>
-              <td id="txtclouds"></td>
-            </tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/hot.png" alt="temperature" />
-              </td>
-              <td>Temperature:</td>
-              <td id="txttemp"></td>
-            </tr>
-            <tr>
-              <td class="icon_pic">
-                <img src="venders/image/humidity.png" alt="humidity" />
-              </td>
-              <td>Humidity:</td>
-              <td id="txthum"></td>
-            </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/globe.png" alt="geonameid" />
@@ -287,10 +218,71 @@
               <td>Wikipedia Url:</td>
               <td id="txtwiki"></td>
             </tr>
-          </tbody>
-        </table>
+        </tbody>
+      </table>
       </div>
+     
     </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="weather">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header weather">
+        <h5 class="modal-title" id="exampleModalLabel">Weather Condition</h5>
+        <img id="weather_btn_cls" src="venders/image/error1.png">
+      </div>
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/sun.png" alt="weather condition" />
+              </td>
+              <td id="adjust_width">Weather Condition:</td>
+              <td id="txtclouds"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/hot.png" alt="temperature" />
+              </td>
+              <td id="adjust_width">Temperature:</td>
+              <td id="txttemp"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/humidity.png" alt="humidity" />
+              </td>
+              <td id="adjust_width">Humidity:</td>
+              <td id="txthum"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/wind.png" alt="wind speed" />
+              </td>
+              <td id="adjust_width">Wind Speed:</td>
+              <td id="txtspeed"></td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+    
+
+      <!-- Logo image 
+      <img
+        id="recenter"
+        onclick="myFunction()"
+        src="venders/image/cursor3.png"
+        alt="recenter"
+      />
+    -->
 
     <div id="preloader">
       <script src="libs/js/jquery.js" type="application/javascript"></script>

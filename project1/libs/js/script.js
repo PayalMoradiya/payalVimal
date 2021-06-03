@@ -1,8 +1,19 @@
 //close button on model...
 var dismiss = document.getElementById('btn_cls');
 dismiss.addEventListener('click', function(){
-  $('#mymodal').modal('hide');
+  $('#covid').modal('hide');
 });
+
+var dismiss1 = document.getElementById('info_btn_cls');
+dismiss1.addEventListener('click', function(){
+  $('#info').modal('hide');
+});
+
+var dismiss2 = document.getElementById('weather_btn_cls');
+dismiss2.addEventListener('click', function(){
+  $('#weather').modal('hide');
+});
+
 
 //openCagedata.php file.....
 //$(document).ready(function () {
@@ -32,13 +43,19 @@ dismiss.addEventListener('click', function(){
    console.log(east);
    console.log(west);
 
+   var population = result["data"]["geonames"][0]["population"];
+   var nf = new Intl.NumberFormat();
+  var population_formatted = nf.format(population);
+
+
         if (result.status.name == "ok") {
           $("#txtcapital").html(result["data"]["geonames"][0]["capital"]);
           $("#txtcountrycode").html(result["data"]["geonames"][0]["countryCode"]);
           $("#txtgeoname").html(result["data"]["geonames"][0]["geonameId"]);
-          $("#txtpopulation").html(result["data"]["geonames"][0]["population"]);
+          $("#txtpopulation").html(population_formatted);
           $("#txtcontinentcode").html(result["data"]["geonames"][0]["continentName"]);
           $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
+          $("#txtcountryname").html(result["data"]["geonames"][0]["countryName"]);
         }
 
     //getWeather.php file.....
@@ -57,6 +74,7 @@ dismiss.addEventListener('click', function(){
           $("#txtclouds").html(result["data"]["weather"][0]["description"]);
           $("#txttemp").html(result["data"]["main"]["temp"]);
           $("#txthum").html(result["data"]["main"]["humidity"]);
+          $("#txtspeed").html(result["data"]["wind"]["speed"]);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -108,16 +126,16 @@ dismiss.addEventListener('click', function(){
         $.each(result.data, function (keys, value) {
           if (keys === country_name) {
             var index = value[value.length - 1];
-            var activecase = index.confirmed - index.deaths - index.recovered;
+            var activecase = (index.confirmed - index.deaths - index.recovered).toLocaleString();
             console.log(activecase);
             console.log(index.confirmed);
             console.log(index.deaths);
             console.log(index.recovered);
 
             $("#txtcovidcase").html(activecase);
-            $("#txtconcovidcase").html(index.confirmed);
-            $("#txtdeacovidcase").html(index.deaths);
-            $("#txtreccovidcase").html(index.recovered);
+            $("#txtconcovidcase").html(index.confirmed.toLocaleString());
+            $("#txtdeacovidcase").html(index.deaths.toLocaleString());
+            $("#txtreccovidcase").html(index.recovered.toLocaleString());
           }
         });
       

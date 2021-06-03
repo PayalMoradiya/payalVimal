@@ -13,15 +13,15 @@ tiles.addTo(mymap);
 //leaflet easy button...
 
 var easybutton = L.easyButton('<img src="venders/image/info.png">', function(e){
-  $('#mymodal').modal('show');
+  $('#info').modal('show');
 }).addTo(mymap);
 
 var easybutton1 = L.easyButton('<img src="venders/image/virus.png">', function(e){
-  $('#mymodal').modal('show');
+  $('#covid').modal('show');
 }).addTo(mymap);
 
 var easybutton2 = L.easyButton('<img src="venders/image/cloudy1.png">', function(e){
-  $('#mymodal').modal('show');
+  $('#weather').modal('show');
 }).addTo(mymap);
 
 
@@ -63,7 +63,7 @@ const successfullLookup = (position) => {
         var currency_symbol =
           result.data.results[0].annotations.currency.symbol;
         //  console.log(currency_symbol);
-
+       
       
         //update map with border..
         $(document).ready(function () {
@@ -86,8 +86,15 @@ const successfullLookup = (position) => {
                   if (feature.properties.iso_a2 === Country_Code) {
                     return feature.geometry.coordinates;
                   }
-                },
-              }).addTo(mymap);
+                } 
+              }).addTo(mymap);   //,{style: {color: 'red #803af0'}}
+
+              border.setStyle({fillColor: '#0f07f5',
+              color: '#803af0',
+              weight: 7,
+              opacity:0.1,
+              fillOpacity: 0.2});
+      
 
               const areaSelect = document.querySelector(`[id="selcountry"]`);
               areaSelect.addEventListener(`change`, (e) => {
@@ -124,6 +131,7 @@ const successfullLookup = (position) => {
                 $("#txtclouds").html(result["data"]["clouds"]);
                 $("#txttemp").html(result["data"]["temperature"]);
                 $("#txthum").html(result["data"]["humidity"]);
+                $("#txtspeed").html(result["data"]["windSpeed"]);
               }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -146,15 +154,18 @@ const successfullLookup = (position) => {
             success: function (result) {
               // console.log(result);
 
+              var population= result["data"]["geonames"][0]["population"];
+              var nf = new Intl.NumberFormat();
+  var population_formatted = nf.format(population);
+
+
               if (result.status.name == "ok") {
                 $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
                 $("#txtcontinentcode").html(
                   result["data"]["geonames"][0]["continentName"]
                 );
                 $("#txttop").html(result["data"]["geonames"][0]["toponymName"]);
-                $("#txtpopulation").html(
-                  result["data"]["geonames"][0]["population"]
-                );
+                $("#txtpopulation").html(population_formatted);
                 $("#txtcountrycode").html(
                   result["data"]["geonames"][0]["countryCode"]
                 );
@@ -221,16 +232,16 @@ const successfullLookup = (position) => {
                 if (keys === country_name) {
                   var index = value[value.length - 1];
                   var activecase =
-                    index.confirmed - index.deaths - index.recovered;
+                    (index.confirmed - index.deaths - index.recovered).toLocaleString();
                   // console.log(activecase);
                   //  console.log(index.confirmed);
                   //  console.log(index.deaths);
                   //  console.log(index.recovered);
 
                   $("#txtcovidcase").html(activecase);
-                  $("#txtconcovidcase").html(index.confirmed);
-                  $("#txtdeacovidcase").html(index.deaths);
-                  $("#txtreccovidcase").html(index.recovered);
+                  $("#txtconcovidcase").html(index.confirmed.toLocaleString());
+                  $("#txtdeacovidcase").html(index.deaths.toLocaleString());
+                  $("#txtreccovidcase").html(index.recovered.toLocaleString());
                 }
               });
             },
@@ -279,7 +290,6 @@ function myFunction() {
         var currency_symbol =
           result.data.results[0].annotations.currency.symbol;
         // console.log(currency_symbol);
-
        
       
         //update map with border..
@@ -341,6 +351,7 @@ function myFunction() {
                 $("#txtclouds").html(result["data"]["clouds"]);
                 $("#txttemp").html(result["data"]["temperature"]);
                 $("#txthum").html(result["data"]["humidity"]);
+                $("#txtspeed").html(result["data"]["windSpeed"]);
               }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -507,7 +518,7 @@ $("#selcountry").on("change", function () {
             closeButton: false,
           });
 
-          mymap.flyTo([lat, lng], 10, {
+          mymap.flyTo([lat, lng], 8, {
             duration: 3,
           });
 
@@ -515,7 +526,6 @@ $("#selcountry").on("change", function () {
           areaSelect.addEventListener(`change`, (e) => {
             setTimeout(function () {
               mymap.removeLayer(countryMarker);
-              mymap.removeLayer(border);
             }, 2000);
           });
         }
@@ -1725,6 +1735,12 @@ $(document).ready(function () {
             }
           },
         }).addTo(mymap);
+
+        boundry.setStyle({fillColor: '#0f07f5',
+        color: '#803af0',
+        weight: 7,
+        opacity:0.1,
+        fillOpacity: 0.2});
 
         areaSelect.addEventListener(`change`, (e) => {
           setTimeout(function () {
