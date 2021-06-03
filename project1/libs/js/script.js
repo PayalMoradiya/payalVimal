@@ -1,16 +1,8 @@
-
-//Drop down select option function....
-function onFocusFunction() {
-  var select_size = document.getElementById("selcountry");
-  select_size.size = 3;
-}
-function onChangeFunction() {
-  var select_size = document.getElementById("selcountry");
-  select_size.size = 1;
-}
-
-
-
+//close button on model...
+var dismiss = document.getElementById('btn_cls');
+dismiss.addEventListener('click', function(){
+  $('#mymodal').modal('hide');
+});
 
 //openCagedata.php file.....
 //$(document).ready(function () {
@@ -31,6 +23,10 @@ function onChangeFunction() {
    var east = result.data.geonames[0].east;
    var west = result.data.geonames[0].west;
    console.log(country_name);
+
+  var encoded_countryName = encodeURIComponent(country_name.trim());
+  console.log(encoded_countryName);
+
    console.log(north);
    console.log(south);
    console.log(east);
@@ -52,7 +48,7 @@ function onChangeFunction() {
       type: "POST",
       dataType: "json",
       data: {
-        q: country_name,
+        q: encoded_countryName,
       },
       success: function (result) {
         console.log(result);
@@ -72,14 +68,15 @@ function onChangeFunction() {
 //getWiki.php file...
 
     $.ajax({
-      url: "libs/php/wiki.php",
+      url: "libs/php/getWiki.php",
       type: "POST",
       dataType: "json",
       data: {
-        north: north,
-        south: south,
-        east: east,
-        west: west
+       // north: north,
+      //  south: south,
+      //  east: east,
+      //  west: west
+      q: encoded_countryName
       },
       success: function (result) {
         console.log(result);
@@ -135,7 +132,7 @@ function onChangeFunction() {
       dataType: "json",
       data: {
         // postalcode: $('#selPostcode').val(),
-        q: country_name,
+        q: encoded_countryName,
       },
       success: function (result) {
         console.log(result);

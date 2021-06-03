@@ -4,16 +4,31 @@ var mymap = L.map("mapid").setView([54.75844, -2.69531], 13).fitWorld();
 
 var tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
-  tileSize: 512,
-  zoomOffset: -1,
+ 
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 });
 tiles.addTo(mymap);
 
+//leaflet easy button...
+
+var easybutton = L.easyButton('<img src="venders/image/info.png">', function(e){
+  $('#mymodal').modal('show');
+}).addTo(mymap);
+
+var easybutton1 = L.easyButton('<img src="venders/image/virus.png">', function(e){
+  $('#mymodal').modal('show');
+}).addTo(mymap);
+
+var easybutton2 = L.easyButton('<img src="venders/image/cloudy1.png">', function(e){
+  $('#mymodal').modal('show');
+}).addTo(mymap);
+
+
+
 //User Current Location....
 
-mymap.locate({ setView: true, maxZoom: 18 });
+mymap.locate({ setView: true, maxZoom: 5 });
 
 const successfullLookup = (position) => {
   const { latitude, longitude } = position.coords;
@@ -38,6 +53,9 @@ const successfullLookup = (position) => {
         //  console.log(address);
         var country_name = result.data.results[0].components.country;
         //   console.log(country_name);
+        var encoded_countryName = encodeURIComponent(country_name.trim());
+        console.log(encoded_countryName);
+
         var country_code = result.data.results[0].components.country_code;
         //  console.log(country_code);
         var currency_name = result.data.results[0].annotations.currency.name;
@@ -46,13 +64,7 @@ const successfullLookup = (position) => {
           result.data.results[0].annotations.currency.symbol;
         //  console.log(currency_symbol);
 
-        var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(
-          mymap
-        );
-        currentLocation
-          .bindPopup("<b>" + address + "</b>", { closeButton: false })
-          .openPopup();
-
+      
         //update map with border..
         $(document).ready(function () {
           $.ajax({
@@ -77,10 +89,9 @@ const successfullLookup = (position) => {
                 },
               }).addTo(mymap);
 
-              const areaSelect = document.querySelector(`[id="btnwiki"]`);
-              areaSelect.addEventListener(`click`, (e) => {
+              const areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
                 setTimeout(function () {
-                  mymap.removeLayer(currentLocation);
                   mymap.removeLayer(border);
                 }, 2000);
               });
@@ -167,12 +178,13 @@ const successfullLookup = (position) => {
 
         $(document).ready(function () {
           $.ajax({
-            url: "libs/php/getUrl.php",
+            url: "libs/php/getWiki.php",
             type: "POST",
             dataType: "json",
             data: {
-              lat: lat,
-              lng: lng,
+            //  lat: lat,
+            //  lng: lng,
+             q: encoded_countryName
             },
             success: function (result) {
               //  console.log(result);
@@ -234,7 +246,7 @@ navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 //onClick function on recenter button....
 
 function myFunction() {
-  mymap.locate({ setView: true, maxZoom: 18 });
+  mymap.locate({ setView: true, maxZoom: 5 });
 
   const successfullLookup = (position) => {
     const { latitude, longitude } = position.coords;
@@ -258,6 +270,8 @@ function myFunction() {
         // console.log(address);
         var country_name = result.data.results[0].components.country;
         //console.log(country_name);
+        var encoded_countryName = encodeURIComponent(country_name.trim());
+        console.log(encoded_countryName);
         var country_code = result.data.results[0].components.country_code;
         //console.log(country_code);
         var currency_name = result.data.results[0].annotations.currency.name;
@@ -266,13 +280,8 @@ function myFunction() {
           result.data.results[0].annotations.currency.symbol;
         // console.log(currency_symbol);
 
-        var currentLocation = L.marker([lat, lng], { icon: myIcon }).addTo(
-          mymap
-        );
-        currentLocation
-          .bindPopup("<b>" + address + "</b>", { closeButton: false })
-          .openPopup();
-
+       
+      
         //update map with border..
 
         $.ajax({
@@ -288,7 +297,7 @@ function myFunction() {
             var geoJSON = geojson_result.data;
             var Country_Code = country_code.toUpperCase();
 
-            var border = L.geoJSON(geoJSON, {
+            var border = new L.geoJSON(geoJSON, {
               filter: function (feature, layer) {
                 if (feature.properties.iso_a2 === Country_Code) {
                   return feature.geometry.coordinates;
@@ -299,10 +308,11 @@ function myFunction() {
             const areaSelect = document.querySelector(`[id="selcountry"]`);
             areaSelect.addEventListener(`change`, (e) => {
               setTimeout(function () {
-                mymap.removeLayer(currentLocation);
+    
                 mymap.removeLayer(border);
               }, 2000);
-            });
+            }); 
+              
           },
         });
         //fetch data from opencage api....
@@ -385,12 +395,13 @@ function myFunction() {
 
         $(document).ready(function () {
           $.ajax({
-            url: "libs/php/getUrl.php",
+            url: "libs/php/getWiki.php",
             type: "POST",
             dataType: "json",
             data: {
-              lat: lat,
-              lng: lng,
+            //  lat: lat,
+            //  lng: lng,
+              q:encoded_countryName
             },
             success: function (result) {
               // console.log(result);
@@ -448,7 +459,7 @@ function myFunction() {
   };
   navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 }
-
+ 
 //Add Custom Icons....
 
 var myIcon = L.icon({
@@ -470,7 +481,7 @@ var mytouristPlaceIcon = L.icon({
 
 //Get Lat and Lng from OpenCage and fly to that location....
 
-$("#btnwiki").on("click", function () {
+$("#selcountry").on("change", function () {
   $.ajax({
     url: "libs/php/getLatLng.php",
     type: "POST",
@@ -504,6 +515,7 @@ $("#btnwiki").on("click", function () {
           areaSelect.addEventListener(`change`, (e) => {
             setTimeout(function () {
               mymap.removeLayer(countryMarker);
+              mymap.removeLayer(border);
             }, 2000);
           });
         }
@@ -517,27 +529,7 @@ $("#btnwiki").on("click", function () {
   });
 });
 
-//Add marker....
-var marker = L.marker([51.50939, -0.11832], { icon: myIcon }).addTo(mymap);
-marker.bindPopup("<h6>Hello London!</h6>", { closeButton: false });
 
-var marker2 = L.marker([48.1372222, 11.5755555], { icon: myIcon }).addTo(mymap);
-marker2.bindPopup("<h6>Hello Munich!</h6>", { closeButton: false });
-
-var marker3 = L.marker([23.22, 72.68], { icon: myIcon }).addTo(mymap);
-marker3.bindPopup("<h6>Hello Gujarat!</h6>", { closeButton: false });
-
-var marker4 = L.marker([52.5002777, 13.39888], { icon: myIcon }).addTo(mymap);
-marker4.bindPopup("<h6>Hello Berlin!</h6>", { closeButton: false });
-
-var marker5 = L.marker([50.1447222, 8.7269444], { icon: myIcon }).addTo(mymap);
-marker5.bindPopup("<h6>Hello Frankfurt!</h6>", { closeButton: false });
-
-var marker7 = L.marker([48.856578, 2.351828], { icon: myIcon }).addTo(mymap);
-marker7.bindPopup("<h6>Hello Paris!</h6>", { closeButton: false });
-
-var marker8 = L.marker([41.383333, 2.166667], { icon: myIcon }).addTo(mymap);
-marker8.bindPopup("<h6>Hello Barcelona!</h6>", { closeButton: false });
 
 //marker for gujarat fort...
 var guj1 = L.marker([23.2001, 69.2685], { icon: myCastleIcon }).addTo(mymap);
@@ -1373,136 +1365,8 @@ CLayer8.addTo(mymap).bindPopup(
   { closeButton: false }
 );
 
-//Add polygon....
-var coord1 = [
-  [
-    [40.32246702124231, -3.703765869140625],
-    [40.40931350359072, -3.5321044921874996],
-    [40.48664852056083, -3.6309814453125],
-    [40.491870649809165, -3.742218017578125],
-    [40.40722213305287, -3.834228515625],
-    [40.32246702124231, -3.703765869140625],
-  ],
-];
-var polygon1 = L.polygon(coord1)
-  .bindPopup("<h6><em>Maiden</em>, The Capital of Spain!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
 
-var coord2 = [
-  [
-    [52.13348804077147, 12.83203125],
-    [52.482780222078226, 14.084472656249998],
-    [53.08082737207479, 13.29345703125],
-    [52.9883372533954, 11.79931640625],
-    [52.496159531097106, 11.79931640625],
-    [52.13348804077147, 12.83203125],
-  ],
-];
-var polygon2 = L.polygon(coord2)
-  .bindPopup("<h6><em>Berlin</em>, The Capital of Germany!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
 
-var coord3 = [
-  [
-    [-35.3190471425283, 149.09133911132812],
-    [-35.31008240129421, 149.1352844238281],
-    [-35.28822668202956, 149.1359710693359],
-    [-35.280940130659246, 149.08721923828125],
-    [-35.30167705397599, 149.06455993652344],
-    [-35.3190471425283, 149.09133911132812],
-  ],
-];
-var polygon3 = L.polygon(coord3)
-  .bindPopup("<h6><em>Canberra</em>, The Capital of Australia!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
-
-var coord4 = [
-  [
-    [-41.31494988250964, 174.649658203125],
-    [-41.45919537950705, 175.10009765625],
-    [-41.36444153054222, 175.3692626953125],
-    [-41.10832999732831, 175.23193359375],
-    [-41.11660732012895, 174.74853515625],
-    [-41.31494988250964, 174.649658203125, -41.31494988250964],
-  ],
-];
-var polygon4 = L.polygon(coord4)
-  .bindPopup("<h6><em>Wellington</em>, The Capital of New Zealand!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
-
-var coord5 = [
-  [
-    [51.51216124955515, -0.63720703125],
-    [51.303145259199056, -0.6042480468749999],
-    [51.23440735163459, 0.0439453125],
-    [51.29971080556154, 0.5438232421874999],
-    [51.635066908847826, 0.4449462890625],
-    [51.76104049272952, -0.296630859375],
-    [51.51216124955515, -0.63720703125],
-  ],
-];
-var polygon5 = L.polygon(coord5)
-  .bindPopup("<h6><em>London</em>, The Capital of United Kingdom!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
-
-var coord6 = [
-  [
-    [48.87555444355432, 2.275543212890625],
-    [48.83579746243093, 2.2659301757812496],
-    [48.817715668996435, 2.3455810546875],
-    [48.838961105496054, 2.415618896484375],
-    [48.89722676235673, 2.3957061767578125],
-    [48.90128927649513, 2.327728271484375],
-    [48.87555444355432, 2.275543212890625],
-  ],
-];
-var polygon6 = L.polygon(coord6)
-  .bindPopup("<h6><em>Paris</em>, The Capital of France!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
-
-var coord7 = [
-  [
-    [41.90023276842022, 12.38433837890625],
-    [41.81021999190292, 12.41180419921875],
-    [41.81636125072054, 12.5848388671875],
-    [41.94314874732696, 12.60406494140625],
-    [41.98603585974727, 12.450256347656248],
-    [41.90023276842022, 12.38433837890625],
-  ],
-];
-var polygon7 = L.polygon(coord7)
-  .bindPopup("<h6><em>Rome</em>, The Capital of Italy!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
-
-var coord8 = [
-  [
-    [45.40230699238177, -75.87432861328125],
-    [45.29034662473613, -75.750732421875],
-    [45.33284041773058, -75.4925537109375],
-    [45.49672163945861, -75.52001953125],
-    [45.51404592560424, -75.79193115234374],
-    [45.40230699238177, -75.87432861328125],
-  ],
-];
-var polygon8 = L.polygon(coord8)
-  .bindPopup("<h6><em>Ottawa</em>, The Capital of Canada!</h6>", {
-    closeButton: false,
-  })
-  .addTo(mymap);
 
 //using polylines....
 var polylines = L.polyline(
@@ -1951,13 +1815,6 @@ L.control.layers(basemaps).addTo(mymap);
 
 var markers = L.markerClusterGroup({ animateAddingMarkers: true });
 var markersList = [
-  marker,
-  marker4,
-  marker2,
-  marker3,
-  marker5,
-  marker7,
-  marker8,
   guj1,
   guj2,
   guj3,
@@ -2040,3 +1897,5 @@ mymap.addLayer(markers);
 for (var i = 0; i < markersList.length; i++) {
   markers.addLayer(markersList[i]);
 }
+
+
