@@ -255,7 +255,7 @@ const successfullLookup = (position) => {
 navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 
 //onClick function on recenter button....
-
+/*
 function myFunction() {
   mymap.locate({ setView: true, maxZoom: 5 });
 
@@ -470,7 +470,7 @@ function myFunction() {
   };
   navigator.geolocation.getCurrentPosition(successfullLookup, console.log);
 }
- 
+ */
 //Add Custom Icons....
 
 var myIcon = L.icon({
