@@ -222,7 +222,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header weather">
-        <h5 class="modal-title" id="exampleModalLabel">Weather Condition</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Weather</h5>
         <img id="weather_btn_cls" src="venders/image/error1.png">
       </div>
       <div class="modal-body">
@@ -244,17 +244,45 @@
             </tr>
             <tr>
               <td class="icon_pic">
+                <img src="venders/image/thermometer.png" alt=" Min.temperature" />
+              </td>
+              <td id="adjust_width">Minimum Temperature:</td>
+              <td id="txtmin"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/thermometer1.png" alt="Max. temperature" />
+              </td>
+              <td id="adjust_width">Maximum Temperature:</td>
+              <td id="txtmax"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
                 <img src="venders/image/humidity.png" alt="humidity" />
               </td>
-              <td id="adjust_width">Humidity:</td>
+              <td id="adjust_width">Humidity(%):</td>
               <td id="txthum"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/gauge1.png" alt="pressure" />
+              </td>
+              <td id="adjust_width">Pressure(hPa):</td>
+              <td id="txtpressure"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/wind.png" alt="wind speed" />
               </td>
-              <td id="adjust_width">Wind Speed:</td>
+              <td id="adjust_width">Wind Speed(mph):</td>
               <td id="txtspeed"></td>
+            </tr>
+            <tr>
+              <td class="icon_pic">
+                <img src="venders/image/eye.png" alt="visibility" />
+              </td>
+              <td id="adjust_width">Visibility(Km):</td>
+              <td id="txtvisi"></td>
             </tr>
         </tbody>
       </table>

@@ -73,8 +73,13 @@ $("#selcountry").change(function () {
           if (result.status.name == "ok") {
             $("#txtclouds").html(result["data"]["weather"][0]["description"]);
             $("#txttemp").html(result["data"]["main"]["temp"]);
+            $("#txtmin").html(result["data"]["main"]["temp_min"]);
+            $("#txtmax").html(result["data"]["main"]["temp_max"]);
             $("#txthum").html(result["data"]["main"]["humidity"]);
             $("#txtspeed").html(result["data"]["wind"]["speed"]);
+            $("#txtpressure").html(result["data"]["main"]["pressure"]);
+            $("#txtvisi").html(result["data"]["visibility"]);
+           
           }
         },
         error: function (jqXHR, textStatus, errorThrown) {
