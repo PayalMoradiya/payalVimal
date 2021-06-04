@@ -46,7 +46,7 @@
                 </ul>
               </li>
               <li class="nav-item ">
-                <a class="nav-link text-light" href="#">Contact</a>
+                <a class="nav-link text-light" href="#my_contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -208,6 +208,42 @@
 
 <section id=my_contact>
   <h2 class="skills">Contact</h2>
+
+  <h4 class="sent_notification"></h4>
+
+<form class="was-validated" id="myForm">
+ <div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <lable>Name</lable>
+      <input type="text" id="name" class="form-control" placeholder="Enter Name" aria-label="First name">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-5">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" id="inputEmail4" placeholder="Enter Email">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-5">
+      <lable>Subject</lable>
+      <input type="text" id="subject" class="form-control" placeholder="Enter Subject" aria-label="Subject">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-5">
+      <lable>Message</lable>
+      <textarea type="text" id="body" rows="5" class="form-control" placeholder="Type Message" aria-label="Subject"></textarea>
+    </div>
+  </div>
+  <br>
+  <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>
+ </div>
+</form>
 </section>
 
 
