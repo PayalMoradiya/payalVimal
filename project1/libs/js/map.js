@@ -1564,6 +1564,9 @@ $(document).ready(function () {
 
         var population = result["data"][i]["population"];
         // console.log(population);
+        var nf = new Intl.NumberFormat();
+        var population_formatted = nf.format(population);
+      
 
         var name = result["data"][i]["name"];
         //console.log(name);
@@ -1577,7 +1580,7 @@ $(document).ready(function () {
           color: "red",
         });
         CLayer0.addTo(mymap).bindPopup(
-          "<h6>" + name + "<br>" + population + "</h6>",
+          "<h6>" + name + "<br>" + population_formatted + "</h6>",
           {
             closeButton: false,
             offset: L.point(0, 0),
