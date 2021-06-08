@@ -114,5 +114,10 @@ style1.style.backgroundColor = "black";
 
 var dismiss = document.getElementById("model");
 dismiss.addEventListener("click", function () {
+  $("#covid").modal("toggle");
+});
+
+var dismiss1 = document.getElementById("btn_cls");
+dismiss1.addEventListener("click", function () {
   $("#covid").modal("hide");
 });

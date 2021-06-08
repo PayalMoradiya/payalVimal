@@ -1,14 +1,12 @@
 html, body {
-    height:100%;
+    height:100vh;
     margin:0;
+    padding:0;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     background-color:rgb(246, 246, 246);
-    
-}
-a.nav-link{
-    color:whitesmoke;
-}
+   }
+
 .bg_image{
   background-image:url("../../venders/image/bg1.jpg"), linear-gradient(#cccccc, #ffffff); /* W3C */
   height:100%;
@@ -17,14 +15,21 @@ a.nav-link{
   background-size: cover;
   opacity: 1.0
   }
+
 div.container{
     height: 85%;
 }
+
 .row.align-items-center.justify-content-start {
     height:100%;
 }
 h6{
     line-height: 1.5rem;
+}
+#home_btn:hover{
+    background-color: rgb(12, 11, 11);
+    box-shadow: 5px 5px 10px black;
+    transition: 0.3s;
 }
 .github_image{
     display: block;
@@ -39,14 +44,21 @@ div.col-md-2.bg-light{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-img.skill_image{
-    width:7rem;
-    height:7rem;
-    margin-left: 1.65rem;
+img.img-fluid{
+    width:5rem;
+    height:5rem;
+    margin-top: 2rem;
+}
+h5.card-title.text-center{
+    font-weight: bold;
     margin-top: 1rem;
 }
 .skills{
-    margin: 4rem 0rem 2rem 7rem;
+   /* margin: 4rem 0rem 2rem 7rem;  */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     }
 div.card.bg-light.text-dark.shadow{
     width:70%;
@@ -54,9 +66,17 @@ div.card.bg-light.text-dark.shadow{
 
 }
 img.portfolio_bg{
-    width: 100%;
-    height:100%;
+    width: 30rem;
+    height:17.5rem;
+    border:1px solid black;
+    padding:0px;
+    box-shadow: 5px 5px 10px #333c4d;
+    transition: transform 0.5s;
     }
+
+img.portfolio_bg:hover{
+transform: scale(1.01);
+}
 div.card-img-overlay{
     display:none;
 }
@@ -66,31 +86,141 @@ div.card-img-overlay{
     height:1.5rem;
     margin-right: 0.5rem;
 }
-
-#popups:hover{
-    box-shadow: gray;
+div.modal-content{
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px #1b2029;
+}
+div.modal-header{
+    background-color: #023bad;
+}
+h4.modal-title{
+    margin-left: auto;
+    margin-right: auto;
     font-weight: bold;
+    color: white;
 }
-div.popups_container{
-    height:100%;
-    width:80%;
+div.modal-body{
+    margin-top: 0%;
 }
-div.col.text-light.bg-dark.mx-3 {
-    height:90%;
-    width:70%;
+.card{
+    width:28rem;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+    
 }
-img.popups_bg{
-    width: 80%;
-    height:80%;
+
+div.card-body{
+    margin:0%;
+    padding:0%;
 }
-span.badge.rounded-pill.bg-primary{
+p.card-text{
+    font-weight: 600;
+}
+a.btn.mx-1{
+    background-color: #023bad;
+    color:white;
+}
+
+span.badge.rounded-pill.my-3{
 font-size:1rem;
 font-weight: normal;
+background-color: #023bad;
+}
+img#contact_img{
+    width:500px;
+    height:500px;
+    margin-left: 6rem;
 }
 
-div.pop_ups{
-    position: relative;
-    z-index: 1;
+img.footer_github_image{
+    width:2.5rem;
+    height:2.5rem;
+}
+
+/* X-Small devices (portrait phones, less than 576px)  */
+@media only screen and (max-width: 575px) { 
     
+    img#contact_img{
+       display:none;
+    }
+    img.portfolio_bg{
+        width: 374px;
+        height:auto;
+        border:1px solid black;
+        padding:0px;
+        box-shadow: 5px 5px 10px #333c4d;
+        transition: transform 0.5s;
+        }
+    
+    img.portfolio_bg:hover{
+    transform: scale(1.01);
+    }
+    .card{
+        border: none;
+        width:auto;
+    }
+ }
 
-}
+
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) { 
+    h2#skills{
+        margin: 20px 0px 20px 50px;
+        text-align: start;
+    }
+    img#contact_img{
+        display:none;
+     }
+ }
+
+/* Medium devices (tablets, 768px and up)  */
+@media (min-width: 768px) { 
+
+    div.col-md-2.bg-light {
+        height: auto;
+        margin-right: 15px;
+    }
+    div.row.g-3{
+        margin-left: 15px;
+    }
+    img#contact_img{
+     display: block;
+    width: 400px;
+    height: 400px;
+    margin: 5px;  
+    }
+ }
+
+/* Large devices (desktops, 992px and up)  */
+@media only screen and (min-width: 992px) { 
+    
+    div.col-md-2.bg-light.px-3.text-center{
+        margin-right: 15px;
+        transition: transform 0.5s;
+    }
+    div.col-md-2.bg-light.px-3.text-center:hover{
+        transform: scale(1.03);
+    }
+    #skills{
+        margin: 2rem 0rem 2rem 4rem;
+        text-align: start;
+    }
+    h5.card-title.text-center{
+        margin-top: 1rem;
+    }
+    
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    img#contact_img{
+        display: block;
+       width: 500px;
+       height: 500px;
+       margin: 90px;  
+       }
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up)  */
+@media (min-width: 1400px) {  }
