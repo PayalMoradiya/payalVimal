@@ -72,6 +72,9 @@ var TxtRotate = function(el, toRotate, period) {
    // popup_box.style.display = "block";
 });
 
+
+//php mailer....
+
 var email = document.getElementById("submit_btn");
 
 email.addEventListener('click', function(){
@@ -80,7 +83,6 @@ email.addEventListener('click', function(){
   var subject = $("#subject");
   var body = $("#body");
 
-//  if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
     $.ajax({
       url: "libs/php/sendEmail.php",
       method: "POST",
@@ -96,11 +98,21 @@ email.addEventListener('click', function(){
         $('.sent_notification').text("Message sent successfully.");
       }
     });
-  //}
+
 });
-/*
-function isNotEmpty(caller){
-  if(caller.val()==""){
-    caller.css('border',);
-  }
-} */
+
+//nav button style....
+
+var nav_button = document.getElementById("nav_btn");
+var style1 = document.getElementById("nav-items");
+
+nav_button.addEventListener('click', function(){
+style1.style.backgroundColor = "black";
+});
+
+//portfolio modal....
+
+var dismiss = document.getElementById("model");
+dismiss.addEventListener("click", function () {
+  $("#covid").modal("hide");
+});
