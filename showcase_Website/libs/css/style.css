@@ -34,8 +34,16 @@ h6{
 .github_image{
     display: block;
     position:absolute;
-    width: 2.5rem;
-    height: 2.5rem;
+    width:3.3rem;
+    height:3.3rem;
+}
+.linkdin_img{
+    position: absolute;
+    display: flex;
+    margin-left: 3.8rem;
+    width:3.5rem;
+    height:3.5rem;
+    margin-top: 0.58rem;
 }
 
 div.col-md-2.bg-light{
