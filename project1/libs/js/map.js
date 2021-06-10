@@ -81,19 +81,26 @@ const successfullLookup = (position) => {
               // q: $("#selcountry").val(),
             },
             success: function (geojson_result) {
-              //console.log(geojson_result);
+           // console.log(geojson_result);
 
               var geoJSON = geojson_result.data;
               var Country_Code = country_code.toUpperCase();
               // console.log(Country_Code);
 
+            
               var border = L.geoJSON(geoJSON, {
-                filter: function (feature, layer) {
+                filter: function (feature) {
                   if (feature.properties.iso_a2 === Country_Code) {
+                    
                     return feature.geometry.coordinates;
                   }
                 },
-              }).addTo(mymap); //,{style: {color: 'red #803af0'}}
+              }).addTo(mymap); 
+
+              mymap.fitBounds(border.getBounds(), {
+                padding: [20,20]
+             });     
+             
 
               border.setStyle({
                 fillColor: "#0f07f5",
@@ -101,12 +108,1147 @@ const successfullLookup = (position) => {
                 weight: 7,
                 opacity: 0.1,
                 fillOpacity: 0.2,
-              });
+              });    
 
-              const areaSelect = document.querySelector(`[id="selcountry"]`);
+              //markers....
+              switch(Country_Code){
+                case "GB":
+            var place1 = L.marker([50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place1.bindPopup(
+              `<div class="popup">
+              <h6>Maiden Castle</h6>
+              <img  class="popup_image" src="venders/image/maiden.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place2 = L.marker([52.8712, -3.0512], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place2.bindPopup(
+              `<div class="popup">
+              <h6>Old Oswestry</h6>
+                                          <img  class="popup_image" src="venders/image/oswestry.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place3 = L.marker([55.96310043, -2.67170523], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place3.bindPopup(
+              `<div class="popup">
+              <h6>Traprain Law</h6>
+              <img  class="popup_image" src="venders/image/traprain.jpg" > </div>`,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place4 = L.marker([50.91, -2.22], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place4.bindPopup(
+              `<div class="popup">
+              <h6>Hambledon Hill</h6>
+              <img  class="popup_image" src="venders/image/hamb.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place5 = L.marker([51.024058, -2.53178], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place5.bindPopup(
+              `<div class="popup">
+              <h6>Cadbury Castle</h6>
+                                        <img  class="popup_image" src="venders/image/cadb.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place6 = L.marker([51.209513, -2.147398], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place6.bindPopup(
+              `<div class="popup">
+              <h6>Battlesbury Camp</h6>
+                                        <img  class="popup_image" src="venders/image/batt.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place7 = L.marker([52.0582, -2.352], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place7.bindPopup(
+              `<div class="popup">
+              <h6>The British Camp</h6>
+                                        <img  class="popup_image" src="venders/image/brit.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place8 = L.marker([50.86057, -0.382867], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place8.bindPopup(
+              `<div class="popup">
+              <h6>Cissbury Ring</h6>
+              <img  class="popup_image" src="venders/image/ciss.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace1 = L.marker([50.6304, -1.9904], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace1.bindPopup(
+              `<div class="popup">
+              <h6>Nine Barrow Down</h6>
+              <img  class="popup_image" src="venders/image/nine.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace2 = L.marker([50.621, -2.2801], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace2.bindPopup(
+              `<div class="popup">
+              <h6>Durdle Door</h6>
+                                    <img  class="popup_image" src="venders/image/durd.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace3 = L.marker([50.6908, -1.9865], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace3.bindPopup(
+              `<div class="popup">
+              <h6>Poole Harbour</h6>
+              <img  class="popup_image" src="venders/image/pool.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace4 = L.marker([50.5475, -2.4343], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace4.bindPopup(
+              `<div class="popup">
+              <h6>Isle Of Portland</h6>
+              <img  class="popup_image" src="venders/image/isle.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace5 = L.marker([50.6429, -1.9225], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace5.bindPopup(
+              `<div class="popup">
+              <h6>Old Harry Rocks</h6>
+              <img  class="popup_image" src="venders/image/old.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+
+            var touristPlace6 = L.marker([52.9704, -3.0878], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace6.bindPopup(
+              `<div class="popup">
+              <h6>Pontcysyllte Aqueduct</h6>
+                                    <img  class="popup_image" src="venders/image/pont.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace7 = L.marker([52.9791, -3.1589], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace7.bindPopup(
+              `<div class="popup">
+              <h6>Castell Dinas Bran</h6>
+              <img  class="popup_image" src="venders/image/cast.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace8 = L.marker([52.9813, -3.1998], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace8.bindPopup(
+              `<div class="popup">
+              <h6>Horseshoe Falls</h6>
+                                    <img  class="popup_image" src="venders/image/hors.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace9 = L.marker([51.1444, -2.6986], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace9.bindPopup(
+              `<div class="popup">
+              <h6>Glastonbury Tor</h6>
+              <img  class="popup_image" src="venders/image/glas.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace10 = L.marker([51.1051, -2.3179], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace10.bindPopup(
+              `<div class="popup">
+              <h6>Stourhead</h6>
+              <img  class="popup_image" src="venders/image/stou.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace11 = L.marker([51.1461, -2.7153], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace11.bindPopup(
+              `<div class="popup">
+              <h6>Glastonbury Abbey</h6>
+              <img  class="popup_image" src="venders/image/abbe.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace12 = L.marker([52.0491, -2.347], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace12.bindPopup(
+              `<div class="popup">
+              <h6>Swinyard Hill</h6>
+              <img  class="popup_image" src="venders/image/swin.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace13 = L.marker([52.0612, -2.3369], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace13.bindPopup(
+              `<div class="popup">
+              <h6>Malvern Court & Gardens</h6>
+              <img  class="popup_image" src="venders/image/malv.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace14 = L.marker([51.0608, -1.4104], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace14.bindPopup(
+              `<div class="popup">
+              <h6>Farley Mount Country Park</h6>
+              <img  class="popup_image" src="venders/image/farl.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+
+            //custering for uk....
+
+                    var markers_uk = L.markerClusterGroup({ animateAddingMarkers: true });
+                    var markersList_uk = [
+                      place1,
+                      place2,
+                      place3,
+                      place4,
+                      place5,
+                      place6,
+                      place7,
+                      place8,
+                      touristPlace1,
+                      touristPlace2,
+                      touristPlace3,
+                      touristPlace4,
+                      touristPlace5,
+                      touristPlace6,
+                      touristPlace7,
+                      touristPlace8,
+                      touristPlace9,
+                      touristPlace10,
+                      touristPlace11,
+                      touristPlace12,
+                      touristPlace13,
+                      touristPlace14
+                    
+                    ];
+
+                    mymap.addLayer(markers_uk);
+
+                    for (var i = 0; i < markersList_uk.length; i++) {
+                      markers_uk.addLayer(markersList_uk[i]);
+                    }
+
+            
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(place1);
+                mymap.removeLayer(place2); 
+                mymap.removeLayer(place3);
+                mymap.removeLayer(place4); 
+                mymap.removeLayer(place5);
+                mymap.removeLayer(place6); 
+                mymap.removeLayer(place7);
+                mymap.removeLayer(place8); 
+                mymap.removeLayer(touristPlace1);
+                mymap.removeLayer(touristPlace2); 
+                mymap.removeLayer(touristPlace3);
+                mymap.removeLayer(touristPlace4); 
+                mymap.removeLayer(touristPlace5);
+                mymap.removeLayer(touristPlace6); 
+                mymap.removeLayer(touristPlace7);
+                mymap.removeLayer(touristPlace8); 
+                mymap.removeLayer(touristPlace9);
+                mymap.removeLayer(touristPlace10); 
+                mymap.removeLayer(touristPlace11);
+                mymap.removeLayer(touristPlace12); 
+                mymap.removeLayer(touristPlace13);
+                mymap.removeLayer(touristPlace14); 
+                   
+              }, 2000);
+            });
+          break;
+          case "IN":
+          //marker for gujarat fort...
+              var guj1 = L.marker([23.2001, 69.2685], { icon: myCastleIcon }).addTo(mymap);
+              guj1.bindPopup("<h6>Roha Fort!</h6>", { closeButton: false });
+
+              var guj2 = L.marker([23.4849, 70.4642], { icon: myCastleIcon }).addTo(mymap);
+              guj2.bindPopup("<h6>Kanthkot Fort!</h6>", { closeButton: false });
+
+              var guj3 = L.marker([22.4647, 70.0697], { icon: myCastleIcon }).addTo(mymap);
+              guj3.bindPopup("<h6>Lakhota Fort!</h6>", { closeButton: false });
+
+              var guj4 = L.marker([24.2291, 69.1897], { icon: myCastleIcon }).addTo(mymap);
+              guj4.bindPopup("<h6>Vighakot Fort!</h6>", { closeButton: false });
+
+              var guj5 = L.marker([22.1544, 71.3308], { icon: myCastleIcon }).addTo(mymap);
+              guj5.bindPopup("<h6>Hingolgadh Fort!</h6>", { closeButton: false });
+
+              var guj6 = L.marker([23.8525, 73.0052], { icon: myCastleIcon }).addTo(mymap);
+              guj6.bindPopup("<h6>Idar Fort!</h6>", { closeButton: false });
+
+              //using polylines....
+                      var polylines = L.polyline(
+                        [
+                          [24.2291, 69.1897],
+                          [23.2001, 69.2685],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>129 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines1 = L.polyline(
+                        [
+                          [23.2001, 69.2685],
+                          [23.4849, 70.4642],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>89 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines2 = L.polyline(
+                        [
+                          [23.4849, 70.4642],
+                          [22.4647, 70.0697],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>115 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines3 = L.polyline(
+                        [
+                          [22.4647, 70.0697],
+                          [22.1544, 71.3308],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>100 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines4 = L.polyline(
+                        [
+                          [22.1544, 71.3308],
+                          [23.8525, 73.0052],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>125 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+
+                         //custering for india...
+
+                         var markers_in = L.markerClusterGroup({ animateAddingMarkers: true });
+                         var markersList_in = [
+                           guj1,
+                           guj2,
+                           guj3,
+                           guj4,
+                           guj5,
+                           guj6,
+                           polylines,
+                           polylines1,
+                           polylines2,
+                           polylines3,
+                           polylines4
+                         ];
+ 
+                         mymap.addLayer(markers_in);
+ 
+                         for (var i = 0; i < markersList_in.length; i++) {
+                           markers_in.addLayer(markersList_in[i]);
+                         }
+
+
+              var areaSelect = document.querySelector(`[id="selcountry"]`);
               areaSelect.addEventListener(`change`, (e) => {
                 setTimeout(function () {
+                  mymap.removeLayer(guj1);
+                  mymap.removeLayer(guj2); 
+                  mymap.removeLayer(guj3);
+                  mymap.removeLayer(guj4); 
+                  mymap.removeLayer(guj5);
+                  mymap.removeLayer(guj6); 
+                  mymap.removeLayer(polylines);
+                  mymap.removeLayer(polylines1);
+                  mymap.removeLayer(polylines2);
+                  mymap.removeLayer(polylines3); 
+                  mymap.removeLayer(polylines4);          
+                }, 2000);
+              });
+          break;
+          case "CN":
+            var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            china1.bindPopup(
+              `<div class="popup">
+                                  <h6>The Great Wall of China</h6>
+                                  <img  class="popup_image" src="venders/image/wal.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            china2.bindPopup(
+              `<div class="popup">
+                                  <h6>Terracotta Army</h6>
+                                  <img  class="popup_image" src="venders/image/ter.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(china1);
+                  mymap.removeLayer(china2);       
+                }, 2000);
+              });
+          break;
+          case "RU":
+            var russia1 = L.marker([53.5587, 108.165], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia1.bindPopup(
+              `<div class="popup">
+                                  <h6> Lake Baikal</h6>
+                                  <img  class="popup_image" src="venders/image/bai.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia2 = L.marker([59.9375, 30.308611], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            russia2.bindPopup(
+              `<div class="popup">
+                                  <h6>St. Peterburg</h6>
+                                  <img  class="popup_image" src="venders/image/pet.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia3 = L.marker([43.6028, 39.7342], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia3.bindPopup(
+              `<div class="popup">
+                                  <h6>Sochi</h6>
+                                  <img  class="popup_image" src="venders/image/soc.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia4 = L.marker([59.8863, 29.9086], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia4.bindPopup(
+              `<div class="popup">
+                                  <h6>Peterhof</h6>
+                                  <img  class="popup_image" src="venders/image/pal.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var fort6 = L.marker([59.9404, 30.3138], { icon: myCastleIcon }).addTo(mymap);
+            fort6.bindPopup(
+              `<div class="popup">
+                                  <h6>Winter Palace</h6>
+                                  <img  class="popup_image" src="venders/image/win.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var touristPlace15 = L.marker([53.5587, 108.165], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace15.bindPopup(
+              `<div class="popup">
+              <h6>Lake Baikal</h6>
+                                    <img  class="popup_image" src="venders/image/lak.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace16 = L.marker([55.7558, 37.6173], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace16.bindPopup(
+              `<div class="popup">
+              <h6>Moscow</h6>
+                                    <img  class="popup_image" src="venders/image/mas.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(russia1);
+                  mymap.removeLayer(russia2);
+                  mymap.removeLayer(russia3);
+                  mymap.removeLayer(russia4);
+                  mymap.removeLayer(fort6);
+                  mymap.removeLayer(touristPlace15);
+                  mymap.removeLayer(touristPlace16);        
+                }, 2000);
+              });
+          break;
+
+          case "ZA":
+            var safrica1 = L.marker([-33.9249, 18.4241], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica1.bindPopup(
+              `<div class="popup">
+                                  <h6>Cape Town</h6>
+                                  <img  class="popup_image" src="venders/image/cap.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica2 = L.marker([-33.9321, 18.8602], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica2.bindPopup(
+              `<div class="popup">
+                                  <h6>Stellenbosch</h6>
+                                  <img  class="popup_image" src="venders/image/ste.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica3 = L.marker([-29.4667, 29.2667], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica3.bindPopup(
+              `<div class="popup">
+                                  <h6> The Drakensberg</h6>
+                                  <img  class="popup_image" src="venders/image/kwa.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica4 = L.marker([-25.2449, 27.0891], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica4.bindPopup(
+              `<div class="popup">
+                                  <h6>Pilanesberg Park</h6>
+                                  <img  class="popup_image" src="venders/image/pil.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+           
+           
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(safrica1);
+                  mymap.removeLayer(safrica2);
+                  mymap.removeLayer(safrica3);
+                  mymap.removeLayer(safrica4);
+                }, 2000);
+              });
+          break;
+          case "EG":
+            var africa5 = L.marker([29.9792, 31.1342], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa5.bindPopup(
+              `<div class="popup">
+                                  <h6>Pyramids of Giza</h6>
+                                  <img  class="popup_image" src="venders/image/pyr.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var africa7 = L.marker([22.346, 31.6156], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa7.bindPopup(
+              `<div class="popup">
+                                  <h6>Abu Simbel</h6>
+                                  <img  class="popup_image" src="venders/image/abu.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(africa5); 
+                mymap.removeLayer(africa7);             
+              }, 2000);
+            });
+           
+            
+          break;
+          case "DZ":
+            var algeria = L.marker([35.0391, 0.2909], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            algeria.bindPopup(
+              `<div class="popup">
+                                  <h6>Atlas Mountains</h6>
+                                  <img  class="popup_image" src="venders/image/atl.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(algeria);           
+                }, 2000);
+              });
+          break;
+          case "TN":
+            var africa6 = L.marker([36.8065, 10.1815], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa6.bindPopup(
+              `<div class="popup">
+                                  <h6>Tunis</h6>
+                                  <img  class="popup_image" src="venders/image/tun.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var africa9 = L.marker([33.8869, 9.5375], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa9.bindPopup(
+              `<div class="popup">
+                                  <h6>Sahara Desert</h6>
+                                  <img  class="popup_image" src="venders/image/des.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(africa6); 
+                mymap.removeLayer(africa9);           
+              }, 2000);
+            });
+          break;
+          case "IT":
+            var fort2 = L.marker([40.73, 13.965], { icon: myCastleIcon }).addTo(mymap);
+                fort2.bindPopup(
+                  `<div class="popup">
+                                      <h6>Aragonese Castle</h6>
+                                      <img  class="popup_image" src="venders/image/ara.jpg" >
+                                    </div> `,
+                  { closeButton: false, offset: L.point(0, -8) }
+                );
+                var fort4 = L.marker([45.4337, 12.4304], { icon: myCastleIcon }).addTo(mymap);
+                fort4.bindPopup(
+                  `<div class="popup">
+                                      <h6>Doge’s Palace</h6>
+                                      <img  class="popup_image" src="venders/image/dog.jpg" >
+                                    </div> `,
+                  { closeButton: false, offset: L.point(0, -8) }
+                );
+                var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(fort2);
+                  mymap.removeLayer(fort4);
+                }, 2000);
+              });
+          break;
+          case "ES":
+            var spain_1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
+                  spain_1.bindPopup(
+                    `<div class="popup">
+                                        <h6>Alcázar of Segovia</h6>
+                                        <img  class="popup_image" src="venders/image/alc.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+                  var spain_3 = L.marker([38.7507, -9.2591], { icon: myCastleIcon }).addTo(mymap);
+                  spain_3.bindPopup(
+                    `<div class="popup">
+                                        <h6>Queluz Palace</h6>
+                                        <img  class="popup_image" src="venders/image/que.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+
+                  var spain_2 = L.marker([37.3831, -5.9902], { icon: myCastleIcon }).addTo(mymap);
+                  spain_2.bindPopup(
+                    `<div class="popup">
+                                        <h6> Real Alcazar of Seville</h6>
+                                        <img  class="popup_image" src="venders/image/rea.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+            var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            spain.bindPopup(
+              `<div class="popup">
+                                  <h6>Córdoba Cathedral</h6>
+                                  <img  class="popup_image" src="venders/image/cor.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(spain);
+                  mymap.removeLayer(spain_1);
+                  mymap.removeLayer(spain_2);
+                  mymap.removeLayer(spain_3);
+                }, 2000);
+              });
+          break;
+          case "DE":
+            var berlin1 = L.marker([52.52, 13.29], { icon: myCastleIcon }).addTo(mymap);
+              berlin1.bindPopup(
+                `<div class="popup">
+                                    <h6>Charlottenburg Palace</h6>
+                                    <img  class="popup_image" src="venders/image/char.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin2 = L.marker([52.51, 13.35], { icon: myCastleIcon }).addTo(mymap);
+              berlin2.bindPopup(
+                `<div class="popup">
+                                    <h6>Bellevue Palace </h6>
+                                    <img  class="popup_image" src="venders/image/bell.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin3 = L.marker([52.43, 13.11], { icon: myCastleIcon }).addTo(mymap);
+              berlin3.bindPopup(
+                `<div class="popup">
+                                    <h6>Schloss Pfaueninsel</h6>
+                                    <img  class="popup_image" src="venders/image/pala.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin4 = L.marker([52.57, 13.4], { icon: myCastleIcon }).addTo(mymap);
+              berlin4.bindPopup(
+                `<div class="popup">
+                                    <h6>Schoenhausen Palace</h6>
+                                    <img  class="popup_image" src="venders/image/scho.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+              var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(berlin1);
+                  mymap.removeLayer(berlin2);
+                  mymap.removeLayer(berlin3);
+                  mymap.removeLayer(berlin4);
+                }, 2000);
+              });
+          break;
+          case "CA":
+            var canada1 = L.marker([51.4968, -115.9281], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            canada1.bindPopup(
+              `<div class="popup">
+                                  <h6>Banff Park</h6>
+                                  <img  class="popup_image" src="venders/image/ban.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            canada2.bindPopup(
+              `<div class="popup">
+                                  <h6> CN Tower</h6>
+                                  <img  class="popup_image" src="venders/image/cn.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var canada3 = L.marker([46.8122, -71.2065], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            canada3.bindPopup(
+              `<div class="popup">
+                                  <h6>Old Quebec</h6>
+                                  <img  class="popup_image" src="venders/image/bec.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(canada1);
+                mymap.removeLayer(canada2);
+                mymap.removeLayer(canada3);
+              }, 2000);
+            });
+            
+          break;
+          case "US":
+            var usa1 = L.marker([43.0962, -79.0377], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa1.bindPopup(
+              `<div class="popup">
+                                  <h6>Niagara Falls</h6>
+                                  <img  class="popup_image" src="venders/image/nia.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa2 = L.marker([40.6892, -74.0445], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa2.bindPopup(
+              `<div class="popup">
+                                  <h6>Statue of Liberty</h6>
+                                  <img  class="popup_image" src="venders/image/sta.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa3 = L.marker([38.8977, -77.0365], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa3.bindPopup(
+              `<div class="popup">
+                                  <h6>White House</h6>
+                                  <img  class="popup_image" src="venders/image/whi.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa4.bindPopup(
+              `<div class="popup">
+                                  <h6> Las Vegas</h6>
+                                  <img  class="popup_image" src="venders/image/las.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa5 = L.marker([37.8199, -122.4783], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa5.bindPopup(
+              `<div class="popup">
+                                  <h6> Golden Gate Bridge</h6>
+                                  <img  class="popup_image" src="venders/image/glo.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa6 = L.marker([40.758, -73.9855], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa6.bindPopup(
+              `<div class="popup">
+                                  <h6>Times Square</h6>
+                                  <img  class="popup_image" src="venders/image/tim.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa7 = L.marker([44.428, -110.5885], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa7.bindPopup(
+              `<div class="popup">
+                                  <h6>Yellowstone Park</h6>
+                                  <img  class="popup_image" src="venders/image/yel.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(usa1);
+                mymap.removeLayer(usa2);
+                mymap.removeLayer(usa3);
+                mymap.removeLayer(usa4);
+                mymap.removeLayer(usa5);
+                mymap.removeLayer(usa6);
+                mymap.removeLayer(usa7);
+              }, 2000);
+            });
+          break;
+          case "BR":
+            var brazil1 = L.marker([-22.9847, -43.1986], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            brazil1.bindPopup(
+              `<div class="popup">
+                                  <h6> Ipanema</h6>
+                                  <img  class="popup_image" src="venders/image/ipa.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var brazil2 = L.marker([-3.4653, -62.2169], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            brazil2.bindPopup(
+              `<div class="popup">
+                                  <h6>Amazon Rain Forests </h6>
+                                  <img  class="popup_image" src="venders/image/ama.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var brazil3 = L.marker([-19.9167, -43.9345], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            brazil3.bindPopup(
+              `<div class="popup">
+                                  <h6>Belo Horizonte</h6>
+                                  <img  class="popup_image" src="venders/image/bel.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            var data = [brazil1, brazil2, brazil3];
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(brazil1);
+                mymap.removeLayer(brazil2);
+                mymap.removeLayer(brazil3);
+              
+               // data.clearLayers();
+              }, 2000);
+            });
+            
+          break;
+
+          case "AR":
+            var argentina1 = L.marker([-50.4967, -73.1377], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            argentina1.bindPopup(
+              `<div class="popup">
+                                  <h6>Perito Moreno</h6>
+                                  <img  class="popup_image" src="venders/image/gla.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(argentina1);
+              }, 2000);
+            });
+          break;
+
+          case "FR":
+            var fort3 = L.marker([47.6161, 1.5172], { icon: myCastleIcon }).addTo(mymap);
+                  fort3.bindPopup(
+                    `<div class="popup">
+                                        <h6>Château de Chambord</h6>
+                                        <img  class="popup_image" src="venders/image/cha.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+                  var areaSelect = document.querySelector(`[id="selcountry"]`);
+                  areaSelect.addEventListener(`change`, (e) => {
+                    setTimeout(function () {
+                      mymap.removeLayer(fort3);
+                    }, 2000);
+                  });
+          break;
+
+          case "PE":
+            var peru = L.marker([-15.9254, -69.3354], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            peru.bindPopup(
+              `<div class="popup">
+                                  <h6>Lake Titicaca</h6>
+                                  <img  class="popup_image" src="venders/image/tit.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(peru);
+              }, 2000);
+            });
+          break;
+          case "NL":
+            var fort5 = L.marker([53.3429, 6.2674], { icon: myCastleIcon }).addTo(mymap);
+            fort5.bindPopup(
+              `<div class="popup">
+                                  <h6>Dublin Castle</h6>
+                                  <img  class="popup_image" src="venders/image/dub.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort5);
+              }, 2000);
+            });
+          break;
+          case "HU":
+            var fort9 = L.marker([47.4962, 19.0396], { icon: myCastleIcon }).addTo(mymap);
+            fort9.bindPopup(
+              `<div class="popup">
+                                  <h6> Buda Castle</h6>
+                                  <img  class="popup_image" src="venders/image/bud.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort9);
+              }, 2000);
+            });
+          break;
+          case "SE":
+
+            var fort10 = L.marker([59.3217, 17.8863], { icon: myCastleIcon }).addTo(mymap);
+            fort10.bindPopup(
+              `<div class="popup">
+                                  <h6> Drottningholm Castle</h6>
+                                  <img  class="popup_image" src="venders/image/dro.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort10);
+              }, 2000);
+            });
+          break;
+
+          default:
+            //none...
+      }
+
+              //World population...
+  
+              $.ajax({
+                url: "libs/php/getpopulation.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                  // q: $('#selcountry').val()
+                },
+                success: function (result) {
+                  console.log(result);
+                  var alpha2_code = result["data"][0]["alpha2Code"]; 
+                  console.log(alpha2_code); 
+
+                  for (let i = 0; i < result.data.length; i++) {
+                    var Lat = result["data"][i]["latlng"][0];
+                    var Lng = result["data"][i]["latlng"][1];
+                    var alpha2_code = result["data"][i]["alpha2Code"]; 
+                    //  console.log(Lat);
+                    //  console.log(Lng);
+
+                    var population = result["data"][i]["population"];
+                    // console.log(population);
+                    var nf = new Intl.NumberFormat();
+                    var population_formatted = nf.format(population);
+                  
+
+                    var name = result["data"][i]["name"];
+                    //console.log(name);
+
+                    if (Lat === undefined && Lng === undefined) {
+                      continue;
+                    }
+                    if(alpha2_code === Country_Code){
+                      var CLayer0 = L.circle([Lat, Lng], {
+                        radius: 10000,
+                        color: "red",
+                      });
+                      CLayer0.addTo(mymap).bindPopup(
+                        "<h6>" + name + "<br>" + population_formatted + "</h6>",
+                        {
+                          closeButton: false,
+                          offset: L.point(0, 0),
+                        }
+                      );
+                      var areaSelect = document.querySelector(`[id="selcountry"]`);
+                        areaSelect.addEventListener(`change`, (e) => {
+                          setTimeout(function () {
+                          mymap.removeLayer(CLayer0);
+                          }, 2000);
+                       });
+                    }
+                    
+                  }
+                }
+              });
+
+
+
+              const areaSelect1 = document.querySelector(`[id="selcountry"]`);
+              areaSelect1.addEventListener(`change`, (e) => {
+                setTimeout(function () {
                   mymap.removeLayer(border);
+                 // mymap.removeLayer(CLayer0);
                 }, 2000);
               });
             },
@@ -340,7 +1482,7 @@ $("#selcountry").on("change", function () {
     },
   });
 });
-
+/*
 //marker for gujarat fort...
 var guj1 = L.marker([23.2001, 69.2685], { icon: myCastleIcon }).addTo(mymap);
 guj1.bindPopup("<h6>Roha Fort!</h6>", { closeButton: false });
@@ -359,9 +1501,10 @@ guj5.bindPopup("<h6>Hingolgadh Fort!</h6>", { closeButton: false });
 
 var guj6 = L.marker([23.8525, 73.0052], { icon: myCastleIcon }).addTo(mymap);
 guj6.bindPopup("<h6>Idar Fort!</h6>", { closeButton: false });
+*/
 
 //marker for germany fort...
-
+/*
 var berlin1 = L.marker([52.52, 13.29], { icon: myCastleIcon }).addTo(mymap);
 berlin1.bindPopup(
   `<div class="popup">
@@ -396,7 +1539,7 @@ berlin4.bindPopup(
                       <img  class="popup_image" src="venders/image/scho.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
-);
+);  
 
 var africa1 = L.marker([-33.9249, 18.4241], { icon: mytouristPlaceIcon }).addTo(
   mymap
@@ -497,6 +1640,8 @@ africa9.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
+
+
 var russia1 = L.marker([53.5587, 108.165], { icon: mytouristPlaceIcon }).addTo(
   mymap
 );
@@ -539,7 +1684,7 @@ russia4.bindPopup(
                       <img  class="popup_image" src="venders/image/pal.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
-);
+);    
 
 var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(
   mymap
@@ -640,6 +1785,7 @@ usa7.bindPopup(
   { closeButton: false, offset: L.point(0, -8) }
 );
 
+
 var canada1 = L.marker([51.4968, -115.9281], {
   icon: mytouristPlaceIcon,
 }).addTo(mymap);
@@ -671,7 +1817,7 @@ canada3.bindPopup(
                       <img  class="popup_image" src="venders/image/bec.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
-);
+);  
 
 var brazil1 = L.marker([-22.9847, -43.1986], {
   icon: mytouristPlaceIcon,
@@ -737,8 +1883,8 @@ spain.bindPopup(
                       <img  class="popup_image" src="venders/image/cor.jpg" >
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
-);
-
+);  */
+/*
 var place1 = L.marker([50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(
   mymap
 );
@@ -1001,180 +2147,21 @@ touristPlace16.bindPopup(
                     </div> `,
   { closeButton: false, offset: L.point(0, -8) }
 );
+*/
 
 //marker for fort.....
-var fort1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
-fort1.bindPopup(
-  `<div class="popup">
-                      <h6>Alcázar of Segovia</h6>
-                      <img  class="popup_image" src="venders/image/alc.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort2 = L.marker([40.73, 13.965], { icon: myCastleIcon }).addTo(mymap);
-fort2.bindPopup(
-  `<div class="popup">
-                      <h6>Aragonese Castle</h6>
-                      <img  class="popup_image" src="venders/image/ara.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort3 = L.marker([47.6161, 1.5172], { icon: myCastleIcon }).addTo(mymap);
-fort3.bindPopup(
-  `<div class="popup">
-                      <h6>Château de Chambord</h6>
-                      <img  class="popup_image" src="venders/image/cha.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort4 = L.marker([45.4337, 12.4304], { icon: myCastleIcon }).addTo(mymap);
-fort4.bindPopup(
-  `<div class="popup">
-                      <h6>Doge’s Palace</h6>
-                      <img  class="popup_image" src="venders/image/dog.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort5 = L.marker([53.3429, 6.2674], { icon: myCastleIcon }).addTo(mymap);
-fort5.bindPopup(
-  `<div class="popup">
-                      <h6>Dublin Castle</h6>
-                      <img  class="popup_image" src="venders/image/dub.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort6 = L.marker([59.9404, 30.3138], { icon: myCastleIcon }).addTo(mymap);
-fort6.bindPopup(
-  `<div class="popup">
-                      <h6>Winter Palace</h6>
-                      <img  class="popup_image" src="venders/image/win.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort7 = L.marker([38.7507, -9.2591], { icon: myCastleIcon }).addTo(mymap);
-fort7.bindPopup(
-  `<div class="popup">
-                      <h6>Queluz Palace</h6>
-                      <img  class="popup_image" src="venders/image/que.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort8 = L.marker([37.3831, -5.9902], { icon: myCastleIcon }).addTo(mymap);
-fort8.bindPopup(
-  `<div class="popup">
-                      <h6> Real Alcazar of Seville</h6>
-                      <img  class="popup_image" src="venders/image/rea.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort9 = L.marker([47.4962, 19.0396], { icon: myCastleIcon }).addTo(mymap);
-fort9.bindPopup(
-  `<div class="popup">
-                      <h6> Buda Castle</h6>
-                      <img  class="popup_image" src="venders/image/bud.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-var fort10 = L.marker([59.3217, 17.8863], { icon: myCastleIcon }).addTo(mymap);
-fort10.bindPopup(
-  `<div class="popup">
-                      <h6> Drottningholm Castle</h6>
-                      <img  class="popup_image" src="venders/image/dro.jpg" >
-                    </div> `,
-  { closeButton: false, offset: L.point(0, -8) }
-);
 
-// Add circle...for population....
-var CLayer = L.circle([51.94087861255871, -0.7525634765625], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer.addTo(mymap).bindPopup(
-  "<h6>Density of population in United Kingdom is 275 persons per sq Km.</h6>",
-  { closeButton: false }
-);
 
-var CLayer1 = L.circle([22.755920681486405, 78.72802734375], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer1.addTo(mymap).bindPopup(
-  "<h6>Density of population in India is 382 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer2 = L.circle([49.32512199104001, 10.37109375], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer2.addTo(mymap).bindPopup(
-  "<h6>Density of population in Germany is 233 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer3 = L.circle([41.60722821271717, -5.888671875], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer3.addTo(mymap).bindPopup(
-  "<h6>Density of population in Spain is 93.67 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer4 = L.circle([41.409775832009565, 14.666748046875], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer4.addTo(mymap).bindPopup(
-  "<h6>Density of population in Italy is 205.45 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer5 = L.circle([48.472921272487824, 5.537109374999999], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer5.addTo(mymap).bindPopup(
-  "<h6>Density of population in France is 122.34 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer6 = L.circle([56.65622649350222, -108.369140625], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer6.addTo(mymap).bindPopup(
-  "<h6>Density of population in Canada is 4 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer7 = L.circle([-45.259422036351694, 169.4091796875], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer7.addTo(mymap).bindPopup(
-  "<h6>Density of population in New Zealand is 18 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
-var CLayer8 = L.circle([-27.449790329784214, 145.458984375], {
-  radius: 10000,
-  color: "#ff4500",
-});
-CLayer8.addTo(mymap).bindPopup(
-  "<h6>Density of population in Australia is 3.3 persons per sq Km.</h6>",
-  { closeButton: false }
-);
-
+/*
 //using polylines....
 var polylines = L.polyline(
   [
@@ -1220,10 +2207,10 @@ var polylines4 = L.polyline(
   { color: "#ff4500" }
 )
   .bindPopup("<h6>125 miles</h6>", { closeButton: false })
-  .addTo(mymap);
+  .addTo(mymap);   */
 
 //add geojson data for lines and tourist place......
-
+/*
 var mylines = [
   {
     type: "Feature",
@@ -1434,7 +2421,7 @@ var mylines = [
     },
   },
 ];
-
+*/
 var myStyle = {
   color: "#ff7800",
   weight: 5,
@@ -1442,7 +2429,7 @@ var myStyle = {
 };
 
 //add popups for tourist place.....
-
+/*
 //add popups for lines....
 function oneachFeature(feature, layer) {
   // does this feature have a property named popupContent?
@@ -1458,7 +2445,7 @@ function oneachFeature(feature, layer) {
 var line = new L.geoJSON(mylines, {
   style: myStyle,
   onEachFeature: oneachFeature,
-}).addTo(mymap);
+}).addTo(mymap);   */
 
 //getBorder.php file....
 
@@ -1488,6 +2475,7 @@ $(document).ready(function () {
             geojson_result.data.features[i].properties.name +
             " </option>"
         );
+      
       }
 
       var list, i, switching, b, shouldSwitch;
@@ -1541,9 +2529,1085 @@ $(document).ready(function () {
           fillOpacity: 0.2,
         });
 
+        //markers....
+        switch(Value){
+          
+          case "GB":
+            var place1 = L.marker([50.6955, -2.4746], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place1.bindPopup(
+              `<div class="popup">
+              <h6>Maiden Castle</h6>
+              <img  class="popup_image" src="venders/image/maiden.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place2 = L.marker([52.8712, -3.0512], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place2.bindPopup(
+              `<div class="popup">
+              <h6>Old Oswestry</h6>
+                                          <img  class="popup_image" src="venders/image/oswestry.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place3 = L.marker([55.96310043, -2.67170523], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place3.bindPopup(
+              `<div class="popup">
+              <h6>Traprain Law</h6>
+              <img  class="popup_image" src="venders/image/traprain.jpg" > </div>`,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place4 = L.marker([50.91, -2.22], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place4.bindPopup(
+              `<div class="popup">
+              <h6>Hambledon Hill</h6>
+              <img  class="popup_image" src="venders/image/hamb.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place5 = L.marker([51.024058, -2.53178], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place5.bindPopup(
+              `<div class="popup">
+              <h6>Cadbury Castle</h6>
+                                        <img  class="popup_image" src="venders/image/cadb.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place6 = L.marker([51.209513, -2.147398], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place6.bindPopup(
+              `<div class="popup">
+              <h6>Battlesbury Camp</h6>
+                                        <img  class="popup_image" src="venders/image/batt.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place7 = L.marker([52.0582, -2.352], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            place7.bindPopup(
+              `<div class="popup">
+              <h6>The British Camp</h6>
+                                        <img  class="popup_image" src="venders/image/brit.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var place8 = L.marker([50.86057, -0.382867], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            place8.bindPopup(
+              `<div class="popup">
+              <h6>Cissbury Ring</h6>
+              <img  class="popup_image" src="venders/image/ciss.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace1 = L.marker([50.6304, -1.9904], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace1.bindPopup(
+              `<div class="popup">
+              <h6>Nine Barrow Down</h6>
+              <img  class="popup_image" src="venders/image/nine.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace2 = L.marker([50.621, -2.2801], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace2.bindPopup(
+              `<div class="popup">
+              <h6>Durdle Door</h6>
+                                    <img  class="popup_image" src="venders/image/durd.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace3 = L.marker([50.6908, -1.9865], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace3.bindPopup(
+              `<div class="popup">
+              <h6>Poole Harbour</h6>
+              <img  class="popup_image" src="venders/image/pool.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace4 = L.marker([50.5475, -2.4343], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace4.bindPopup(
+              `<div class="popup">
+              <h6>Isle Of Portland</h6>
+              <img  class="popup_image" src="venders/image/isle.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace5 = L.marker([50.6429, -1.9225], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace5.bindPopup(
+              `<div class="popup">
+              <h6>Old Harry Rocks</h6>
+              <img  class="popup_image" src="venders/image/old.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+
+            var touristPlace6 = L.marker([52.9704, -3.0878], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace6.bindPopup(
+              `<div class="popup">
+              <h6>Pontcysyllte Aqueduct</h6>
+                                    <img  class="popup_image" src="venders/image/pont.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace7 = L.marker([52.9791, -3.1589], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace7.bindPopup(
+              `<div class="popup">
+              <h6>Castell Dinas Bran</h6>
+              <img  class="popup_image" src="venders/image/cast.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace8 = L.marker([52.9813, -3.1998], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace8.bindPopup(
+              `<div class="popup">
+              <h6>Horseshoe Falls</h6>
+                                    <img  class="popup_image" src="venders/image/hors.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace9 = L.marker([51.1444, -2.6986], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace9.bindPopup(
+              `<div class="popup">
+              <h6>Glastonbury Tor</h6>
+              <img  class="popup_image" src="venders/image/glas.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace10 = L.marker([51.1051, -2.3179], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace10.bindPopup(
+              `<div class="popup">
+              <h6>Stourhead</h6>
+              <img  class="popup_image" src="venders/image/stou.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace11 = L.marker([51.1461, -2.7153], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace11.bindPopup(
+              `<div class="popup">
+              <h6>Glastonbury Abbey</h6>
+              <img  class="popup_image" src="venders/image/abbe.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace12 = L.marker([52.0491, -2.347], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace12.bindPopup(
+              `<div class="popup">
+              <h6>Swinyard Hill</h6>
+              <img  class="popup_image" src="venders/image/swin.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace13 = L.marker([52.0612, -2.3369], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace13.bindPopup(
+              `<div class="popup">
+              <h6>Malvern Court & Gardens</h6>
+              <img  class="popup_image" src="venders/image/malv.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace14 = L.marker([51.0608, -1.4104], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace14.bindPopup(
+              `<div class="popup">
+              <h6>Farley Mount Country Park</h6>
+              <img  class="popup_image" src="venders/image/farl.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            //custering for uk....
+
+                    var markers_uk = L.markerClusterGroup({ animateAddingMarkers: true });
+                    var markersList_uk = [
+                      place1,
+                      place2,
+                      place3,
+                      place4,
+                      place5,
+                      place6,
+                      place7,
+                      place8,
+                      touristPlace1,
+                      touristPlace2,
+                      touristPlace3,
+                      touristPlace4,
+                      touristPlace5,
+                      touristPlace6,
+                      touristPlace7,
+                      touristPlace8,
+                      touristPlace9,
+                      touristPlace10,
+                      touristPlace11,
+                      touristPlace12,
+                      touristPlace13,
+                      touristPlace14
+                    
+                    ];
+
+                    mymap.addLayer(markers_uk);
+
+                    for (var i = 0; i < markersList_uk.length; i++) {
+                      markers_uk.addLayer(markersList_uk[i]);
+                    }
+
+                                
+        
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(place1);
+                mymap.removeLayer(place2); 
+                mymap.removeLayer(place3);
+                mymap.removeLayer(place4); 
+                mymap.removeLayer(place5);
+                mymap.removeLayer(place6); 
+                mymap.removeLayer(place7);
+                mymap.removeLayer(place8); 
+                mymap.removeLayer(touristPlace1);
+                mymap.removeLayer(touristPlace2); 
+                mymap.removeLayer(touristPlace3);
+                mymap.removeLayer(touristPlace4); 
+                mymap.removeLayer(touristPlace5);
+                mymap.removeLayer(touristPlace6); 
+                mymap.removeLayer(touristPlace7);
+                mymap.removeLayer(touristPlace8); 
+                mymap.removeLayer(touristPlace9);
+                mymap.removeLayer(touristPlace10); 
+                mymap.removeLayer(touristPlace11);
+                mymap.removeLayer(touristPlace12); 
+                mymap.removeLayer(touristPlace13);
+                mymap.removeLayer(touristPlace14); 
+                    
+              }, 2000);
+            });
+          break;
+          case "IN":
+          //marker for gujarat fort...
+              var guj1 = L.marker([23.2001, 69.2685], { icon: myCastleIcon }).addTo(mymap);
+              guj1.bindPopup("<h6>Roha Fort!</h6>", { closeButton: false });
+
+              var guj2 = L.marker([23.4849, 70.4642], { icon: myCastleIcon }).addTo(mymap);
+              guj2.bindPopup("<h6>Kanthkot Fort!</h6>", { closeButton: false });
+
+              var guj3 = L.marker([22.4647, 70.0697], { icon: myCastleIcon }).addTo(mymap);
+              guj3.bindPopup("<h6>Lakhota Fort!</h6>", { closeButton: false });
+
+              var guj4 = L.marker([24.2291, 69.1897], { icon: myCastleIcon }).addTo(mymap);
+              guj4.bindPopup("<h6>Vighakot Fort!</h6>", { closeButton: false });
+
+              var guj5 = L.marker([22.1544, 71.3308], { icon: myCastleIcon }).addTo(mymap);
+              guj5.bindPopup("<h6>Hingolgadh Fort!</h6>", { closeButton: false });
+
+              var guj6 = L.marker([23.8525, 73.0052], { icon: myCastleIcon }).addTo(mymap);
+              guj6.bindPopup("<h6>Idar Fort!</h6>", { closeButton: false });
+
+              //using polylines....
+                      var polylines = L.polyline(
+                        [
+                          [24.2291, 69.1897],
+                          [23.2001, 69.2685],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>129 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines1 = L.polyline(
+                        [
+                          [23.2001, 69.2685],
+                          [23.4849, 70.4642],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>89 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines2 = L.polyline(
+                        [
+                          [23.4849, 70.4642],
+                          [22.4647, 70.0697],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>115 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines3 = L.polyline(
+                        [
+                          [22.4647, 70.0697],
+                          [22.1544, 71.3308],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>100 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+                      var polylines4 = L.polyline(
+                        [
+                          [22.1544, 71.3308],
+                          [23.8525, 73.0052],
+                        ],
+                        { color: "#ff4500" }
+                      )
+                        .bindPopup("<h6>125 miles</h6>", { closeButton: false })
+                        .addTo(mymap);
+
+                        //custering for india...
+
+                        var markers_in = L.markerClusterGroup({ animateAddingMarkers: true });
+                        var markersList_in = [
+                          guj1,
+                          guj2,
+                          guj3,
+                          guj4,
+                          guj5,
+                          guj6,
+                          polylines,
+                          polylines1,
+                          polylines2,
+                          polylines3,
+                          polylines4
+                        ];
+
+                        mymap.addLayer(markers_in);
+
+                        for (var i = 0; i < markersList_in.length; i++) {
+                          markers_in.addLayer(markersList_in[i]);
+                        }
+
+              var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(guj1);
+                  mymap.removeLayer(guj2); 
+                  mymap.removeLayer(guj3);
+                  mymap.removeLayer(guj4); 
+                  mymap.removeLayer(guj5);
+                  mymap.removeLayer(guj6); 
+                  mymap.removeLayer(polylines);
+                  mymap.removeLayer(polylines1);
+                  mymap.removeLayer(polylines2);
+                  mymap.removeLayer(polylines3); 
+                  mymap.removeLayer(polylines4);          
+                }, 2000);
+              });
+          break;
+          case "CN":
+            var china1 = L.marker([40.4319, 116.5704], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            china1.bindPopup(
+              `<div class="popup">
+                                  <h6>The Great Wall of China</h6>
+                                  <img  class="popup_image" src="venders/image/wal.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var china2 = L.marker([34.3841, 109.2785], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            china2.bindPopup(
+              `<div class="popup">
+                                  <h6>Terracotta Army</h6>
+                                  <img  class="popup_image" src="venders/image/ter.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(china1);
+                  mymap.removeLayer(china2);       
+                }, 2000);
+              });
+          break;
+          case "RU":
+            var russia1 = L.marker([53.5587, 108.165], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia1.bindPopup(
+              `<div class="popup">
+                                  <h6> Lake Baikal</h6>
+                                  <img  class="popup_image" src="venders/image/bai.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia2 = L.marker([59.9375, 30.308611], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            russia2.bindPopup(
+              `<div class="popup">
+                                  <h6>St. Peterburg</h6>
+                                  <img  class="popup_image" src="venders/image/pet.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia3 = L.marker([43.6028, 39.7342], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia3.bindPopup(
+              `<div class="popup">
+                                  <h6>Sochi</h6>
+                                  <img  class="popup_image" src="venders/image/soc.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var russia4 = L.marker([59.8863, 29.9086], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            russia4.bindPopup(
+              `<div class="popup">
+                                  <h6>Peterhof</h6>
+                                  <img  class="popup_image" src="venders/image/pal.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var fort6 = L.marker([59.9404, 30.3138], { icon: myCastleIcon }).addTo(mymap);
+            fort6.bindPopup(
+              `<div class="popup">
+                                  <h6>Winter Palace</h6>
+                                  <img  class="popup_image" src="venders/image/win.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var touristPlace15 = L.marker([53.5587, 108.165], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace15.bindPopup(
+              `<div class="popup">
+              <h6>Lake Baikal</h6>
+                                    <img  class="popup_image" src="venders/image/lak.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var touristPlace16 = L.marker([55.7558, 37.6173], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            touristPlace16.bindPopup(
+              `<div class="popup">
+              <h6>Moscow</h6>
+                                    <img  class="popup_image" src="venders/image/mas.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(russia1);
+                  mymap.removeLayer(russia2);
+                  mymap.removeLayer(russia3);
+                  mymap.removeLayer(russia4);
+                  mymap.removeLayer(fort6);
+                  mymap.removeLayer(touristPlace15);
+                  mymap.removeLayer(touristPlace16);        
+                }, 2000);
+              });
+          break;
+
+          case "ZA":
+            var safrica1 = L.marker([-33.9249, 18.4241], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica1.bindPopup(
+              `<div class="popup">
+                                  <h6>Cape Town</h6>
+                                  <img  class="popup_image" src="venders/image/cap.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica2 = L.marker([-33.9321, 18.8602], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica2.bindPopup(
+              `<div class="popup">
+                                  <h6>Stellenbosch</h6>
+                                  <img  class="popup_image" src="venders/image/ste.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica3 = L.marker([-29.4667, 29.2667], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica3.bindPopup(
+              `<div class="popup">
+                                  <h6> The Drakensberg</h6>
+                                  <img  class="popup_image" src="venders/image/kwa.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var safrica4 = L.marker([-25.2449, 27.0891], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            safrica4.bindPopup(
+              `<div class="popup">
+                                  <h6>Pilanesberg Park</h6>
+                                  <img  class="popup_image" src="venders/image/pil.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+           
+           
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(safrica1);
+                  mymap.removeLayer(safrica2);
+                  mymap.removeLayer(safrica3);
+                  mymap.removeLayer(safrica4);
+                }, 2000);
+              });
+          break;
+          case "EG":
+            var africa5 = L.marker([29.9792, 31.1342], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa5.bindPopup(
+              `<div class="popup">
+                                  <h6>Pyramids of Giza</h6>
+                                  <img  class="popup_image" src="venders/image/pyr.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var africa7 = L.marker([22.346, 31.6156], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa7.bindPopup(
+              `<div class="popup">
+                                  <h6>Abu Simbel</h6>
+                                  <img  class="popup_image" src="venders/image/abu.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(africa5); 
+                mymap.removeLayer(africa7);             
+              }, 2000);
+            });
+           
+            
+          break;
+          case "DZ":
+            var algeria = L.marker([35.0391, 0.2909], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            algeria.bindPopup(
+              `<div class="popup">
+                                  <h6>Atlas Mountains</h6>
+                                  <img  class="popup_image" src="venders/image/atl.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(algeria);           
+                }, 2000);
+              });
+          break;
+          case "TN":
+            var africa6 = L.marker([36.8065, 10.1815], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa6.bindPopup(
+              `<div class="popup">
+                                  <h6>Tunis</h6>
+                                  <img  class="popup_image" src="venders/image/tun.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var africa9 = L.marker([33.8869, 9.5375], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            africa9.bindPopup(
+              `<div class="popup">
+                                  <h6>Sahara Desert</h6>
+                                  <img  class="popup_image" src="venders/image/des.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(africa6); 
+                mymap.removeLayer(africa9);           
+              }, 2000);
+            });
+          break;
+          case "IT":
+            var fort2 = L.marker([40.73, 13.965], { icon: myCastleIcon }).addTo(mymap);
+                fort2.bindPopup(
+                  `<div class="popup">
+                                      <h6>Aragonese Castle</h6>
+                                      <img  class="popup_image" src="venders/image/ara.jpg" >
+                                    </div> `,
+                  { closeButton: false, offset: L.point(0, -8) }
+                );
+                var fort4 = L.marker([45.4337, 12.4304], { icon: myCastleIcon }).addTo(mymap);
+                fort4.bindPopup(
+                  `<div class="popup">
+                                      <h6>Doge’s Palace</h6>
+                                      <img  class="popup_image" src="venders/image/dog.jpg" >
+                                    </div> `,
+                  { closeButton: false, offset: L.point(0, -8) }
+                );
+                var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(fort2);
+                  mymap.removeLayer(fort4);
+                }, 2000);
+              });
+          break;
+          case "ES":
+            var spain_1 = L.marker([40.95, -4.1325], { icon: myCastleIcon }).addTo(mymap);
+                  spain_1.bindPopup(
+                    `<div class="popup">
+                                        <h6>Alcázar of Segovia</h6>
+                                        <img  class="popup_image" src="venders/image/alc.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+                  var spain_3 = L.marker([38.7507, -9.2591], { icon: myCastleIcon }).addTo(mymap);
+                  spain_3.bindPopup(
+                    `<div class="popup">
+                                        <h6>Queluz Palace</h6>
+                                        <img  class="popup_image" src="venders/image/que.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+
+                  var spain_2 = L.marker([37.3831, -5.9902], { icon: myCastleIcon }).addTo(mymap);
+                  spain_2.bindPopup(
+                    `<div class="popup">
+                                        <h6> Real Alcazar of Seville</h6>
+                                        <img  class="popup_image" src="venders/image/rea.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+            var spain = L.marker([37.8742, -4.7794], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            spain.bindPopup(
+              `<div class="popup">
+                                  <h6>Córdoba Cathedral</h6>
+                                  <img  class="popup_image" src="venders/image/cor.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(spain);
+                  mymap.removeLayer(spain_1);
+                  mymap.removeLayer(spain_2);
+                  mymap.removeLayer(spain_3);
+                }, 2000);
+              });
+          break;
+          case "DE":
+            var berlin1 = L.marker([52.52, 13.29], { icon: myCastleIcon }).addTo(mymap);
+              berlin1.bindPopup(
+                `<div class="popup">
+                                    <h6>Charlottenburg Palace</h6>
+                                    <img  class="popup_image" src="venders/image/char.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin2 = L.marker([52.51, 13.35], { icon: myCastleIcon }).addTo(mymap);
+              berlin2.bindPopup(
+                `<div class="popup">
+                                    <h6>Bellevue Palace </h6>
+                                    <img  class="popup_image" src="venders/image/bell.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin3 = L.marker([52.43, 13.11], { icon: myCastleIcon }).addTo(mymap);
+              berlin3.bindPopup(
+                `<div class="popup">
+                                    <h6>Schloss Pfaueninsel</h6>
+                                    <img  class="popup_image" src="venders/image/pala.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+
+              var berlin4 = L.marker([52.57, 13.4], { icon: myCastleIcon }).addTo(mymap);
+              berlin4.bindPopup(
+                `<div class="popup">
+                                    <h6>Schoenhausen Palace</h6>
+                                    <img  class="popup_image" src="venders/image/scho.jpg" >
+                                  </div> `,
+                { closeButton: false, offset: L.point(0, -8) }
+              );
+              var areaSelect = document.querySelector(`[id="selcountry"]`);
+              areaSelect.addEventListener(`change`, (e) => {
+                setTimeout(function () {
+                  mymap.removeLayer(berlin1);
+                  mymap.removeLayer(berlin2);
+                  mymap.removeLayer(berlin3);
+                  mymap.removeLayer(berlin4);
+                }, 2000);
+              });
+          break;
+          case "CA":
+            var canada1 = L.marker([51.4968, -115.9281], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            canada1.bindPopup(
+              `<div class="popup">
+                                  <h6>Banff Park</h6>
+                                  <img  class="popup_image" src="venders/image/ban.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var canada2 = L.marker([43.6426, -79.3871], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            canada2.bindPopup(
+              `<div class="popup">
+                                  <h6> CN Tower</h6>
+                                  <img  class="popup_image" src="venders/image/cn.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var canada3 = L.marker([46.8122, -71.2065], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            canada3.bindPopup(
+              `<div class="popup">
+                                  <h6>Old Quebec</h6>
+                                  <img  class="popup_image" src="venders/image/bec.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(canada1);
+                mymap.removeLayer(canada2);
+                mymap.removeLayer(canada3);
+              }, 2000);
+            });
+            
+          break;
+          case "US":
+            var usa1 = L.marker([43.0962, -79.0377], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa1.bindPopup(
+              `<div class="popup">
+                                  <h6>Niagara Falls</h6>
+                                  <img  class="popup_image" src="venders/image/nia.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa2 = L.marker([40.6892, -74.0445], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa2.bindPopup(
+              `<div class="popup">
+                                  <h6>Statue of Liberty</h6>
+                                  <img  class="popup_image" src="venders/image/sta.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa3 = L.marker([38.8977, -77.0365], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa3.bindPopup(
+              `<div class="popup">
+                                  <h6>White House</h6>
+                                  <img  class="popup_image" src="venders/image/whi.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa4 = L.marker([36.1147, -115.1728], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa4.bindPopup(
+              `<div class="popup">
+                                  <h6> Las Vegas</h6>
+                                  <img  class="popup_image" src="venders/image/las.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa5 = L.marker([37.8199, -122.4783], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa5.bindPopup(
+              `<div class="popup">
+                                  <h6> Golden Gate Bridge</h6>
+                                  <img  class="popup_image" src="venders/image/glo.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa6 = L.marker([40.758, -73.9855], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa6.bindPopup(
+              `<div class="popup">
+                                  <h6>Times Square</h6>
+                                  <img  class="popup_image" src="venders/image/tim.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var usa7 = L.marker([44.428, -110.5885], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            usa7.bindPopup(
+              `<div class="popup">
+                                  <h6>Yellowstone Park</h6>
+                                  <img  class="popup_image" src="venders/image/yel.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(usa1);
+                mymap.removeLayer(usa2);
+                mymap.removeLayer(usa3);
+                mymap.removeLayer(usa4);
+                mymap.removeLayer(usa5);
+                mymap.removeLayer(usa6);
+                mymap.removeLayer(usa7);
+              }, 2000);
+            });
+          break;
+          case "BR":
+            var brazil1 = L.marker([-22.9847, -43.1986], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            brazil1.bindPopup(
+              `<div class="popup">
+                                  <h6> Ipanema</h6>
+                                  <img  class="popup_image" src="venders/image/ipa.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var brazil2 = L.marker([-3.4653, -62.2169], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            brazil2.bindPopup(
+              `<div class="popup">
+                                  <h6>Amazon Rain Forests </h6>
+                                  <img  class="popup_image" src="venders/image/ama.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            
+            var brazil3 = L.marker([-19.9167, -43.9345], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            brazil3.bindPopup(
+              `<div class="popup">
+                                  <h6>Belo Horizonte</h6>
+                                  <img  class="popup_image" src="venders/image/bel.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            var data = [brazil1, brazil2, brazil3];
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(brazil1);
+                mymap.removeLayer(brazil2);
+                mymap.removeLayer(brazil3);
+              
+               // data.clearLayers();
+              }, 2000);
+            });
+            
+          break;
+
+          case "AR":
+            var argentina1 = L.marker([-50.4967, -73.1377], {
+              icon: mytouristPlaceIcon,
+            }).addTo(mymap);
+            argentina1.bindPopup(
+              `<div class="popup">
+                                  <h6>Perito Moreno</h6>
+                                  <img  class="popup_image" src="venders/image/gla.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(argentina1);
+              }, 2000);
+            });
+          break;
+
+          case "FR":
+            var fort3 = L.marker([47.6161, 1.5172], { icon: myCastleIcon }).addTo(mymap);
+                  fort3.bindPopup(
+                    `<div class="popup">
+                                        <h6>Château de Chambord</h6>
+                                        <img  class="popup_image" src="venders/image/cha.jpg" >
+                                      </div> `,
+                    { closeButton: false, offset: L.point(0, -8) }
+                  );
+                  var areaSelect = document.querySelector(`[id="selcountry"]`);
+                  areaSelect.addEventListener(`change`, (e) => {
+                    setTimeout(function () {
+                      mymap.removeLayer(fort3);
+                    }, 2000);
+                  });
+          break;
+
+          case "PE":
+            var peru = L.marker([-15.9254, -69.3354], { icon: mytouristPlaceIcon }).addTo(
+              mymap
+            );
+            peru.bindPopup(
+              `<div class="popup">
+                                  <h6>Lake Titicaca</h6>
+                                  <img  class="popup_image" src="venders/image/tit.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(peru);
+              }, 2000);
+            });
+          break;
+          case "NL":
+            var fort5 = L.marker([53.3429, 6.2674], { icon: myCastleIcon }).addTo(mymap);
+            fort5.bindPopup(
+              `<div class="popup">
+                                  <h6>Dublin Castle</h6>
+                                  <img  class="popup_image" src="venders/image/dub.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort5);
+              }, 2000);
+            });
+          break;
+          case "HU":
+            var fort9 = L.marker([47.4962, 19.0396], { icon: myCastleIcon }).addTo(mymap);
+            fort9.bindPopup(
+              `<div class="popup">
+                                  <h6> Buda Castle</h6>
+                                  <img  class="popup_image" src="venders/image/bud.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort9);
+              }, 2000);
+            });
+          break;
+          case "SE":
+
+            var fort10 = L.marker([59.3217, 17.8863], { icon: myCastleIcon }).addTo(mymap);
+            fort10.bindPopup(
+              `<div class="popup">
+                                  <h6> Drottningholm Castle</h6>
+                                  <img  class="popup_image" src="venders/image/dro.jpg" >
+                                </div> `,
+              { closeButton: false, offset: L.point(0, -8) }
+            );
+            var areaSelect = document.querySelector(`[id="selcountry"]`);
+            areaSelect.addEventListener(`change`, (e) => {
+              setTimeout(function () {
+                mymap.removeLayer(fort10);
+              }, 2000);
+            });
+          break;
+
+          default:
+            //none...
+        }
+        var areaSelect = document.querySelector(`[id="selcountry"]`);
         areaSelect.addEventListener(`change`, (e) => {
           setTimeout(function () {
             mymap.removeLayer(boundry);
+           // mymap.removeLayer(CLayer0);
           }, 2000);
         });
       });
@@ -1551,6 +3615,7 @@ $(document).ready(function () {
   });
 });
 
+/*
 //World population...
 
 $(document).ready(function () {
@@ -1564,11 +3629,16 @@ $(document).ready(function () {
       // q: $('#selcountry').val()
     },
     success: function (result) {
-      // console.log(result);
+       console.log(result);
+       var name = result["data"][0]["alpha2Code"]; 
+       console.log(name); //uncomplete...
+
+
 
       for (let i = 0; i < result.data.length; i++) {
         var Lat = result["data"][i]["latlng"][0];
         var Lng = result["data"][i]["latlng"][1];
+        var name = result["data"][i]["alpha2Code"]; 
         //  console.log(Lat);
         //  console.log(Lng);
 
@@ -1606,6 +3676,7 @@ $(document).ready(function () {
 });
 
 //});
+*/
 
 var basemaps = {
   Places: L.tileLayer.wms("http://ows.mundialis.de/services/service?", {
@@ -1629,89 +3700,5 @@ var basemaps = {
 
 L.control.layers(basemaps).addTo(mymap);
 
-//custering....
 
-var markers = L.markerClusterGroup({ animateAddingMarkers: true });
-var markersList = [
-  guj1,
-  guj2,
-  guj3,
-  guj4,
-  guj5,
-  guj6,
-  berlin1,
-  berlin2,
-  berlin3,
-  berlin4,
-  fort1,
-  fort2,
-  fort3,
-  fort4,
-  fort5,
-  fort6,
-  fort7,
-  fort8,
-  fort9,
-  fort10,
-  africa1,
-  africa2,
-  africa3,
-  africa4,
-  africa5,
-  africa6,
-  africa7,
-  africa8,
-  africa9,
-  russia1,
-  russia2,
-  russia3,
-  russia4,
-  china1,
-  china2,
-  usa1,
-  usa2,
-  usa3,
-  usa4,
-  usa5,
-  usa6,
-  usa7,
-  canada1,
-  canada2,
-  canada3,
-  brazil1,
-  brazil2,
-  brazil3,
-  peru,
-  argentina1,
-  spain,
-  place1,
-  place2,
-  place3,
-  place4,
-  place5,
-  place6,
-  place7,
-  place8,
-  touristPlace1,
-  touristPlace2,
-  touristPlace3,
-  touristPlace4,
-  touristPlace5,
-  touristPlace6,
-  touristPlace7,
-  touristPlace8,
-  touristPlace9,
-  touristPlace10,
-  touristPlace11,
-  touristPlace12,
-  touristPlace13,
-  touristPlace14,
-  touristPlace15,
-  touristPlace16,
-];
 
-mymap.addLayer(markers);
-
-for (var i = 0; i < markersList.length; i++) {
-  markers.addLayer(markersList[i]);
-}

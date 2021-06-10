@@ -28,11 +28,13 @@ $("#selcountry").change(function () {
       console.log(result);
 
       var country_name = result.data.geonames[0].countryName;
+      var country_code = result["data"]["geonames"][0]["countryCode"];
       var north = result.data.geonames[0].north;
       var south = result.data.geonames[0].south;
       var east = result.data.geonames[0].east;
       var west = result.data.geonames[0].west;
       console.log(country_name);
+      console.log(country_code);
 
       var encoded_countryName = encodeURIComponent(country_name.trim());
       console.log(encoded_countryName);
@@ -142,6 +144,63 @@ $("#selcountry").change(function () {
             }
           });
         },
+      });
+
+      //World population...
+  
+      $.ajax({
+        url: "libs/php/getpopulation.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+          // q: $('#selcountry').val()
+        },
+        success: function (result) {
+          console.log(result);
+          var alpha2_code = result["data"][0]["alpha2Code"]; 
+          console.log(alpha2_code); 
+
+          for (let i = 0; i < result.data.length; i++) {
+            var Lat = result["data"][i]["latlng"][0];
+            var Lng = result["data"][i]["latlng"][1];
+            var alpha2_code = result["data"][i]["alpha2Code"]; 
+            //  console.log(Lat);
+            //  console.log(Lng);
+
+            var population = result["data"][i]["population"];
+            // console.log(population);
+            var nf = new Intl.NumberFormat();
+            var population_formatted = nf.format(population);
+          
+
+            var name = result["data"][i]["name"];
+            //console.log(name);
+
+            if (Lat === undefined && Lng === undefined) {
+              continue;
+            }
+            if(alpha2_code === country_code){
+              var CLayer0 = L.circle([Lat, Lng], {
+                radius: 10000,
+                color: "red",
+              });
+              CLayer0.addTo(mymap).bindPopup(
+                "<h6>" + name + "<br>" + population_formatted + "</h6>",
+                {
+                  closeButton: false,
+                  offset: L.point(0, 0),
+                }
+              );
+              var areaSelect = document.querySelector(`[id="selcountry"]`);
+                  areaSelect.addEventListener(`change`, (e) => {
+                    setTimeout(function () {
+                     mymap.removeLayer(CLayer0);
+                    }, 2000);
+               });
+            }
+            
+          }
+        }
       });
 
       //getRestCountry.php file....
