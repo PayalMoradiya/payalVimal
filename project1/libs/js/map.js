@@ -96,7 +96,10 @@ const successfullLookup = (position) => {
                   }
                 },
               }).addTo(mymap); 
+              console.log(border);
+           
 
+          
               mymap.fitBounds(border.getBounds(), {
                 padding: [20,20]
              });     
@@ -415,7 +418,7 @@ const successfullLookup = (position) => {
                 mymap.removeLayer(touristPlace12); 
                 mymap.removeLayer(touristPlace13);
                 mymap.removeLayer(touristPlace14); 
-                   
+                mymap.removeLayer(markers_uk);  
               }, 2000);
             });
           break;
@@ -523,7 +526,8 @@ const successfullLookup = (position) => {
                   mymap.removeLayer(polylines1);
                   mymap.removeLayer(polylines2);
                   mymap.removeLayer(polylines3); 
-                  mymap.removeLayer(polylines4);          
+                  mymap.removeLayer(polylines4);      
+                  mymap.removeLayer(markers_in);     
                 }, 2000);
               });
           break;
@@ -2835,7 +2839,7 @@ $(document).ready(function () {
                 mymap.removeLayer(touristPlace12); 
                 mymap.removeLayer(touristPlace13);
                 mymap.removeLayer(touristPlace14); 
-                    
+                mymap.removeLayer(markers_uk);        
               }, 2000);
             });
           break;
@@ -2942,7 +2946,8 @@ $(document).ready(function () {
                   mymap.removeLayer(polylines1);
                   mymap.removeLayer(polylines2);
                   mymap.removeLayer(polylines3); 
-                  mymap.removeLayer(polylines4);          
+                  mymap.removeLayer(polylines4); 
+                  mymap.removeLayer(markers_in);             
                 }, 2000);
               });
           break;
