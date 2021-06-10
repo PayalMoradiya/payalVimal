@@ -71,7 +71,7 @@
         <select
           id="selcountry"
           > 
-          <option id="txtcountryname" value="" disabled selected hidden></option>
+          <option id="txtcountryname" value="" disabled selected hidden>Select Country</option>
         </select>
         </div>
      
@@ -79,13 +79,13 @@
       <div id="mapid"></div>
       
       <!-- Modal -->
-<div class="modal fade" id="covid">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header ">
-        <h5 class="modal-title " id="exampleModalLabel">Covid Statistics</h5>
-        <img id="btn_cls" src="venders/image/error1.png">
-      </div>
+      <div class="modal fade" id="covid">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <h5 class="modal-title " id="exampleModalLabel">Covid Statistics</h5>
+            <img id="btn_cls" src="venders/image/error1.png" alt="button image">
+          </div>
       <div class="modal-body">
         <table>
           <tbody>
@@ -96,7 +96,6 @@
           <td>Confirmed Covid Case:</td>
           <td id="txtconcovidcase"></td>
         </tr>
-        <tr></tr>
         <tr>
           <td class="icon_pic">
             <img src="venders/image/covid.png" alt="covid" />
@@ -104,7 +103,6 @@
           <td>Deaths Covid Case:</td>
           <td id="txtdeacovidcase"></td>
         </tr>
-        <tr></tr>
         <tr>
           <td class="icon_pic">
             <img src="venders/image/covid.png" alt="covid" />
@@ -125,16 +123,16 @@
      
     </div>
   </div>
-</div>
+      </div>
 
  <!-- Modal -->
- <div class="modal fade" id="info">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header info">
-        <h5 class="modal-title" id="exampleModalLabel"><div id="txtcountryname"></div></h5>
-        <img id="info_btn_cls" src="venders/image/error1.png">
-      </div>
+       <div class="modal fade" id="info">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header info">
+              <h5 class="modal-title exampleModalLabel1"  id="txtcountryname1">Info</h5>
+              <img id="info_btn_cls" src="venders/image/error1.png" alt="button image">
+            </div>
       <div class="modal-body">
         <table>
           <tbody>
@@ -201,7 +199,6 @@
               <td>Geoname ID:</td>
               <td id="txtgeoname"></td>
             </tr>
-            <tr></tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/wikipedia.png" alt="wiki" />
@@ -213,18 +210,18 @@
       </table>
       </div>
      
-    </div>
-  </div>
-</div>
+       </div>
+       </div>
+        </div>
 
 <!-- Modal -->
-<div class="modal fade" id="weather">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header weather">
-        <h5 class="modal-title" id="exampleModalLabel">Weather</h5>
-        <img id="weather_btn_cls" src="venders/image/error1.png">
-      </div>
+        <div class="modal fade" id="weather">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header weather">
+            <h5 class="modal-title" id="exampleModalLabel2">Weather</h5>
+            <img id="weather_btn_cls" src="venders/image/error1.png" alt="button image">
+          </div>
       <div class="modal-body">
         <table>
           <tbody>
@@ -232,65 +229,64 @@
               <td class="icon_pic">
                 <img src="venders/image/sun.png" alt="weather condition" />
               </td>
-              <td id="adjust_width">Weather Condition:</td>
+              <td class="adjust_width">Weather Condition:</td>
               <td id="txtclouds"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/hot.png" alt="temperature" />
               </td>
-              <td id="adjust_width">Temperature:</td>
+              <td class="adjust_width">Temperature:</td>
               <td id="txttemp"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/thermometer.png" alt=" Min.temperature" />
               </td>
-              <td id="adjust_width">Minimum Temperature:</td>
+              <td class="adjust_width">Minimum Temperature:</td>
               <td id="txtmin"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/thermometer1.png" alt="Max. temperature" />
               </td>
-              <td id="adjust_width">Maximum Temperature:</td>
+              <td class="adjust_width">Maximum Temperature:</td>
               <td id="txtmax"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/humidity.png" alt="humidity" />
               </td>
-              <td id="adjust_width">Humidity(%):</td>
+              <td class="adjust_width">Humidity(%):</td>
               <td id="txthum"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/gauge1.png" alt="pressure" />
               </td>
-              <td id="adjust_width">Pressure(hPa):</td>
+              <td class="adjust_width">Pressure(hPa):</td>
               <td id="txtpressure"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/wind.png" alt="wind speed" />
               </td>
-              <td id="adjust_width">Wind Speed(mph):</td>
+              <td class="adjust_width">Wind Speed(mph):</td>
               <td id="txtspeed"></td>
             </tr>
             <tr>
               <td class="icon_pic">
                 <img src="venders/image/eye.png" alt="visibility" />
               </td>
-              <td id="adjust_width">Visibility(Km):</td>
+              <td class="adjust_width">Visibility(Km):</td>
               <td id="txtvisi"></td>
             </tr>
         </tbody>
       </table>
       </div>
-     
-    </div>
-  </div>
-</div>
+        </div>
+       </div>
+        </div>
 
 
     <div id="preloader">
@@ -300,6 +296,6 @@
   
       <script src="venders/bootstrap/js/bootstrap.min.js"></script>
     </div>
-    
+    </div>
   </body>
 </html>

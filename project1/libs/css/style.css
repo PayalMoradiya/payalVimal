@@ -62,7 +62,7 @@ div.main {
   width:28px;
   height:28px;
 }
-h5#exampleModalLabel.modal-title{
+h5#exampleModalLabel.modal-title, h5.exampleModalLabel1.modal-title#txtcountryname1, h5#exampleModalLabel2.modal-title{
   color:white;
   margin-left: auto;
   margin-right: auto;
@@ -90,7 +90,7 @@ tr > td:last-child {
   width: 240px;
 }
 
-#adjust_width{
+#adjust_width, .adjust_width{
 width:185px;  
 }
 #txtclouds #txttemp #txthum #txtspeed{

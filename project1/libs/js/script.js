@@ -58,6 +58,7 @@ $("#selcountry").change(function () {
         );
         $("#txtlang").html(result["data"]["geonames"][0]["languages"]);
         $("#txtcountryname").html(result["data"]["geonames"][0]["countryName"]);
+        $("#txtcountryname1").html(result["data"]["geonames"][0]["countryName"]);
       }
 
       //getWeather.php file.....
