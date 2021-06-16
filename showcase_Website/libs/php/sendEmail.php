@@ -43,6 +43,6 @@ if(isset($_POST['name']) && isset($_POST['email'])){
     }
     exit(json_encode(array("status" => $status, "response" => $response)));
 }
-
+    
 
 ?>

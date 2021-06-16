@@ -78,6 +78,7 @@ var TxtRotate = function(el, toRotate, period) {
 var email = document.getElementById("submit_btn");
 
 email.addEventListener('click', function(){
+  console.log("hello you did it!");
   var name = $("#name");
   var email = $("#email");
   var subject = $("#subject");
@@ -93,7 +94,8 @@ email.addEventListener('click', function(){
         subject: subject.val(),
         body: body.val()
       }, success: function(response){
-        console.log(response);
+        console.log("hello you did it again!");
+      console.log(response);
         $('#myForm')[0].reset();
         $('.sent_notification').text("Message sent successfully.");
       }
