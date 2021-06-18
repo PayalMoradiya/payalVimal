@@ -17,13 +17,171 @@
 
      <!--google fonts -->
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap"
-      rel="stylesheet"
-    /> 
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>hello</h1>
+  <!-- Full container-->
+  <div class="container-fluid">
+    <div class="row  bg-primary">
+      <h1 class="text-center text-primary align-item-center">Comapany Directory</h1>
+    </div>
+
+    <div class="row" id="left_right">
+      <!--Sidebar-->
+      <div id="leftbar" class="col-2 bg-light">
+        <div class="row mt-3">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <img href="" alt="">
+          </form>
+        </div>
+        <hr>
+        <div class="row ">
+        <span id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</span>
+        </div>
+        <div class="row">
+        <span id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/user.png" alt="user image" >Add Employee</span>
+        </div>
+        <div class="row">
+        <button id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/sort.png" alt="sort image" >Sort</button>
+        </div>
+      </div>
+      <!-- main container-->
+      <div class="col-10" id="right_container">
+        <div class="row">
+          <img id="btn-toggle" class="btn-toggle my-3" src="venders/image/menu.png" alt="button image">
+        
+        <!--  <h3 class="heading my-2">Dashboard</h3>  -->
+        <form id="searchbar" class="d-flex col-md-4">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <img href="" alt="">
+        </form>
+      </div>
+        <hr>
+        <div class="btn-wrapper">
+        <button class="btn btn-light mx-1">More</button>
+        
+        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/sort.png" alt="sort image" >Sort</button>
+        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/filter.png" alt="filter image" >Filter</button>
+        </div>
+
+        <!--three cards-->
+        <!--
+        <div class="row">
+          <div class="col-md-4" >
+            <div id="dashboard_block"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/group.png" alt="group image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-light">
+                  <h5 class="card-title"> EMPLOYEES</h5>
+                  <p class="card-text">50</p>          
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" >
+            <div id="dashboard_block"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/it-department.png" alt="it-department image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-light">
+                  <h5 class="card-title">DEPARTMENTS</h5>
+                  <p class="card-text">12</p>          
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" >
+            <div id="dashboard_block"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/pin.png" alt="location image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-light">
+                  <h5 class="card-title">LOCATIONS</h5>
+                  <p class="card-text">5</p>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         -->
+        <!--employees table-->
+    <div class="heading_container"><img id="downarrow" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Employees List</div>
+    <div class="row">
+      <div class="col-12 mt-3" >
+        <table class="table table-hover" id="myTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">Firstname</th>
+              <th scope="col">Job Title</th>
+              <th scope="col">Email</th>
+              <th scope="col">Department</th>
+              <th scope="col">Location</th>
+              <th scope="col" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+     <!--department table-->
+     <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+     <div class="row">
+       <div class="col-10 mt-3 mx-3" >
+         <table class="table table-hover" id="department_table">
+           <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Name</th>
+               <th scope="col">LocationID</th>
+               <th scope="col" class="action">Action</th>
+             </tr>
+           </thead>
+           <tbody>
+           </tbody>
+         </table>
+       </div>
+     </div>
+    
+     <!--location table-->
+     <div class="heading_container"><img id="downarrow2" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+     <div class="row">
+       <div class="col-10 mt-3 mx-3" >
+         <table class="table table-hover" id="location_table">
+           <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Name</th>
+               <th scope="col" class="action">Action</th>
+             </tr>
+           </thead>
+           <tbody>
+           </tbody>
+         </table>
+       </div>
+     </div>
+  </div>
+    
+
+      </div>
+    </div>
+    
+
+
+
+
+  
+
 
 
 

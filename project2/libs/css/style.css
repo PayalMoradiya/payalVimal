@@ -2,5 +2,80 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Andika New Basic", sans-serif;
+    font-family: 'Roboto', sans-serif;
+    
  }
+ #left_right{
+     height: 91vh;
+     line-height: 3.5rem;
+ }
+#sidebar:hover{
+    background-color: rgb(230, 230, 236);
+   
+}
+#sidebar{
+    text-align: left;
+    font-size: 1.1rem;
+}
+.sidebar_image{
+    float:left;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+}
+img.card_image{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+}
+#dashboard_block{
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.5s;
+}
+#dashboard_block:hover{
+    transform: scale(1.01);
+}
+.btn-toggle{
+    width:3rem;
+   
+}
+.heading{
+    display: block;
+    position: absolute;
+    margin-left: 3rem;
+    }
+#searchbar{
+    float:right;
+    margin-left: auto;
+    margin-top: 1rem;
+}
+.mainbar_image{
+    margin:0rem;
+    margin-right:0.5rem;
+}
+button.btn.btn-light.mx-1:hover{
+   background-color: #d7dbd8;
+}
+#myTable{
+    padding-left: 1rem;
+}
+.heading_container{
+    font-size: 1.2rem;
+}
+.table_img, .table2_img{
+    width:1rem;
+}
+tr{
+    line-height:1.6rem;
+    background-color:#f5f5f7;
+}
+.table2_img{
+    margin-left:2rem;
+}
+th.action{
+    padding-left: 1.2rem;
+}
+td.location_padding{
+    padding-left: 2.7rem;
+}
