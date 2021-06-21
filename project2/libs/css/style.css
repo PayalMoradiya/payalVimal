@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    
+
  }
  #left_right{
      height: 91vh;
@@ -28,12 +28,12 @@ img.card_image{
     margin-right: auto;
     margin-top: 1.5rem;
 }
-#dashboard_block{
+#dashboard_block, #dashboard_block1, #dashboard_block2{
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: transform 0.5s;
 }
-#dashboard_block:hover{
+#dashboard_block:hover, #dashboard_block1:hover, #dashboard_block2:hover{
     transform: scale(1.01);
 }
 .btn-toggle{
@@ -83,4 +83,12 @@ img#plus_img{
     float:right;
     margin-top: 1.7rem;
     margin-right: 1rem;
+}
+#btn_save{
+    float: right;
+    margin-right: 1rem;
+}
+h5.modal-title{
+    margin-left: auto;
+    margin-right: auto;
 }

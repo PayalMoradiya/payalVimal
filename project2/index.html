@@ -68,7 +68,7 @@
         </div>
 
         <!--three cards-->
-        <!--
+        
         <div class="row">
           <div class="col-md-4" >
             <div id="dashboard_block"  class="row g-0">
@@ -84,7 +84,7 @@
             </div>
           </div>
           <div class="col-md-4" >
-            <div id="dashboard_block"  class="row g-0">
+            <div id="dashboard_block1"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
                 <img class="card_image" src="venders/image/it-department.png" alt="it-department image">
               </div>
@@ -97,7 +97,7 @@
             </div>
           </div>
           <div class="col-md-4" >
-            <div id="dashboard_block"  class="row g-0">
+            <div id="dashboard_block2"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
                 <img class="card_image" src="venders/image/pin.png" alt="location image">
               </div>
@@ -110,10 +110,12 @@
             </div>
           </div>
         </div>
-         -->
+         
         <!--employees table-->
-    <div class="heading_container"><img id="downarrow" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Employees List  <img id="plus_img" src="venders/image/plus.png" alt="add image"></div>
-   
+  <div class="container" id="toggle_employeeslist">
+    <div class="row">
+      <div class="heading_container"><img id="downarrow" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Employees List  <img id="plus_img" src="venders/image/plus.png" alt="add image"></div>
+    </div>
     <div class="row">
       <div class="col-12 mt-3" >
         <table class="table table-hover" id="myTable">
@@ -134,49 +136,60 @@
         </table>
       </div>
     </div>
+  </div>
+
 
     <!--Employees table modal-->
     <div class="modal fade" id="employee">
       <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header ">
-              <h5 class="modal-title " id="exampleModalLabel">Covid Statistics</h5>
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title " id="exampleModalLabel">Employees List</h5>
               <img id="btn_cls" src="venders/image/error1.png" alt="button image">
             </div>
             <div class="modal-body">
               <div class="container">
                 
                   <div class="row g-3">
+                  <form action="libs/php/insertPersonnel.php" method="post">
                     <div class="col">
                       <label for="lname">Last Name:</label>
-                      <input type="text" class="form-control" placeholder="First name" aria-label="lname">
+                      <input type="text" class="form-control" placeholder="Last name" id="lname" name="lname">
                     </div>
                     <div class="col">
                       <label for="fname">First Name:</label>
-                      <input type="text" class="form-control" placeholder="Last name" aria-label="fname">
+                      <input type="text" class="form-control" placeholder="First name" id="fname" name="fname">
                     </div>
+                    <div class="">
+                      <label for="title">Job Title:</label>
+                      <input type="text" class="form-control" placeholder="Job Title" id="title" name="title">  
+                    </div>
+                    <div class="">
                       <label for="inputEmail4" class="form-label m-0">Email</label>
-                      <input type="email" class="form-control mx-1 my-0" id="inputEmail4">
+                      <input type="email" class="form-control mx-0 my-0" id="inputEmail4" name="inputEmail4"  placeholder="Enter Email">
+                    </div>
                     <div class="col">
-                      <label for="department" class="form-label my-0">Department:</label>
-                      <select class="form-select mb-2" aria-label="department">
+                      <label for="department" class="form-label m-0">DepartmentID:</label>
+                      <select class="form-select " name="department" id="department">
                         <option selected>Select department</option>
-                        <option value=" Human Resources"> Human Resources</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1"> Human Resources</option>
+                        <option value="2">Sales</option>
+                        <option value="3">Marketing</option>
+                        <option value="4">Legal</option>
+                        <option value="5">Services</option>
+                        <option value="6"> Research and Development</option>
+                        <option value="7"> Product Management</option>
+                        <option value="8">Training</option>
+                        <option value="9">Support</option>
+                        <option value="10">Engineering</option>
+                        <option value="11">Accounting</option>
+                        <option value="12"> Business Development</option>
                       </select>
                     </div>
-                    <div class="col">
-                      <label for="location" class="form-label my-0">Location:</label>
-                      <select class="form-select" aria-label="location">
-                        <option selected>Select location</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                    <button type="button" class="btn btn-primary">Save</button>
+                   
+                    <div class="">
+                    <button id="btn_save" type="submit" name="submit" class="btn btn-primary">Save</button>
+                  </form>
                   </div>
                  
                 </div>
@@ -186,12 +199,83 @@
       </div>   
     </div>
 
-  </div>
-</div>
+    <!--Update Employees table modal-->
+    <div class="modal fade" id="update_employee">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title " id="exampleModalLabel">Employees List</h5>
+              <img id="btn_cls1" src="venders/image/error1.png" alt="button image">
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                
+                  <div class="row g-3">
+                    <div class="col">
+                      <label for="lname">Last Name:</label>
+                      <input type="text" class="form-control" placeholder="Last name" aria-label="lname">
+                    </div>
+                    <div class="col">
+                      <label for="fname">First Name:</label>
+                      <input type="text" class="form-control" placeholder="First name" aria-label="fname">
+                    </div>
+                    <div class="">
+                      <label for="title">Job Title:</label>
+                      <input type="text" class="form-control" placeholder="Job Title" aria-label="title">  
+                    </div>
+                    <div class="">
+                      <label for="update_email" class="form-label m-0">Email</label>
+                      <input type="email" class="form-control mx-0 my-0" id="update_email"  placeholder="Enter Email">
+                    </div>
+                    <div class="col">
+                      <label for="department" class="form-label m-0">Department:</label>
+                      <select class="form-select " aria-label="department">
+                        <option selected>Select department</option>
+                        <option value="1"> Human Resources</option>
+                        <option value="2">Sales</option>
+                        <option value="3">Marketing</option>
+                        <option value="4">Legal</option>
+                        <option value="5">Services</option>
+                        <option value="6"> Research and Development</option>
+                        <option value="7"> Product Management</option>
+                        <option value="8">Training</option>
+                        <option value="9">Support</option>
+                        <option value="10">Engineering</option>
+                        <option value="11">Accounting</option>
+                        <option value="12"> Business Development</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <label for="location" class="form-label m-0">Location:</label>
+                      <select class="form-select" aria-label="location">
+                        <option selected>Select location</option>
+                        <option value="1">London</option>
+                        <option value="2">New York</option>
+                        <option value="3">Paris</option>
+                        <option value="4">Munich</option>
+                        <option value="5">Rome</option>
+                      </select>
+                    </div>
+                    <div class="">
+                    <button id="btn_save" type="button" class="btn btn-primary">Save</button>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>   
+    </div>
+
+ 
 
 
      <!--department table-->
-     <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+  <div class="container" id="toggle_department">
+      <div class="row">
+        <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+      </div>
+     
      <div class="row">
        <div class="col-10 mt-3 mx-3" >
          <table class="table table-hover" id="department_table">
@@ -208,30 +292,36 @@
          </table>
        </div>
      </div>
-    
-     <!--location table-->
-     <div class="heading_container"><img id="downarrow2" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
-     <div class="row">
-       <div class="col-10 mt-3 mx-3" >
-         <table class="table table-hover" id="location_table">
-           <thead>
-             <tr>
-               <th scope="col">#</th>
-               <th scope="col">Name</th>
-               <th scope="col" class="action">Action</th>
-             </tr>
-           </thead>
-           <tbody>
-             
-           </tbody>
-         </table>
-       </div>
-     </div>
   </div>
-    
-
+          
+          <!--location table-->
+      <div class="container" id="toggle_location">
+            <div class="row">
+              <div class="heading_container"><img id="downarrow2" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Locations</div>
+            </div>
+          
+          <div class="row">
+            <div class="col-10 mt-3 mx-3" >
+              <table class="table table-hover" id="location_table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" class="action">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
+          
+
     </div>
+ </div>
     
 
 
