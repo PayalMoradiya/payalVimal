@@ -1,3 +1,12 @@
+//close button on model...
+var dismiss = document.getElementById("btn_cls");
+dismiss.addEventListener("click", function () {
+  $("#covid").modal("hide");
+});
+var add_employee = document.getElementById("plus_img");
+add_employee.addEventListener("click", function(){
+  $("#employee").modal("show");
+})
 //toggle sidebar....
 $("#btn-toggle").click(function(){
   $("#leftbar").toggle("slow");

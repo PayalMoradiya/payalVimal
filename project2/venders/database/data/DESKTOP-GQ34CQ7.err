@@ -83,3 +83,35 @@ InnoDB: using atomic writes.
 2021-06-18 10:14:31 0 [Note] Added new Master_info '' to hash table
 2021-06-18 10:14:31 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe: ready for connections.
 Version: '10.5.9-MariaDB'  socket: ''  port: 3308  mariadb.org binary distribution
+2021-06-19 14:40:48 3 [Warning] Aborted connection 3 to db: 'companydirectory' user: 'root' host: 'localhost' (Got timeout reading communication packets)
+2021-06-19 15:52:24 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-06-19 15:52:30 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-06-19 15:52:49 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-06-19 15:55:53 0 [Note] InnoDB: Starting shutdown...
+2021-06-19 15:56:20 0 [Note] InnoDB: Dumping buffer pool(s) to F:\xampp\htdocs\payalVimal\project2\venders\database\data\ib_buffer_pool
+2021-06-19 15:56:23 0 [Note] InnoDB: Buffer pool(s) dump completed at 210619 15:56:22
+2021-06-19 16:01:06 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-06-19 16:01:06 0 [Note] InnoDB: Shutdown completed; log sequence number 69990; transaction id 65
+2021-06-19 16:02:19 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe: Shutdown complete
+
+InnoDB: using atomic writes.
+2021-06-19 17:04:30 0 [Note] InnoDB: Uses event mutexes
+2021-06-19 17:04:30 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-06-19 17:04:30 0 [Note] InnoDB: Number of pools: 1
+2021-06-19 17:04:30 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2021-06-19 17:04:30 0 [Note] InnoDB: Initializing buffer pool, total size = 536870912, chunk size = 134217728
+2021-06-19 17:04:30 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-06-19 17:04:31 0 [Note] InnoDB: 128 rollback segments are active.
+2021-06-19 17:04:32 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-06-19 17:04:32 0 [Note] InnoDB: Setting file '.\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-06-19 17:04:32 0 [Note] InnoDB: File '.\ibtmp1' size is now 12 MB.
+2021-06-19 17:04:32 0 [Note] InnoDB: 10.5.9 started; log sequence number 69990; transaction id 61
+2021-06-19 17:04:32 0 [Note] InnoDB: Loading buffer pool(s) from F:\xampp\htdocs\payalVimal\project2\venders\database\data\ib_buffer_pool
+2021-06-19 17:04:32 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-06-19 17:04:32 0 [Note] InnoDB: Buffer pool(s) load completed at 210619 17:04:32
+2021-06-19 17:04:33 0 [Note] Server socket created on IP: '::'.
+2021-06-19 17:04:35 0 [Note] Reading of all Master_info entries succeeded
+2021-06-19 17:04:35 0 [Note] Added new Master_info '' to hash table
+2021-06-19 17:04:35 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe: ready for connections.
+Version: '10.5.9-MariaDB'  socket: ''  port: 3308  mariadb.org binary distribution
+2021-06-20 10:51:06 3 [Warning] Aborted connection 3 to db: 'companydirectory' user: 'root' host: 'localhost' (Got timeout reading communication packets)
