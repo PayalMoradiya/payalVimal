@@ -5,8 +5,8 @@
 
 	// remove next two lines for production
 	
-	//ini_set('display_errors', 'On');
-//	error_reporting(E_ALL);
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL);
 
 	$executionStartTime = microtime(true);
 
@@ -14,7 +14,7 @@
 
 	header('Content-Type: application/json; charset=UTF-8');
 
-	$conn = mysqli_connect($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
 
 	if (mysqli_connect_errno()) {
 		
@@ -33,7 +33,7 @@
 	}	
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
-	if(isset($_POST['submit'])){
+	/*if(isset($_POST['submit'])){
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$jobtitle = $_POST['title'];
@@ -42,8 +42,9 @@
 
 
 	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
-
-	$result = mysqli_query($conn, $query);
+*/
+	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_POST['fname'] . '",' . $_POST["lname"] . ',"' . $_POST['title'] . '",' . $_POST["inputEmail4"] . ',"' . $_REQUEST['department'] . '")';
+	$result = $conn->query($query);
 
 	
 	
@@ -61,7 +62,7 @@
 		exit;
 
 	}
-};
+
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
