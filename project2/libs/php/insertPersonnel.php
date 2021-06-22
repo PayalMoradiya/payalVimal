@@ -43,7 +43,7 @@
 
 	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
 */
-	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_POST['fname'] . '",' . $_POST["lname"] . ',"' . $_POST['title'] . '",' . $_POST["inputEmail4"] . ',"' . $_REQUEST['department'] . '")';
+	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_POST['fname'] . '",' . $_POST["lname"] . ',"' . $_POST['title'] . '",' . $_POST["inputEmail4"] . ',"' . $_POST['department'] . '")';
 	$result = $conn->query($query);
 
 	
