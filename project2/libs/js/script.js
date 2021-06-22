@@ -1,14 +1,57 @@
+//back_btn button click...
+$("#back_btn").on('click',function(){
+  $("#dashboard_block").show();
+  $("#dashboard_block1").show();
+  $("#dashboard_block2").show();
+  $("#toggle_employeeslist").hide();
+  $("#toggle_department").hide();
+  $("#toggle_location").hide();
+  $("#back_btn").hide();
+  $("#dashboard_btn").show();
+});
+//back_btn1 button click...
+$("#back_btn1").on('click',function(){
+  $("#dashboard_block").show();
+  $("#dashboard_block1").show();
+  $("#dashboard_block2").show();
+  $("#toggle_employeeslist").hide();
+  $("#toggle_department").hide();
+  $("#toggle_location").hide();
+  $("#back_btn1").hide();
+  $("#dashboard_btn1").show();
+});
 //show and hide employees list table by clicking employees card....
 $("#dashboard_block").on('click',function(){
-  $("#toggle_employeeslist").fadeToggle("slow");
+  $("#toggle_employeeslist").show();
+  $("#dashboard_btn").hide();
+  $("#back_btn").show();
+  $("#dashboard_btn1").hide();
+  $("#back_btn1").show();
+  $("#dashboard_block").hide();
+  $("#dashboard_block1").hide();
+  $("#dashboard_block2").hide();
 });
 //show and hide department table by clicking department card....
 $("#dashboard_block1").on('click',function(){
-  $("#toggle_department").fadeToggle("slow");
+  $("#toggle_department").show();
+  $("#dashboard_btn").hide();
+  $("#back_btn").show();
+  $("#dashboard_btn1").hide();
+  $("#back_btn1").show();
+  $("#dashboard_block").hide();
+  $("#dashboard_block1").hide();
+  $("#dashboard_block2").hide();
 });
 //show and hide location table by clicking location card....
 $("#dashboard_block2").on('click',function(){
-  $("#toggle_location").fadeToggle("slow");
+  $("#toggle_location").show();
+  $("#dashboard_btn").hide();
+  $("#back_btn").show();
+  $("#dashboard_btn1").hide();
+  $("#back_btn1").show();
+  $("#dashboard_block").hide();
+  $("#dashboard_block1").hide();
+  $("#dashboard_block2").hide();
 });
 //close button on modal...
 var dismiss = document.getElementById("btn_cls");

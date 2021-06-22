@@ -41,7 +41,7 @@
 		$department = $_POST['department'];
 
 
-	$query = 'INSERT INTO personnel (id, firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
+	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
 
 	$result = mysqli_query($conn, $query);
 

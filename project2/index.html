@@ -29,7 +29,7 @@
     </div>
 
     <div class="row" id="left_right">
-      <!--Sidebar-->
+      <!--Sidebar
       <div id="leftbar" class="col-2 bg-light">
         <div class="row mt-3">
           <form class="d-flex">
@@ -47,62 +47,71 @@
         <div class="row">
         <button id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/sort.png" alt="sort image" >Sort</button>
         </div>
-      </div>
+      </div>  -->
       <!-- main container-->
-      <div class="col-10" id="right_container">
+      <div class="col-12" id="right_container">
         <div class="row">
           <img id="btn-toggle" class="btn-toggle my-3" src="venders/image/menu.png" alt="button image">
         
         <!--  <h3 class="heading my-2">Dashboard</h3>  -->
-        <form id="searchbar" class="d-flex col-md-4">
+        <form id="searchbar" class="d-flex col-md-3">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <img href="" alt="">
         </form>
       </div>
         <hr>
         <div class="btn-wrapper">
-        <button class="btn btn-light mx-1">More</button>
-        
-        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/sort.png" alt="sort image" >Sort</button>
-        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/filter.png" alt="filter image" >Filter</button>
+        <button id="dashboard_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</button>
+        <button id="back_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/back1.png" alt="back image" >Back</button>
+        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/add.png" alt="user image" >Add</button>
+        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/sort1.png" alt="sort image" >Sort</button>
+        <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/filter1.png" alt="filter image" >Filter</button>
+       
+        </div>
+        <div class="btn-wrapper-phone text-center">
+          <button id="dashboard_btn1" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" ></button>
+          <button id="back_btn1" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/back1.png" alt="back image" ></button>
+          <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/add.png" alt="user image" ></button>
+          <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/sort1.png" alt="sort image" ></button>
+          <button class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/filter1.png" alt="filter image" ></button>
         </div>
 
         <!--three cards-->
         
-        <div class="row">
-          <div class="col-md-4" >
+        <div class="row g-3 mt-2" >
+          <div class="col-md-3" >
             <div id="dashboard_block"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
                 <img class="card_image" src="venders/image/group.png" alt="group image">
               </div>
               <div class="col-md-8">
-                <div class="card-body bg-light">
+                <div class="card-body bg-light text-center">
                   <h5 class="card-title"> EMPLOYEES</h5>
                   <p class="card-text">50</p>          
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4" >
+          <div class="col-md-3" >
             <div id="dashboard_block1"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
                 <img class="card_image" src="venders/image/it-department.png" alt="it-department image">
               </div>
               <div class="col-md-8">
-                <div class="card-body bg-light">
+                <div class="card-body bg-light text-center">
                   <h5 class="card-title">DEPARTMENTS</h5>
                   <p class="card-text">12</p>          
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4" >
+          <div class="col-md-3" >
             <div id="dashboard_block2"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
                 <img class="card_image" src="venders/image/pin.png" alt="location image">
               </div>
               <div class="col-md-8">
-                <div class="card-body bg-light">
+                <div class="card-body bg-light text-center">
                   <h5 class="card-title">LOCATIONS</h5>
                   <p class="card-text">5</p>          
                 </div>
