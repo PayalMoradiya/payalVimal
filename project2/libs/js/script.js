@@ -62,6 +62,11 @@ dismiss.addEventListener("click", function () {
 var add_employee = document.getElementById("plus_img");
 add_employee.addEventListener("click", function(){
   $("#employee").modal("show");
+});
+//show department modal by clicking add button...
+var add_department = document.getElementById("plus_img1");
+add_department.addEventListener("click", function(){
+  $("#department_modal").modal("show");
 })
 //close button on update modal...
 var dismiss1 = document.getElementById("btn_cls1");
@@ -103,13 +108,17 @@ $(document).ready(function () {
       console.log(result);
 
       for (var i=0; i<result.data.length; i++) {
-        var row = $('<tr><td>' + [i + 1] + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2" src="venders/image/pen.png" alt="edit image"> <img class="table_img mx-1" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        var row = $('<tr><td>' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td data-href="http://www.google.com/"><img class="table_img mx-2" src="venders/image/pen.png" alt="edit image"></td><td><a data-href="http://www.amd.com/"><img class="table_img mx-1" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
       //show modal by clicking update button...
-    //    var update_employee = document.querySelector(`[class="table_img mx-3 upadated_img"]`);   
-    //    update_employee.addEventListener("click", function(){
-     //     $("#update_employee").modal("show");
-     //   })
+     
+      $(document.body).on("click", "td[data-href]", function(){
+        $("#update_employee").modal("show");
+       
+      });
+      $(document.body).on("click", "a[data-href]", function(){
+       //alert("delete!");
+      })
 
          
     }
@@ -172,7 +181,25 @@ $(document).ready(function () {
 
 });
 
- 
+ //get person by id....
+ $("#main_id").change(function () {
+   $("#searchdata").show();
+ $.ajax({
+  url: "libs/php/getPersonnel.php",
+  type: "POST",
+  dataType: "json",
+  data: {
+    id: $("#main_id").val(),
+  },
+  success: function (result) {
+    console.log(result);
+   //  $("#fname").html(result['data']['personnel'][0]['firstName']);
+   // console.log($data);
+  }
+
+})
+});
+
 
 
 

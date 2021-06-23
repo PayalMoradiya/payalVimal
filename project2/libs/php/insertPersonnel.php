@@ -42,11 +42,13 @@
 
 
 	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
-*/
-	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_POST['fname'] . '",' . $_POST["lname"] . ',"' . $_POST['title'] . '",' . $_POST["inputEmail4"] . ',"' . $_POST['department'] . '")';
+*///	if(isset($_POST['submit'])){
+	
+	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_REQUEST['fname'] . '",' . $_REQUEST["lname"] . ',"' . $_REQUEST['title'] . '",' . $_REQUEST["inputEmail4"] . ',"' . $_REQUEST['department'] . '")';
+//$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("payal", "vimal", "engineer", "pdkaba@gmail.com", "support" )';
 	$result = $conn->query($query);
 
-	
+//};
 	
 	if (!$result) {
 

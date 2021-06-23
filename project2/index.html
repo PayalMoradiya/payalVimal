@@ -55,7 +55,7 @@
         
         <!--  <h3 class="heading my-2">Dashboard</h3>  -->
         <form id="searchbar" class="d-flex col-md-3">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" id="main_id" placeholder="Search" aria-label="Search">
           <img href="" alt="">
         </form>
       </div>
@@ -160,14 +160,14 @@
               <div class="container">
                 
                   <div class="row g-3">
-                  <form action="libs/php/insertPersonnel.php" method="post">
-                    <div class="col">
-                      <label for="lname">Last Name:</label>
-                      <input type="text" class="form-control" placeholder="Last name" id="lname" name="lname">
-                    </div>
+                  <form action="libs/php/insertPersonnel.php" method="POST">
                     <div class="col">
                       <label for="fname">First Name:</label>
                       <input type="text" class="form-control" placeholder="First name" id="fname" name="fname">
+                    </div>
+                     <div class="col">
+                      <label for="lname">Last Name:</label>
+                      <input type="text" class="form-control" placeholder="Last name" id="lname" name="lname">
                     </div>
                     <div class="">
                       <label for="title">Job Title:</label>
@@ -208,6 +208,8 @@
       </div>   
     </div>
 
+    <?php $data= "" ?>
+
     <!--Update Employees table modal-->
     <div class="modal fade" id="update_employee">
       <div class="modal-dialog">
@@ -219,26 +221,28 @@
             <div class="modal-body">
               <div class="container">
                 
-                  <div class="row g-3">
+                <div class="row g-3">
+                  <form action="libs/php/getPersonnel.php" method="POST">
                     <div class="col">
-                      <label for="lname">Last Name:</label>
-                      <input type="text" class="form-control" placeholder="Last name" aria-label="lname">
-                    </div>
-                    <div class="col">
+                      
                       <label for="fname">First Name:</label>
-                      <input type="text" class="form-control" placeholder="First name" aria-label="fname">
+                      <input type="text" class="form-control" id="fname" name="fname">
+                    </div>
+                     <div class="col">
+                      <label for="lname">Last Name:</label>
+                      <input type="text" class="form-control" placeholder="Last name" value="<?php echo $lname; ?>" id="lname" name="lname">
                     </div>
                     <div class="">
                       <label for="title">Job Title:</label>
-                      <input type="text" class="form-control" placeholder="Job Title" aria-label="title">  
+                      <input type="text" class="form-control" placeholder="Job Title" id="title" value="<?php echo $job; ?>" name="title">  
                     </div>
                     <div class="">
-                      <label for="update_email" class="form-label m-0">Email</label>
-                      <input type="email" class="form-control mx-0 my-0" id="update_email"  placeholder="Enter Email">
+                      <label for="inputEmail4" class="form-label m-0">Email</label>
+                      <input type="email" class="form-control mx-0 my-0" id="inputEmail4" name="inputEmail4" value="<?php echo $email; ?>"  placeholder="Enter Email">
                     </div>
                     <div class="col">
-                      <label for="department" class="form-label m-0">Department:</label>
-                      <select class="form-select " aria-label="department">
+                      <label for="department" class="form-label m-0">DepartmentID:</label>
+                      <select class="form-select " name="department" value="<?php echo $depart; ?>" id="department">
                         <option selected>Select department</option>
                         <option value="1"> Human Resources</option>
                         <option value="2">Sales</option>
@@ -254,20 +258,12 @@
                         <option value="12"> Business Development</option>
                       </select>
                     </div>
-                    <div class="col">
-                      <label for="location" class="form-label m-0">Location:</label>
-                      <select class="form-select" aria-label="location">
-                        <option selected>Select location</option>
-                        <option value="1">London</option>
-                        <option value="2">New York</option>
-                        <option value="3">Paris</option>
-                        <option value="4">Munich</option>
-                        <option value="5">Rome</option>
-                      </select>
-                    </div>
+                   
                     <div class="">
-                    <button id="btn_save" type="button" class="btn btn-primary">Save</button>
+                    <button id="btn_save" type="submit" name="update" class="btn btn-primary">Update</button>
+                  </form>
                   </div>
+                  
                  
                 </div>
               </div>
@@ -282,7 +278,7 @@
      <!--department table-->
   <div class="container" id="toggle_department">
       <div class="row">
-        <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+        <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments<img id="plus_img1" src="venders/image/plus.png" alt="add image"></div>
       </div>
      
      <div class="row">
@@ -302,6 +298,48 @@
        </div>
      </div>
   </div>
+
+   <!--department table modal-->
+   <div class="modal fade" id="department_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title " id="exampleModalLabel">Department List</h5>
+            <img id="btn_cls" src="venders/image/error1.png" alt="button image">
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              
+                <div class="row g-3">
+                <form action="libs/php/insertDepartment.php" method="POST">
+                  <div class="col">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" placeholder="Department name" id="name" name="name">
+                  </div>
+                  <div class="col">
+                    <label for="location" class="form-label m-0">LocationID:</label>
+                    <select class="form-select " name="locationID" id="location">
+                      <option selected>Select LocationID</option>
+                      <option value="1">London</option>
+                      <option value="2">New York</option>
+                      <option value="3">Paris</option>
+                      <option value="4">Munich</option>
+                      <option value="5">Rome</option>
+                    </select>
+                  </div>
+                 
+                  <div class="">
+                  <button id="btn_save1" type="submit" name="add" class="btn btn-primary">Add</button>
+                </form>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>   
+  </div>
+
           
           <!--location table-->
       <div class="container" id="toggle_location">
@@ -332,7 +370,18 @@
     </div>
  </div>
     
-
+  <table id="searchdata">
+    <tbody>
+      <tr>
+        <td>First Name:</td>
+        <td id="firstName"></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td id="lastName"></td>
+      </tr>
+    </tbody>
+  </table>
 
 
 
