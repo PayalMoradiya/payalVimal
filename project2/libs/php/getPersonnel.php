@@ -1,3 +1,4 @@
+
 <?php
 
 	// example use from browser
@@ -33,8 +34,8 @@
 	}	
 
 	// first query
-
-	$query = 'SELECT * from personnel WHERE id =' . $_REQUEST['id'];
+	$edit_data_id = $_POST['edit_data_id'];
+	$query = 'SELECT * from personnel WHERE id =' . $edit_data_id;
 
 	$result = $conn->query($query);
 	
@@ -54,7 +55,6 @@
 	}
    
    	$personnel = [];
-	
 	
 
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -104,3 +104,4 @@
 	echo json_encode($output); 
 
 ?>
+

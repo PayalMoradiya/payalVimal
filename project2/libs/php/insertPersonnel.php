@@ -33,22 +33,21 @@
 	}	
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
-	/*if(isset($_POST['submit'])){
+	if(isset($_POST['submit'])){
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$jobtitle = $_POST['title'];
 		$email = $_POST['inputEmail4'];
 		$department = $_POST['department'];
 
-
-	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
-*///	if(isset($_POST['submit'])){
-	
-	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_REQUEST['fname'] . '",' . $_REQUEST["lname"] . ',"' . $_REQUEST['title'] . '",' . $_REQUEST["inputEmail4"] . ',"' . $_REQUEST['department'] . '")';
+//$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("$fname", "$lname", "$jobtitle", "$email", "$department" )';
+///	if(isset($_POST['submit'])){
+	$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("' . $_POST["fname"] . '","' . $_POST["lname"] . '","' . $_POST["title"] . '","' . $_POST["inputEmail4"] . '","' . $_POST["department"] . '")';
 //$query = 'INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID) VALUES("payal", "vimal", "engineer", "pdkaba@gmail.com", "support" )';
-	$result = $conn->query($query);
+//$query = 'INSERT INTO personnel (firstName, lastName) VALUES("' . $_POST['fname'] . '",' . $_POST["lname"] . ')';	
+$result = $conn->query($query);
 
-//};
+};
 	
 	if (!$result) {
 

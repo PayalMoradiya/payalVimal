@@ -79,12 +79,8 @@ th.action{
 td.location_padding{
     padding-left: 2.7rem;
 }
-img#plus_img{
-    float:right;
-    margin-top: 1.7rem;
-    margin-right: 1rem;
-}
-#btn_save{
+
+#btn_save, #btn_save1, #btn_save2{
     float: right;
     margin-right: 1rem;
 }
@@ -95,15 +91,38 @@ h5.modal-title{
 div.btn-wrapper-phone{
     display:none;
 }
+div.dropdown.mx-1{
+    display:inline-block;
+    position: absolute;
+}
+ul.dropdown-menu.show{
+    min-width:0rem;
+    width:6.5rem;
+    padding-left: 1rem;
+}
+table, th,tr, td {
+    border: 1px solid black;
+  }
+#toggle_employeeslist{
+    padding:0px;
+}
+.info_table{
+    width:100%;
+}
+.info_td{
+    padding-left: 1rem;
+}
+
+
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 374px) and (max-width: 600px) {
     [class*="col-"] {
         width: 100%;
       }
       div.btn-wrapper-phone{
         display:inline-block;
-        width:100%;
+    
     }
     .mainbar_image{
         margin:0rem;
@@ -119,5 +138,16 @@ div.btn-wrapper-phone{
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
-   
+    #myTable{
+        width:100%;
+    }
+    #downarrow{
+        display:none;
+    }
+    #toggle_employeeslist{
+        padding:0px;
+    }
+    #toggle_department{
+        padding:0px;
+    }
 }

@@ -32,8 +32,8 @@
 	}	
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
-
-	$query = 'SELECT id, name, locationID FROM department WHERE id = ' . $_REQUEST['id'];
+	$edit_Department_id = $_POST['edit_Department_id'];
+	$query = 'SELECT id, name, locationID FROM department WHERE id = ' . $edit_Department_id;
 
 	$result = $conn->query($query);
 	
