@@ -177,7 +177,8 @@ $("#downarrow2").on('click',function(){
 });
 
 //getall data...
-$(document).ready(function () {
+//$(document).ready(function () {
+
   $.ajax({
     url: "libs/php/getAll.php",
     type: "POST",
@@ -210,9 +211,9 @@ $(document).ready(function () {
       alert("error");
     },
   });
-  
+ 
   //onclick sort button...
-  $(".assending").click(function() {
+  $(".assending").on('click', function() {
     $.ajax({
       url: "libs/php/getSort.php",
       type: "POST",
@@ -247,7 +248,7 @@ $(document).ready(function () {
   });
 
     //onclick sort button...
-  $(".desending").click(function() {
+  $(".desending").on('click', function() {
     $.ajax({
       url: "libs/php/getDesc.php",
       type: "POST",
@@ -487,7 +488,7 @@ $(document).ready(function () {
     },
   }); 
 
-});
+
 
     //show location update modal by clicking edit button ...
    $(document).on("click", ".editlocation_image", function() {
