@@ -112,14 +112,22 @@ nav_button.addEventListener('click', function(){
 style1.style.backgroundColor = "black";
 });
 
-//portfolio modal....
+//portfolio modal for project 1....
 
-var dismiss = document.getElementById("model");
+var dismiss = document.getElementById("modal1");
 dismiss.addEventListener("click", function () {
-  $("#covid").modal("toggle");
+  $("#gazetteer").modal("toggle");
 });
 
-var dismiss1 = document.getElementById("btn_cls");
+//portfolio modal for project 2....
+
+var dismiss1 = document.getElementById("modal2");
 dismiss1.addEventListener("click", function () {
-  $("#covid").modal("hide");
+  $("#company_directory").modal("toggle");
+});
+
+
+$(".btn_cls").on("click", function () {
+  $("#gazetteer").modal("hide");
+  $("#company_directory").modal("hide");
 });

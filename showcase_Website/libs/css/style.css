@@ -146,6 +146,13 @@ img.footer_github_image{
     height:2.5rem;
 }
 
+#modal1, #modal2{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
+    
+}
+
 /* X-Small devices (portrait phones, less than 576px)  */
 @media only screen and (max-width: 575px) { 
     
@@ -168,6 +175,14 @@ img.footer_github_image{
         border: none;
         width:auto;
     }
+    #modal1, #modal2{
+        margin-left: 0px;
+        margin-right: 0px;
+        
+    }
+    #modal2{
+        margin-top: 40px;
+    }
  }
 
 
@@ -180,6 +195,9 @@ img.footer_github_image{
     img#contact_img{
         display:none;
      }
+     #modal2{
+        margin-top: 40px;
+    }
  }
 
 /* Medium devices (tablets, 768px and up)  */
@@ -197,6 +215,9 @@ img.footer_github_image{
     width: 400px;
     height: 400px;
     margin: 5px;  
+    }
+    #modal2{
+        margin-top: 40px;
     }
  }
 

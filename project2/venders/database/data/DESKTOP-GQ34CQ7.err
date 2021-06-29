@@ -291,3 +291,5 @@ InnoDB: using atomic writes.
 2021-06-28  9:44:10 0 [Note] Added new Master_info '' to hash table
 2021-06-28  9:44:10 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe: ready for connections.
 Version: '10.5.9-MariaDB'  socket: ''  port: 3308  mariadb.org binary distribution
+2021-06-28 17:47:28 3 [Warning] Aborted connection 3 to db: 'companydirectory' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-06-28 17:54:38 647 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
