@@ -203,7 +203,7 @@ $("#downarrow2").on('click',function(){
 
         } else {
 
-        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
 
         }
@@ -238,7 +238,7 @@ function getdata(){
 
         } else {
 
-        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
 
         }
@@ -738,52 +738,67 @@ function getdata(){
       
           //delete data from database...
           if(confirm("Are you sure you want to delete this record?")){
-                    
-                $.ajax({
-              url: "libs/php/deleteDepartmentByID.php",
+
+            $.ajax({
+              url: "libs/php/getPersonnelDepartmentid.php",
               type: "POST",
               dataType: "json",
               data: {
-                delete_Department_id: delete_department_id,
+                        
+              // 'delete_Department_id': delete_department_id,
               },
-              success: function (result) {
-                console.log(result);
+               success: function (result) {
+               console.log(result);
+               var department = [];
+               for(let i=0; i< result.data.personnel.length; i++){
+             
+              department.push(result["data"]["personnel"][i]["departmentID"]); 
+              
+               };
+               console.log(department);
+              console.log( department.includes(delete_department_id));
+              if(department.includes(delete_department_id)){
                 $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
-                                                  Department deleted successfully.\
-                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                                </div>');
-                    $('.department-table').html("");
-                  getdepartmentdata();
+                You can not delete this record.\
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+              </div>');
+              }else{
 
-                    
+                $.ajax({
+                  url: "libs/php/deleteDepartmentByID.php",
+                  type: "POST",
+                  dataType: "json",
+                  data: {
+                    delete_Department_id: delete_department_id,
+                  },
+                  success: function (result) {
+                    console.log(result);
+                    $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                                      Department deleted successfully.\
+                                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                                    </div>');
+                        $('.department-table').html("");
+                      getdepartmentdata();
+    
+                        
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                    //error code..
+                    alert("error");
+                  }
+                    });
+    
+              }
+              
+              
               },
               error: function (jqXHR, textStatus, errorThrown) {
-                //error code..
-                alert("error");
-              }
-                });
+               //error code..
+              alert("error");
+               }
+                     
+            });   
 
-                   $.ajax({
-                              url: "libs/php/deleteDepartmentWithEmployee.php",
-                              type: "POST",
-                              dataType: "json",
-                              data: {
-                                        
-                               'delete_Department_id': delete_department_id,
-                              },
-                               success: function (result) {
-                               console.log(result);
-                              },
-                              error: function (jqXHR, textStatus, errorThrown) {
-                               //error code..
-                              alert("error");
-                               }
-                                     
-                            });                       
-              
-
-                
-                                 
      }
   })
    
@@ -980,75 +995,70 @@ function getdata(){
      e.preventDefault();
       $(".err_message").remove();
     var delete_location_id = $(this).closest('tr').find('.location_id').text();
-     var delete_department_id = $(this).closest('tr').find('.department_id').text();
   
    //delete data from database...
    if(confirm("Are you sure you want to delete this record?")){
-    $.ajax({
-      url: "libs/php/deleteLocation.php",
-      type: "POST",
-      dataType: "json",
-      data: {
-        delete_Location_id: delete_location_id,
-      },
-      success: function (result) {
-        console.log(result);
-       // if(confirm('Are you sure you want to delete this record?')){
-        //  $('.location_id').remove('slow');
-           $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
-                                            Location deleted successfully.\
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                          </div>');
-              $('.location-table').html("");
-            getlocationdata();
-        //}
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        //error code..
-        alert("error");
-      },
-     
-    });
 
-                            $.ajax({
-                              url: "libs/php/deleteLocationWithDepartment.php",
-                              type: "POST",
-                              dataType: "json",
-                              data: {
-                                        
-                               'delete_Location_id': delete_location_id,
-                              },
-                               success: function (result) {
-                               console.log(result);
-                              },
-                              error: function (jqXHR, textStatus, errorThrown) {
-                               //error code..
-                              alert("error");
-                               }
-                                     
-                            });   
+          $.ajax({
+            url: "libs/php/getAllDepartments.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+            //  q: encoded_countryName,
+            },
+            success: function (result) {
+              console.log(result);
+              var location = [];
+              for(let i=0; i< result.data.length; i++){
+            
+             location.push(result["data"][i]["locationID"]); 
+             
+              };
+              console.log(location);
+             console.log( location.includes(delete_location_id));
+             if(location.includes(delete_location_id)){
 
-             $.ajax({
-                              url: "libs/php/deleteDepartmentWithEmployee.php",
-                              type: "POST",
-                              dataType: "json",
-                              data: {
-                                        
-                               'delete_Department_id': delete_department_id,
-                              },
-                               success: function (result) {
-                               console.log(result);
-                              },
-                              error: function (jqXHR, textStatus, errorThrown) {
-                               //error code..
-                              alert("error");
-                               }
-                                     
-                            });                                   
-              
-                      
+              $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+              You can not delete this record.\
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+            </div>');
+        
+            }else{
+        
+              $.ajax({
+                url: "libs/php/deleteLocation.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                  delete_Location_id: delete_location_id,
+                },
+                success: function (result) {
+                  console.log(result);
+                 // if(confirm('Are you sure you want to delete this record?')){
+                  //  $('.location_id').remove('slow');
+                     $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                                      Location deleted successfully.\
+                                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                                    </div>');
+                        $('.location-table').html("");
+                      getlocationdata();
+                  //}
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                  //error code..
+                  alert("error");
+                },
+               
+              });
+          
+            }
+            }
+          });
+
+   
 
 
+   
    }
   });
 

@@ -15,7 +15,7 @@ include("config.php");
 
 header('Content-Type: application/json; charset=UTF-8');
 
-$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port);
 
 if (mysqli_connect_errno()) {
     

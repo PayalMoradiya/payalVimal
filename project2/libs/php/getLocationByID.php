@@ -13,7 +13,7 @@
 
 	include("config.php");
 
-	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port);
 
 	if (mysqli_connect_errno()) {
 		
