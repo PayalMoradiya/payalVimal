@@ -34,9 +34,9 @@ if (mysqli_connect_errno()) {
 }	
 
 // first query
-if(isset($_POST['update1'])){
+if(isset($_POST['checking_add'])){
 
-$query1= 'UPDATE department SET name="'. $_POST["department_name"] .'" , locationID="' . $_POST["department_locationID"] . '"  WHERE id="' . $_POST["department_id"] . '"';
+$query1= 'UPDATE department SET name="'. $_POST["name"] .'" , locationID="' . $_POST["locationID"] . '"  WHERE id="' . $_POST["ID"] . '"';
 //$query = "UPDATE personnel SET firstName='$fname', lastName='$lname' , jobTitle='$jobtitle' ,email='$email' ,departmentID='$department' WHERE id='$id' ";
 //$query2 = 'UPDATE location SET locationID="' . $_POST["department_locationID"] . '"  WHERE id="' . $_POST["department_id"] . '"';
 $result1 = $conn->query($query1);

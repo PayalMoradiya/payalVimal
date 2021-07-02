@@ -33,13 +33,15 @@ if (mysqli_connect_errno()) {
 
 }	
 
-// first query
 
-    $ID= $_POST['delete_id'];
-//$query= 'UPDATE personnel SET firstName="'. $_POST["f_name"] .'",lastName="' . $_POST["l_name"] . '",jobTitle="' .$_POST["title_job"] . '",email="' . $_POST["inputEmail"] . '",departmentID="' . $_POST["department_id"] .'" WHERE id="' . $_POST["id"] . '"';
-//$query = "UPDATE personnel SET firstName='$fname', lastName='$lname' , jobTitle='$jobtitle' ,email='$email' ,departmentID='$department' WHERE id='$id' ";
-$query = "DELETE FROM personnel WHERE id='$ID' ";
-$result = $conn->query($query);
+// query for delete deparment with employee..
+
+
+    $ID1= $_POST['delete_Department_id'];
+    $query = "DELETE FROM personnel WHERE departmentID='$ID1' ";
+    $result = $conn->query($query);
+    
+
 
 if (!$result) {
 
@@ -55,7 +57,6 @@ if (!$result) {
     exit;
 
 }
-
 
 $output['status']['code'] = "200";
 $output['status']['name'] = "ok";

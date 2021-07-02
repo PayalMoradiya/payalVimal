@@ -33,10 +33,12 @@
 	}	
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
-
+	if(isset($_POST['checking_add'])){
 	$query = 'INSERT INTO location (name) VALUES("' . $_REQUEST['add_location_name'] . '")';
 
 	$result = $conn->query($query);
+
+	}
 	
 	if (!$result) {
 

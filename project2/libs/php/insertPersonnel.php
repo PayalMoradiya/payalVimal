@@ -33,7 +33,7 @@
 	}	
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
-	if(isset($_POST['submit'])){
+	if(isset($_POST['checking_add'])){
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$jobtitle = $_POST['title'];

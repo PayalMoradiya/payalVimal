@@ -5,7 +5,9 @@ $('.btn_cancle').on('click', function(){
   $("#updateDepartment_modal").modal("hide");
   $("#updateLocation_modal").modal("hide");
 })
-
+$('.btn-close').on('click', function(){
+  $('.err_message').hide();
+});
 //back_btn button click...
 $("#back_btn").on('click',function(){
   $("#dashboard_block").show();
@@ -20,6 +22,7 @@ $("#back_btn").on('click',function(){
   $("#toggle_location").hide();
   $("#back_btn").hide();
   $("#dashboard_btn").show();
+   $(".err_message").remove();
   
 });
 //back_btn1 button click...
@@ -36,6 +39,7 @@ $("#back_btn1").on('click',function(){
   $("#toggle_location").hide();
   $("#back_btn1").hide();
   $("#dashboard_btn1").hide();
+   $(".err_message").remove();
 });
 //show and hide employees list table by clicking employees card....
 $("#dashboard_block").on('click',function(){
@@ -178,8 +182,7 @@ $("#downarrow2").on('click',function(){
 
 //getall data...
 //$(document).ready(function () {
-
-  $.ajax({
+   $.ajax({
     url: "libs/php/getAll.php",
     type: "POST",
     dataType: "json",
@@ -211,6 +214,97 @@ $("#downarrow2").on('click',function(){
       alert("error");
     },
   });
+
+function getdata(){
+
+     $.ajax({
+    url: "libs/php/getAll.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+    //  q: encoded_countryName,
+    },
+    success: function (result) {
+      console.log(result);
+      $('#no_of_employee').html(result.data.length);
+
+      for (var i=0; i<result.data.length; i++) {
+
+         //table style for mobile....
+         if(screen.width <= 600){
+          $('#table_header').remove();
+         var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+         $('#myTable').append(row);
+
+        } else {
+
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        $('#myTable').append(row);
+
+        }
+      }  
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      //error code..
+      alert("error");
+    },
+  });
+}
+ 
+
+  //Add data on employee table...
+
+  $("#btn_save").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var fname = $("#fname").val();
+    var lname = $("#lname").val();
+    var title = $("#title").val();
+    var email = $("#inputEmail4").val();
+    var department = $("#department").val();
+
+    if(fname != '' & lname != '' & title != '' & email != '' & department != ''){
+
+         $.ajax({
+              url: "libs/php/insertPersonnel.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'fname':fname,
+                'lname':lname,
+                'title':title,
+                'inputEmail4':email,
+                'department':department,
+
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#employee').modal("hide");
+                 $('.message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Employee added successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.employee-table').html("");
+              getdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
+  
  
   //onclick sort button...
   $(".assending").on('click', function() {
@@ -303,7 +397,15 @@ $("#downarrow2").on('click',function(){
               $(".info_lastName").text(result["data"]["personnel"][0]["lastName"]);
               $(".info_jobTitle").text(result["data"]["personnel"][0]["jobTitle"]);
               $(".info_email").text(result["data"]["personnel"][0]["email"]);
-              $(".info_department").text(result["data"]["personnel"][0]["departmentID"]); 
+           var length_array =  result.data.department.length;
+           console.log(length_array);
+             
+              for(let i=0; i< length_array ; i++){
+                 var employee_department_id = result["data"]["personnel"][0]["departmentID"];
+                  if(result["data"]["department"][i]["id"] === employee_department_id ) {
+                     $(".info_department").text(result["data"]["department"][i]["name"]); 
+                  }
+              }
               
               $("#info_modal").modal("show");
             },
@@ -349,14 +451,70 @@ $("#downarrow2").on('click',function(){
 
     });
 
+     //Update data on employee table...
+
+  $("#btn_updateEmployee").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var fname = $("#firstName_edit").val();
+    var lname = $("#lastName_edit").val();
+    var title = $("#title_edit").val();
+    var email = $("#email_edit").val();
+    var department = $("#department_edit").val();
+    var ID = $("#id_edit").val();
+
+    if(fname != '' & lname != '' & title != '' & email != '' & department != ''){
+
+         $.ajax({
+              url: "libs/php/updatePersonnel.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'fname':fname,
+                'lname':lname,
+                'title':title,
+                'inputEmail4':email,
+                'department':department,
+                'ID': ID
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#update_employee').modal("hide");
+                 $('.update_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Employee updated successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.employee-table').html("");
+              getdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
+  
+
+
+
     //show alert by clicking delete button and deleat data from database ...
     $(document).on("click", ".delete_image", function() {
+      $(".err_message").remove();
       var delete_data_id = $(this).closest('tr').find('.data_id').text();
-      var confirmation = confirm("Are you sure you want to delete this record?");
-     alert(confirmation);
     
      //delete data from database...
-     if(confirmation === true){
+     if(confirm("Are you sure you want to delete this record?")){
       $.ajax({
         url: "libs/php/deletePersonnel.php",
         type: "POST",
@@ -366,9 +524,12 @@ $("#downarrow2").on('click',function(){
         },
         success: function (result) {
           console.log(result);
-         // if(confirm('Are you sure you want to delete this record?')){
-            $('.data_id').remove('slow');
-          //}
+          $('.update_message').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                            Employee deleted successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.employee-table').html("");
+              getdata();
         },
         error: function (jqXHR, textStatus, errorThrown) {
           //error code..
@@ -394,6 +555,17 @@ $("#downarrow2").on('click',function(){
       for (var i=0; i<result.data.length; i++) {
         var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
         $('#department_table').append(row);
+          $('#department_edit').append( "<option value= '" +
+            result.data[i].id +
+            "'>" +
+            result.data[i].name +
+            " </option>");
+
+           $('#department').append( "<option value= '" +
+            result.data[i].id +
+            "'>" +
+            result.data[i].name +
+            " </option>");
     }
       
     },
@@ -402,6 +574,80 @@ $("#downarrow2").on('click',function(){
       alert("error");
     },
   });
+
+  function  getdepartmentdata(){
+     $.ajax({
+    url: "libs/php/getAllDepartments.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+    //  q: encoded_countryName,
+    },
+    success: function (result) {
+      console.log(result);
+      $('#no_of_department').html(result.data.length);
+
+      for (var i=0; i<result.data.length; i++) {
+        var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        $('#department_table').append(row);
+       
+    }
+      
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      //error code..
+      alert("error");
+    },
+  });
+  }
+
+   //Add data on department table...
+
+  $("#btn_save1").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var name = $("#name").val();
+    var locationid = $("#location").val();
+   
+
+    if(name != '' & locationid != ''){
+
+         $.ajax({
+              url: "libs/php/insertDepartment.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'name':name,
+                'locationID':locationid,
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#department_modal').modal("hide");
+                 $('.department_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Department added successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.department-table').html("");
+              getdepartmentdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
+  
 
    //show department update modal by clicking edit button ...
    $(document).on("click", ".editDepartment_image", function() {
@@ -431,41 +677,156 @@ $("#downarrow2").on('click',function(){
          
         });  
 
-  });   
+  }); 
+
+  
+     //Update data on department table...
+
+  $("#btn_updateDepartment").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var name = $("#d_name").val();
+    var locationID = $("#d_location").val();
+    var ID = $("#d_id").val();
+
+    if(name != '' & locationID != '' & ID != ''){
+
+         $.ajax({
+              url: "libs/php/updateDepartment.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'name':name,
+                'locationID':locationID,
+                'ID': ID
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#updateDepartment_modal').modal("hide");
+                 $('.update_departmentmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Department updated successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.department-table').html("");
+             getdepartmentdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
+
+
 
      //show alert by clicking delete button and deleat department data from database ...
      $(document).on("click", ".delete_department_image", function() {
+        $(".err_message").remove();
       var delete_department_id = $(this).closest('tr').find('.department_id').text();
-      var confirmation = confirm("Are you sure you want to delete this record?");
-     alert(confirmation);
-    
-     //delete data from database...
-     if(confirmation === true){
-      $.ajax({
-        url: "libs/php/deleteDepartmentByID.php",
-        type: "POST",
-        dataType: "json",
-        data: {
-          delete_Department_id: delete_department_id,
-        },
-        success: function (result) {
-          console.log(result);
-         // if(confirm('Are you sure you want to delete this record?')){
-            $('.department_id').remove('slow');
-          //}
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          //error code..
-          alert("error");
-        },
-       
-      });
+      console.log(delete_department_id);
+      
+          //delete data from database...
+          if(confirm("Are you sure you want to delete this record?")){
+                    
+                $.ajax({
+              url: "libs/php/deleteDepartmentByID.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                delete_Department_id: delete_department_id,
+              },
+              success: function (result) {
+                console.log(result);
+                $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                                  Department deleted successfully.\
+                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                                </div>');
+                    $('.department-table').html("");
+                  getdepartmentdata();
+
+                    
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }
+                });
+
+                   $.ajax({
+                              url: "libs/php/deleteDepartmentWithEmployee.php",
+                              type: "POST",
+                              dataType: "json",
+                              data: {
+                                        
+                               'delete_Department_id': delete_department_id,
+                              },
+                               success: function (result) {
+                               console.log(result);
+                              },
+                              error: function (jqXHR, textStatus, errorThrown) {
+                               //error code..
+                              alert("error");
+                               }
+                                     
+                            });                       
+              
+
+                
+                                 
      }
-    });
+  })
+   
+    
 
 
    //get all location...
    $.ajax({
+    url: "libs/php/getAllLocations.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+    //  q: encoded_countryName,
+    },
+    success: function (result) {
+      console.log(result);
+      $('#no_of_location').html(result.data.length);
+
+      for (var i=0; i<result.data.length; i++) {
+        var row = $('<tr><td class="location_id">' + result.data[i].id + '</td><td>'  + result.data[i].name + '</td><td><img class="table_img editlocation_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_location_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        $('#location_table').append(row);
+         $('#d_location').append( "<option value= '" +
+            result.data[i].id +
+            "'>" +
+            result.data[i].name +
+            " </option>");
+
+           $('#location').append( "<option value= '" +
+            result.data[i].id +
+            "'>" +
+            result.data[i].name +
+            " </option>");
+    }
+      
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      //error code..
+      alert("error");
+    },
+  }); 
+
+  function  getlocationdata(){
+     $.ajax({
     url: "libs/php/getAllLocations.php",
     type: "POST",
     dataType: "json",
@@ -487,6 +848,53 @@ $("#downarrow2").on('click',function(){
       alert("error");
     },
   }); 
+  }
+
+   //Add data on location table...
+
+  $("#btn_save2").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var name = $("#add_l_name").val();
+  
+   
+
+    if(name != ''){
+
+         $.ajax({
+              url: "libs/php/insertLocation.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'add_location_name':name,
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#add_location_modal').modal("hide");
+                 $('.location_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Location added successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.location-table').html("");
+              getlocationdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
 
 
 
@@ -517,16 +925,65 @@ $("#downarrow2").on('click',function(){
          
         });  
 
-  });   
+  });  
 
-  //show alert by clicking delete button and deleat location data from database ...
-  $(document).on("click", ".delete_location_image", function() {
+    //Update data on location table...
+
+  $("#btn_updateLocation").on('click', function(e) {
+      e.preventDefault();
+       $(".err_message").remove();
+    var name = $("#l_name").val();
+    var ID = $("#l_id").val();
+
+    if(name != '' & ID != ''){
+
+         $.ajax({
+              url: "libs/php/updateLocation.php",
+              type: "POST",
+              dataType: "json",
+              data: {
+                'checking_add': true,
+                'name':name,
+                'ID': ID
+              },
+              success: function (result) {
+                console.log(result);
+               // $('.message').append("Employee add successfully.");
+               $('#updateLocation_modal').modal("hide");
+                 $('.update_locationmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                                            Location updated successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.location-table').html("");
+            getlocationdata();
+
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                //error code..
+                alert("error");
+              }, 
+            });
+
+    } else {
+       
+        $('.error_message').append('<div class="alert alert-warning alert-dismissible fade show err_message" role="alert">\
+                    Please enter data on all fileds.\
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                  </div>');
+                      }
+  });
+
+
+
+  //show alert by clicking delete button and delete location data from database ...
+  $(document).on("click", ".delete_location_image", function(e) {
+     e.preventDefault();
+      $(".err_message").remove();
     var delete_location_id = $(this).closest('tr').find('.location_id').text();
-    var confirmation = confirm("Are you sure you want to delete this record?");
-   alert(confirmation);
+     var delete_department_id = $(this).closest('tr').find('.department_id').text();
   
    //delete data from database...
-   if(confirmation === true){
+   if(confirm("Are you sure you want to delete this record?")){
     $.ajax({
       url: "libs/php/deleteLocation.php",
       type: "POST",
@@ -537,7 +994,13 @@ $("#downarrow2").on('click',function(){
       success: function (result) {
         console.log(result);
        // if(confirm('Are you sure you want to delete this record?')){
-          $('.location_id').remove('slow');
+        //  $('.location_id').remove('slow');
+           $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                            Location deleted successfully.\
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                          </div>');
+              $('.location-table').html("");
+            getlocationdata();
         //}
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -546,6 +1009,46 @@ $("#downarrow2").on('click',function(){
       },
      
     });
+
+                            $.ajax({
+                              url: "libs/php/deleteLocationWithDepartment.php",
+                              type: "POST",
+                              dataType: "json",
+                              data: {
+                                        
+                               'delete_Location_id': delete_location_id,
+                              },
+                               success: function (result) {
+                               console.log(result);
+                              },
+                              error: function (jqXHR, textStatus, errorThrown) {
+                               //error code..
+                              alert("error");
+                               }
+                                     
+                            });   
+
+             $.ajax({
+                              url: "libs/php/deleteDepartmentWithEmployee.php",
+                              type: "POST",
+                              dataType: "json",
+                              data: {
+                                        
+                               'delete_Department_id': delete_department_id,
+                              },
+                               success: function (result) {
+                               console.log(result);
+                              },
+                              error: function (jqXHR, textStatus, errorThrown) {
+                               //error code..
+                              alert("error");
+                               }
+                                     
+                            });                                   
+              
+                      
+
+
    }
   });
 

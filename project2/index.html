@@ -12,12 +12,13 @@
 
     <link href="favicon.ico.png" rel="icon" />
     <script src="venders/jquery/jquery-3.6.0.min.js"></script>
-    <link href="venders/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="libs/css/style.css" type="text/css" rel="stylesheet" />
+    
      <!--google fonts -->
 
      <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="venders/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/css/style.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
@@ -50,7 +51,8 @@
       <!-- main container-->
       <div class="col-12" id="right_container">
         <div class="row">
-          <img id="btn-toggle" class="btn-toggle my-3" src="venders/image/menu.png" alt="button image">
+         <!-- <img id="btn-toggle" class="btn-toggle my-3" src="venders/image/menu.png" alt="button image">   -->
+        
         
         <!--  <h3 class="heading my-2">Dashboard</h3>  -->
         <form id="searchbar" class="d-flex col-md-3">
@@ -142,7 +144,8 @@
           </div>
         </div>
 
-         
+        <div class="message"></div> 
+        <div class="update_message"></div> 
         <!--employees table-->
   <div class="container" id="toggle_employeeslist">
     <div class="row">
@@ -163,7 +166,7 @@
               <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="employee-table">
           </tbody>
         </table>
       </div>
@@ -183,8 +186,9 @@
               <div class="container">
                 
                   <div class="row g-3">
-                  <form action="libs/php/insertPersonnel.php" method="POST">
+                  <form action="" method="POST">
                     <div class="col">
+                      <div class="error_message"></div>
                       <label for="fname">First Name:</label>
                       <input type="text" class="form-control" placeholder="First name" id="fname" name="fname" required>
                     </div>
@@ -204,6 +208,7 @@
                       <label for="department" class="form-label m-0">DepartmentID:</label>
                       <select class="form-select " name="department" id="department" required>
                         <option selected>Select department</option>
+                        <!--
                         <option value="1"> Human Resources</option>
                         <option value="2">Sales</option>
                         <option value="3">Marketing</option>
@@ -215,7 +220,7 @@
                         <option value="9">Support</option>
                         <option value="10">Engineering</option>
                         <option value="11">Accounting</option>
-                        <option value="12"> Business Development</option>
+                        <option value="12"> Business Development</option>   -->
                       </select>
                     </div>
                    
@@ -245,7 +250,8 @@
               <div class="container">
                 
                 <div class="row g-3">
-                  <form action="libs/php/updatePersonnel.php" method="POST">
+                  <form action="" method="POST">
+                    <div class="error_message"></div>
                     <input type="hidden" id="id_edit" name="id">
                     <div class="col">
                       <label>First Name:</label>
@@ -266,7 +272,9 @@
                     <div class="col">
                       <label class="form-label m-0">DepartmentID:</label>
                       <select class="form-select " name="department_id" id="department_edit">
-                        <option selected>Select department</option>
+                         <option selected>Select department</option>
+                      <!--
+                       
                         <option value="1"> Human Resources</option>
                         <option value="2">Sales</option>
                         <option value="3">Marketing</option>
@@ -279,11 +287,13 @@
                         <option value="10">Engineering</option>
                         <option value="11">Accounting</option>
                         <option value="12"> Business Development</option>
+
+                        -->
                       </select>
                     </div>
                    
                     <div class="">
-                    <button id="btn_save" type="submit" name="update" class="btn btn-primary mt-3">Update</button>
+                    <button id="btn_updateEmployee" type="submit" name="update" class="btn btn-primary mt-3">Update</button>
                   </form>
                   </div>
                   
@@ -296,8 +306,8 @@
     </div>  
 
  
-
-
+      <div class="update_departmentmessage"></div>
+     <div class="department_message"></div>  
      <!--department table-->
   <div class="container" id="toggle_department">
       <div class="row">
@@ -315,7 +325,7 @@
                <th scope="col" class="action">Action</th>
              </tr>
            </thead>
-           <tbody>
+           <tbody class="department-table">
            </tbody>
          </table>
        </div>
@@ -334,7 +344,8 @@
             <div class="container">
               
                 <div class="row g-3">
-                <form action="libs/php/insertDepartment.php" method="POST">
+                <form action="" method="POST">
+                  <div class="error_message"></div>
                   <div class="col">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" placeholder="Department name" id="name" name="name"required>
@@ -343,11 +354,12 @@
                     <label for="location" class="form-label m-0">LocationID:</label>
                     <select class="form-select " name="locationID" id="location" required>
                       <option selected>Select LocationID</option>
+                      <!--
                       <option value="1">London</option>
                       <option value="2">New York</option>
                       <option value="3">Paris</option>
                       <option value="4">Munich</option>
-                      <option value="5">Rome</option>
+                      <option value="5">Rome</option>   -->
                     </select>
                   </div>
                   <div class="">
@@ -374,8 +386,9 @@
             <div class="container">
               
                 <div class="row g-3">
-                <form action="libs/php/updateDepartment.php" method="POST">
+                <form action="" method="POST">
                   <div class="col">
+                    <div class="error_message"></div>
                     <input type="hidden" id="d_id" name="department_id">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" placeholder="Department name" id="d_name" name="department_name">
@@ -384,16 +397,18 @@
                     <label for="location" class="form-label m-0">LocationID:</label>
                     <select class="form-select " name="department_locationID" id="d_location">
                       <option selected>Select LocationID</option>
+                      <!--
                       <option value="1">London</option>
                       <option value="2">New York</option>
                       <option value="3">Paris</option>
                       <option value="4">Munich</option>
                       <option value="5">Rome</option>
+                      -->
                     </select>
                   </div>
                  
                   <div class="">
-                  <button id="btn_save1" type="submit" name="update1" class="btn btn-primary my-3">Update</button>
+                  <button id="btn_updateDepartment" type="submit" name="update1" class="btn btn-primary my-3">Update</button>
                 </form>
                 </div>
                
@@ -405,7 +420,9 @@
   </div>
           <!--employee table for mobo device-->
           <div class="mobo_employee_list"></div>
-  
+
+          <div class="update_locationmessage"></div>
+          <div class="location_message"></div>  
           <!--location table-->
       <div class="container" id="toggle_location">
             <div class="row">
@@ -422,8 +439,7 @@
                     <th scope="col" class="action">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  
+                <tbody class="location-table">   
                 </tbody>
               </table>
             </div>
@@ -446,7 +462,8 @@
             <div class="container">
               
                 <div class="row g-3">
-                <form action="libs/php/insertLocation.php" method="POST">
+                <form action="" method="POST">
+                  <div class="error_message"></div>
                   <div class="col">
                     <label>Name:</label>
                     <input type="text" class="form-control" placeholder="location name" id="add_l_name" name="add_location_name" required>
@@ -474,15 +491,16 @@
                   <div class="container">
                     
                       <div class="row g-3">
-                      <form action="libs/php/updateLocation.php" method="POST">
+                      <form action="" method="POST">
                         <div class="col">
+                          <div class="error_message"></div>
                           <input type="hidden" id="l_id" name="location_id">
                           <label>Name:</label>
                           <input type="text" class="form-control" placeholder="Department name" id="l_name" name="location_name">
                         </div>
                         
                         <div class="">
-                        <button id="btn_save1" type="submit" name="update2" class="btn btn-primary my-3">Update</button>
+                        <button id="btn_updateLocation" type="submit" name="update2" class="btn btn-primary my-3">Update</button>
                       </form>
                       </div>
                      
@@ -522,7 +540,7 @@
                 <td class="info_email info_td"></td>
               </tr>
               <tr>
-                <td class="info_td">Department ID:</td>
+                <td class="info_td">Department:</td>
                 <td class="info_department info_td"></td>
               </tr>
             </tbody>
@@ -590,10 +608,8 @@
 
     <div id="preloader">
         <script src="libs/js/jquery.js" type="application/javascript"></script>
+        <script src="venders/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="libs/js/script.js" type="text/javascript"></script>
-
-      <!--  <script src="venders/bootstrap/js/bootstrap.min.js"></script>   -->
-    <script src="venders/bootstrap/js/bootstrap.bundle.min.js"></script>
 
       </div>
 </body>

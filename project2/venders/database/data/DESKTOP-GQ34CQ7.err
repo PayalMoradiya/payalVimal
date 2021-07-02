@@ -293,3 +293,4 @@ InnoDB: using atomic writes.
 Version: '10.5.9-MariaDB'  socket: ''  port: 3308  mariadb.org binary distribution
 2021-06-28 17:47:28 3 [Warning] Aborted connection 3 to db: 'companydirectory' user: 'root' host: 'localhost' (Got an error reading communication packets)
 2021-06-28 17:54:38 647 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
+2021-06-29  8:05:50 648 [Warning] Aborted connection 648 to db: 'companydirectory' user: 'root' host: 'localhost' (Got timeout reading communication packets)
