@@ -197,13 +197,13 @@ $("#downarrow2").on('click',function(){
 
          //table style for mobile....
          if(screen.width <= 600){
-          $('#table_header').remove();
+         // $('#table_header').remove();
          var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
          $('#myTable').append(row);
 
         } else {
 
-        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ ' ' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
 
         }
@@ -282,7 +282,7 @@ function getdata(){
                 console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#employee').modal("hide");
-                 $('.message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+                 $('.message').append('<div class="alert alert-success alert-dismissible fade show err_message notification" role="alert">\
                                             Employee added successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
                                           </div>');
@@ -1113,6 +1113,7 @@ $('#main_id').on("keyup", function(){
       }
     }       
   }
+
  
 });
 

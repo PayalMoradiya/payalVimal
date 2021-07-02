@@ -110,7 +110,7 @@
               </div>
               <div class="col-md-8 ">
                 <div class="card-body bg-light text-center">
-                  <h5 class="card-title"> EMPLOYEES</h5>
+                  <h5 id="cardname" class="card-title"> EMPLOYEES</h5>
                   <p class="card-text" id="no_of_employee"></p>          
                 </div>
               </div>
@@ -123,7 +123,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body bg-light text-center">
-                  <h5 class="card-title">DEPARTMENTS</h5>
+                  <h5 id="cardname" class="card-title">DEPARTMENTS</h5>
                   <p class="card-text" id="no_of_department"></p>          
                 </div>
               </div>
@@ -136,7 +136,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body bg-light text-center">
-                  <h5 class="card-title">LOCATIONS</h5>
+                  <h5 id="cardname" class="card-title">LOCATIONS</h5>
                   <p class="card-text" id="no_of_location"></p>          
                 </div>
               </div>
@@ -156,9 +156,9 @@
         <table class="table table-hover" id="myTable">
           <thead>
             <tr id="table_header">
-              <th scope="col">#</th>
-              <th scope="col">Lastname</th>
-              <th scope="col">Firstname</th>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+             
               <th scope="col" class="display_none">Job Title</th>
               <th scope="col" class="display_none">Email</th>
               <th scope="col" class="display_none">Department</th>
@@ -183,12 +183,12 @@
               <img id="btn_cls" src="venders/image/error1.png" alt="button image">
             </div>
             <div class="modal-body">
-              <div class="container">
+              <div class="container px-1">
                 
                   <div class="row g-3">
                   <form action="" method="POST">
                     <div class="col">
-                      <div class="error_message"></div>
+                      <div class="error_message notification"></div>
                       <label for="fname">First Name:</label>
                       <input type="text" class="form-control" placeholder="First name" id="fname" name="fname" required>
                     </div>
@@ -247,11 +247,11 @@
               <img id="btn_cls1" src="venders/image/error1.png" alt="button image">
             </div>
             <div class="modal-body">
-              <div class="container">
+              <div class="container px-1">
                 
                 <div class="row g-3">
                   <form action="" method="POST">
-                    <div class="error_message"></div>
+                    <div class="error_message notification"></div>
                     <input type="hidden" id="id_edit" name="id">
                     <div class="col">
                       <label>First Name:</label>
@@ -306,8 +306,8 @@
     </div>  
 
  
-      <div class="update_departmentmessage"></div>
-     <div class="department_message"></div>  
+      <div class="update_departmentmessage notification"></div>
+     <div class="department_message notification"></div>  
      <!--department table-->
   <div class="container" id="toggle_department">
       <div class="row">
@@ -341,11 +341,11 @@
             <img class="btn_cancle" src="venders/image/error1.png" alt="button image">
           </div>
           <div class="modal-body">
-            <div class="container">
+            <div class="container px-1">
               
                 <div class="row g-3">
                 <form action="" method="POST">
-                  <div class="error_message"></div>
+                  <div class="error_message notification"></div>
                   <div class="col">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" placeholder="Department name" id="name" name="name"required>
@@ -383,12 +383,12 @@
             <img class="btn_cancle" src="venders/image/error1.png" alt="button image">
           </div>
           <div class="modal-body">
-            <div class="container">
+            <div class="container px-1">
               
                 <div class="row g-3">
                 <form action="" method="POST">
                   <div class="col">
-                    <div class="error_message"></div>
+                    <div class="error_message notification"></div>
                     <input type="hidden" id="d_id" name="department_id">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" placeholder="Department name" id="d_name" name="department_name">
@@ -419,10 +419,10 @@
     </div>   
   </div>
           <!--employee table for mobo device-->
-          <div class="mobo_employee_list"></div>
+          <div class="mobo_employee_list notification"></div>
 
-          <div class="update_locationmessage"></div>
-          <div class="location_message"></div>  
+          <div class="update_locationmessage notification"></div>
+          <div class="location_message notification"></div>  
           <!--location table-->
       <div class="container" id="toggle_location">
             <div class="row">
@@ -463,7 +463,7 @@
               
                 <div class="row g-3">
                 <form action="" method="POST">
-                  <div class="error_message"></div>
+                  <div class="error_message notification"></div>
                   <div class="col">
                     <label>Name:</label>
                     <input type="text" class="form-control" placeholder="location name" id="add_l_name" name="add_location_name" required>
@@ -493,7 +493,7 @@
                       <div class="row g-3">
                       <form action="" method="POST">
                         <div class="col">
-                          <div class="error_message"></div>
+                          <div class="error_message notification"></div>
                           <input type="hidden" id="l_id" name="location_id">
                           <label>Name:</label>
                           <input type="text" class="form-control" placeholder="Department name" id="l_name" name="location_name">

@@ -115,6 +115,13 @@ table, th,tr, td {
 #myTable_mobo{
     display:none;
 }
+#btn_updateDepartment, #btn_updateEmployee, #btn_updateLocation{
+    float:right;
+}
+.notification{
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+}
 
 
 
@@ -162,7 +169,7 @@ table, th,tr, td {
 }
 
 /* Medium devices (tablets, 768px and up)  */
-@media (min-width: 768px) { 
+@media (min-width: 768px) and (max-width: 992px) { 
     .card_width{
         width:33%;
     }
