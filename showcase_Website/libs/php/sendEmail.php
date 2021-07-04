@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if(isset($_POST['name']) && isset($_POST['email'])){
+if(isset($_POST['name']) && isset($_POST['email'] && isset($_POST['subject']) && isset($_POST['body'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $subject = $_POST['subject'];
@@ -21,7 +21,7 @@ if(isset($_POST['name']) && isset($_POST['email'])){
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
     $mail->Username = "pdkabariya@gmail.com";
-    $mail->Password = "9898789892";
+    $mail->Password = "";
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
 

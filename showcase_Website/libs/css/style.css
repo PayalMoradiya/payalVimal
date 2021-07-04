@@ -152,6 +152,9 @@ img.footer_github_image{
     
     
 }
+#modal2{
+  margin-top: none;  
+    }
 
 /* X-Small devices (portrait phones, less than 576px)  */
 @media only screen and (max-width: 575px) { 
@@ -238,7 +241,9 @@ img.footer_github_image{
     h5.card-title.text-center{
         margin-top: 1rem;
     }
-    
+    #modal2{
+        margin-top: 0px;  
+          }
  }
 
 /* X-Large devices (large desktops, 1200px and up) */
@@ -249,6 +254,9 @@ img.footer_github_image{
        height: 500px;
        margin: 90px;  
        }
+       #modal2{
+        margin-top: 0px;  
+          }
  }
 
 /* XX-Large devices (larger desktops, 1400px and up)  */

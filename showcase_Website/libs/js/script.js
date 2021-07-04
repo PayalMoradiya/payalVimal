@@ -75,31 +75,31 @@ var TxtRotate = function(el, toRotate, period) {
 
 //php mailer....
 
-var email = document.getElementById("submit_btn");
-
-email.addEventListener('click', function(){
+//var email = document.getElementById("submit_btn");
+$("#submit_btn").on('click', function(){
+//email.addEventListener('click', function(){
   console.log("hello you did it!");
-  var name = $("#name");
-  var email = $("#email");
-  var subject = $("#subject");
-  var body = $("#body");
-
+  var name = $("#name").val();
+  var email = $("#email").val();
+  var subject = $("#subject").val();
+  var body = $("#body").val();
+console.log(name);
     $.ajax({
       url: "libs/php/sendEmail.php",
       method: "POST",
       dataType: "json",
       data:{
-        name: name.val(),
-        email: email.val(),
-        subject: subject.val(),
-        body: body.val()
+        name: name,
+        email: email,
+        subject: subject,
+        body: body
       }, success: function(response){
         console.log("hello you did it again!");
       console.log(response);
         $('#myForm')[0].reset();
         $('.sent_notification').text("Message sent successfully.");
       }
-    });
+    });  
 
 });
 
