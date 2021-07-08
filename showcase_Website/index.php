@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +11,18 @@
     />
     <title>Showcase Website</title>
     <link href="favicon.ico.png" rel="icon" />
-  <script src="venders/jquery/jquery-3.6.0.min.js"></script>  
-    <link href="venders/bt5/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="libs/css/style.css" type="text/css" rel="stylesheet" />
-
+    
     <!--Google fonts-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <script src="venders/jquery/jquery-3.6.0.min.js"></script>  
+    <link href="venders/bt5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/css/style.css" type="text/css" rel="stylesheet" />
+
+
 </head>
+
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
         <div class="container">
@@ -336,32 +341,32 @@
 
 <section id=my_contact>
   <h2 id = "skills" class="skills">Contact</h2>
-  <h4 class="sent_notification"></h4>
-
-<form class="was-validated" id="myForm">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <lable>Name</lable>
-        <input type="text" id="name" class="form-control" placeholder="Enter Name" aria-label="First name">
-        <br>
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" id="email" class="form-control" id="inputEmail4" placeholder="Enter Email"> 
-        <br>
-        <lable>Subject</lable>
-        <input type="text" id="subject" class="form-control" placeholder="Enter Subject" aria-label="Subject">
-        <br>
-        <lable>Message</lable>
-        <textarea type="text" id="body" rows="5" class="form-control" placeholder="Type Message" aria-label="Subject"></textarea>
-        <br>
-        <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>
+  <p class="sent_notification"></p>
+  
+  <form class="was-validated" id="myForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <lable>Name</lable>
+          <input type="text" id="f_name" name="name" class="form-control" placeholder="Enter Name" aria-label="First name">
+          <br>
+          <label class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"> 
+          <br>
+          <lable>Subject</lable>
+          <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter Subject" aria-label="Subject">
+          <br>
+          <lable>Message</lable>
+          <textarea type="text" id="body" name="body" rows="5" class="form-control" placeholder="Type Message" aria-label="Subject"></textarea>
+          <br>
+          <button type="submit" id="submit_btn" name="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-md-5">
+          <img id ="contact_img" src="venders/image/Consulting_Monochromatic.png" alt="contact image">
+        </div>
+        </div>
       </div>
-      <div class="col-md-5">
-        <img id ="contact_img" src="venders/image/Consulting_Monochromatic.png" alt="contact image">
-      </div>
-      </div>
-    </div>
-</form>
+  </form>
 </section>
 <br>
 <br>
@@ -387,7 +392,6 @@
         <script src="libs/js/jquery.js" type="application/javascript"></script>
         <script src="libs/js/script.js" type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>   -->
         <script src="venders/bt5/js/bootstrap.min.js"></script>
     </div>
 </body>

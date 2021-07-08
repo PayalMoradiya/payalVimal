@@ -75,33 +75,39 @@ var TxtRotate = function(el, toRotate, period) {
 
 //php mailer....
 
-//var email = document.getElementById("submit_btn");
-$("#submit_btn").on('click', function(){
-//email.addEventListener('click', function(){
-  console.log("hello you did it!");
-  var name = $("#name").val();
+$("#submit_btn").click( function(){
+  
+  var name = $("#f_name").val();
   var email = $("#email").val();
   var subject = $("#subject").val();
   var body = $("#body").val();
-console.log(name);
-    $.ajax({
-      url: "libs/php/sendEmail.php",
-      method: "POST",
-      dataType: "json",
-      data:{
-        name: name,
-        email: email,
-        subject: subject,
-        body: body
-      }, success: function(response){
-        console.log("hello you did it again!");
-      console.log(response);
-        $('#myForm')[0].reset();
-        $('.sent_notification').text("Message sent successfully.");
-      }
-    });  
+  console.log(name);
+  console.log(email);
+  console.log(subject);
+  console.log(body);
 
-});
+  $.ajax({
+    url: "libs/php/sendEmail.php",
+    method: "POST",
+    dataType: "json",
+    data:{
+      'Name': name,
+      'Email': email,
+      'Subject': subject,
+      'Body': body
+    },
+    success: function(response){
+      console.log(response);
+     // $('#myForm')[0].reset();
+      $('.sent_notification').text("Message sent successfully.");
+    }
+   
+  });
+    
+    
+
+});    
+
 
 //nav button style....
 
