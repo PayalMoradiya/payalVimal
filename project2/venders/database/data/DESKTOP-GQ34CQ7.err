@@ -373,3 +373,4 @@ InnoDB: using atomic writes.
 2021-07-10 23:16:20 0 [Note] F:\xampp\htdocs\payalVimal\project2\venders\database\bin\mysqld.exe: ready for connections.
 Version: '10.5.9-MariaDB'  socket: ''  port: 3308  mariadb.org binary distribution
 2021-07-11 11:05:32 3 [Warning] Aborted connection 3 to db: 'companydirectory' user: 'root' host: 'localhost' (Got timeout reading communication packets)
+2021-07-12  8:15:20 1264 [Warning] Aborted connection 1264 to db: 'companydirectory' user: 'root' host: 'localhost' (Got timeout reading communication packets)
