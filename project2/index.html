@@ -23,47 +23,69 @@
 </head>
 <body>
   <!-- Full container-->
+
   <div class="container-fluid">
     <div class="row  bg-primary">
       <h1 class="text-center text-primary align-item-center">Comapany Directory</h1>
     </div>
 
     <div class="row" id="left_right">
-      <!--Sidebar
-      <div id="leftbar" class="col-2 bg-light">
-        <div class="row mt-3">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <img href="" alt="">
-          </form>
-        </div>
-        <hr>
-        <div class="row ">
-        <span id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</span>
-        </div>
-        <div class="row">
-        <span id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/user.png" alt="user image" >Add Employee</span>
-        </div>
-        <div class="row">
-        <button id="sidebar" class="btn "><img class="sidebar_image" src="venders/image/sort.png" alt="sort image" >Sort</button>
-        </div>
-      </div>  -->
+      
       <!-- main container-->
       <div class="col-12" id="right_container">
-        <div class="row">
-         <!-- <img id="btn-toggle" class="btn-toggle my-3" src="venders/image/menu.png" alt="button image">   -->
+        
+           <!--three cards-->
+        
+        <div class="row g-3 mt-2" >
+          <div class="col-md-3 card_width" >
+            <div id="dashboard_block"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/group.png" alt="group image">
+              </div>
+              <div class="col-md-8 ">
+                <div class="card-body bg-light text-center">
+                  <h5 id="cardname" class="card-title pointer"> EMPLOYEES</h5>
+                  <p class="card-text" id="no_of_employee"></p>          
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 card_width" >
+            <div id="dashboard_block1"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/it-department.png" alt="it-department image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-light text-center">
+                  <h5 id="cardname" class="card-title pointer">DEPARTMENTS</h5>
+                  <p class="card-text" id="no_of_department"></p>          
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 card_width" >
+            <div id="dashboard_block2"  class="row g-0">
+              <div class="col-md-4 bg-primary text-center">
+                <img class="card_image" src="venders/image/pin.png" alt="location image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-light text-center">
+                  <h5 id="cardname" class="card-title pointer">LOCATIONS</h5>
+                  <p class="card-text" id="no_of_location"></p>          
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
         
         
-        <!--  <h3 class="heading my-2">Dashboard</h3>  -->
-        <form id="searchbar" class="d-flex col-md-3">
-          <input class="form-control me-2" type="search" id="main_id" placeholder="Search" aria-label="Search">
-          <img href="" alt="">
-        </form>
+       
         
       </div>
         <hr>
         <div class="btn-wrapper">
-        <button id="dashboard_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</button>
+      <!-- <button id="dashboard_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</button> -->
         <button id="back_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/back1.png" alt="back image" >Back</button>
         <button class="btn btn-light mx-1" id="plus_img"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
         <button class="btn btn-light mx-1" id="plus_img_department"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
@@ -77,9 +99,14 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item assending" href="#">A->Z</a></li>
             <li><a class="dropdown-item desending" href="#">Z->A</a></li>   
-          </ul>
+          </ul>  
         </div>
+        <form id="searchbar" class="d-flex col-md-3">
+          <input class="form-control me-2" type="search" id="main_id" placeholder="Search" aria-label="Search">
+          <img href="" alt="">
+        </form>
         </div>
+        
        
         <div class="btn-wrapper-phone text-center">
           <button id="dashboard_btn1" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" ></button>
@@ -99,66 +126,23 @@
           </div>
         
         </div>
+             
 
-        <!--three cards-->
-        
-        <div class="row g-3 mt-2" >
-          <div class="col-md-3 card_width" >
-            <div id="dashboard_block"  class="row g-0">
-              <div class="col-md-4 bg-primary text-center">
-                <img class="card_image" src="venders/image/group.png" alt="group image">
-              </div>
-              <div class="col-md-8 ">
-                <div class="card-body bg-light text-center">
-                  <h5 id="cardname" class="card-title"> EMPLOYEES</h5>
-                  <p class="card-text" id="no_of_employee"></p>          
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 card_width" >
-            <div id="dashboard_block1"  class="row g-0">
-              <div class="col-md-4 bg-primary text-center">
-                <img class="card_image" src="venders/image/it-department.png" alt="it-department image">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body bg-light text-center">
-                  <h5 id="cardname" class="card-title">DEPARTMENTS</h5>
-                  <p class="card-text" id="no_of_department"></p>          
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 card_width" >
-            <div id="dashboard_block2"  class="row g-0">
-              <div class="col-md-4 bg-primary text-center">
-                <img class="card_image" src="venders/image/pin.png" alt="location image">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body bg-light text-center">
-                  <h5 id="cardname" class="card-title">LOCATIONS</h5>
-                  <p class="card-text" id="no_of_location"></p>          
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      
         <div class="message"></div> 
         <div class="update_message"></div> 
         <!--employees table-->
   <div class="container" id="toggle_employeeslist">
     <div class="row">
-      <div class="heading_container"><img id="downarrow" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Employees List</div>
+      <div class="heading_container">Employees List</div>
     </div>
     <div class="row">
-      <div class="col-12 mt-3" >
-        <table class="table table-hover" id="myTable">
-          <thead>
+      <div class="col-12 mt-3 table_scroll" >
+        <table class="table table-hover table-fixedheader" id="myTable">
+          <thead >
             <tr id="table_header">
               <th scope="col">ID</th>
               <th scope="col">Name</th>
-             
               <th scope="col" class="display_none">Job Title</th>
               <th scope="col" class="display_none">Email</th>
               <th scope="col" class="display_none">Department</th>
@@ -166,12 +150,14 @@
               <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
+
           <tbody class="employee-table">
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
 
 
     <!--Add Employees table modal-->
@@ -247,8 +233,7 @@
               <img id="btn_cls1" src="venders/image/error1.png" alt="button image">
             </div>
             <div class="modal-body">
-              <div class="container px-1">
-                
+              <div class="container px-1">    
                 <div class="row g-3">
                   <form action="" method="POST">
                     <div class="error_message notification"></div>
@@ -273,22 +258,6 @@
                       <label class="form-label m-0">DepartmentID:</label>
                       <select class="form-select " name="department_id" id="department_edit">
                          <option selected>Select department</option>
-                      <!--
-                       
-                        <option value="1"> Human Resources</option>
-                        <option value="2">Sales</option>
-                        <option value="3">Marketing</option>
-                        <option value="4">Legal</option>
-                        <option value="5">Services</option>
-                        <option value="6"> Research and Development</option>
-                        <option value="7"> Product Management</option>
-                        <option value="8">Training</option>
-                        <option value="9">Support</option>
-                        <option value="10">Engineering</option>
-                        <option value="11">Accounting</option>
-                        <option value="12"> Business Development</option>
-
-                        -->
                       </select>
                     </div>
                    
@@ -311,14 +280,14 @@
      <!--department table-->
   <div class="container" id="toggle_department">
       <div class="row">
-        <div class="heading_container"><img id="downarrow1" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Departments</div>
+        <div class="heading_container">Departments</div>
       </div>
      
      <div class="row">
-       <div class="col-12" >
+       <div class="col-12 table_scroll" >
          <table class="table table-hover" id="department_table">
            <thead>
-             <tr>
+             <tr id="table_header">
                <th scope="col">#</th>
                <th scope="col">Name</th>
                <th scope="col">LocationID</th>
@@ -426,14 +395,14 @@
           <!--location table-->
       <div class="container" id="toggle_location">
             <div class="row">
-              <div class="heading_container"><img id="downarrow2" class="board_heading mx-2" src="venders/image/down-arrow-black-circular-button.png" alt="downarrow image">Locations</div>
+              <div class="heading_container">Locations</div>
             </div>
           
           <div class="row">
-            <div class="col-10 mt-3 mx-3" >
+            <div class="col-10 mt-3 mx-3 table_scroll" >
               <table class="table table-hover" id="location_table">
                 <thead>
-                  <tr>
+                  <tr id="table_header">
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col" class="action">Action</th>
@@ -520,87 +489,125 @@
             <div class="modal-header bg-primary text-white">
               <h5 class="modal-title " id="exampleModalLabel">Employees Info</h5>
             </div>
-        <div class="modal-body p-0">
-          <table class="info_table">
-            <tbody>
-              <tr>
-                <td class="info_td">First Name:</td>
-                <td class="info_firstName info_td"></td>
-              </tr>
-              <tr>
-                <td class="info_td">Last Name:</td>
-                <td class="info_lastName info_td"></td>
-              </tr>
-              <tr>
-                <td class="info_td">Job Title:</td>
-                <td class="info_jobTitle info_td"></td>
-              </tr>
-              <tr>
-                <td class="info_td">Email:</td>
-                <td class="info_email info_td"></td>
-              </tr>
-              <tr>
-                <td class="info_td">Department:</td>
-                <td class="info_department info_td"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="modal-footer bg-light">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
+            <div class="modal-body">
+              <div class="container px-1">    
+                <div class="row g-3">
+                  <form class="info_table">
+                    <div class="col">
+                      <label>First Name:</label>
+                      <input class="form-control" id="info_firstName" disabled>
+                    </div>
+                     <div class="col my-2">
+                      <label>Last Name:</label>
+                      <input class="form-control" id="info_lastName" disabled>
+                    </div>
+                    <div class=" my-2">
+                      <label>Job Title:</label>
+                      <input class="form-control" id="info_jobTitle" disabled>  
+                    </div>
+                    <div class=" my-2">
+                      <label >Email</label>
+                      <input class="form-control" id="info_email" disabled>
+                    </div>
+                    <div class="col my-2">
+                      <label>Department:</label>
+                      <input class="form-control" id="info_department" disabled>
+                    </div>
+                    <div class="col my-2">
+                      <label>Location:</label>
+                      <input class="form-control" id="info_location" disabled>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>     
+                </div>
+              </div>
+            </div>
       </div>
     </div>
   </div>
  
-
-   <!--filter button modal-->
-<!--  <div class="modal fade" id="filter_employee_data">
-    <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title " id="">Filters</h5>
-            <img id="" src="venders/image/error1.png" alt="button image">
-          </div>
-          <div class="modal-body">
-            <div class="container">
-                <div class="row g-3">
-                  <p>Where</p>
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Column</option>
-                    <option value="1">Last Name</option>
-                    <option value="2">First Name</option>
-                    <option value="3">Job Title</option>
-                    <option value="4">Email</option>
-                    <option value="5">Department</option>
-                    <option value="6">Location</option>
-                  </select>
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Condition</option>
-                    <option value="1">is</option>
-                    <option value="2">is not</option>
-                    <option value="3">contains</option>
-                    <option value="4">starts with</option>
-                    <option value="5">ends with</option>
-                  </select>
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Value</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                
-                </div>
-               
+ <!--delete department table modal-->
+ <div class="modal fade" id="delete_department">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="">
+          <img class="btn_cancle" src="venders/image/close.png" alt="button image">
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <div class="row">
+              <p>There are <span class="delete_record"></span> dependent record found in employees list.So, you can not delete this record!</p>
               </div>
+              <button type="button" class="btn btn-primary conformation_close" data-bs-dismiss="modal">Close</button>  
             </div>
           </div>
+        </div>
+    </div>
+  </div>   
+</div>
+
+<!--delete department table modal-->
+<div class="modal fade" id="delete_department1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="">
+        <img class="btn_cancle" src="venders/image/close.png" alt="button image">
       </div>
-    </div>   
-  </div>    --> 
-
+        <div class="modal-body">
+          <div class="container">
+              <div class="row">
+              <p>There are <span class="delete_record"></span> dependent record found in employees list.So, you can delete this record!</p>
+              </div>
+              <button type="button" class="btn btn-danger conformation_close1" data-bs-dismiss="modal">Delete</button> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>   
+</div>
   
+<!--delete location table modal-->
+<div class="modal fade" id="delete_location">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="">
+          <img class="btn_cancle" src="venders/image/close.png" alt="button image">
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <div class="row">
+              <p>There are <span class="delete_record1"></span> dependent record found in department list.So, you can not delete this record!</p>
+              </div>
+              <button type="button" class="btn btn-primary conformation_close_location" data-bs-dismiss="modal">Close</button>  
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>   
+</div>
 
+<!--delete location table modal-->
+<div class="modal fade" id="delete_location1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="">
+          <img class="btn_cancle" src="venders/image/close.png" alt="button image">
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <div class="row">
+              <p>There are <span class="delete_record1"></span> dependent record found in department list.So, you can delete this record!</p>
+              </div>
+              <button type="button" class="btn btn-danger conformation_close_location1" data-bs-dismiss="modal">Delete</button>  
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>   
+</div>
 
 
 

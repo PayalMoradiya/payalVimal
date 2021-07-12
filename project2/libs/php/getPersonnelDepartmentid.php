@@ -65,7 +65,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 // second query
 
-$query = 'SELECT id, name from department ORDER BY id';
+//$query = 'SELECT id, name from department ORDER BY id';
+$query = 'SELECT count(id) as personCount FROM personnel WHERE departmentID =' . $_POST['delete_Department_id'];
 
 $result = $conn->query($query);
 

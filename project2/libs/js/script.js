@@ -1,9 +1,32 @@
+$(document).ready(function(){
+  // $("#toggle_employeeslist").hide();
+    $("#toggle_department").hide();
+    $("#toggle_location").hide();
+    $("#back_btn").hide();
+  //  $("#plus_img").hide();
+   // $("#dropdownMenuButton1").hide();
+    $("#plus_img2_department").hide();
+    $("#plus_img_department").hide();
+    $("#plus_img2_location").hide();
+    $("#plus_img_location").hide();
+    $("#filter_employeedata").hide();
+   $("#filter_employeedata1").hide();
+    $("#dashboard_btn1").hide();
+    $("#plus_img2").hide();
+    $("#dropdownMenuButton2").hide();
+    $("#back_btn1").hide();
+});
+
 //onclick close modal..
 $('.btn_cancle').on('click', function(){
   $('#department_modal').modal("hide");
   $('#add_location_modal').modal("hide");
   $("#updateDepartment_modal").modal("hide");
   $("#updateLocation_modal").modal("hide");
+  $("#delete_department").modal("hide");
+  $("#delete_department1").modal("hide");
+  $('#delete_location').modal("hide");
+   $('#delete_location1').modal("hide");
 })
 $('.btn-close').on('click', function(){
   $('.err_message').hide();
@@ -41,6 +64,13 @@ $("#back_btn1").on('click',function(){
   $("#dashboard_btn1").hide();
    $(".err_message").remove();
 });
+
+//for mobo device design...
+$(document).ready(function(){
+  if(screen.width <= 600){
+     $("#toggle_employeeslist").hide();
+  }
+});
 //show and hide employees list table by clicking employees card....
 $("#dashboard_block").on('click',function(){
   //add buttons for mobo device...
@@ -48,18 +78,23 @@ $("#dashboard_block").on('click',function(){
     $("#back_btn1").show();
     $("#dropdownMenuButton2").show();
     $("#plus_img2").show();
-
+    $("#dashboard_block1").hide();
+    $("#dashboard_block2").hide();
   }
   $("#toggle_employeeslist").show();
   $("#plus_img").show();
   $("#dropdownMenuButton1").show();
-  $("#dashboard_btn").hide();
-  $("#back_btn").show();
-  $("#dashboard_btn1").hide();
-  $("#back_btn1").show();
-  $("#dashboard_block").hide();
-  $("#dashboard_block1").hide();
-  $("#dashboard_block2").hide();
+  $("#plus_img_department").hide();
+  $("#toggle_department").hide();
+  $("#plus_img_location").hide();
+  $("#toggle_location").hide();
+ // $("#dashboard_btn").hide();
+  //$("#back_btn").show();
+ // $("#dashboard_btn1").hide();
+ // $("#back_btn1").show();
+ // $("#dashboard_block").hide();
+ // $("#dashboard_block1").hide();
+ // $("#dashboard_block2").hide();
 });
 //show and hide department table by clicking department card....
 $("#dashboard_block1").on('click',function(){
@@ -69,18 +104,25 @@ $("#dashboard_block1").on('click',function(){
     $("#plus_img2_department").show();
     $("#plus_img2_location").hide();
     $("#dropdownMenuButton2").hide();
+    $("#dashboard_block").hide();
+    $("#dashboard_block2").hide();
+   // $("#back_btn").show();
+    $("#back_btn1").show();
   }
   $("#toggle_department").show();
-  $("#dashboard_btn").hide();
-  $("#back_btn").show();
-  $("#dashboard_btn1").hide();
-  $("#back_btn1").show();
+ // $("#dashboard_btn").hide();
+  //$("#back_btn").show();
+ // $("#dashboard_btn1").hide();
+ // $("#back_btn1").show();
   $("#plus_img_location").hide();
+   $("#toggle_employeeslist").hide();
+  $("#dropdownMenuButton1").hide();
+   $("#toggle_location").hide();
   $("#plus_img").hide();
   $("#plus_img_department").show();
-  $("#dashboard_block").hide();
-  $("#dashboard_block1").hide();
-  $("#dashboard_block2").hide();
+ // $("#dashboard_block").hide();
+ // $("#dashboard_block1").hide();
+ // $("#dashboard_block2").hide();
 
 });
 //show and hide location table by clicking location card....
@@ -91,18 +133,24 @@ $("#dashboard_block2").on('click',function(){
     $("#plus_img2_department").hide();
     $("#plus_img2_location").show();
     $("#dropdownMenuButton2").hide();
+    $("#dashboard_block").hide();
+    $("#dashboard_block1").hide();
+    $("#back_btn1").show();
   }
   $("#toggle_location").show();
-  $("#dashboard_btn").hide();
-  $("#back_btn").show();
-  $("#dashboard_btn1").hide();
-  $("#back_btn1").show();
+ // $("#dashboard_btn").hide();
+ // $("#back_btn").show();
+ // $("#dashboard_btn1").hide();
+ // $("#back_btn1").show();
   $("#plus_img").hide();
   $("#plus_img_department").hide();
   $("#plus_img_location").show();
-  $("#dashboard_block").hide();
-  $("#dashboard_block1").hide();
-  $("#dashboard_block2").hide();
+  $("#toggle_employeeslist").hide();
+  $("#dropdownMenuButton1").hide();
+  $("#toggle_department").hide();
+//  $("#dashboard_block").hide();
+//  $("#dashboard_block1").hide();
+//  $("#dashboard_block2").hide();
   
 });
 //close button on modal...
@@ -119,17 +167,6 @@ add_employee.addEventListener("click", function(){
 var add_employee_mobo = document.getElementById("plus_img2");
 add_employee_mobo.addEventListener("click", function(){
   $("#employee").modal("show");
-});
-
-//show modal by clicking filter button...
-var filter_employee = document.getElementById("filter_employeedata");
-filter_employee.addEventListener("click", function(){
-  $("#filter_employee_data").modal("show");
-});
-
-var filter_employee_mobo = document.getElementById("filter_employeedata1");
-filter_employee_mobo.addEventListener("click", function(){
-  $("#filter_employee_data").modal("show");
 });
 
 //show department modal by clicking add button...
@@ -190,7 +227,7 @@ $("#downarrow2").on('click',function(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       $('#no_of_employee').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
@@ -198,12 +235,12 @@ $("#downarrow2").on('click',function(){
          //table style for mobile....
          if(screen.width <= 600){
          // $('#table_header').remove();
-         var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+         var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
          $('#myTable').append(row);
 
         } else {
 
-        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ ' ' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ ' ' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
 
         }
@@ -225,7 +262,7 @@ function getdata(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       $('#no_of_employee').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
@@ -233,12 +270,12 @@ function getdata(){
          //table style for mobile....
          if(screen.width <= 600){
           $('#table_header').remove();
-         var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+         var row = $('<tr class="nosort_data"><td class="data_id ">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
          $('#myTable').append(row);
 
         } else {
 
-        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+        var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '  ' + result.data[i].firstName + '</td><td class="display_none">' + result.data[i].jobTitle + '</td><td class="display_none">' + result.data[i].email + '</td><td class="display_none">' + result.data[i].department + '</td><td class="display_none">' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
         $('#myTable').append(row);
 
         }
@@ -279,7 +316,7 @@ function getdata(){
 
               },
               success: function (result) {
-                console.log(result);
+               // console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#employee').modal("hide");
                  $('.message').append('<div class="alert alert-success alert-dismissible fade show err_message notification" role="alert">\
@@ -316,19 +353,19 @@ function getdata(){
       //  q: encoded_countryName,
       },
       success: function (result) {
-        console.log(result);
+       // console.log(result);
         $('.nosort_data').hide();
         for (var i=0; i<result.data.length; i++) {
 
           //table style for mobile....
           if(screen.width <= 600){
            $('#table_header').remove();
-          var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+          var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
           $('#myTable').append(row);
  
          } else {
  
-         var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+         var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '  ' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
          $('#myTable').append(row);
  
          }
@@ -351,7 +388,7 @@ function getdata(){
       //  q: encoded_countryName,
       },
       success: function (result) {
-        console.log(result);
+      //  console.log(result);
         $('.nosort_data').hide();
         $('.sort_data').hide();
         for (var i=0; i<result.data.length; i++) {
@@ -359,12 +396,12 @@ function getdata(){
           //table style for mobile....
           if(screen.width <= 600){
            $('#table_header').remove();
-          var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+          var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName + '  ' + result.data[i].firstName + '</td><td class="px-0"><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
           $('#myTable').append(row);
  
          } else {
  
-         var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '</td><td>' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
+         var row = $('<tr class="nosort_data"><td class="data_id">' + result.data[i].id + '</td><td>'  + result.data[i].lastName+ '  ' + result.data[i].firstName + '</td><td>' + result.data[i].jobTitle + '</td><td>' + result.data[i].email + '</td><td>' + result.data[i].department + '</td><td>' + result.data[i].location + '</td><td><img class="table_img mx-2 info_image pointer" src="venders/image/info.png" alt="info image" ><img class="table_img mx-2 edit_image pointer" src="venders/image/pen.png" alt="edit image"><a><img class="table_img mx-2 delete_image pointer" src="venders/image/delete.png" alt="delete image"></a>' + '</td></tr>');
          $('#myTable').append(row);
  
          }
@@ -392,18 +429,31 @@ function getdata(){
               edit_data_id: edit_data_id,
             },
             success: function (result) {
-              console.log(result);
-              $(".info_firstName").text(result["data"]["personnel"][0]["firstName"]);
-              $(".info_lastName").text(result["data"]["personnel"][0]["lastName"]);
-              $(".info_jobTitle").text(result["data"]["personnel"][0]["jobTitle"]);
-              $(".info_email").text(result["data"]["personnel"][0]["email"]);
+             // console.log(result);
+              $("#info_firstName").val(result["data"]["personnel"][0]["firstName"]);
+              $("#info_lastName").val(result["data"]["personnel"][0]["lastName"]);
+              $("#info_jobTitle").val(result["data"]["personnel"][0]["jobTitle"]);
+              $("#info_email").val(result["data"]["personnel"][0]["email"]);
+              
            var length_array =  result.data.department.length;
-           console.log(length_array);
+           //console.log(length_array);
              
+           var length_array1 =  result.data.location.length;
+           //console.log(length_array1);
+
               for(let i=0; i< length_array ; i++){
                  var employee_department_id = result["data"]["personnel"][0]["departmentID"];
                   if(result["data"]["department"][i]["id"] === employee_department_id ) {
-                     $(".info_department").text(result["data"]["department"][i]["name"]); 
+                     $("#info_department").val(result["data"]["department"][i]["name"]); 
+                        var location = result["data"]["department"][i]["locationID"]
+                     //location...
+                     for(let i=0; i< length_array1 ; i++){
+                      if(result["data"]["location"][i]["id"] === location ) {
+                        $("#info_location").val(result["data"]["location"][i]["name"]);
+                      }
+
+                     }
+
                   }
               }
               
@@ -432,7 +482,7 @@ function getdata(){
               edit_data_id: edit_data_id,
             },
             success: function (result) {
-              console.log(result);
+            //  console.log(result);
               $("#id_edit").val(result["data"]["personnel"][0]["id"]);
               $("#firstName_edit").val(result["data"]["personnel"][0]["firstName"]);
               $("#lastName_edit").val(result["data"]["personnel"][0]["lastName"]);
@@ -479,13 +529,13 @@ function getdata(){
                 'ID': ID
               },
               success: function (result) {
-                console.log(result);
+               // console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#update_employee').modal("hide");
-                 $('.update_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+               /*  $('.update_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
                                             Employee updated successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                          </div>');
+                                          </div>');   */
               $('.employee-table').html("");
               getdata();
 
@@ -523,7 +573,8 @@ function getdata(){
           delete_id: delete_data_id,
         },
         success: function (result) {
-          console.log(result);
+         // console.log(result);
+         
           $('.update_message').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
                                             Employee deleted successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
@@ -549,11 +600,11 @@ function getdata(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+    //  console.log(result);
       $('#no_of_department').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
-        var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image pointer" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image pointer" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
         $('#department_table').append(row);
           $('#department_edit').append( "<option value= '" +
             result.data[i].id +
@@ -584,11 +635,11 @@ function getdata(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+     // console.log(result);
       $('#no_of_department').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
-        var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        var row = $('<tr><td class="department_id">' + result.data[i].id  + '</td><td>'  + result.data[i].name + '</td><td class="location_padding">' + result.data[i].locationID + '</td><td><img class="table_img editDepartment_image pointer" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_department_image pointer" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
         $('#department_table').append(row);
        
     }
@@ -622,7 +673,7 @@ function getdata(){
                 'locationID':locationid,
               },
               success: function (result) {
-                console.log(result);
+              //  console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#department_modal').modal("hide");
                  $('.department_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
@@ -663,7 +714,7 @@ function getdata(){
             edit_Department_id: edit_department_id,
           },
           success: function (result) {
-            console.log(result);
+          //  console.log(result);
            $("#d_location").val(result["data"][0]["locationID"]);
             $("#d_name").val(result["data"][0]["name"]);
             $("#d_id").val(result["data"][0]["id"]);
@@ -702,13 +753,13 @@ function getdata(){
                 'ID': ID
               },
               success: function (result) {
-                console.log(result);
+               // console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#updateDepartment_modal').modal("hide");
-                 $('.update_departmentmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+               /*  $('.update_departmentmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
                                             Department updated successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                          </div>');
+                                          </div>');   */
               $('.department-table').html("");
              getdepartmentdata();
 
@@ -734,64 +785,58 @@ function getdata(){
      $(document).on("click", ".delete_department_image", function() {
         $(".err_message").remove();
       var delete_department_id = $(this).closest('tr').find('.department_id').text();
-      console.log(delete_department_id);
-      
-          //delete data from database...
-          if(confirm("Are you sure you want to delete this record?")){
+     // console.log(delete_department_id);
 
+          //delete data from database...
+  
             $.ajax({
               url: "libs/php/getPersonnelDepartmentid.php",
               type: "POST",
               dataType: "json",
-              data: {
-                        
-              // 'delete_Department_id': delete_department_id,
+              data: {        
+               'delete_Department_id': delete_department_id,
               },
                success: function (result) {
-               console.log(result);
-               var department = [];
-               for(let i=0; i< result.data.personnel.length; i++){
-             
-              department.push(result["data"]["personnel"][i]["departmentID"]); 
-              
-               };
-               console.log(department);
-              console.log( department.includes(delete_department_id));
-              if(department.includes(delete_department_id)){
-                $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
-                You can not delete this record.\
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-              </div>');
-              }else{
+              // console.log(result);
+               var personCount = result["data"]["department"][0]["personCount"];
+               console.log(personCount);
+               $(".delete_record").html(result["data"]["department"][0]["personCount"]);
 
-                $.ajax({
-                  url: "libs/php/deleteDepartmentByID.php",
-                  type: "POST",
-                  dataType: "json",
-                  data: {
-                    delete_Department_id: delete_department_id,
-                  },
-                  success: function (result) {
-                    console.log(result);
-                    $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
-                                                      Department deleted successfully.\
-                                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                                    </div>');
-                        $('.department-table').html("");
-                      getdepartmentdata();
-    
-                        
-                  },
-                  error: function (jqXHR, textStatus, errorThrown) {
-                    //error code..
-                    alert("error");
-                  }
-                    });
-    
-              }
-              
-              
-              },
+                    if(personCount >= 1){
+                      $("#delete_department").modal("show");
+
+                    } else {
+                       $("#delete_department1").modal("show");
+                       $('.conformation_close1').on('click', function(){
+                            $.ajax({
+                        url: "libs/php/deleteDepartmentByID.php",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                          delete_Department_id: delete_department_id,
+                        },
+                        success: function (result) {
+                         // console.log(result);
+                          $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                                                            Department deleted successfully.\
+                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                                          </div>');
+                              $('.department-table').html("");
+                            getdepartmentdata();
+          
+                              
+                        },   
+                        error: function (jqXHR, textStatus, errorThrown) {
+                          //error code..
+                          alert("error");
+                        }
+                          });
+                       });
+                      }
+                       
+
+                      
+                    },  
               error: function (jqXHR, textStatus, errorThrown) {
                //error code..
               alert("error");
@@ -799,8 +844,7 @@ function getdata(){
                      
             });   
 
-     }
-  })
+  })  
    
     
 
@@ -814,11 +858,11 @@ function getdata(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       $('#no_of_location').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
-        var row = $('<tr><td class="location_id">' + result.data[i].id + '</td><td>'  + result.data[i].name + '</td><td><img class="table_img editlocation_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_location_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        var row = $('<tr><td class="location_id">' + result.data[i].id + '</td><td>'  + result.data[i].name + '</td><td><img class="table_img editlocation_image pointer" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_location_image pointer" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
         $('#location_table').append(row);
          $('#d_location').append( "<option value= '" +
             result.data[i].id +
@@ -849,11 +893,11 @@ function getdata(){
     //  q: encoded_countryName,
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       $('#no_of_location').html(result.data.length);
 
       for (var i=0; i<result.data.length; i++) {
-        var row = $('<tr><td class="location_id">' + result.data[i].id + '</td><td>'  + result.data[i].name + '</td><td><img class="table_img editlocation_image" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_location_image" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
+        var row = $('<tr><td class="location_id">' + result.data[i].id + '</td><td>'  + result.data[i].name + '</td><td><img class="table_img editlocation_image pointer" src="venders/image/pen.png" alt="edit image"> <img class="table2_img delete_location_image pointer" src="venders/image/delete.png" alt="delete image">' + '</td></tr>');
         $('#location_table').append(row);
     }
       
@@ -885,7 +929,7 @@ function getdata(){
                 'add_location_name':name,
               },
               success: function (result) {
-                console.log(result);
+                //console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#add_location_modal').modal("hide");
                  $('.location_message').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
@@ -927,7 +971,7 @@ function getdata(){
             edit_Location_id: edit_location_id,
           },
           success: function (result) {
-            console.log(result);
+          //  console.log(result);
             $("#l_name").val(result["data"][0]["name"]);
             $("#l_id").val(result["data"][0]["id"]);
             
@@ -962,13 +1006,13 @@ function getdata(){
                 'ID': ID
               },
               success: function (result) {
-                console.log(result);
+                //console.log(result);
                // $('.message').append("Employee add successfully.");
                $('#updateLocation_modal').modal("hide");
-                 $('.update_locationmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
+               /*  $('.update_locationmessage').append('<div class="alert alert-success alert-dismissible fade show err_message" role="alert">\
                                             Location updated successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                          </div>');
+                                          </div>');   */
               $('.location-table').html("");
             getlocationdata();
 
@@ -995,37 +1039,31 @@ function getdata(){
      e.preventDefault();
       $(".err_message").remove();
     var delete_location_id = $(this).closest('tr').find('.location_id').text();
-  
-   //delete data from database...
-   if(confirm("Are you sure you want to delete this record?")){
 
-          $.ajax({
-            url: "libs/php/getAllDepartments.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-            //  q: encoded_countryName,
-            },
-            success: function (result) {
-              console.log(result);
-              var location = [];
-              for(let i=0; i< result.data.length; i++){
-            
-             location.push(result["data"][i]["locationID"]); 
-             
-              };
-              console.log(location);
-             console.log( location.includes(delete_location_id));
-             if(location.includes(delete_location_id)){
+    $.ajax({
+              url: "libs/php/countLocation.php",
+              type: "POST",
+              dataType: "json",
+              data: {        
+                delete_Location_id: delete_location_id,
+              },
+               success: function (result) {
+              // console.log(result);
+              
+               var departmentCount = result["data"][0]["departmentCount"];
+               //console.log(departmentCount);
+               $(".delete_record1").html(result["data"][0]["departmentCount"]);
 
-              $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
-              You can not delete this record.\
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-            </div>');
-        
-            }else{
-        
-              $.ajax({
+                    if(departmentCount >= 1){
+                      $("#delete_location").modal("show");
+
+
+                    } else {
+                       $("#delete_location1").modal("show");
+                      $('.conformation_close_location1').on('click', function(){
+                        
+                            $.ajax({
+                              
                 url: "libs/php/deleteLocation.php",
                 type: "POST",
                 dataType: "json",
@@ -1033,33 +1071,33 @@ function getdata(){
                   delete_Location_id: delete_location_id,
                 },
                 success: function (result) {
-                  console.log(result);
-                 // if(confirm('Are you sure you want to delete this record?')){
-                  //  $('.location_id').remove('slow');
+                  //console.log(result);
+                
                      $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
                                                       Location deleted successfully.\
                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
                                                     </div>');
                         $('.location-table').html("");
                       getlocationdata();
-                  //}
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                  //error code..
-                  alert("error");
-                },
-               
-              });
-          
-            }
-            }
-          });
+                        },   
+                        error: function (jqXHR, textStatus, errorThrown) {
+                          //error code..
+                          alert("error");
+                        }
+                          });   
+                       });
+                      }
+                       
 
-   
+                      
+                    },  
+              error: function (jqXHR, textStatus, errorThrown) {
+               //error code..
+              alert("error");
+               }
+                     
+            });   
 
-
-   
-   }
   });
 
      

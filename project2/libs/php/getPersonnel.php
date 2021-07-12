@@ -36,7 +36,7 @@
 	// first query
 	$edit_data_id = $_POST['edit_data_id'];
 	$query = 'SELECT * from personnel WHERE id =' . $edit_data_id;
-
+	//$query = 'SELECT p.id, p.lastName, p.firstName, p.jobTitle, p.email, d.name as department, l.name as location FROM personnel p LEFT JOIN department d ON (d.id = p.departmentID) LEFT JOIN location l ON (l.id = d.locationID) ORDER BY p.id,  p.lastName, p.firstName, d.name, l.name WHERE id =' . $edit_data_id;
 	$result = $conn->query($query);
 	
 	if (!$result) {
@@ -65,8 +65,8 @@
 
 	// second query
 
-	$query = 'SELECT id, name from department ORDER BY id';
-
+	//$query = 'SELECT id, name from department ORDER BY id';
+	$query = 'SELECT * from department ORDER BY id';
 	$result = $conn->query($query);
 	
 	if (!$result) {
@@ -92,12 +92,42 @@
 
 	}
 
+	// third query
+
+	//$query = 'SELECT id, name from department ORDER BY id';
+	$query = 'SELECT * from location ORDER BY id';
+	$result = $conn->query($query);
+	
+	if (!$result) {
+
+		$output['status']['code'] = "400";
+		$output['status']['name'] = "executed";
+		$output['status']['description'] = "query failed";	
+		$output['data'] = [];
+
+		mysqli_close($conn);
+
+		echo json_encode($output); 
+
+		exit;
+
+	}
+   
+   	$location = [];
+	
+	while ($row = mysqli_fetch_assoc($result)) {
+
+		array_push($location, $row);
+
+	}
+
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
 	$output['status']['description'] = "success";
 	$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
 	$output['data']['personnel'] = $personnel;
 	$output['data']['department'] = $department;
+	$output['data']['location'] = $location;
 	
 	mysqli_close($conn);
 

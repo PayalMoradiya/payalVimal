@@ -30,6 +30,7 @@
 	}	
 
 	$query = 'SELECT id, name, locationID FROM department';
+	//$query = 'SELECT count(id) as departmentCount FROM department WHERE locationID =' . $_POST['delete_Location_id'];
 
 	$result = $conn->query($query);
 	
@@ -55,12 +56,16 @@
 		array_push($data, $row);
 
 	}
+	
+	
+
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
 	$output['status']['description'] = "success";
 	$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
 	$output['data'] = $data;
+	//$output['data']['data1'] = $data1;
 	
 	mysqli_close($conn);
 

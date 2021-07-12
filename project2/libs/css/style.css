@@ -3,8 +3,8 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+}
 
- }
  #left_right{
      height: 91vh;
      line-height: 3.5rem;
@@ -45,11 +45,17 @@ img.card_image{
     position: absolute;
     margin-left: 3rem;
     }
+#plus_img{
+     left:3rem;
+     
+    }
 #searchbar{
     float:right;
     margin-left: auto;
     margin-top: 1rem;
+    width: 20rem;
 }
+
 .mainbar_image{
     margin:0rem;
     margin-right:0.5rem;
@@ -59,6 +65,7 @@ button.btn.btn-light.mx-1:hover{
 }
 #myTable{
     padding-left: 1rem;
+   
 }
 .heading_container{
     font-size: 1.2rem;
@@ -122,6 +129,28 @@ table, th,tr, td {
     line-height: 1.8rem;
     font-size: 1.1rem;
 }
+.pointer:hover{
+    cursor: pointer;
+}
+.conformation_close, .conformation_close1, .conformation_close_location, .conformation_close_location1{
+    float:right;
+}
+.btn_cancle{
+    float:right;
+    margin-top: 0.5rem;
+    margin-right:0.5rem;
+}
+.table_scroll{
+    height: 295px;
+    overflow-y: scroll;
+}
+
+#table_header{
+    position:sticky;
+    top:0;
+    background-color:#cccccc;
+    
+}
 
 
 
@@ -165,6 +194,7 @@ table, th,tr, td {
     .display_none{
         display:none;
     }
+    
    
 }
 
