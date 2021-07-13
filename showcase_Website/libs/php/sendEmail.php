@@ -27,7 +27,7 @@ if(isset($_POST['Name']) && isset($_POST['Email']) && isset($_POST['Subject']) &
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
     $mail->Username = "pdkabariya@gmail.com";
-    $mail->Password = "";
+    $mail->Password = "9898789892";
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
     $mail->SMTPDebug = 3;
@@ -61,7 +61,29 @@ if(isset($_POST['Name']) && isset($_POST['Email']) && isset($_POST['Subject']) &
      
     }
     
-    exit(json_encode(array("status" => $status, "response" => $response)));
+    //echo(json_encode(array("status" => $status, "response" => $response)));
+
+    $data = [];
+
+    while ($row = mysqli_fetch_assoc($response)) {
+    
+        array_push($data, $row);
+    
+    }
+        
+        
+    
+    
+        $output['status']['code'] = "200";
+        $output['status']['name'] = "ok";
+        $output['status']['description'] = "success";
+        $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+        $output['data'] = $data;
+        
+        
+        //mysqli_close($conn);
+    
+        echo json_encode($output); 
     
 }
     

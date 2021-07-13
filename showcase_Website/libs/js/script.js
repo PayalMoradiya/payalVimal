@@ -75,8 +75,8 @@ var TxtRotate = function(el, toRotate, period) {
 
 //php mailer....
 
-$("#submit_btn").click( function(){
-  
+$("#submit_btn").click( function(e){
+   e.preventDefault();
   var name = $("#f_name").val();
   var email = $("#email").val();
   var subject = $("#subject").val();
@@ -98,8 +98,14 @@ $("#submit_btn").click( function(){
     },
     success: function(response){
       console.log(response);
-     // $('#myForm')[0].reset();
+      $('#myForm')[0].reset();
       $('.sent_notification').text("Message sent successfully.");
+    },
+
+    error: function(jqXHR, textStatus, errorThrown){
+
+      console.log(jqXHR);
+
     }
    
   });

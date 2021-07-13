@@ -25,7 +25,8 @@
   <!-- Full container-->
 
   <div class="container-fluid">
-    <div class="row  bg-primary">
+    
+    <div class="row  bg-primary" id="header">
       <h1 class="text-center text-primary align-item-center">Comapany Directory</h1>
     </div>
 
@@ -36,7 +37,7 @@
         
            <!--three cards-->
         
-        <div class="row g-3 mt-2" >
+        <div class="row g-3 bg-light" id="card-header" >
           <div class="col-md-3 card_width" >
             <div id="dashboard_block"  class="row g-0">
               <div class="col-md-4 bg-primary text-center">
@@ -76,24 +77,22 @@
               </div>
             </div>
           </div>
-        
-
-        
-        
-       
-        
+    
       </div>
-        <hr>
-        <div class="btn-wrapper">
+      
+             
+
+
+        <div class="btn-wrapper bg-light">
       <!-- <button id="dashboard_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/dashboard1.png" alt="dashboard image" >Dashboard</button> -->
         <button id="back_btn" class="btn btn-light mx-1"><img class="mainbar_image" src="venders/image/back1.png" alt="back image" >Back</button>
-        <button class="btn btn-light mx-1" id="plus_img"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
-        <button class="btn btn-light mx-1" id="plus_img_department"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
-        <button class="btn btn-light mx-1" id="plus_img_location"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
+        <button class="btn btn-light mx-1 mt-2" id="plus_img"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
+        <button class="btn btn-light mx-1 mt-2" id="plus_img_department"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
+        <button class="btn btn-light mx-1 mt-2" id="plus_img_location"><img class="mainbar_image" src="venders/image/add.png" alt="user image"  >Add</button>
 
         <button class="btn btn-light mx-1" id="filter_employeedata"><img class="mainbar_image" src="venders/image/filter1.png" alt="filter image" >Filter</button>
         <div class="dropdown mx-1">
-          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-light dropdown-toggle mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <img class="mainbar_image" src="venders/image/sort1.png" alt="sort image" > Sort
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -126,14 +125,14 @@
           </div>
         
         </div>
-             
+        
 
       
         <div class="message"></div> 
         <div class="update_message"></div> 
         <!--employees table-->
   <div class="container" id="toggle_employeeslist">
-    <div class="row">
+    <div class="row" id="first-row">
       <div class="heading_container">Employees List</div>
     </div>
     <div class="row">

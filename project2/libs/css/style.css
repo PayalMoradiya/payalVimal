@@ -5,10 +5,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
- #left_right{
-     height: 91vh;
-     line-height: 3.5rem;
- }
 #sidebar:hover{
     background-color: rgb(230, 230, 236);
    
@@ -50,9 +46,9 @@ img.card_image{
      
     }
 #searchbar{
-    float:right;
-    margin-left: auto;
-    margin-top: 1rem;
+    float: right;
+    margin-right: 0.8rem;
+    margin-top: 0.6rem;
     width: 20rem;
 }
 
@@ -60,7 +56,7 @@ img.card_image{
     margin:0rem;
     margin-right:0.5rem;
 }
-button.btn.btn-light.mx-1:hover{
+button.btn.btn-light.mx-1:hover, button.btn.btn-light.dropdown-toggle:hover{
    background-color: #d7dbd8;
 }
 #myTable{
@@ -110,8 +106,9 @@ ul.dropdown-menu.show{
 table, th,tr, td {
     border: 1px solid black;
   }
-#toggle_employeeslist{
+#toggle_employeeslist, #toggle_department, #toggle_location{
     padding:0px;
+    margin-top: 14rem;
 }
 .info_table{
     width:100%;
@@ -140,18 +137,38 @@ table, th,tr, td {
     margin-top: 0.5rem;
     margin-right:0.5rem;
 }
-.table_scroll{
-    height: 295px;
-    overflow-y: scroll;
+#header{
+    position:fixed;
+    width:100%;
 }
 
-#table_header{
-    position:sticky;
-    top:0;
-    background-color:#cccccc;
-    
+#card-header{
+    position:fixed;
+    width:100%;
+    margin-top: 3.5rem;
+    height:9.2rem;
 }
 
+.btn-wrapper{
+    position: fixed;
+    /*margin-top:12.6rem;  */
+    width:100%;
+    height:3.4rem;
+} 
+#right_container{
+    padding-right:0rem;
+    }
+#left_right{
+        height: 91vh;
+        line-height: 2.8rem;
+    }
+/*
+#first-row{
+    margin-top: 16rem;
+    position: fixed;
+    width: 100%;
+}  
+ */
 
 
 
