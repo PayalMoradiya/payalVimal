@@ -1,20 +1,6 @@
 $(document).ready(function(){
   // $("#toggle_employeeslist").hide();
-    $("#toggle_department").hide();
-    $("#toggle_location").hide();
-    $("#back_btn").hide();
-  //  $("#plus_img").hide();
-   // $("#dropdownMenuButton1").hide();
-    $("#plus_img2_department").hide();
-    $("#plus_img_department").hide();
-    $("#plus_img2_location").hide();
-    $("#plus_img_location").hide();
-    $("#filter_employeedata").hide();
-   $("#filter_employeedata1").hide();
-    $("#dashboard_btn1").hide();
-    $("#plus_img2").hide();
-    $("#dropdownMenuButton2").hide();
-    $("#back_btn1").hide();
+   
 });
 
 //onclick close modal..
@@ -26,7 +12,8 @@ $('.btn_cancle').on('click', function(){
   $("#delete_department").modal("hide");
   $("#delete_department1").modal("hide");
   $('#delete_location').modal("hide");
-   $('#delete_location1').modal("hide");
+  $('#delete_location1').modal("hide");
+  $('#delete_employee').modal("hide");
 })
 $('.btn-close').on('click', function(){
   $('.err_message').hide();
@@ -562,10 +549,12 @@ function getdata(){
     $(document).on("click", ".delete_image", function() {
       $(".err_message").remove();
       var delete_data_id = $(this).closest('tr').find('.data_id').text();
+      $("#delete_employee").modal("show");
     
      //delete data from database...
-     if(confirm("Are you sure you want to delete this record?")){
-      $.ajax({
+    // if(confirm("Are you sure you want to delete this record?")){
+      $('#dlt_employee').on('click', function(){
+         $.ajax({
         url: "libs/php/deletePersonnel.php",
         type: "POST",
         dataType: "json",
@@ -575,10 +564,10 @@ function getdata(){
         success: function (result) {
          // console.log(result);
          
-          $('.update_message').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+        /*  $('.update_message').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
                                             Employee deleted successfully.\
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                          </div>');
+                                          </div>');    */
               $('.employee-table').html("");
               getdata();
         },
@@ -588,8 +577,10 @@ function getdata(){
         },
        
       });
-     }
-    });
+      })
+     
+    // }   
+    });  
 
   //get all department...
   $.ajax({
@@ -817,10 +808,10 @@ function getdata(){
                         },
                         success: function (result) {
                          // console.log(result);
-                          $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                        /*  $('.update_departmentmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
                                                             Department deleted successfully.\
                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                                          </div>');
+                                                          </div>');   */
                               $('.department-table').html("");
                             getdepartmentdata();
           
@@ -1073,10 +1064,10 @@ function getdata(){
                 success: function (result) {
                   //console.log(result);
                 
-                     $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
+                  /*   $('.update_locationmessage').append('<div class="alert alert-danger alert-dismissible fade show err_message" role="alert">\
                                                       Location deleted successfully.\
                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                                                    </div>');
+                                                    </div>');    */
                         $('.location-table').html("");
                       getlocationdata();
                         },   

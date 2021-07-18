@@ -84,6 +84,7 @@ img.portfolio_bg{
 
 img.portfolio_bg:hover{
 transform: scale(1.01);
+cursor: pointer;
 }
 div.card-img-overlay{
     display:none;
@@ -149,12 +150,14 @@ img.footer_github_image{
 #modal1, #modal2{
     margin-left: 1rem;
     margin-right: 1rem;
-    
-    
+   
 }
 #modal2{
   margin-top: none;  
     }
+#msg{
+    font-weight:bold;
+}
 
 /* X-Small devices (portrait phones, less than 576px)  */
 @media only screen and (max-width: 575px) { 
