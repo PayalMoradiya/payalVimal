@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-  /*  overflow-y: hidden;  */
+    /*overflow-y: hidden;  */
 }
 
 #sidebar:hover{
@@ -169,19 +169,39 @@ table, th,tr, td {
     #table-container{
         margin-top:2rem;
     }
-    /*
+  /*  
 #table_header{
-    display:block;
+    
     position: fixed;  
-}
-
- 
-.employee-table {
-    height: 100vh;      
+    top:14.3rem;
+} 
+#table-container {
+    height: 500px;      
     overflow-y: auto;    
     overflow-x: hidden; 
 
-}  
+}
+#ID{
+    width:3rem;
+}
+#ID-name{
+    width:12.6rem;
+}
+#ID-job{
+    width:10.2rem;
+}
+#ID-email{
+    width:19.5rem;
+}
+#ID-dep{
+    width:12.75rem;
+}
+
+#ID-action{
+    width:8rem;
+}
+
+/*
 
 example.................
 thead, tbody { display: block; }
