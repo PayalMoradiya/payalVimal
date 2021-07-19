@@ -169,14 +169,12 @@ table, th,tr, td {
     #table-container{
         margin-top:2rem;
     }
+    /*
 #table_header{
-   
+    display:block;
+    position: fixed;  
 }
-/*
-thead, tbody {
-    display: block;
-    position: fixed;
- }
+
  
 .employee-table {
     height: 100vh;      
@@ -255,7 +253,8 @@ tbody {
       }
       div.btn-wrapper-phone{
         display:inline-block;
-    
+        margin-top: 305px;
+        position: fixed;
     }
     .mainbar_image{
         margin:0rem;
@@ -277,11 +276,14 @@ tbody {
     #downarrow{
         display:none;
     }
-    #toggle_employeeslist{
+    #toggle_employeeslist, #toggle_department, #toggle_location{
         padding:0px;
+        margin-top: 370px;
+        overflow-x: hidden;
     }
-    #toggle_department{
-        padding:0px;
+    #toggle_location{
+        margin-top: 400px;
+       
     }
     
     .display_none{
