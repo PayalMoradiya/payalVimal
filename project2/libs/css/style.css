@@ -166,9 +166,7 @@ table, th,tr, td {
     .heading_container{
         position:fixed;
     }
-    #table-container{
-        margin-top:2rem;
-    }
+    
     
 #table_header{
     
@@ -176,6 +174,7 @@ table, th,tr, td {
     top:14.3rem;
 } 
 #table-container {
+    margin-top:2rem;
     height: 500px;      
     overflow-y: auto;    
     overflow-x: hidden; 
@@ -183,7 +182,7 @@ table, th,tr, td {
 }  
 .employee-table{
     width:1139px;
-}
+}  
 #ID{
     width:2.98rem;
 }
