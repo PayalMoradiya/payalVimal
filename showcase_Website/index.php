@@ -9,7 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Showcase Website</title>
+    <title>Payal Moradiya</title>
     <link href="favicon.ico.png" rel="icon" />
     
     <!--Google fonts-->
@@ -46,8 +46,8 @@
                   Portfolio
                 </a>
                 <ul class="dropdown-menu text-white" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project1/" target="_blank">Project_1</a></li>
-                  <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project2/" target="_blank">Project_2</a></li>
+                  <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project1/" target="_blank">Gazetteer</a></li>
+                  <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project2/" target="_blank">Company Directory</a></li>
                 </ul>
               </li>
               <li class="nav-item ">

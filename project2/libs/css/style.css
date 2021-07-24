@@ -104,7 +104,7 @@ ul.dropdown-menu.show{
     width:6.5rem;
     padding-left: 1rem;
 }
-table, th,tr, td {
+table,th,tr, td {
     border: 1px solid black;
   }
 #toggle_employeeslist, #toggle_department, #toggle_location{
@@ -160,7 +160,7 @@ table, th,tr, td {
     padding-right:0rem;
     }
 #left_right{
-        height: 91vh;
+       /* height: 91vh;  */
         line-height: 2.8rem;
     }
     .heading_container{
@@ -171,18 +171,16 @@ table, th,tr, td {
 #table_header{
     
     position: fixed;  
-    top:14.3rem;
+    top:17rem;
 } 
 #table-container {
-    margin-top:2rem;
-    height: 500px;      
+    margin-top:5.7rem;
+    height: 800px;      
     overflow-y: auto;    
     overflow-x: hidden; 
 
 }  
-.employee-table{
-    width:1139px;
-} /* 
+  
 #ID{
     width:2.98rem;
 }
@@ -198,9 +196,46 @@ table, th,tr, td {
 #ID-dep{
     width:12.58rem;
 }
+#table_header1{
+    position:fixed;
+    top: 17rem;
+}
+#table-container1 {
+    margin-top:5.7rem;  /*2rem*/
+    height: 450px;      
+    overflow-y: auto;    
+    overflow-x: hidden; 
+
+}
 
 #ID-action{
     width:8rem;
+} /*
+#department_table{
+    margin-top: 3.7rem;  
+}   */
+
+#dep-id{
+    width:6.5rem;
+}
+#dep-name{
+    width: 34.05rem;
+}
+#dep-locid{
+    width: 13.3rem;
+}
+#dep-action{
+    width: 16.2rem;
+}
+#loc-ID{
+    width: 10rem;
+}
+#loc-name{
+    width: 24.4rem; 
+}
+#loc-action{
+    width: 24.5rem;
+
 }
 
 /*
@@ -278,6 +313,19 @@ tbody {
         margin-top: 305px;
         position: fixed;
     }
+    #table_header {
+        position: fixed;
+        display:none;
+    }
+    #card-header{
+        position:fixed;
+        width:100%;
+        height:auto;
+    }
+    #table_header1{
+        display:none;
+    }
+    
     .mainbar_image{
         margin:0rem;
         margin-right:0.5rem;
