@@ -264,7 +264,7 @@
   <!--project 1-->
 <img id="modal1" src="venders/image/project1-min.PNG" class="portfolio_bg " alt="Project1 image" >
  <!--project 2-->
- <img id="modal2" src="venders/image/project2-min.PNG" class="portfolio_bg" alt="Project2 image" >
+ <img id="modal2" src="venders/image/project2-min.png" class="portfolio_bg" alt="Project2 image" >
 </div>
 </div>
 
@@ -312,7 +312,7 @@
       </div>
       <div class="modal-body">
         <div class="card">
-          <img src="venders/image/project2-min.PNG" class="card-img-top border border-1 border-dark" alt="Project2 image">
+          <img src="venders/image/project2-min.png" class="card-img-top border border-1 border-dark" alt="Project2 image">
           <div class="card-body">
             <div class="col">
               <span class="badge rounded-pill my-3">HTML/CSS</span>
