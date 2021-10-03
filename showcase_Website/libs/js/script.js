@@ -117,6 +117,13 @@ dismiss1.addEventListener("click", function () {
   $("#company_directory").modal("toggle");
 });
 
+//portfolio modal for project 3....
+
+var dismiss2 = document.getElementById("modal3");
+dismiss2.addEventListener("click", function () {
+  $("#banking_system").modal("toggle");
+});
+
 
 $(".btn_cls").on("click", function () {
   $("#gazetteer").modal("hide");

@@ -1,0 +1,13 @@
+button{
+    transition: 1.5s;
+  }
+  button:hover{
+    background-color:#616C6F;
+    color: white;
+  }
+#transfermoney_bgcolor{
+    background-color : #BDC3C7;
+}
+#transact_btn{
+  background-color : #A569BD;
+}

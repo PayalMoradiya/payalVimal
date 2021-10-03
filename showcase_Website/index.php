@@ -48,6 +48,7 @@
                 <ul class="dropdown-menu text-white" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project1/" target="_blank">Gazetteer</a></li>
                   <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project2/" target="_blank">Company Directory</a></li>
+                  <li><a class="dropdown-item" href="https://payalvimal.co.uk/payalVimal/project3/" target="_blank">Basic Banking System</a></li>
                 </ul>
               </li>
               <li class="nav-item ">
@@ -262,9 +263,11 @@
 <div class="container">
   <div class="row">
   <!--project 1-->
-<img id="modal1" src="venders/image/project1-min.PNG" class="portfolio_bg " alt="Project1 image" >
+<img id="modal1" src="venders/image/project1-min.PNG" class="portfolio_bg mb-3" alt="Project1 image" >
  <!--project 2-->
  <img id="modal2" src="venders/image/project2-min.png" class="portfolio_bg" alt="Project2 image" >
+ <!--project 3-->
+ <img id="modal3" src="venders/image/project3.png" class="portfolio_bg mt-3" alt="Project3 image" >
 </div>
 </div>
 
@@ -285,7 +288,8 @@
               <span class="badge rounded-pill my-3">HTML/CSS</span>
               <span class="badge rounded-pill my-3">JavaScript</span>
               <span class="badge rounded-pill my-3">PHP cURL</span>
-              <span class="badge rounded-pill my-3">jQuery/AJAX</span>  
+              <span class="badge rounded-pill my-3">jQuery/AJAX</span>
+              <span class="badge rounded-pill my-3">Bootstrap</span>    
               <p class="card-text">"Gazetteer" is mobile first website that operate equally well on desktop computer.It provides profiling for all countries through the presentation of demographic, climatic, geographical and other data.</p>
               <a href="https://github.com/PayalMoradiya/payalVimal/tree/main/project1" target="_blank" class="btn mx-1"><img class="code_image" src="venders/image/github_small.png" alt="github image">Code</a>
               <a href="https://www.payalvimal.co.uk/payalVimal/project1/" target="_blank" class="btn mx-1">Live demo</a>
@@ -319,10 +323,43 @@
               <span class="badge rounded-pill my-3">JavaScript</span>
               <span class="badge rounded-pill my-3">PHP</span>
               <span class="badge rounded-pill my-3">jQuery/AJAX</span> 
-              <span class="badge rounded-pill my-3">MySQL</span>  
+              <span class="badge rounded-pill my-3">MySQL</span> 
+              <span class="badge rounded-pill my-3">Bootstrap</span>   
               <p class="card-text">"Company Directory" is a desktop website that can also run on a mobile that allows for the maintenance of a company personnel database to see who's who, which department they are in and where they are.</p>
               <a href="https://github.com/PayalMoradiya/payalVimal/tree/main/project2" target="_blank" class="btn mx-1"><img class="code_image" src="venders/image/github_small.png" alt="github image">Code</a>
               <a href="https://www.payalvimal.co.uk/payalVimal/project2/" target="_blank" class="btn mx-1">Live demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Project 3 Modal -->
+<div class="modal fade" id="banking_system">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h4 class="modal-title " id="exampleModalLabel2">Basic Banking System</h4>
+        <img class="btn_cls" src="venders/image/error1.png" alt="close image">
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <img src="venders/image/project3.png" class="card-img-top border border-1 border-dark" alt="Project3 image">
+          <div class="card-body">
+            <div class="col">
+              <span class="badge rounded-pill my-3">HTML/CSS</span>
+              <span class="badge rounded-pill my-3">JavaScript</span>
+              <span class="badge rounded-pill my-3">PHP</span>
+              <span class="badge rounded-pill my-3">jQuery/AJAX</span> 
+              <span class="badge rounded-pill my-3">MySQL</span>  
+              <span class="badge rounded-pill my-3">Bootstrap</span>  
+              <p class="card-text">"Basic Banking System" is a desktop website that can also run on a mobile and use for transfer money between multiple users. </p>
+              <a href="https://github.com/PayalMoradiya/payalVimal/tree/main/project3" target="_blank" class="btn mx-1"><img class="code_image" src="venders/image/github_small.png" alt="github image">Code</a>
+              <a href="https://www.payalvimal.co.uk/payalVimal/project3/" target="_blank" class="btn mx-1">Live demo</a>
             </div>
           </div>
         </div>
