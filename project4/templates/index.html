@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <header>
+        <div class="heading">
+            <h1>News App</h1>
+        </div>
+    </header>
+    <main class= "container">
+        <br/>
+        <br/>
+        {% for i in case.articles %}
+        <div class= "container text-white">
+            <br/>
+            <h4><strong class= "text-warning">Author:</strong>{{i.author}}</h4>
+            <h4><strong class= "text-warning">Title:</strong>{{i.title}}</h4>
+            <h5><strong class= "text-warning">Description:</strong>{{i.description}}</h5>
+            <br/>
+            <img src= {{i.urlToImage}} alt = "News app" />
+        </div>
+
+        {% endfor %}
+        <br/>
+    </main>
+    <footer>
+        <h4>Copyright &copy; 2022 News App</h4>
+    </footer>
+
+
+
+
+    <div id="preloader">
+        <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+        
+      </div>
+</body>
+</html>
