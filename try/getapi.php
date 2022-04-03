@@ -3,8 +3,7 @@
 $url='https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&APPID=5191515bc9cd85248f65740c48ca9655';
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
 curl_setopt($ch, CURLOPT_URL, $url);
 
 $result=curl_exec($ch);
@@ -21,4 +20,7 @@ $output['data'] = $decode;
 header('Content-Type: application/json; charset=UTF-8');
 
 echo json_encode($output);
+
+
+
 ?>
