@@ -20,7 +20,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
 	$mail->SMTPSecure="tls";
 	$mail->SMTPAuth=true;
 	$mail->Username="pdkabariya@gmail.com";
-	$mail->Password="9898789892";
+	$mail->Password="Payalvimal93";
 	$mail->SetFrom("pdkabariya@gmail.com");
 	$mail->addAddress("pdkabariya@gmail.com");
 	$mail->IsHTML(true);
