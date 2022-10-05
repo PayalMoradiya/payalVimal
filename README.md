@@ -1,2 +1,0 @@
-# payalVimal
- fetching APIs
