@@ -40,7 +40,7 @@ if(isset($_SESSION['login_time'])) {
               $runquery = mysqli_query($db, $query);
               while($allCategory = mysqli_fetch_assoc($runquery)){
               ?>
-                <li><a class="dropdown-item" href="#"><?php echo $allCategory['name']; ?></a></li>
+                <li><a class="dropdown-item" href="category.php?id=<?php echo $allCategory['id']; ?>"><?php echo $allCategory['name']; ?></a></li>
               <?php
               }
               ?>

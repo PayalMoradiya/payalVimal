@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/comment.js"></script>
 </head>
 <body>
     <?php
@@ -85,14 +87,13 @@
               $runquery = mysqli_query($db, $query);
               while($allCategory = mysqli_fetch_assoc($runquery)){
               ?>
-                <a href="" class="list-group-item"><?php echo $allCategory['name']; ?></a>
+                <a href="category.php?id=<?php echo $allCategory['id']; ?>" class="list-group-item"><?php echo $allCategory['name']; ?></a>
               <?php
               }
               ?>
           </div>
         </div>
       <!-- Sidebar end -->
-    </div> 
-    
+    </div>
 </body>
 </html>
