@@ -50,26 +50,22 @@ const successfullLookup = (position) => {
         q: `${latitude}+${longitude}`,
       },
       success: function (result) {
-        // console.log(result);
-
         var lat = result.data.results[0].geometry.lat;
-        // console.log(lat);
+        
         var lng = result.data.results[0].geometry.lng;
-        //  console.log(lng);
+        
         var address = result.data.results[0].formatted;
-        //  console.log(address);
+        
         var country_name = result.data.results[0].components.country;
-        //   console.log(country_name);
+        
         var encoded_countryName = encodeURIComponent(country_name.trim());
-        console.log(encoded_countryName);
 
         var country_code = result.data.results[0].components.country_code;
-        //  console.log(country_code);
+        
         var currency_name = result.data.results[0].annotations.currency.name;
-        //  console.log(currency_name);
+        
         var currency_symbol =
           result.data.results[0].annotations.currency.symbol;
-        //  console.log(currency_symbol);
 
         //update map with border..
         $(document).ready(function () {
@@ -81,12 +77,10 @@ const successfullLookup = (position) => {
               // q: $("#selcountry").val(),
             },
             success: function (geojson_result) {
-              // console.log(geojson_result);
 
               var geoJSON = geojson_result.data;
               var Country_Code = country_code.toUpperCase();
-              // console.log(Country_Code);
-
+            
               var border = L.geoJSON(geoJSON, {
                 filter: function (feature) {
                   if (feature.properties.iso_a2 === Country_Code) {

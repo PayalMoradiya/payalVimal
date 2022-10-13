@@ -25,7 +25,6 @@ $("#selcountry").change(function () {
       q: $("#selcountry").val(),
     },
     success: function (result) {
-      console.log(result);
 
       var country_name = result.data.geonames[0].countryName;
       var country_code = result["data"]["geonames"][0]["countryCode"];
@@ -33,16 +32,8 @@ $("#selcountry").change(function () {
       var south = result.data.geonames[0].south;
       var east = result.data.geonames[0].east;
       var west = result.data.geonames[0].west;
-      console.log(country_name);
-      console.log(country_code);
 
       var encoded_countryName = encodeURIComponent(country_name.trim());
-      console.log(encoded_countryName);
-
-      console.log(north);
-      console.log(south);
-      console.log(east);
-      console.log(west);
 
       var population = result["data"]["geonames"][0]["population"];
       var nf = new Intl.NumberFormat();
@@ -71,7 +62,6 @@ $("#selcountry").change(function () {
           q: encoded_countryName,
         },
         success: function (result) {
-          console.log(result);
 
           if (result.status.name == "ok") {
             $("#txtclouds").html(result["data"]["weather"][0]["description"]);
@@ -101,7 +91,6 @@ $("#selcountry").change(function () {
           q: encoded_countryName,
         },
         success: function (result) {
-          console.log(result);
 
           if (result.status.name == "ok") {
             $("#txtwiki").html(result["data"]["geonames"][0]["wikipediaUrl"]);

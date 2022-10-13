@@ -57,7 +57,8 @@
             </ul>
           </div>
         </div>
-      </nav>
+    </nav>
+
       <div class="bg_image">
         <div class="container">
             <div class="row align-items-center justify-content-start">

@@ -47,7 +47,6 @@ if (!$result) {
     exit;
 
 }
-
    $data = [];
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -55,10 +54,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     array_push($data, $row);
 
 }
-	
-	
-
-
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
 	$output['status']['description'] = "success";

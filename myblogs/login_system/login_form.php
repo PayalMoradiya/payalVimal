@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($result) > 0){
 
       $row = mysqli_fetch_assoc($result);
-      $passverify = password_verify($pass, $row['password']);
+      $passverify = password_verify($pass, $row['password']); 
 
       if($passverify == 1) {
          $_SESSION['username'] = $row['name']; //Use to display username on desboard
